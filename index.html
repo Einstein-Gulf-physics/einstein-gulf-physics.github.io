@@ -73,6 +73,11 @@ section.block{margin-top:34px}
 .card .more{margin-top:auto;padding-top:8px;font-weight:800;color:var(--navy2)}
 .panel{margin-top:16px;background:var(--card);border:2px solid var(--gold);border-radius:18px;padding:16px 18px}
 .panel h3{margin:0 0 6px;font-weight:900}
+.panel .ask{margin:4px 0 8px;font-weight:700;color:var(--dim)}
+.trk{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-bottom:12px}
+.trk button{font:inherit;font-weight:800;padding:10px 12px;border-radius:12px;border:2px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px}
+.trk button[aria-pressed="true"]{background:var(--navy2);border-color:var(--navy2);color:#fff}
+.trk .cnt{background:var(--gold);color:#1a1a1a;border-radius:999px;font-size:.75rem;min-width:22px;padding:1px 6px}
 .item{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap;border-top:1px dashed var(--line);padding:12px 0}
 .item:first-of-type{border-top:0}
 .item .nm{font-weight:800}.item .meta{color:var(--dim);font-size:.86rem}
@@ -218,20 +223,35 @@ footer .eqs{font-family:var(--mono);direction:ltr;color:#3b5a99;margin-bottom:4p
 
 <script>
 (function(){
+const TR=[['b12','الصف 12 متقدم · بريدج'],['i12','الصف 12 متقدم · إنسباير'],['b11','الصف 11 متقدم · بريدج'],['i11','الصف 11 متقدم · إنسباير']];
 const DATA={
-  exams:{t:'📝 الامتحانات',items:[
-    {nm:'اختبار الوزارة 2023-2024',meta:'6 أسئلة · 60 درجة',href:'exams/wizara.html'},
-    {nm:'اختبار إلكتروني 4 · مراجعة نهائية',meta:'9 أسئلة · 27 درجة',href:'exams/exam4.html'}]},
-  hw:{t:'📚 الواجبات',items:[
-    {nm:'واجب أسطح تساوي الجهد',meta:'3 أسئلة · 15 درجة',href:'homework/wajib-equipotential.html'},
-    {nm:'واجب حصة الأحد',meta:'5 أسئلة · 30 درجة',href:'homework/wajib-ahad.html'}]},
-  struct:{t:'🗂️ مراجعة الهياكل',items:[
-    {nm:'مراجعة هيكل الفصل الأول · 12 متقدم بريدج',meta:'قريبًا',href:''}]},
-  games:{t:'🎮 الألعاب',items:[
-    {nm:'تحدي القمة 🏔️',meta:'46 سؤال مراجعة · شهادة تفوق',href:'games/summit.html'}]}
+  exams:{t:'📝 الامتحانات',tracks:{
+    b12:[{nm:'اختبار الوزارة 2023-2024',meta:'6 أسئلة · 60 درجة',href:'exams/wizara.html'},
+         {nm:'اختبار إلكتروني 4 · مراجعة نهائية',meta:'9 أسئلة · 27 درجة',href:'exams/exam4.html'}],
+    i12:[],b11:[],i11:[]}},
+  hw:{t:'📚 الواجبات',tracks:{
+    b12:[{nm:'واجب أسطح تساوي الجهد',meta:'3 أسئلة · 15 درجة',href:'homework/wajib-equipotential.html'},
+         {nm:'واجب حصة الأحد',meta:'5 أسئلة · 30 درجة',href:'homework/wajib-ahad.html'}],
+    i12:[],b11:[],i11:[]}},
+  games:{t:'🎮 الألعاب',tracks:{
+    b12:[{nm:'تحدي القمة 🏔️',meta:'46 سؤال مراجعة · شهادة تفوق',href:'games/summit.html'}],
+    i12:[],b11:[],i11:[]}},
+  struct:{t:'🗂️ مراجعة الهياكل',tracks:{b12:[],i12:[],b11:[],i11:[]}}
 };
 const LIVE=location.hostname.endsWith('github.io');
 const panel=document.getElementById('panel');
+let track=null;try{track=localStorage.getItem('eg_track');}catch(e){}
+function renderList(box,list){
+  box.innerHTML='';
+  if(!list.length){const p=document.createElement('p');p.className='note';p.textContent='لسه مفيش حاجة هنا، قريبًا إن شاء الله.';box.appendChild(p);return;}
+  list.forEach(it=>{const r=document.createElement('div');r.className='item';
+    const l=document.createElement('div');l.style.minWidth='0';
+    const n=document.createElement('div');n.className='nm';n.textContent=it.nm;
+    const m=document.createElement('div');m.className='meta';m.textContent=it.meta;l.append(n,m);
+    const a=document.createElement('a');a.className='go';a.textContent='ابدأ';a.href=it.href;
+    if(!LIVE||!it.href){a.setAttribute('aria-disabled','true');a.removeAttribute('href');if(!it.href)a.textContent='قريبًا';}
+    r.append(l,a);box.appendChild(r);});
+}
 document.querySelectorAll('.card').forEach(c=>c.addEventListener('click',()=>{
   const open=c.getAttribute('aria-expanded')==='true';
   document.querySelectorAll('.card').forEach(x=>x.setAttribute('aria-expanded','false'));
@@ -239,13 +259,16 @@ document.querySelectorAll('.card').forEach(c=>c.addEventListener('click',()=>{
   c.setAttribute('aria-expanded','true');
   const d=DATA[c.dataset.k];panel.innerHTML='';
   const h=document.createElement('h3');h.textContent=d.t;panel.appendChild(h);
-  d.items.forEach(it=>{const r=document.createElement('div');r.className='item';
-    const l=document.createElement('div');l.style.minWidth='0';
-    const n=document.createElement('div');n.className='nm';n.textContent=it.nm;
-    const m=document.createElement('div');m.className='meta';m.textContent=it.meta;l.append(n,m);
-    const a=document.createElement('a');a.className='go';a.textContent='ابدأ';a.href=it.href;
-    if(!LIVE||!it.href){a.setAttribute('aria-disabled','true');a.removeAttribute('href');if(!it.href)a.textContent='قريبًا';}
-    r.append(l,a);panel.appendChild(r);});
+  const q=document.createElement('p');q.className='ask';q.textContent='اختار صفك:';panel.appendChild(q);
+  const bar=document.createElement('div');bar.className='trk';panel.appendChild(bar);
+  const box=document.createElement('div');panel.appendChild(box);
+  const pick=k=>{track=k;try{localStorage.setItem('eg_track',k);}catch(e){}
+    bar.querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.t===k?'true':'false'));
+    renderList(box,d.tracks[k]||[]);};
+  TR.forEach(([k,lab])=>{const b=document.createElement('button');b.type='button';b.dataset.t=k;b.textContent=lab;
+    const n=(d.tracks[k]||[]).length;if(n){const s=document.createElement('span');s.className='cnt';s.textContent=n;b.appendChild(s);}
+    b.setAttribute('aria-pressed','false');b.addEventListener('click',()=>pick(k));bar.appendChild(b);});
+  if(track&&d.tracks[track])pick(track);
   if(!LIVE){const p=document.createElement('p');p.className='note';p.textContent='نسخة تجريبية: زرار «ابدأ» هيشتغل بعد رفع الموقع على GitHub.';panel.appendChild(p);}
   panel.hidden=false;panel.scrollIntoView({behavior:'smooth',block:'nearest'});
 }));
