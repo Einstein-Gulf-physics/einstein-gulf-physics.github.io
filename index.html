@@ -22,6 +22,7 @@ body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font);l
 .hero{background:radial-gradient(1200px 400px at 85% -10%,var(--navy2),transparent),var(--navy);color:#fff;position:relative;overflow:hidden}
 .hero::after{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.18) 1px,transparent 1.5px);background-size:22px 22px;opacity:.35;pointer-events:none}
 .hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.25fr .9fr;gap:24px;align-items:center;padding-block:34px 56px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;max-width:520px}
 .tag{display:inline-block;background:rgba(246,178,26,.16);color:var(--gold2);font-weight:700;font-size:.85rem;padding:4px 14px;border-radius:999px;border:1px solid rgba(246,178,26,.4)}
 h1{font-weight:900;font-size:clamp(2rem,6.4vw,3.4rem);line-height:1.2;margin:12px 0 6px;text-wrap:balance}
 h1 .g{color:var(--gold)}
@@ -128,7 +129,7 @@ footer .eqs{font-family:var(--mono);direction:ltr;color:#3b5a99;margin-bottom:4p
 
 <header class="hero"><div class="wrap">
   <div>
-    <span class="tag">⚛️ فيزياء 12 متقدم · بريدج</span>
+    <div class="tags"><span class="tag">⚛️ فيزياء 12 متقدم · بريدج</span><span class="tag">⚛️ فيزياء 12 متقدم · إنسباير</span><span class="tag">⚛️ فيزياء 11 متقدم · بريدج</span><span class="tag">⚛️ فيزياء 11 متقدم · إنسباير</span></div>
     <h1>منصة <span class="g">أينشتاين</span> الخليج في الفيزياء</h1>
     <div class="by">مع <span>الأستاذ رامي عبد الفتاح</span></div>
     <p class="lead">أهلًا بيك يا بطل 👋 امتحاناتك وواجباتك وألعاب المراجعة كلها في مكان واحد. ذاكر، اتدرّب، واعرف مستواك أول بأول.</p>
