@@ -1,0 +1,313 @@
+﻿<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>اختبار إلكتروني 4 · مراجعة نهائية</title>
+<style>
+:root{
+  --bg:#eef2f7; --paper:#ffffff; --ink:#13294b; --muted:#55627a; --line:#d3dbe6;
+  --navy:#13294b; --accent:#1f5fae; --accent-soft:#e3edf9; --warn:#c2410c; --bad:#b3261e;
+  --font:"Segoe UI",Tahoma,"DejaVu Sans",sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--font);font-size:16px;line-height:1.7}
+.top{background:var(--navy);color:#fff;padding-block:18px 16px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.top .in{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:2px}
+.brand{font-weight:700;font-size:1.3rem;line-height:1.4}
+.sub{display:flex;flex-wrap:wrap;gap:4px 12px;align-items:baseline}
+.sub b{font-size:1.15rem}
+.sub span{opacity:.85;font-size:.95rem}
+.band{height:5px;background:var(--bad)}
+.wrap{max-width:760px;margin:0 auto;padding-block:20px 56px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:16px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:18px;display:flex;flex-direction:column;gap:12px;min-width:0;position:relative;overflow:hidden}
+h2{margin:0;font-size:1.2rem}
+ol.rules{margin:0;padding-right:22px;display:flex;flex-direction:column;gap:6px}
+label.field{display:flex;flex-direction:column;gap:6px;font-weight:500}
+input[type=text],input[type=tel]{font:inherit;padding:10px 12px;border:1.5px solid var(--line);border-radius:8px;background:#fff;color:var(--ink)}
+input:focus-visible{outline:3px solid var(--accent);outline-offset:1px}
+button,.btn{font:inherit;font-weight:700;border:0;border-radius:8px;padding:12px 18px;min-height:48px;cursor:pointer;background:var(--accent);color:#fff;text-decoration:none;display:inline-flex;align-items:center;justify-content:center}
+button:focus-visible,.btn:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+.msg{color:var(--bad);font-size:.95rem;min-height:1.4em}
+#examArea{display:flex;flex-direction:column;gap:12px;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+.qbar{display:flex;align-items:center;justify-content:space-between;gap:12px;color:var(--muted);font-size:.95rem}
+.steps{flex:1;display:grid;gap:4px}
+.steps i{height:6px;border-radius:99px;background:var(--line)}
+.steps i.done{background:var(--accent)} .steps i.now{background:var(--warn)}
+.qhead{display:flex;align-items:flex-start;gap:14px}
+.qtext{flex:1;font-weight:500;min-width:0}
+.timer{flex:none;width:76px;height:76px;position:relative}
+.timer svg{width:76px;height:76px;transform:rotate(-90deg)}
+.timer .num{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:700;font-size:1.35rem;line-height:1;font-variant-numeric:tabular-nums}
+.timer .num small{font-size:.65rem;font-weight:500;color:var(--muted);margin-top:3px}
+.timer.low .num{color:var(--bad)}
+.fig{background:#fff;border:1px solid var(--line);border-radius:8px;padding:6px;align-self:center;max-width:100%}
+.fig img{display:block;max-width:100%;height:auto;max-height:240px;pointer-events:none;-webkit-user-drag:none}
+.opts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+@media (max-width:560px){.opts{grid-template-columns:1fr}.timer,.timer svg{width:64px;height:64px}.fig img{max-height:170px}}
+.opt{display:flex;align-items:center;gap:10px;border:1.5px solid var(--line);border-radius:8px;padding:10px 12px;cursor:pointer;min-height:48px;min-width:0;background:#fff;position:relative;z-index:1}
+.opt input{width:18px;height:18px;accent-color:var(--accent);flex:none;margin:0}
+.opt:hover{border-color:var(--accent)}
+.opt:has(input:checked){border-color:var(--accent);background:var(--accent-soft)}
+.opt .t{min-width:0;direction:ltr;unicode-bidi:plaintext;text-align:start;font-family:"Cambria Math","Times New Roman","DejaVu Serif",var(--font);font-size:1.08rem}
+.opt .t.ar{direction:rtl;font-family:var(--font);font-size:1rem}
+.marks{color:var(--muted);font-size:.9rem}
+.part{font-weight:700;color:var(--navy);margin-top:4px}
+.hint2{color:var(--muted);font-size:.9rem}
+.numrow{display:flex;align-items:center;gap:10px;direction:ltr;justify-content:center;flex-wrap:wrap;font-family:"Cambria Math","Times New Roman","DejaVu Serif",serif;font-size:1.2rem;position:relative;z-index:3}
+.numrow input{font:inherit;width:8.5em;text-align:center;padding:10px;border:2px solid var(--accent);border-radius:8px;background:#fff;color:var(--ink);direction:ltr}
+.fig svg{display:block;width:100%;height:auto;max-width:560px}
+.wm{position:absolute;inset:-40%;pointer-events:none;z-index:2;display:flex;flex-wrap:wrap;align-content:space-around;justify-content:space-around;gap:34px 46px;transform:rotate(-24deg);opacity:.11;color:var(--navy);font-weight:700;font-size:1.05rem;white-space:nowrap;overflow:hidden}
+.result{border:2px solid var(--accent);text-align:center;align-items:center}
+.result .score{font-size:3rem;font-weight:700;line-height:1.1;font-variant-numeric:tabular-nums;direction:ltr}
+.result .name{font-size:1.3rem;font-weight:700}
+.small{color:var(--muted);font-size:.92rem}
+.wa{background:#1f8f4e;width:100%}
+.btn.sec{background:transparent;color:var(--accent);border:1.5px solid var(--accent);width:100%}
+.lock{border:2px solid var(--bad);text-align:center;align-items:center}
+.lock h2{color:var(--bad)}
+noscript p{direction:rtl;text-align:center;padding:16px;font-size:18px;color:#b3261e}
+</style>
+</head>
+<body>
+<noscript><p>افتح هذا الملف في متصفح Chrome أو Safari حتى يظهر الامتحان.</p></noscript>
+<div class="top"><div class="in">
+  <div class="brand">منصة أينشتاين الخليج في الفيزياء</div>
+  <div class="sub"><b>اختبار إلكتروني 4 · مراجعة نهائية</b><span>9 أسئلة · 27 درجة</span></div>
+</div></div>
+<div class="band"></div>
+
+<main class="wrap">
+<section class="card" id="startCard" hidden>
+  <h2>تعليمات الاختبار</h2>
+  <ol class="rules">
+    <li>افتح ملف الامتحان بمتصفح <b>Chrome</b> وليس داخل واتساب. في الأندرويد: اضغط على الملف ثم «فتح بواسطة» ثم Chrome. وفي الآيفون: احفظ الملف في «الملفات» ثم افتحه من هناك.</li>
+    <li>اكتب اسمك الثلاثي الصحيح، ثم كود الدخول الذي يعطيه الأستاذ رامي عبد الفتاح وقت الامتحان.</li>
+    <li>عدد الأسئلة 9، ولكل سؤال 3 درجات.</li>
+    <li>لكل سؤال دقيقتان، وعند انتهاء الوقت ينتقل الامتحان للسؤال التالي تلقائيًا، ولا يمكن الرجوع لسؤال سابق.</li>
+    <li>لا تخرج من صفحة الامتحان أثناء الحل، فكل خروج يُسجَّل ويصل للأستاذ رامي عبد الفتاح.</li>
+    <li>الامتحان يُفتح مرة واحدة فقط، وأي محاولة ثانية تظهر للأستاذ رامي عبد الفتاح.</li>
+    <li>بعد التسليم اضغط «أرسل النتيجة إلى الأستاذ رامي عبد الفتاح»، فيفتح واتساب والرسالة جاهزة، ثم اضغط زر الإرسال في واتساب، فالرسالة لا تُرسل وحدها.</li>
+    <li>إذا لم يفتح واتساب: اضغط «انسخ النتيجة»، ثم افتح واتساب بنفسك والصقها وأرسلها للأستاذ رامي عبد الفتاح على الرقم <b dir="ltr">050 767 0323</b>.</li>
+    <li>لا تعدّل أي شيء في رسالة النتيجة، فأي تعديل يظهر للأستاذ رامي عبد الفتاح وتُلغى النتيجة.</li>
+  </ol>
+  <label class="field" for="studentName">اسم الطالب
+    <input type="text" id="studentName" autocomplete="name" placeholder="اكتب اسمك الثلاثي">
+  </label>
+  <label class="field" for="entryCode">كود الدخول
+    <input type="tel" id="entryCode" inputmode="numeric" maxlength="4" placeholder="4 أرقام">
+  </label>
+  <div class="msg" id="startMsg" role="alert"></div>
+  <button type="button" id="startBtn">ابدأ الاختبار</button>
+</section>
+
+<section id="examArea" hidden>
+  <div class="qbar"><span id="qCount"></span><div class="steps" id="steps"></div></div>
+  <div class="card" id="qCard"></div>
+  <button type="button" id="nextBtn">التالي</button>
+</section>
+
+<div id="endArea"></div>
+</main>
+
+<script>
+(function(){
+const PHONE = "971507670323";
+const EXAM = "B4";
+const TITLE = "اختبار إلكتروني 4 · مراجعة نهائية";
+const LOCK_KEY = "einstein_gulf_bridge_e4";
+const SEC = 120, PTS = 3;
+const KEY = {"q1": 1489652267, "q2": 1093092026, "q3": 2236347970, "q4": 1985518997, "q5": 3998727210, "q6": 2646274852, "q7": 483980101, "q8": 3568448024, "q9": 2624699928};
+const NUMK = {};
+const CODE = 941502770;
+const SALT = "9c49325c7061";
+const SHEET = "https://script.google.com/macros/s/AKfycbzOqiB4x_5uHAjuCDKjAgD3JVcaObJmOClOOpS_wDc_HvgWDqmkdVghk3h5mAQafLWpdw/exec";
+async function sheetTaken(name){try{const c=new AbortController();const t=setTimeout(()=>c.abort(),7000);const r=await fetch(SHEET+'?exam='+encodeURIComponent(TITLE)+'&name='+encodeURIComponent(name),{signal:c.signal});clearTimeout(t);const j=await r.json();return !!j.taken;}catch(e){return null;}}
+function sheetMsg(k){const el=document.getElementById('sheetMsg');if(!el)return;el.textContent={ok:'✔ وصلت نتيجتك إلى الأستاذ رامي عبد الفتاح تلقائيًا. أرسلها على واتساب أيضًا للاحتياط.',dup:'تنبيه: هذا الاسم مسجّل من قبل في هذا الامتحان، ولم تُسجَّل هذه المحاولة.',maybe:'تم إرسال نتيجتك تلقائيًا. أرسلها على واتساب أيضًا للاحتياط.',fail:'لم تصل النتيجة تلقائيًا (لا يوجد إنترنت). أرسلها على واتساب.',wait:'جارٍ إرسال النتيجة تلقائيًا…'}[k]||'';el.style.color=(k==='ok'||k==='maybe')?'#1d7a46':(k==='wait'?'':'#b3261e');el.style.fontWeight='700';}
+function sendSheet(){
+  if(!st||!st.finished)return; if(st.sent){sheetMsg(st.sent);return;}
+  sheetMsg('wait');
+  const body=JSON.stringify({exam:TITLE,name:clean(st.name),score:st.score,total:Q.length*PTS,exits:st.exits,dev:st.dev||'',vcode:vcode(st),answers:''});
+  fetch(SHEET,{method:'POST',body:body}).then(r=>r.json()).then(j=>{st.sent=(j&&j.status==='dup')?'dup':'ok';save(st);sheetMsg(st.sent);})
+  .catch(()=>{fetch(SHEET,{method:'POST',mode:'no-cors',body:body}).then(()=>{st.sent='maybe';save(st);sheetMsg('maybe');}).catch(()=>sheetMsg('fail'));});
+}
+function h(s){let x=5381;for(let i=0;i<s.length;i++){x=((x*33)^s.charCodeAt(i))>>>0;}return x;}
+const Q = [{"n": "80", "text": "موصلان كرويان متماثلان، شُحن الموصل ⁦‎A‎⁩ بشحنة مقدارها ⁦‎−3 μC‎⁩ وشُحن الموصل ⁦‎B‎⁩ بشحنة مقدارها ⁦‎9 μC‎⁩. تمت ملامسة الموصلين ببعضهما ثم أُبعدا عن بعضهما. ما عدد الإلكترونات التي فقدها الموصل ⁦‎A‎⁩؟", "opts": ["⁦‎3.75×10¹³‎⁩ إلكترون", "⁦‎1.87×10¹³‎⁩ إلكترون", "⁦‎8.85×10¹³‎⁩ إلكترون", "⁦‎4.43×10¹³‎⁩ إلكترون"], "id": "q1", "type": "mc"}, {"n": "81", "ar": true, "text": "أي من الخصائص التالية تنطبق على أشباه الموصلات؟", "opts": ["مقاومتها الكهربائية تتناقص بارتفاع الحرارة", "مقاومتها الكهربائية تزداد بارتفاع الحرارة", "مقاومتها الكهربائية ثابتة لا تعتمد على الحرارة", "مقاومتها الكهربائية صفر عند الحرارة المنخفضة"], "id": "q2", "type": "mc"}, {"n": "82", "ar": true, "text": "أي من العبارات التالية صحيحة بالنسبة للتوصيل الكهربائي؟", "opts": ["المواد فائقة التوصيل تنعدم مقاومتها عند درجات الحرارة المنخفضة جدًا", "الجرمانيوم والجاليوم تعتبر من المواد العازلة", "المواد العازلة مقاومتها قليلة ومتدنية", "المواد الموصلة لا تسمح بانتقال الشحنات من خلالها"], "id": "q3", "type": "mc"}, {"n": "83", "fig": "<svg viewBox=\"0 0 340 110\" direction=\"ltr\" style=\"direction:ltr;background:#fff\" role=\"img\" aria-label=\"شحنتان +q و−q البعد بينهما r\"><line x1=\"50\" y1=\"45\" x2=\"290\" y2=\"45\" stroke=\"#2e7d32\" stroke-width=\"1.5\" stroke-dasharray=\"5 4\"/><defs><radialGradient id=\"g50\" cx=\"35%\" cy=\"35%\" r=\"65%\"><stop offset=\"0\" stop-color=\"#ff8a80\"/><stop offset=\"1\" stop-color=\"#c62828\"/></radialGradient></defs><circle cx=\"50\" cy=\"45\" r=\"17\" fill=\"url(#g50)\"/><defs><radialGradient id=\"g290\" cx=\"35%\" cy=\"35%\" r=\"65%\"><stop offset=\"0\" stop-color=\"#ff8a80\"/><stop offset=\"1\" stop-color=\"#c62828\"/></radialGradient></defs><circle cx=\"290\" cy=\"45\" r=\"17\" fill=\"url(#g290)\"/><text x=\"170\" y=\"32\" font-size=\"20\" font-family=\"Times New Roman,DejaVu Serif,serif\" font-style=\"italic\" font-weight=\"normal\" text-anchor=\"middle\" fill=\"#111\">r</text><text x=\"50\" y=\"95\" font-size=\"19\" font-family=\"Times New Roman,DejaVu Serif,serif\" font-style=\"italic\" font-weight=\"normal\" text-anchor=\"middle\" fill=\"#111\">+q</text><text x=\"290\" y=\"95\" font-size=\"19\" font-family=\"Times New Roman,DejaVu Serif,serif\" font-style=\"italic\" font-weight=\"normal\" text-anchor=\"middle\" fill=\"#111\">−q</text></svg>", "text": "شحنتان كما في الشكل، البعد بينهما ⁦‎r‎⁩ والقوة الكهربائية بينهما ⁦‎F‎⁩. ما البعد بين الشحنتين الذي يجعل القوة الكهربائية المتبادلة بينهما أربعة أضعاف ما كانت عليه؟", "opts": ["r/2", "r√2", "2r", "r/4"], "id": "q4", "type": "mc"}, {"n": "84", "ar": true, "fig": "<svg viewBox=\"0 0 300 220\" direction=\"ltr\" style=\"direction:ltr;background:#fff\" role=\"img\" aria-label=\"بروتون فوق منتصف المسافة بين إلكترونين\"><line x1=\"150\" y1=\"35\" x2=\"150\" y2=\"160\" stroke=\"#555\" stroke-width=\"1.4\" stroke-dasharray=\"4 4\"/><circle cx=\"150\" cy=\"30\" r=\"8\" fill=\"#c62828\"/><text x=\"170\" y=\"26\" font-size=\"15\" font-family=\"Times New Roman,DejaVu Serif,serif\"  font-weight=\"normal\" text-anchor=\"start\" fill=\"#111\">بروتون</text><circle cx=\"70\" cy=\"160\" r=\"7\" fill=\"#2c5fb8\"/><circle cx=\"230\" cy=\"160\" r=\"7\" fill=\"#2c5fb8\"/><text x=\"70\" y=\"145\" font-size=\"15\" font-family=\"Times New Roman,DejaVu Serif,serif\"  font-weight=\"normal\" text-anchor=\"middle\" fill=\"#111\">إلكترون</text><text x=\"230\" y=\"145\" font-size=\"15\" font-family=\"Times New Roman,DejaVu Serif,serif\"  font-weight=\"normal\" text-anchor=\"middle\" fill=\"#111\">إلكترون</text><text x=\"158\" y=\"100\" font-size=\"15\" font-family=\"Times New Roman,DejaVu Serif,serif\"  font-weight=\"normal\" text-anchor=\"start\" fill=\"#111\">4.0 cm</text><line x1=\"70\" y1=\"185\" x2=\"150\" y2=\"185\" stroke=\"#2c5fb8\" stroke-width=\"1.4\"/><line x1=\"70\" y1=\"179\" x2=\"70\" y2=\"191\" stroke=\"#2c5fb8\" stroke-width=\"1.4\"/><line x1=\"150\" y1=\"179\" x2=\"150\" y2=\"191\" stroke=\"#2c5fb8\" stroke-width=\"1.4\"/><text x=\"110.0\" y=\"205\" font-size=\"15\" font-family=\"Times New Roman,DejaVu Serif,serif\"  font-weight=\"normal\" text-anchor=\"middle\" fill=\"#111\">3.0 cm</text><line x1=\"150\" y1=\"185\" x2=\"230\" y2=\"185\" stroke=\"#2c5fb8\" stroke-width=\"1.4\"/><line x1=\"150\" y1=\"179\" x2=\"150\" y2=\"191\" stroke=\"#2c5fb8\" stroke-width=\"1.4\"/><line x1=\"230\" y1=\"179\" x2=\"230\" y2=\"191\" stroke=\"#2c5fb8\" stroke-width=\"1.4\"/><text x=\"190.0\" y=\"205\" font-size=\"15\" font-family=\"Times New Roman,DejaVu Serif,serif\"  font-weight=\"normal\" text-anchor=\"middle\" fill=\"#111\">3.0 cm</text></svg>", "text": "في الشكل المجاور، ما محصلة القوى الكهروستاتيكية المؤثرة في البروتون؟", "opts": ["⁦‎1.5×10⁻²⁵ N‎⁩ باتجاه الأسفل", "⁦‎1.5×10⁻²⁵ N‎⁩ باتجاه الأعلى", "⁦‎0.0 N‎⁩", "⁦‎9.2×10⁻²⁶ N‎⁩ باتجاه يصنع زاوية ⁦‎53°‎⁩"], "id": "q5", "type": "mc"}, {"n": "85", "fig": "<svg viewBox=\"0 0 300 270\" direction=\"ltr\" style=\"direction:ltr;background:#fff\" role=\"img\" aria-label=\"الشحنة Q على المحور y والشحنة q على المحور x والنقطة P عند الأصل\"><defs><marker id=\"ax85\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"7\" markerHeight=\"7\" orient=\"auto\"><path d=\"M0,0 L10,5 L0,10 z\" fill=\"#111\"/></marker></defs><line x1=\"60\" y1=\"250\" x2=\"60\" y2=\"18\" stroke=\"#2c5fb8\" stroke-width=\"1.6\"/><line x1=\"20\" y1=\"215\" x2=\"285\" y2=\"215\" stroke=\"#111\" stroke-width=\"1.6\" marker-end=\"url(#ax85)\"/><circle cx=\"60\" cy=\"39\" r=\"7\" fill=\"#1d2b5f\"/><text x=\"40\" y=\"38\" font-size=\"20\" font-family=\"Times New Roman,DejaVu Serif,serif\" font-style=\"italic\" font-weight=\"bold\" text-anchor=\"middle\" fill=\"#111\">Q</text><circle cx=\"192\" cy=\"215\" r=\"7\" fill=\"#1d2b5f\"/><text x=\"192\" y=\"200\" font-size=\"20\" font-family=\"Times New Roman,DejaVu Serif,serif\" font-style=\"italic\" font-weight=\"bold\" text-anchor=\"middle\" fill=\"#b3261e\">q</text><text x=\"275\" y=\"205\" font-size=\"18\" font-family=\"Times New Roman,DejaVu Serif,serif\" font-style=\"italic\" font-weight=\"normal\" text-anchor=\"middle\" fill=\"#111\">x</text><text x=\"45\" y=\"238\" font-size=\"19\" font-family=\"Times New Roman,DejaVu Serif,serif\" font-style=\"italic\" font-weight=\"bold\" text-anchor=\"middle\" fill=\"#b3261e\">P</text><text x=\"126\" y=\"238\" font-size=\"15\" font-family=\"Times New Roman,DejaVu Serif,serif\"  font-weight=\"normal\" text-anchor=\"middle\" fill=\"#111\">6.0 m</text><text x=\"78\" y=\"127\" font-size=\"15\" font-family=\"Times New Roman,DejaVu Serif,serif\" text-anchor=\"middle\" transform=\"rotate(-90 78 127)\">8.0 m</text></svg>", "text": "وفقًا للشكل، إذا كانت ⁦‎q = +2 μC‎⁩ و⁦‎Q = −2 μC‎⁩، فما مقدار المجال الكهربائي عند النقطة ⁦‎P(0, 0)‎⁩؟", "opts": ["573.67 N/C", "1147.3 N/C", "286.83 N/C", "500.00 N/C"], "id": "q6", "type": "mc"}, {"n": "93", "text": "وحدة قياس الجهد الكهربائي (الفولت) تكافئ:", "opts": ["A⁻¹·s⁻³·kg·m²", "A²·s⁻²·kg·m²", "A²·s⁻³·kg·m²", "A⁻¹·s⁻²·kg·m³"], "id": "q7", "type": "mc"}, {"n": "94", "fig": "<svg viewBox=\"0 0 240 240\" direction=\"ltr\" style=\"direction:ltr;background:#fff\" role=\"img\" aria-label=\"موصل كروي أجوف نصف قطره الداخلي a والخارجي b\"><defs><marker id=\"ar94\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"7\" markerHeight=\"7\" orient=\"auto\"><path d=\"M0,0 L10,5 L0,10 z\" fill=\"#111\"/></marker></defs><circle cx=\"120\" cy=\"120\" r=\"105\" fill=\"#a3a3a3\" stroke=\"#555\" stroke-width=\"1.5\"/><circle cx=\"120\" cy=\"120\" r=\"80\" fill=\"#fff\" stroke=\"#555\" stroke-width=\"1.5\"/><circle cx=\"120\" cy=\"120\" r=\"4\" fill=\"#111\"/><line x1=\"120\" y1=\"120\" x2=\"120\" y2=\"198\" stroke=\"#111\" stroke-width=\"1.4\" marker-end=\"url(#ar94)\"/><line x1=\"120\" y1=\"120\" x2=\"47\" y2=\"196\" stroke=\"#111\" stroke-width=\"1.4\" marker-end=\"url(#ar94)\"/><text x=\"130\" y=\"170\" font-size=\"18\" font-family=\"Times New Roman,DejaVu Serif,serif\" font-style=\"italic\" font-weight=\"normal\" text-anchor=\"middle\" fill=\"#111\">a</text><text x=\"78\" y=\"150\" font-size=\"18\" font-family=\"Times New Roman,DejaVu Serif,serif\" font-style=\"italic\" font-weight=\"normal\" text-anchor=\"middle\" fill=\"#111\">b</text></svg>", "text": "وُضعت شحنة سالبة ⁦‎−9 μC‎⁩ على سطح موصل كروي أجوف، نصف قطره الخارجي ⁦‎b = 5 cm‎⁩ ونصف قطره الداخلي ⁦‎a = 4 cm‎⁩، ووُضعت شحنة موجبة ⁦‎+6 μC‎⁩ عند مركزه كما في الشكل. ما كثافة الشحنة السطحية على السطح الخارجي للموصل؟", "opts": ["−9.55×10⁻⁵ C/m²", "9.55×10⁻⁵ C/m²", "2.86×10⁻⁴ C/m²", "−2.86×10⁻⁴ C/m²"], "id": "q8", "type": "mc"}, {"n": "96", "fig": "<img src=\"data:image/jpeg;base64,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\" alt=\"شكل السؤال\" draggable=\"false\" style=\"max-width:240px;width:100%;height:auto;display:block;margin:auto\">", "text": "الشكل المجاور يبين ربع هيكل كروي من مادة عازلة نصف قطره ⁦‎10 cm‎⁩، ووُضعت عند مركزه شحنة موجبة مقدارها ⁦‎6.0 nC‎⁩. ما مقدار التدفق الكهربائي الذي يجتاز السطح؟", "opts": ["169.5 N·m²/C", "338.9 N·m²/C", "508.5 N·m²/C", "677.9 N·m²/C"], "id": "q9", "type": "mc"}];
+
+function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+function load(){try{return JSON.parse(localStorage.getItem(LOCK_KEY)||"null");}catch(e){return null;}}
+function save(s){try{localStorage.setItem(LOCK_KEY,JSON.stringify(s));}catch(e){}}
+const $=id=>document.getElementById(id);
+const clean=s=>String(s).replace(/[⁦-⁩‎‏‪-‮ ]/g,'').replace(/\s+/g,' ').trim();
+let st = load();
+
+function fmtTime(t){try{return new Date(t).toLocaleString('ar-AE',{dateStyle:'medium',timeStyle:'short'});}catch(e){return new Date(t).toString();}}
+function devCode(){
+  let p=[];
+  try{const a=screen.width,b=screen.height;p.push(Math.min(a,b),Math.max(a,b));}catch(e){p.push('-','-');}
+  try{p.push(Math.round((window.devicePixelRatio||1)*100));}catch(e){p.push('-');}
+  try{p.push(navigator.hardwareConcurrency||'-');}catch(e){p.push('-');}
+  try{p.push(navigator.maxTouchPoints||0);}catch(e){p.push('-');}
+  try{p.push(Intl.DateTimeFormat().resolvedOptions().timeZone||'-');}catch(e){p.push('-');}
+  try{p.push((navigator.platform||'-').replace(/\s+/g,''));}catch(e){p.push('-');}
+  return h('dev|'+p.join('|')).toString(36).toUpperCase().slice(-5).padStart(5,'0');
+}
+function qtime(s,k){if(s.qTime&&s.qTime[k]!=null)return s.qTime[k];return SEC;}
+function emptyAns(q){return q.type==='tt'?[null,null]:(q.type==='ms'?[]:(q.type==='num'?'':null));}
+function isBlank(q,a){if(q.type==='tt')return a[0]==null&&a[1]==null;if(q.type==='ms')return !a.length;if(q.type==='num')return !String(a).trim();return a==null;}
+function ansStr(q,a){
+  if(isBlank(q,a)) return '-';
+  if(q.type==='tt') return (a[0]==null?'-':a[0])+'.'+(a[1]==null?'-':a[1]);
+  if(q.type==='ms') return a.slice().sort((x,y)=>x-y).join('+');
+  if(q.type==='num') return String(a).trim();
+  return String(a);
+}
+function ansText(q,a){
+  if(isBlank(q,a)) return 'لم يجب';
+  if(q.type==='tt') return (a[0]==null?'لم يجب':clean(q.opts[a[0]]))+' ← السبب: '+(a[1]==null?'لم يجب':clean(q.reasons[a[1]]));
+  if(q.type==='ms') return a.slice().sort((x,y)=>x-y).map(i=>clean(q.opts[i])).join(' + ');
+  if(q.type==='num') return String(a).trim()+' '+clean(q.post);
+  return clean(q.opts[a]);
+}
+function correct(q,a){
+  if(isBlank(q,a)) return false;
+  if(q.type==='tt') return a[0]!=null&&a[1]!=null&&h(q.id+':'+clean(q.opts[a[0]])+'|'+clean(q.reasons[a[1]]))===KEY[q.id];
+  if(q.type==='ms') return h(q.id+':'+a.slice().sort((x,y)=>x-y).map(i=>clean(q.opts[i])).join('+'))===KEY[q.id];
+  if(q.type==='num'){const v=parseFloat(String(a).trim());if(!isFinite(v))return false;const lo=(NUMK[q.id][0]^0x5A5A5)/1000,hi=(NUMK[q.id][1]^0x5A5A5)/1000;return v>=lo&&v<=hi;}
+  return h(q.id+':'+clean(q.opts[a]))===KEY[q.id];
+}
+function vcode(s){
+  const canon=Q.map((q,i)=>{const k=s.order.indexOf(i);return q.id+'='+ansStr(q,s.answers[k])+'@'+qtime(s,k);}).join(',');
+  return h(SALT+'|'+EXAM+'|'+clean(s.name)+'|'+canon+'|'+s.exits+'|'+(s.dev||'')).toString(36).toUpperCase().padStart(7,'0');
+}
+function resultText(s){
+  const lines=s.order.map((qi,k)=>{const q=Q[qi];return `س${k+1} (رقم ${q.n}): ${ansText(q,s.answers[k])} | الوقت: ${qtime(s,k)} ث`;});
+  return `منصة أينشتاين الخليج في الفيزياء\n${TITLE}\nالاسم: ${clean(s.name)}\nالدرجة: ${s.score} / ${Q.length*PTS}\nمرات الخروج من الاختبار: ${s.exits}\nرمز الجهاز: ${s.dev||'-'}\nالبداية: ${fmtTime(s.startedAt)}\nالتسليم: ${fmtTime(s.finishedAt)}\n\n`+lines.join('\n')+`\n\nرمز التحقق: ${vcode(s)}`;
+}
+function finish(){
+  let score=0;
+  st.order.forEach((qi,k)=>{if(correct(Q[qi],st.answers[k])) score+=PTS;});
+  st.score=score; st.finished=true; st.finishedAt=st.finishedAt||Date.now(); save(st); showEnd(false);
+}
+function showEnd(reopened){
+  $('startCard').hidden=true; $('examArea').hidden=true;
+  const c=document.createElement('section'); c.className='card '+(reopened?'lock':'result');
+  c.innerHTML=(reopened?'<h2>لقد أديت الامتحان</h2><div class="small">لا يمكن فتح الامتحان مرة أخرى. إذا لم ترسل نتيجتك بعد، أرسلها الآن.</div>':'<div class="small">تم تسليم الاختبار</div>')+
+    '<div class="name"></div><div class="score"></div><div class="small" id="when"></div>'+
+    '<div class="small" id="sheetMsg"></div>'+
+    '<a class="btn wa" id="waBtn">1. أرسل النتيجة إلى الأستاذ رامي عبد الفتاح</a>'+
+    '<div class="small">سيفتح واتساب على محادثة الأستاذ رامي عبد الفتاح والرسالة مكتوبة جاهزة. اضغط زر الإرسال في واتساب، فالرسالة لا تُرسل وحدها. ولا تعدّل أي شيء فيها.</div>'+
+    '<button type="button" class="btn sec" id="copyBtn">2. إذا لم يفتح واتساب: انسخ النتيجة</button>'+
+    '<div class="small" id="copyMsg">ثم افتح واتساب بنفسك وأرسلها للأستاذ رامي عبد الفتاح على الرقم <b dir="ltr">050 767 0323</b>.</div>'+
+    '<textarea id="resText" readonly hidden style="width:100%;min-height:160px;font:inherit;direction:rtl"></textarea>';
+  c.querySelector('.name').textContent=st.name;
+  c.querySelector('.score').textContent=st.score+' / '+Q.length*PTS;
+  c.querySelector('#when').textContent=fmtTime(st.finishedAt);
+  const rt=resultText(st);
+  c.querySelector('#waBtn').href='https://wa.me/'+PHONE+'?text='+encodeURIComponent(rt);
+  const ta=c.querySelector('#resText'); ta.value=rt;
+  c.querySelector('#copyBtn').addEventListener('click',()=>{
+    const ok=()=>{c.querySelector('#copyMsg').innerHTML='تم نسخ النتيجة. افتح واتساب، وادخل على محادثة الأستاذ رامي عبد الفتاح <b dir="ltr">050 767 0323</b>، والصقها واضغط إرسال.';};
+    const fb=()=>{ta.hidden=false;ta.focus();ta.select();c.querySelector('#copyMsg').textContent='حدّد النص الظاهر في المربع وانسخه، ثم الصقه في واتساب للأستاذ رامي عبد الفتاح.';};
+    try{navigator.clipboard.writeText(rt).then(ok,fb);}catch(e){fb();}
+  });
+  const end=$('endArea'); end.innerHTML=''; end.appendChild(c);
+  setTimeout(sendSheet,50);
+}
+let tick=null;
+function watermark(card){
+  const wm=document.createElement('div'); wm.className='wm'; wm.setAttribute('aria-hidden','true');
+  for(let i=0;i<60;i++){const s=document.createElement('span');s.textContent=st.name;wm.appendChild(s);}
+  card.appendChild(wm);
+}
+function optGroup(name,kind,list,perm,ar){
+  let s=`<div class="opts" role="${kind==='checkbox'?'group':'radiogroup'}">`;
+  perm.forEach((oi,j)=>{s+=`<label class="opt" for="${name}${j}"><input type="${kind}" name="${name}" id="${name}${j}" value="${oi}"><span class="t${ar?' ar':''}" data-i="${oi}" data-l="${name}"></span></label>`;});
+  return s+'</div>';
+}
+function renderQ(){
+  const k=st.idx, q=Q[st.order[k]], P=st.perm[k];
+  $('qCount').textContent=`سؤال ${k+1} من ${Q.length}`;
+  const steps=$('steps'); steps.style.gridTemplateColumns=`repeat(${Q.length},minmax(0,1fr))`;
+  steps.innerHTML=Q.map((_,i)=>`<i class="${i<k?'done':(i===k?'now':'')}"></i>`).join('');
+  const card=$('qCard');
+  let html=`<div class="qhead"><div class="qtext"></div>
+    <div class="timer" id="timer" role="timer" aria-label="الوقت المتبقي"><svg viewBox="0 0 76 76" aria-hidden="true"><circle cx="38" cy="38" r="33" fill="none" stroke="#d3dbe6" stroke-width="6"/><circle id="ring" cx="38" cy="38" r="33" fill="none" stroke="#1f5fae" stroke-width="6" stroke-linecap="round" stroke-dasharray="207.35" stroke-dashoffset="0"/></svg><div class="num"><span id="secs">${SEC}</span><small>ثانية</small></div></div></div>`;
+  if(q.fig) html+=`<div class="fig">${q.fig}</div>`;
+  html+=`<div class="marks">الدرجة: ${PTS}</div>`;
+  if(q.type==='mc') html+=optGroup('a','radio',q.opts,P.a,q.ar);
+  if(q.type==='ms') html+=`<div class="hint2">اختر <b>كل</b> الإجابات الصحيحة، فقد تكون أكثر من إجابة. الدرجة كاملة فقط إذا اخترتها كلها ولم تختر خطأ.</div>`+optGroup('a','checkbox',q.opts,P.a,q.ar);
+  if(q.type==='tt') html+=`<div class="part">أولًا: الإجابة</div>`+optGroup('a','radio',q.opts,P.a,true)+`<div class="part">ثانيًا: السبب</div>`+optGroup('b','radio',q.reasons,P.b,true)+`<div class="hint2">الدرجة كاملة فقط إذا كانت الإجابة والسبب صحيحين معًا.</div>`;
+  if(q.type==='num') html+=`<div class="numrow"><span class="pre">${q.pre||''}</span><input type="text" id="numIn" inputmode="decimal" autocomplete="off" aria-label="اكتب الناتج"><span class="post">${q.post}</span></div><div class="hint2">اكتب الرقم فقط، فالأس والوحدة مكتوبان.</div>`;
+  card.innerHTML=html;
+  card.querySelector('.qtext').textContent=q.text;
+  card.querySelectorAll('.opt .t').forEach(el=>{const i=+el.dataset.i;el.textContent=(el.dataset.l==='b'?q.reasons:q.opts)[i];});
+  watermark(card);
+  const a=st.answers[k];
+  if(q.type==='mc'){if(a!=null){const r=card.querySelector(`input[name=a][value="${a}"]`);if(r)r.checked=true;}
+    card.querySelectorAll('input[name=a]').forEach(r=>r.addEventListener('change',()=>{st.answers[k]=+r.value;save(st);}));}
+  if(q.type==='tt'){['a','b'].forEach((g,gi)=>{if(a[gi]!=null){const r=card.querySelector(`input[name=${g}][value="${a[gi]}"]`);if(r)r.checked=true;}
+    card.querySelectorAll(`input[name=${g}]`).forEach(r=>r.addEventListener('change',()=>{st.answers[k][gi]=+r.value;save(st);}));});}
+  if(q.type==='ms'){card.querySelectorAll('input[name=a]').forEach(r=>{if(a.includes(+r.value))r.checked=true;
+    r.addEventListener('change',()=>{st.answers[k]=[...card.querySelectorAll('input[name=a]:checked')].map(x=>+x.value);save(st);});});}
+  if(q.type==='num'){const inp=$('numIn');inp.value=a||'';
+    inp.addEventListener('input',()=>{let v=inp.value.replace(/[٠-٩]/g,d=>String(d.charCodeAt(0)-1632)).replace(/[,٫]/g,'.').replace(/[^0-9.\-]/g,'');v=v.replace(/(?!^)-/g,'');const p=v.indexOf('.');if(p>=0)v=v.slice(0,p+1)+v.slice(p+1).replace(/\./g,'');v=v.slice(0,12);if(v!==inp.value)inp.value=v;st.answers[k]=v;save(st);});}
+  $('nextBtn').textContent = k===Q.length-1 ? 'تسليم الاختبار' : 'التالي';
+  if(!st.qStart[k]){st.qStart[k]=Date.now();save(st);}
+  startTimer();
+}
+function startTimer(){
+  clearInterval(tick);
+  const upd=()=>{
+    const left=Math.max(0, SEC - Math.floor((Date.now()-st.qStart[st.idx])/1000));
+    const s=$('secs'), ring=$('ring'), t=$('timer');
+    if(s) s.textContent=left;
+    if(ring){ring.setAttribute('stroke-dashoffset',(207.35*(1-left/SEC)).toFixed(2));ring.setAttribute('stroke',left<=10?'#b3261e':(left<=25?'#c2410c':'#1f5fae'));}
+    if(t) t.classList.toggle('low',left<=10);
+    if(left<=0) next();
+  };
+  upd(); tick=setInterval(upd,250);
+}
+function next(){
+  clearInterval(tick);
+  if(st.finished) return;
+  st.qTime[st.idx]=Math.min(SEC,Math.max(0,Math.round((Date.now()-st.qStart[st.idx])/1000)));
+  st.idx++;
+  if(st.idx>=Q.length){finish();return;}
+  save(st); renderQ();
+}
+['copy','cut','contextmenu','selectstart','dragstart'].forEach(ev=>document.addEventListener(ev,e=>{
+  if(st && st.started && !st.finished && !(e.target && e.target.closest && e.target.closest('input[type=text],input[type=tel]'))) e.preventDefault();
+}));
+document.addEventListener('visibilitychange',()=>{
+  if(document.visibilityState==='hidden' && st && st.started && !st.finished){st.exits=(st.exits||0)+1;save(st);}
+});
+function resume(){
+  while(st.idx<Q.length && st.qStart[st.idx] && Date.now()-st.qStart[st.idx]>=SEC*1000){st.qTime[st.idx]=SEC;st.idx++;}
+  if(st.idx>=Q.length){finish();return;}
+  $('startCard').hidden=true; $('examArea').hidden=false; save(st); renderQ();
+}
+$('nextBtn').addEventListener('click',next);
+$('startBtn').addEventListener('click',async()=>{
+  const name=clean($('studentName').value), code=$('entryCode').value.trim();
+  const m=$('startMsg');
+  if(!name){m.textContent='اكتب اسمك أولًا.';$('studentName').focus();return;}
+  if(h('code:'+code)!==CODE){m.textContent='كود الدخول غير صحيح. اطلب الكود من الأستاذ رامي عبد الفتاح.';$('entryCode').focus();return;}
+  const sb=$('startBtn');sb.disabled=true;m.textContent='جارٍ التحقق…';const tk=await sheetTaken(name);sb.disabled=false;m.textContent='';
+  if(tk){m.textContent='هذا الاسم أدّى هذا الامتحان من قبل، ولا يمكن الدخول مرة ثانية. راجع الأستاذ رامي عبد الفتاح.';return;}
+  const order=shuffle(Q.map((_,i)=>i));
+  const perm=order.map(qi=>{const q=Q[qi];return {a:q.opts?shuffle(q.opts.map((_,i)=>i)):[],b:q.reasons?shuffle(q.reasons.map((_,i)=>i)):[]};});
+  st={v:2,started:true,finished:false,name,startedAt:Date.now(),order,perm,answers:order.map(qi=>emptyAns(Q[qi])),qStart:order.map(()=>0),qTime:order.map(()=>null),idx:0,exits:0,dev:devCode()};
+  save(st); $('startCard').hidden=true; $('examArea').hidden=false; renderQ();
+});
+if(st && st.v===2 && st.finished){showEnd(true);}
+else if(st && st.v===2 && st.started){st.exits=(st.exits||0)+1;resume();}
+else {$('startCard').hidden=false;}
+})();
+
+</script>
+</body>
+</html>

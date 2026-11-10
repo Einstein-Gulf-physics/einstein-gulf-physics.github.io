@@ -1,0 +1,257 @@
+<title>منصة أينشتاين الخليج</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=JetBrains+Mono:wght@600&display=swap">
+<style>
+/* Layout: teacher-platform landing — bold navy hero with emblem, stats strip, motto ribbon, 3 section cards, how-to, contact, footer */
+:root{
+  --navy:#0e2a5c; --navy2:#16408a; --gold:#f6b21a; --gold2:#ffd56b;
+  --paper:#f5f7fc; --card:#ffffff; --ink:#0f1d3a; --dim:#5a6783; --line:#dde3f0;
+  --font:"Cairo",Tahoma,"Segoe UI",sans-serif; --mono:"JetBrains Mono","Courier New",monospace;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font);line-height:1.75}
+.wrap{max-width:1040px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+/* nav */
+.nav{background:var(--navy);color:#fff}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:10px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:900}
+.logo{width:38px;height:38px;border-radius:10px;background:var(--gold);color:var(--navy);display:grid;place-items:center;font-family:var(--mono);font-size:.78rem;direction:ltr}
+.nav a{color:#fff;text-decoration:none;font-weight:700;font-size:.92rem;background:rgba(255,255,255,.12);padding:6px 14px;border-radius:999px}
+/* hero */
+.hero{background:radial-gradient(1200px 400px at 85% -10%,var(--navy2),transparent),var(--navy);color:#fff;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.18) 1px,transparent 1.5px);background-size:22px 22px;opacity:.35;pointer-events:none}
+.hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.25fr .9fr;gap:24px;align-items:center;padding-block:34px 56px}
+.tag{display:inline-block;background:rgba(246,178,26,.16);color:var(--gold2);font-weight:700;font-size:.85rem;padding:4px 14px;border-radius:999px;border:1px solid rgba(246,178,26,.4)}
+h1{font-weight:900;font-size:clamp(2rem,6.4vw,3.4rem);line-height:1.2;margin:12px 0 6px;text-wrap:balance}
+h1 .g{color:var(--gold)}
+.by{font-size:clamp(1.15rem,3.6vw,1.45rem);font-weight:800}
+.by span{color:var(--gold2)}
+.lead{color:#cdd8f2;max-width:46ch;margin:8px 0 18px;font-size:1.02rem}
+.cta{display:flex;gap:10px;flex-wrap:wrap}
+.btn{font:inherit;font-weight:800;border:0;border-radius:12px;padding:11px 22px;text-decoration:none;cursor:pointer;display:inline-flex;align-items:center;gap:8px}
+.btn.gold{background:var(--gold);color:var(--navy);box-shadow:0 6px 0 #b37e05}
+.btn.gold:active{transform:translateY(3px);box-shadow:0 3px 0 #b37e05}
+.btn.line{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.5)}
+.emblem{position:relative;aspect-ratio:1;max-width:340px;width:100%;justify-self:center}
+.emblem .ring{position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle at 35% 30%,#2459b8,#0b2150 70%);border:6px solid var(--gold);box-shadow:0 20px 60px rgba(0,0,0,.35)}
+.emblem svg{position:absolute;inset:0;width:100%;height:100%}
+.emblem .orb{fill:none;stroke:#8fd3ff;stroke-width:2;opacity:.9}
+.emblem .e{fill:#fff}
+.emblem .eq{font-family:var(--mono);font-weight:600;fill:var(--gold);font-size:30px}
+@media (prefers-reduced-motion:no-preference){.emblem .spin{transform-origin:150px 150px;animation:spin 10s linear infinite}.emblem .spin.r{animation-duration:14s;animation-direction:reverse}}
+@keyframes spin{to{transform:rotate(360deg)}}
+.chip{position:absolute;background:#fff;color:var(--navy);font-weight:800;font-size:.85rem;padding:6px 12px;border-radius:12px;box-shadow:0 8px 20px rgba(0,0,0,.25);white-space:nowrap}
+.chip.a{top:8%;inset-inline-start:-4%}.chip.b{bottom:10%;inset-inline-end:-6%}
+/* stats */
+.stats{position:relative;z-index:2;margin-top:-30px}
+.stats .box{background:var(--card);border-radius:18px;box-shadow:0 14px 40px rgba(14,42,92,.12);display:grid;grid-template-columns:repeat(4,minmax(0,1fr));text-align:center}
+.stat{padding:16px 8px;border-inline-start:1px solid var(--line)}.stat:first-child{border-inline-start:0}
+.stat b{display:block;font-size:1.6rem;font-weight:900;color:var(--navy2);font-variant-numeric:tabular-nums}
+.stat span{color:var(--dim);font-size:.88rem;font-weight:600}
+/* motto */
+.motto{margin-top:26px;background:linear-gradient(90deg,var(--gold),var(--gold2));color:var(--navy);border-radius:18px;padding:18px 20px;display:flex;align-items:center;justify-content:center;gap:12px;text-align:center}
+.motto b{font-weight:900;font-size:clamp(1.35rem,4.8vw,2rem)}
+/* sections */
+section.block{margin-top:34px}
+.head{display:flex;align-items:end;justify-content:space-between;gap:10px;margin-bottom:14px}
+.head h2{margin:0;font-weight:900;font-size:1.6rem}
+.head h2::after{content:"";display:block;width:56px;height:5px;border-radius:5px;background:var(--gold);margin-top:4px}
+.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+@media (max-width:1000px){.cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;text-align:right;font:inherit;color:inherit;padding:0;cursor:pointer;transition:transform .15s,box-shadow .15s}
+.card:hover,.card:focus-visible{transform:translateY(-4px);box-shadow:0 16px 34px rgba(14,42,92,.14);outline:none}
+.card[aria-expanded="true"]{outline:3px solid var(--gold)}
+.card .top{height:118px;display:grid;place-items:center;position:relative}
+.card .top .big{font-family:var(--mono);font-weight:600;color:#fff;font-size:1.6rem;direction:ltr}
+.card .top .em{position:absolute;bottom:-22px;inset-inline-start:18px;width:52px;height:52px;border-radius:14px;background:#fff;display:grid;place-items:center;font-size:1.6rem;box-shadow:0 6px 16px rgba(0,0,0,.15)}
+.t1{background:linear-gradient(135deg,#16408a,#2e6fd6)}.t4{background:linear-gradient(135deg,#6b21a8,#c026d3)}.t2{background:linear-gradient(135deg,#0d7a5f,#18b38a)}.t3{background:linear-gradient(135deg,#c2410c,#f6b21a)}
+.card .body{padding:30px 18px 18px;display:flex;flex-direction:column;gap:6px;flex:1}
+.card h3{margin:0;font-weight:900;font-size:1.3rem}
+.card p{margin:0;color:var(--dim);font-size:.95rem}
+.card .more{margin-top:auto;padding-top:8px;font-weight:800;color:var(--navy2)}
+.panel{margin-top:16px;background:var(--card);border:2px solid var(--gold);border-radius:18px;padding:16px 18px}
+.panel h3{margin:0 0 6px;font-weight:900}
+.item{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap;border-top:1px dashed var(--line);padding:12px 0}
+.item:first-of-type{border-top:0}
+.item .nm{font-weight:800}.item .meta{color:var(--dim);font-size:.86rem}
+.go{font:inherit;font-weight:800;background:var(--navy);color:#fff;border-radius:10px;padding:8px 18px;text-decoration:none}
+.go[aria-disabled="true"]{opacity:.5;pointer-events:none}
+.note{color:var(--dim);font-size:.85rem;margin:6px 0 0}
+/* why */
+.why{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.why div{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px}
+.why b{display:block;font-weight:900}.why span{color:var(--dim);font-size:.9rem}
+.why i{font-style:normal;font-size:1.7rem;display:inline-block}
+@media (prefers-reduced-motion:no-preference){
+ .card .top .em{animation:float 2.6s ease-in-out infinite}
+ .card:nth-child(2) .top .em{animation-delay:.4s}.card:nth-child(3) .top .em{animation-delay:.8s}.card:nth-child(4) .top .em{animation-delay:1.2s}
+ .why i{animation:pulse 2.4s ease-in-out infinite}
+ .why div:nth-child(2n) i{animation:wig 2.8s ease-in-out infinite}
+ .chip{animation:float 3.2s ease-in-out infinite}.chip.b{animation-delay:1.1s}
+ .motto b .h{display:inline-block;animation:beat 1.2s ease-in-out infinite}
+ .logo{animation:glow 3s ease-in-out infinite}
+}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.18)}}
+@keyframes wig{0%,100%{transform:rotate(0)}25%{transform:rotate(-12deg)}75%{transform:rotate(12deg)}}
+@keyframes beat{0%,100%{transform:scale(1)}30%{transform:scale(1.25)}60%{transform:scale(.95)}}
+@keyframes glow{0%,100%{box-shadow:0 0 0 0 rgba(246,178,26,.6)}50%{box-shadow:0 0 0 8px rgba(246,178,26,0)}}
+/* steps */
+.steps{counter-reset:s;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.steps div{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px;position:relative}
+.steps div::before{counter-increment:s;content:counter(s);display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--navy);color:var(--gold);font-weight:900;margin-bottom:6px}
+.steps b{font-weight:800}
+/* contact */
+.contact{margin-top:34px;background:var(--navy);color:#fff;border-radius:22px;padding:22px;display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center}
+.contact h2{margin:0;font-weight:900}
+.contact p{margin:4px 0 0;color:#cdd8f2}
+.num{font-family:var(--mono);font-size:1.3rem;direction:ltr;display:inline-block;color:var(--gold2)}
+.contact .acts{display:flex;gap:10px;flex-wrap:wrap}
+.wa{background:#25d366;color:#05301b}.cp{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.5)}
+blockquote{margin:30px 0 0;text-align:center;color:var(--dim);font-size:1.05rem}
+blockquote b{color:var(--ink)}
+footer{margin-top:30px;background:#0a1f45;color:#9fb0d6;text-align:center;font-size:.88rem;padding-block:18px}
+footer .eqs{font-family:var(--mono);direction:ltr;color:#3b5a99;margin-bottom:4px}
+@media (max-width:760px){
+  .hero .wrap{grid-template-columns:1fr;padding-block:24px 52px}.emblem{max-width:220px;order:-1}
+  .cards,.why,.steps{grid-template-columns:1fr}
+  .stats .box{grid-template-columns:repeat(2,minmax(0,1fr))}.stat:nth-child(3){border-inline-start:0}.stat:nth-child(n+3){border-top:1px solid var(--line)}
+  .contact{grid-template-columns:1fr}.chip.a{inset-inline-start:0}.chip.b{inset-inline-end:0}
+}
+</style>
+
+<nav class="nav"><div class="wrap">
+  <div class="brand"><span class="logo">E=mc²</span>منصة أينشتاين الخليج</div>
+  <a href="#contact">تواصل معنا</a>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <div>
+    <span class="tag">⚛️ فيزياء 12 متقدم · بريدج</span>
+    <h1>منصة <span class="g">أينشتاين</span> الخليج في الفيزياء</h1>
+    <div class="by">مع <span>الأستاذ رامي عبد الفتاح</span></div>
+    <p class="lead">أهلًا بيك يا بطل 👋 امتحاناتك وواجباتك وألعاب المراجعة كلها في مكان واحد. ذاكر، اتدرّب، واعرف مستواك أول بأول.</p>
+    <div class="cta"><a class="btn gold" href="#sections">ابدأ دلوقتي 🚀</a><a class="btn line" href="#contact">تواصل مع الأستاذ</a></div>
+  </div>
+  <div class="emblem" aria-hidden="true">
+    <div class="ring"></div>
+    <svg viewBox="0 0 300 300">
+      <g class="spin"><ellipse class="orb" cx="150" cy="150" rx="118" ry="42"/><circle class="e" cx="268" cy="150" r="7"/></g>
+      <g class="spin r"><ellipse class="orb" cx="150" cy="150" rx="118" ry="42" transform="rotate(60 150 150)"/><circle class="e" cx="91" cy="252" r="7"/></g>
+      <g class="spin"><ellipse class="orb" cx="150" cy="150" rx="118" ry="42" transform="rotate(120 150 150)"/><circle class="e" cx="91" cy="48" r="7"/></g>
+      <text class="eq" x="150" y="161" text-anchor="middle">E=mc²</text>
+    </svg>
+    <span class="chip a">✔ تصحيح فوري</span><span class="chip b">🏆 شهادات تفوق</span>
+  </div>
+</div></header>
+
+<div class="wrap stats"><div class="box">
+  <div class="stat"><b>+46</b><span>سؤال مراجعة</span></div>
+  <div class="stat"><b>⏱</b><span>وقت لكل سؤال</span></div>
+  <div class="stat"><b>100%</b><span>تصحيح تلقائي</span></div>
+  <div class="stat"><b>24/7</b><span>متاحة في أي وقت</span></div>
+</div></div>
+
+<main class="wrap">
+  <div class="motto"><b>فرحة أهلك تستاهل تعبك <span class="h">❤️</span></b></div>
+
+  <section class="block" id="sections">
+    <div class="head"><h2>اختار القسم</h2></div>
+    <div class="cards">
+      <button class="card" id="c-exams" data-k="exams" aria-expanded="false" aria-controls="panel">
+        <div class="top t1"><span class="big">F = kq₁q₂/r²</span><span class="em">📝</span></div>
+        <div class="body"><h3>الامتحانات</h3><p>امتحانات إلكترونية بكود دخول، والنتيجة توصل للأستاذ على طول.</p><span class="more">شوف الامتحانات ←</span></div>
+      </button>
+      <button class="card" id="c-hw" data-k="hw" aria-expanded="false" aria-controls="panel">
+        <div class="top t2"><span class="big">Φ = q / ε₀</span><span class="em">📚</span></div>
+        <div class="body"><h3>الواجبات</h3><p>حل واجب كل حصة، وشوف الإجابة الصحيحة بعد التسليم.</p><span class="more">شوف الواجبات ←</span></div>
+      </button>
+      <button class="card" id="c-games" data-k="games" aria-expanded="false" aria-controls="panel">
+        <div class="top t3"><span class="big">V = kq / r</span><span class="em">🎮</span></div>
+        <div class="body"><h3>الألعاب</h3><p>راجع الدروس وانت بتلعب، واجمع نجوم، وخد شهادة تفوق.</p><span class="more">شوف الألعاب ←</span></div>
+      </button>
+      <button class="card" id="c-struct" data-k="struct" aria-expanded="false" aria-controls="panel">
+        <div class="top t4"><span class="big">W = qΔV</span><span class="em">🗂️</span></div>
+        <div class="body"><h3>مراجعة الهياكل</h3><p>مراجعة شاملة على أسئلة الهيكل قبل امتحان آخر الفصل.</p><span class="more">شوف المراجعات ←</span></div>
+      </button>
+    </div>
+    <div class="panel" id="panel" hidden aria-live="polite"></div>
+  </section>
+
+  <section class="block">
+    <div class="head"><h2>ليه منصة أينشتاين؟</h2></div>
+    <div class="why">
+      <div><i>💡</i><b>شرح مميز ومبسّط</b><span>أسلوب شرح الأستاذ رامي عبد الفتاح بيوصّل الفكرة لكل طالب، من الأساس لحد الأفكار الصعبة.</span></div>
+      <div><i>⚡</i><b>نتيجتك أول ما تسلّم</b><span>الامتحان بيتصحح لوحده، ودرجتك بتظهر لك على طول.</span></div>
+      <div><i>✅</i><b>الإجابات الصحيحة قدامك</b><span>في الواجبات بتشوف إجابتك صح ولا غلط، والإجابة الصحيحة ونموذج الإجابة.</span></div>
+      <div><i>📩</i><b>النتيجة توصل للأستاذ</b><span>بضغطة زرار نتيجتك بتوصل للأستاذ على واتساب، علشان يتابع مستواك.</span></div>
+      <div><i>📱</i><b>من أي موبايل</b><span>بتشتغل على أي موبايل أو كمبيوتر، من غير ما تنزّل برامج.</span></div>
+      <div><i>🎯</i><b>مذاكرة بالألعاب</b><span>تراجع الدروس وتتعلم من أخطائك وانت بتلعب، وتاخد شهادة تفوق.</span></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="head"><h2>إزاي تحل الامتحان؟</h2></div>
+    <div class="steps">
+      <div>دوس على <b>الامتحان</b> اللي الأستاذ قال عليه.</div>
+      <div>اكتب <b>اسمك الثلاثي</b> و<b>كود الدخول</b>.</div>
+      <div>حل الأسئلة، والوقت ظاهر جنب كل سؤال.</div>
+      <div>دوس <b>«أرسل النتيجة»</b> وبعدين إرسال في واتساب.</div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div>
+      <h2>تواصل مع الأستاذ رامي عبد الفتاح</h2>
+      <p>أي سؤال أو مشكلة في الامتحان، ابعت على واتساب.</p>
+      <span class="num" id="num">050 767 0323</span>
+      <div class="note" id="copyMsg" style="color:#cdd8f2"></div>
+    </div>
+    <div class="acts"><a class="btn wa" href="https://wa.me/971507670323" target="_blank" rel="noopener">💬 واتساب</a><button class="btn cp" type="button" id="copy">نسخ الرقم</button></div>
+  </section>
+
+  <blockquote>«الخيال أهم من المعرفة» <b>— ألبرت أينشتاين</b></blockquote>
+</main>
+<footer><div class="wrap"><div class="eqs">∇·E = ρ/ε₀ · E = −∇V · W = qΔV</div>© منصة أينشتاين الخليج في الفيزياء · الأستاذ رامي عبد الفتاح</div></footer>
+
+<script>
+(function(){
+const DATA={
+  exams:{t:'📝 الامتحانات',items:[
+    {nm:'اختبار الوزارة 2023-2024',meta:'6 أسئلة · 60 درجة',href:'exams/wizara.html'},
+    {nm:'اختبار إلكتروني 4 · مراجعة نهائية',meta:'9 أسئلة · 27 درجة',href:'exams/exam4.html'}]},
+  hw:{t:'📚 الواجبات',items:[
+    {nm:'واجب أسطح تساوي الجهد',meta:'3 أسئلة · 15 درجة',href:'homework/wajib-equipotential.html'},
+    {nm:'واجب حصة الأحد',meta:'5 أسئلة · 30 درجة',href:'homework/wajib-ahad.html'}]},
+  struct:{t:'🗂️ مراجعة الهياكل',items:[
+    {nm:'مراجعة هيكل الفصل الأول · 12 متقدم بريدج',meta:'قريبًا',href:''}]},
+  games:{t:'🎮 الألعاب',items:[
+    {nm:'تحدي القمة 🏔️',meta:'46 سؤال مراجعة · شهادة تفوق',href:'games/summit.html'}]}
+};
+const LIVE=location.hostname.endsWith('github.io');
+const panel=document.getElementById('panel');
+document.querySelectorAll('.card').forEach(c=>c.addEventListener('click',()=>{
+  const open=c.getAttribute('aria-expanded')==='true';
+  document.querySelectorAll('.card').forEach(x=>x.setAttribute('aria-expanded','false'));
+  if(open){panel.hidden=true;return;}
+  c.setAttribute('aria-expanded','true');
+  const d=DATA[c.dataset.k];panel.innerHTML='';
+  const h=document.createElement('h3');h.textContent=d.t;panel.appendChild(h);
+  d.items.forEach(it=>{const r=document.createElement('div');r.className='item';
+    const l=document.createElement('div');l.style.minWidth='0';
+    const n=document.createElement('div');n.className='nm';n.textContent=it.nm;
+    const m=document.createElement('div');m.className='meta';m.textContent=it.meta;l.append(n,m);
+    const a=document.createElement('a');a.className='go';a.textContent='ابدأ';a.href=it.href;
+    if(!LIVE||!it.href){a.setAttribute('aria-disabled','true');a.removeAttribute('href');if(!it.href)a.textContent='قريبًا';}
+    r.append(l,a);panel.appendChild(r);});
+  if(!LIVE){const p=document.createElement('p');p.className='note';p.textContent='نسخة تجريبية: زرار «ابدأ» هيشتغل بعد رفع الموقع على GitHub.';panel.appendChild(p);}
+  panel.hidden=false;panel.scrollIntoView({behavior:'smooth',block:'nearest'});
+}));
+document.getElementById('copy').addEventListener('click',()=>{
+  const msg=document.getElementById('copyMsg');
+  const fb=()=>{const r=document.createRange();r.selectNodeContents(document.getElementById('num'));const s=getSelection();s.removeAllRanges();s.addRange(r);msg.textContent='الرقم متحدد، انسخه.';};
+  try{navigator.clipboard.writeText('0507670323').then(()=>{msg.textContent='تم نسخ الرقم ✔';},fb);}catch(e){fb();}
+});
+})();
+</script>
