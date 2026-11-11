@@ -46,6 +46,12 @@ h1 .g{color:var(--gold)}
 .emblem .eq{font-family:var(--mono);font-weight:600;fill:var(--gold);font-size:30px}
 @media (prefers-reduced-motion:no-preference){.emblem .spin{transform-origin:150px 150px;animation:spin 10s linear infinite}.emblem .spin.r{animation-duration:14s;animation-direction:reverse}}
 @keyframes spin{to{transform:rotate(360deg)}}
+h1 .l1{display:block;white-space:nowrap;font-size:clamp(1.75rem,8.2vw,3.3rem)}
+h1 .sub{display:flex;align-items:center;gap:12px;margin-top:6px;font-size:clamp(1.1rem,4.6vw,1.6rem);font-weight:800;color:var(--gold2);letter-spacing:.5px}
+h1 .sub i{flex:none;width:34px;height:3px;border-radius:3px;background:linear-gradient(90deg,transparent,var(--gold))}
+[dir=rtl] h1 .sub i:first-child,[dir=ltr] h1 .sub i:last-child{transform:scaleX(-1)}
+h1 .sub i:last-child{flex:1;max-width:120px}
+
 .gpick{margin-top:6px;max-width:540px}
 .gpick .gh{margin:0 0 12px;font-weight:900;font-size:clamp(1.25rem,4.4vw,1.5rem);display:flex;align-items:center;gap:10px;background:linear-gradient(90deg,#ffd56b,#fff 50%,#ffd56b);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:gshine 3.5s linear infinite}
 .gpick .gh .sp{color:var(--gold);-webkit-text-fill-color:var(--gold);font-size:.9em;animation:twk 1.8s ease-in-out infinite}.gpick .gh .sp:last-child{animation-delay:.9s}
@@ -293,7 +299,7 @@ footer .eqs{font-family:var(--mono);direction:ltr;color:#3b5a99;margin-bottom:4p
 
 <header class="hero"><div class="wrap">
   <div>
-    <h1 data-en="&lt;span class=&quot;g&quot;&gt;Einstein&lt;/span&gt; Gulf Physics Platform">منصة <span class="g">أينشتاين</span> الخليج في الفيزياء</h1>
+    <h1 data-en="&lt;span class=&quot;l1&quot;&gt;&lt;span class=&quot;g&quot;&gt;Einstein&lt;/span&gt; Gulf&lt;/span&gt;&lt;span class=&quot;sub&quot;&gt;&lt;i&gt;&lt;/i&gt;Physics Platform&lt;i&gt;&lt;/i&gt;&lt;/span&gt;"><span class="l1">منصة <span class="g">أينشتاين</span> الخليج</span><span class="sub"><i></i>في الفيزياء<i></i></span></h1>
     <div class="by" data-en="with &lt;span&gt;Mr. Ramy Abdelfattah&lt;/span&gt;">مع <span>الأستاذ رامي عبد الفتاح</span></div>
     <p class="lead" data-en="Welcome, champ 👋 Your exams, homework and review games, all in one place. Study, practise, and track your level as you go.">أهلًا بيك يا بطل 👋 امتحاناتك وواجباتك وألعاب المراجعة كلها في مكان واحد. ذاكر، اتدرّب، واعرف مستواك أول بأول.</p>
     <div class="gpick" id="gradePick"><p class="gh"><span class="sp" aria-hidden="true">✦</span><span data-en="Pick your grade and take off">اختر صفك وانطلق</span><span class="sp" aria-hidden="true">✦</span></p><div class="gbtns"></div></div>
