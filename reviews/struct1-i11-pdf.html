@@ -21,7 +21,7 @@ button{font:inherit;font-weight:700;border:0;border-radius:8px;padding:12px 18px
 <main class="wrap">
 <section class="card" id="gate"><h2 style="margin:0;font-size:1.15rem">Enter the entry code to open the questions file</h2>
 <p class="small" style="margin:0">Same code as the structure review. The file is for studying and printing, without answers.</p>
-<input type="tel" id="cd" inputmode="numeric" maxlength="4" placeholder="4 digits" autocomplete="off">
+<input type="tel" id="cd" inputmode="numeric" maxlength="10" placeholder="4 digits" autocomplete="off">
 <div class="msg" id="er" role="alert"></div><button type="button" id="go">Open the file</button></section>
 <section id="view" hidden><div class="card"><button type="button" id="dl">Download the PDF to print</button><p class="small" style="margin:0">Study from the pages below, or download the file and print it.</p></div><div id="pages" style="display:flex;flex-direction:column;gap:12px;margin-top:12px"></div></section>
 </main>
@@ -39,7 +39,7 @@ function open(code){
   const box=$('pages');B.pages.forEach((p,i)=>{const im=new Image();im.className='pg';im.alt='Page '+(i+1);im.src='data:image/jpeg;base64,'+p;box.appendChild(im)});
   $('gate').hidden=true;$('view').hidden=false;try{sessionStorage.setItem('egp_pdf_ok',code)}catch(e){}
 }
-$('go').onclick=()=>{const c=$('cd').value.trim();if(fnv(SALT+'|check|'+c).toString(16).padStart(8,'0')!==CHECK){$('er').textContent="The code is not correct. Ask Mr. Ramy Abdelfattah for the code.";return}open(c)};
+$('go').onclick=()=>{const c=$('cd').value.replace(/[\u0660-\u0669]/g,d=>d.charCodeAt(0)-0x660).replace(/[\u06F0-\u06F9]/g,d=>d.charCodeAt(0)-0x6F0).replace(/\D/g,'');if(fnv(SALT+'|check|'+c).toString(16).padStart(8,'0')!==CHECK){$('er').textContent="The code is not correct. Ask Mr. Ramy Abdelfattah for the code.";return}open(c)};
 $('cd').addEventListener('keydown',e=>{if(e.key==='Enter')$('go').click()});
 $('dl').onclick=()=>{const blob=new Blob([b64(pdf)],{type:'application/pdf'}),u=URL.createObjectURL(blob),a=document.createElement('a');a.href=u;a.download=NAME;document.body.appendChild(a);a.click();setTimeout(()=>{a.remove();URL.revokeObjectURL(u)},4000)};
 })();
