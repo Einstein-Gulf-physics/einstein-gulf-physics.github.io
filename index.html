@@ -46,6 +46,19 @@ h1 .g{color:var(--gold)}
 .emblem .eq{font-family:var(--mono);font-weight:600;fill:var(--gold);font-size:30px}
 @media (prefers-reduced-motion:no-preference){.emblem .spin{transform-origin:150px 150px;animation:spin 10s linear infinite}.emblem .spin.r{animation-duration:14s;animation-direction:reverse}}
 @keyframes spin{to{transform:rotate(360deg)}}
+.egbtn{font:inherit;display:inline-flex;align-items:center;gap:12px;border:0;cursor:pointer;background:linear-gradient(135deg,#ffd56b,#f6b21a 55%,#e09a00);color:var(--navy);border-radius:999px;padding:8px 20px 8px 8px;box-shadow:0 6px 0 #b37e05,0 0 0 0 rgba(246,178,26,.6);animation:egp 2.2s ease-out infinite;text-align:start}
+[dir=rtl] .egbtn{padding:8px 8px 8px 20px}
+.egbtn:active{transform:translateY(3px);box-shadow:0 3px 0 #b37e05}
+.egbtn .bl{position:relative;flex:none;width:52px;height:52px;border-radius:50%;background:var(--navy);color:var(--gold);display:grid;place-items:center;font-family:var(--mono);font-size:.72rem;font-weight:700;direction:ltr;border:2px solid #fff}
+.egbtn .bl i{position:absolute;inset:-6px;border-radius:50%;border:2px dashed rgba(14,42,92,.55);animation:spin 6s linear infinite}
+.egbtn .bt{display:flex;flex-direction:column;line-height:1.25}
+.egbtn small{font-weight:800;font-size:.8rem;opacity:.85}.egbtn b{font-weight:900;font-size:1.2rem}
+.egbtn .tap{font-size:1.4rem;animation:tapm 1.2s ease-in-out infinite}
+@keyframes egp{0%{box-shadow:0 6px 0 #b37e05,0 0 0 0 rgba(246,178,26,.55)}70%,100%{box-shadow:0 6px 0 #b37e05,0 0 0 14px rgba(246,178,26,0)}}
+@keyframes tapm{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+@media (prefers-reduced-motion:reduce){.egbtn,.egbtn .tap,.egbtn .bl i{animation:none}}
+.cta{align-items:center}
+
 .gpick{margin-top:14px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:16px;padding:12px;max-width:520px;animation:pop .25s ease-out}
 .gpick p{margin:0 0 8px;font-weight:800;color:var(--gold2)}
 .gbtns{display:grid;grid-template-columns:1fr 1fr;gap:8px}
@@ -256,7 +269,7 @@ footer .eqs{font-family:var(--mono);direction:ltr;color:#3b5a99;margin-bottom:4p
     <h1 data-en="&lt;span class=&quot;g&quot;&gt;Einstein&lt;/span&gt; Gulf Physics Platform">منصة <span class="g">أينشتاين</span> الخليج في الفيزياء</h1>
     <div class="by" data-en="with &lt;span&gt;Mr. Ramy Abdelfattah&lt;/span&gt;">مع <span>الأستاذ رامي عبد الفتاح</span></div>
     <p class="lead" data-en="Welcome, champ 👋 Your exams, homework and review games, all in one place. Study, practise, and track your level as you go.">أهلًا بيك يا بطل 👋 امتحاناتك وواجباتك وألعاب المراجعة كلها في مكان واحد. ذاكر، اتدرّب، واعرف مستواك أول بأول.</p>
-    <div class="cta"><button type="button" class="btn gold" id="startBtn" aria-expanded="false" aria-controls="gradePick">يلا بينا 🚀</button><a class="btn line" href="#contact" data-en="Contact the teacher">تواصل مع الأستاذ</a></div>
+    <div class="cta"><button type="button" class="egbtn" id="startBtn" aria-expanded="false" aria-controls="gradePick"><span class="bl" aria-hidden="true"><i></i>E=mc²</span><span class="bt"><small>اضغط هنا وادخل</small><b>أينشتاين الخليج</b></span><span class="tap" aria-hidden="true">👆</span></button><a class="btn line" href="#contact" data-en="Contact the teacher">تواصل مع الأستاذ</a></div>
     <div class="gpick" id="gradePick" hidden><p data-en="Choose your grade">اختار صفك</p><div class="gbtns"></div></div>
   </div>
   <div class="emblem clockbox">
@@ -451,7 +464,7 @@ function badges(){let t=null;try{t=localStorage.getItem('eg_track')}catch(e){}
     b.textContent=n?(document.documentElement.lang==='en'?n+(n>1?' items':' item'):(n===1?'عنصر واحد':n===2?'عنصران':n<11?n+' عناصر':n+' عنصرًا')):(document.documentElement.lang==='en'?'soon':'قريبًا');b.classList.toggle('z',!n)})}
 const sb=document.getElementById('startBtn'),gp=document.getElementById('gradePick'),gb=gp.querySelector('.gbtns');
 function startLabel(){let t=null;try{t=localStorage.getItem('eg_track')}catch(e){}const en=document.documentElement.lang==='en';
-  const lab=t&&(TR.find(x=>x[0]===t)||[])[1];sb.textContent=lab?(en?'Continue · ':'كمّل · ')+L(lab).replace(/^(الصف|Grade) /,'')+' ⚡':(en?'Let’s go 🚀':'يلا بينا 🚀');
+  const lab=t&&(TR.find(x=>x[0]===t)||[])[1];sb.querySelector('small').textContent=lab?(en?'Continue · Einstein Gulf':'كمّل · أينشتاين الخليج'):(en?'Tap here to enter':'اضغط هنا وادخل');sb.querySelector('b').textContent=lab?L(lab).replace(/^(الصف|Grade) /,''):(en?'Einstein Gulf':'أينشتاين الخليج');
   gb.innerHTML='';TR.forEach(([k,l])=>{const b=document.createElement('button');b.type='button';b.textContent=L(l);b.setAttribute('aria-pressed',k===t?'true':'false');
     b.onclick=()=>{try{localStorage.setItem('eg_track',k)}catch(e){}track=k;gp.hidden=true;sb.setAttribute('aria-expanded','false');startLabel();badges();
       const sec=document.getElementById('sections');sec.scrollIntoView({behavior:'smooth',block:'start'});sec.classList.remove('flash');void sec.offsetWidth;sec.classList.add('flash')};gb.appendChild(b)})}
