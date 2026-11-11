@@ -504,7 +504,7 @@ document.querySelectorAll('.card').forEach(c=>c.addEventListener('click',()=>{
 }));
 function badges(){let t=null;try{t=localStorage.getItem('eg_track')}catch(e){}
   document.querySelectorAll('.card').forEach(c=>{let b=c.querySelector('.top .bdg');const n=t?((DATA[c.dataset.k].tracks[t])||[]).length:0;
-    if(!t){if(b)b.remove();return}if(!b){b=document.createElement('span');b.className='bdg';c.querySelector('.top').appendChild(b)}
+    if(!t||!n){if(b)b.remove();return}if(!b){b=document.createElement('span');b.className='bdg';c.querySelector('.top').appendChild(b)}
     b.textContent=n?(document.documentElement.lang==='en'?n+(n>1?' items':' item'):(n===1?'عنصر واحد':n===2?'عنصران':n<11?n+' عناصر':n+' عنصرًا')):(document.documentElement.lang==='en'?'soon':'قريبًا');b.classList.toggle('z',!n)})}
 const gp=document.getElementById('gradePick'),gb=gp.querySelector('.gbtns');
 const TT={b12:['12','بريدج','Bridge'],i12:['12','إنسباير','Inspire'],b11:['11','بريدج','Bridge'],i11:['11','إنسباير','Inspire']};
