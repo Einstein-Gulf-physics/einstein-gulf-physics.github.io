@@ -46,6 +46,13 @@ h1 .g{color:var(--gold)}
 .emblem .eq{font-family:var(--mono);font-weight:600;fill:var(--gold);font-size:30px}
 @media (prefers-reduced-motion:no-preference){.emblem .spin{transform-origin:150px 150px;animation:spin 10s linear infinite}.emblem .spin.r{animation-duration:14s;animation-direction:reverse}}
 @keyframes spin{to{transform:rotate(360deg)}}
+.phet .pnote{margin:0 0 12px;color:var(--dim)}
+.sims{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px}
+.sims a{display:flex;align-items:center;gap:10px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px;text-decoration:none;color:var(--ink);font-weight:800;transition:transform .15s,border-color .15s}
+.sims a:hover{transform:translateY(-2px);border-color:var(--gold)}
+.sims .g{flex:none;width:34px;height:34px;border-radius:10px;display:grid;place-items:center;background:var(--navy);color:var(--gold);font-family:var(--mono);font-size:.85rem}
+.allsims{margin-top:12px;background:var(--navy);color:#fff}
+
 .navr{display:flex;gap:8px;align-items:center}
 .nav .lng{font:inherit;font-weight:800;font-size:.85rem;background:var(--gold);color:var(--navy);border:0;border-radius:999px;padding:6px 14px;cursor:pointer}
 .clockbox .rimtxt text{direction:ltr}
@@ -299,6 +306,13 @@ footer .eqs{font-family:var(--mono);direction:ltr;color:#3b5a99;margin-bottom:4p
   <section class="block">
     <div class="head"><h2 data-en="How to take an exam">إزاي تحل الامتحان؟</h2></div>
     <ol class="circuit"><li style="--i:0"><span class="nd">1</span><b data-en="Open the exam">افتح الامتحان</b><small data-en="The one your teacher assigned">اللي الأستاذ قال عليه</small></li><li style="--i:1"><span class="nd">2</span><b data-en="Name and code">اسمك والكود</b><small data-en="Your full name and the entry code">اسمك الثلاثي وكود الدخول</small></li><li style="--i:2"><span class="nd">3</span><b data-en="Solve carefully">حل بتركيز</b><small data-en="The timer is shown beside each question">الوقت ظاهر جنب كل سؤال</small></li><li style="--i:3"><span class="nd">4</span><b data-en="Send your result">أرسل النتيجة</b><small data-en="To the teacher on WhatsApp">على الواتساب للأستاذ</small></li></ol>
+  </section>
+
+  <section class="block phet">
+    <div class="head"><h2 data-en="PhET Interactive Simulations">محاكاة PhET التفاعلية</h2></div>
+    <p class="pnote" data-en="Free simulations from the University of Colorado. They open on the PhET site, where you can switch the language.">محاكاة مجانية من جامعة كولورادو، بتفتح على موقع PhET، وتقدر تغيّر لغتها من جوه.</p>
+    <ul class="sims"><li><a href="https://phet.colorado.edu/en/simulations/charges-and-fields" target="_blank" rel="noopener"><span class="g">12</span><b data-en="Charges and Fields">الشحنات والمجالات</b></a></li><li><a href="https://phet.colorado.edu/en/simulations/coulombs-law" target="_blank" rel="noopener"><span class="g">12</span><b data-en="Coulomb’s Law">قانون كولوم</b></a></li><li><a href="https://phet.colorado.edu/en/simulations/capacitor-lab-basics" target="_blank" rel="noopener"><span class="g">12</span><b data-en="Capacitor Lab: Basics">مختبر المكثّف</b></a></li><li><a href="https://phet.colorado.edu/en/simulations/collision-lab" target="_blank" rel="noopener"><span class="g">11</span><b data-en="Collision Lab">مختبر التصادمات</b></a></li><li><a href="https://phet.colorado.edu/en/simulations/balancing-act" target="_blank" rel="noopener"><span class="g">11</span><b data-en="Balancing Act">الاتزان والعزم</b></a></li></ul>
+    <a class="btn allsims" href="https://phet.colorado.edu/en/simulations/browse" target="_blank" rel="noopener" data-en="All PhET simulations ↗">كل محاكاة PhET ↗</a>
   </section>
 
   <section class="contact" id="contact">
