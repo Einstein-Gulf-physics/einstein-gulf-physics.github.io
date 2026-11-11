@@ -66,7 +66,7 @@ section.block{margin-top:34px}
 .card .top{height:118px;display:grid;place-items:center;position:relative}
 .card .top .big{font-family:var(--mono);font-weight:600;color:#fff;font-size:1.6rem;direction:ltr}
 .card .top .em{position:absolute;bottom:-22px;inset-inline-start:18px;width:52px;height:52px;border-radius:14px;background:#fff;display:grid;place-items:center;font-size:1.6rem;box-shadow:0 6px 16px rgba(0,0,0,.15)}
-.t1{background:linear-gradient(135deg,#16408a,#2e6fd6)}.t4{background:linear-gradient(135deg,#6b21a8,#c026d3)}.t2{background:linear-gradient(135deg,#0d7a5f,#18b38a)}.t3{background:linear-gradient(135deg,#c2410c,#f6b21a)}.t5{background:linear-gradient(135deg,#0f766e,#14b8a6)}
+.t1{background:linear-gradient(135deg,#16408a,#2e6fd6)}.t4{background:linear-gradient(135deg,#6b21a8,#c026d3)}.t2{background:linear-gradient(135deg,#0d7a5f,#18b38a)}.t3{background:linear-gradient(135deg,#c2410c,#f6b21a)}.t5{background:linear-gradient(135deg,#0f766e,#14b8a6)}.t6{background:linear-gradient(135deg,#7c2d12,#b45309)}
 .card .body{padding:30px 18px 18px;display:flex;flex-direction:column;gap:6px;flex:1}
 .card h3{margin:0;font-weight:900;font-size:1.3rem}
 .card p{margin:0;color:var(--dim);font-size:.95rem}
@@ -177,6 +177,10 @@ footer .eqs{font-family:var(--mono);direction:ltr;color:#3b5a99;margin-bottom:4p
         <div class="top t3"><span class="big">V = kq / r</span><span class="em">🎮</span></div>
         <div class="body"><h3>تحدي القمة</h3><p>راجع الدروس وانت بتلعب، واجمع نجوم، وخد شهادة تفوق.</p><span class="more">شوف تحدي القمة ←</span></div>
       </button>
+      <button class="card" id="c-comp" data-k="comp" aria-expanded="false" aria-controls="panel">
+        <div class="top t6"><span class="big">2019 · 2020</span><span class="em">🏛️</span></div>
+        <div class="body"><h3>اختبارات شاملة</h3><p>اختبارات الوزارة الشاملة لنهاية الفصل بأسئلتها الأصلية.</p><span class="more">شوف الاختبارات ←</span></div>
+      </button>
       <button class="card" id="c-rev" data-k="rev" aria-expanded="false" aria-controls="panel">
         <div class="top t5"><span class="big">Φ = q/ε₀</span><span class="em">🎯</span></div>
         <div class="body"><h3>مراجعات لدروس محددة</h3><p>مراجعة مركّزة على مجموعة دروس بعينها، سؤال بسؤال.</p><span class="more">شوف المراجعات ←</span></div>
@@ -239,6 +243,9 @@ const DATA={
     i12:[],b11:[],i11:[]}},
   games:{t:'🏔️ تحدي القمة',tracks:{
     b12:[{nm:'تحدي القمة 🏔️',meta:'46 سؤال مراجعة · شهادة تفوق',href:'games/summit.html'}],
+    i12:[],b11:[],i11:[]}},
+  comp:{t:'🏛️ اختبارات شاملة',tracks:{
+    b12:[{nm:'اختبار الوزارة الشامل 2019-2020',meta:'16 شاشة · 50 درجة',href:'comprehensive/wizara-2019-2020.html'}],
     i12:[],b11:[],i11:[]}},
   rev:{t:'🎯 مراجعات لدروس محددة',tracks:{
     b12:[{nm:'مراجعة (1) · الدروس 2.5 و2.7 و2.8 و2.9',meta:'42 سؤالًا · 44 درجة',href:'reviews/review1.html'}],
