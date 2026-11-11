@@ -46,6 +46,20 @@ h1 .g{color:var(--gold)}
 .emblem .eq{font-family:var(--mono);font-weight:600;fill:var(--gold);font-size:30px}
 @media (prefers-reduced-motion:no-preference){.emblem .spin{transform-origin:150px 150px;animation:spin 10s linear infinite}.emblem .spin.r{animation-duration:14s;animation-direction:reverse}}
 @keyframes spin{to{transform:rotate(360deg)}}
+.pend{position:absolute;left:50%;top:calc(100% - 3px);width:0;height:0;z-index:3}
+.pend .sw{position:absolute;left:0;top:0;transform-origin:0 0;animation:swing 1.004s cubic-bezier(.37,0,.63,1) infinite alternate}
+.emblem .pend .str{position:absolute;inset:auto;left:-100px;top:0;width:200px;height:56px;overflow:visible}
+.pend .str line{stroke:#ffd56b;stroke-width:2;stroke-linecap:round;opacity:.9}
+.pend .str circle{fill:#f6b21a;stroke:#fff;stroke-width:2}
+@keyframes swing{from{transform:rotate(-7deg)}to{transform:rotate(7deg)}}
+.clockbox .pulse{position:absolute;inset:0;border-radius:50%;pointer-events:none;z-index:0}
+.clockbox .pulse::before,.clockbox .pulse::after{content:"";position:absolute;inset:0;border-radius:50%;border:3px solid rgba(143,211,255,.9);box-shadow:0 0 24px rgba(143,211,255,.6),inset 0 0 18px rgba(143,211,255,.4);opacity:0}
+.clockbox .pulse::after{border-color:rgba(255,213,107,.9);box-shadow:0 0 24px rgba(246,178,26,.6)}
+.clockbox .pulse.fire::before{animation:wave 1.8s ease-out}
+.clockbox .pulse.fire::after{animation:wave 1.8s ease-out .35s}
+@keyframes wave{0%{transform:scale(1);opacity:.95}100%{transform:scale(1.9);opacity:0}}
+@media (prefers-reduced-motion:reduce){.pend .sw{animation:none}.clockbox .pulse{display:none}}
+
 .tflip{perspective:1100px;margin:12px 0 6px}
 .tflip .tf{display:grid;transform-style:preserve-3d;animation:dflip 8s cubic-bezier(.65,0,.35,1) infinite}
 .tflip .tface{grid-area:1/1;backface-visibility:hidden;-webkit-backface-visibility:hidden;align-self:center}
@@ -206,8 +220,8 @@ h1 .sub i:last-child,.h1 .sub i:last-child{flex:1;max-width:120px;opacity:.4}
 .clockbox .eqin{fill:#8fd3ff;font-weight:800;font-size:15px;font-family:var(--mono)}
 .clockbox .orb{opacity:.3}
 .clockbox .hh{stroke:#fff;stroke-width:7;stroke-linecap:round}.clockbox .hm{stroke:#fff;stroke-width:4.5;stroke-linecap:round}.clockbox .hs{stroke:#ff4f9a;stroke-width:2;stroke-linecap:round}
-.clockbox{margin-bottom:76px}
-.dclock{position:absolute;left:50%;top:calc(100% + 14px);transform:translateX(-50%);perspective:700px;white-space:nowrap}
+.clockbox{margin-bottom:126px}
+.dclock{position:absolute;left:0;top:54px;transform:translateX(-50%);perspective:700px;white-space:nowrap}
 .dclock .flip{display:grid;transform-style:preserve-3d;animation:dflip 8s cubic-bezier(.65,0,.35,1) infinite}
 .dclock .face{grid-area:1/1;display:flex;align-items:center;justify-content:center;gap:12px;background:linear-gradient(135deg,#ffd56b,#f6b21a);color:var(--navy);border-radius:999px;padding:6px 18px 6px 8px;box-shadow:0 10px 24px rgba(0,0,0,.35);border:2px solid #fff;backface-visibility:hidden;-webkit-backface-visibility:hidden}
 .dclock .fa{padding:6px 8px 6px 18px}
@@ -351,7 +365,8 @@ footer .eqs{font-family:var(--mono);direction:ltr;color:#3b5a99;margin-bottom:4p
       <line id="hS" class="hs" x1="150" y1="168" x2="150" y2="58"/>
       <circle cx="150" cy="150" r="6" fill="#f6b21a"/><circle cx="150" cy="150" r="2.5" fill="#e0287a"/>
     </svg>
-    <div class="dclock" aria-live="off"><div class="flip"><div class="face fa" dir="rtl" lang="ar"><span class="dd" id="dDayA"></span><span class="dm"><b id="dNumA"></b><span id="dMonA"></span></span></div><div class="face fe" dir="ltr" lang="en"><span class="dd" id="dDayE"></span><span class="dm"><b id="dNumE"></b><span id="dMonE"></span></span></div></div></div>
+    <div class="pulse" aria-hidden="true"></div>
+    <div class="pend" aria-hidden="false"><div class="sw"><svg class="str" width="200" height="56" viewBox="-100 0 200 56" aria-hidden="true"><line x1="0" y1="0" x2="-70" y2="56"/><line x1="0" y1="0" x2="70" y2="56"/><circle cx="0" cy="0" r="5"/></svg><div class="dclock" aria-live="off"><div class="flip"><div class="face fa" dir="rtl" lang="ar"><span class="dd" id="dDayA"></span><span class="dm"><b id="dNumA"></b><span id="dMonA"></span></span></div><div class="face fe" dir="ltr" lang="en"><span class="dd" id="dDayE"></span><span class="dm"><b id="dNumE"></b><span id="dMonE"></span></span></div></div></div></div></div>
   </div>
 </div></header>
 
@@ -571,9 +586,11 @@ const DF={ar:{w:mk('ar-AE-u-nu-latn',{weekday:'long'}),d:mk('ar-AE-u-nu-latn',{d
 const hH=document.getElementById('hH'),hM=document.getElementById('hM'),hS=document.getElementById('hS');
 function tick(){const now=new Date();const p={};tf.formatToParts(now).forEach(x=>p[x.type]=x.value);
   const h=(+p.hour)%24,m=+p.minute,sc=+p.second;
+  if(sc===0&&window.__lastPulse!==m){window.__lastPulse=m;firePulse();}
   hH.setAttribute('transform','rotate('+((h%12)*30+m*0.5)+' 150 150)');hM.setAttribute('transform','rotate('+(m*6+sc*0.1)+' 150 150)');hS.setAttribute('transform','rotate('+(sc*6)+' 150 150)');
   for(const [k,x] of [['ar','A'],['en','E']]){const F=DF[k];if(!F.w)continue;document.getElementById('dDay'+x).textContent=F.w.format(now);document.getElementById('dNum'+x).textContent=F.d.format(now);document.getElementById('dMon'+x).textContent=F.m.format(now).replace(/\s*م$/,'');}}
-tick();setInterval(tick,1000);
+function firePulse(){const el=document.querySelector('.clockbox .pulse');if(!el)return;el.classList.remove('fire');void el.offsetWidth;el.classList.add('fire');}
+tick();setInterval(tick,1000);setTimeout(firePulse,1200);
 const box=document.getElementById('calcBox'),btn=document.getElementById('calcBtn'),ex=document.getElementById('cEx'),rs=document.getElementById('cRs');
 let expr='',ans=0,done=false;
 const show=()=>{ex.textContent=expr.replace(/E/g,'×10^')};
