@@ -46,6 +46,27 @@ h1 .g{color:var(--gold)}
 .emblem .eq{font-family:var(--mono);font-weight:600;fill:var(--gold);font-size:30px}
 @media (prefers-reduced-motion:no-preference){.emblem .spin{transform-origin:150px 150px;animation:spin 10s linear infinite}.emblem .spin.r{animation-duration:14s;animation-direction:reverse}}
 @keyframes spin{to{transform:rotate(360deg)}}
+.gpick{margin-top:6px;max-width:540px}
+.gpick p{margin:0 0 10px;font-weight:900;font-size:1.15rem;color:var(--gold2)}
+.gbtns{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.gt{font:inherit;position:relative;display:flex;align-items:center;gap:12px;text-align:start;border:2px solid rgba(255,255,255,.18);border-radius:18px;padding:12px;cursor:pointer;color:#fff;overflow:hidden;
+  background:linear-gradient(135deg,rgba(255,255,255,.12),rgba(255,255,255,.03));backdrop-filter:blur(6px);transition:transform .18s,border-color .18s,box-shadow .18s}
+.gt::before{content:"";position:absolute;inset:-40% -60%;background:linear-gradient(110deg,transparent 40%,rgba(255,255,255,.22) 50%,transparent 60%);transform:translateX(-60%);animation:shine 4s ease-in-out infinite}
+.gbtns .gt:nth-child(2)::before{animation-delay:.5s}.gbtns .gt:nth-child(3)::before{animation-delay:1s}.gbtns .gt:nth-child(4)::before{animation-delay:1.5s}
+.gt:hover{transform:translateY(-3px);border-color:var(--gold);box-shadow:0 10px 26px rgba(0,0,0,.3)}
+.gt:active{transform:translateY(0) scale(.98)}
+.gt .gn{position:relative;flex:none;width:52px;height:52px;border-radius:14px;display:grid;place-items:center;font-family:var(--mono);font-weight:700;font-size:1.45rem;color:var(--navy);box-shadow:0 6px 14px rgba(0,0,0,.25)}
+.gt.br .gn{background:linear-gradient(135deg,#ffd56b,#f6b21a)}
+.gt.in .gn{background:linear-gradient(135deg,#9fe3ff,#42a5f5)}
+.gt .gx{position:relative;display:flex;flex-direction:column;line-height:1.25;min-width:0}
+.gt b{font-weight:900;font-size:1.15rem}.gt small{font-weight:700;font-size:.8rem;color:#cdd8f2}
+.gt .ok{position:absolute;top:8px;inset-inline-end:10px;width:22px;height:22px;border-radius:50%;background:var(--gold);color:var(--navy);font-weight:900;font-size:.8rem;display:none;place-items:center}
+.gt[aria-pressed="true"]{border-color:var(--gold);background:linear-gradient(135deg,rgba(246,178,26,.28),rgba(246,178,26,.08));box-shadow:0 0 0 3px rgba(246,178,26,.25),0 10px 26px rgba(0,0,0,.3)}
+.gt[aria-pressed="true"] .ok{display:grid}
+@keyframes shine{0%,60%{transform:translateX(-60%)}100%{transform:translateX(60%)}}
+@media (prefers-reduced-motion:reduce){.gt::before{animation:none;display:none}}
+.gpick+.cta{margin-top:14px}
+
 .egbtn{font:inherit;display:inline-flex;align-items:center;gap:12px;border:0;cursor:pointer;background:linear-gradient(135deg,#ffd56b,#f6b21a 55%,#e09a00);color:var(--navy);border-radius:999px;padding:8px 20px 8px 8px;box-shadow:0 6px 0 #b37e05,0 0 0 0 rgba(246,178,26,.6);animation:egp 2.2s ease-out infinite;text-align:start}
 [dir=rtl] .egbtn{padding:8px 8px 8px 20px}
 .egbtn:active{transform:translateY(3px);box-shadow:0 3px 0 #b37e05}
@@ -59,11 +80,6 @@ h1 .g{color:var(--gold)}
 @media (prefers-reduced-motion:reduce){.egbtn,.egbtn .tap,.egbtn .bl i{animation:none}}
 .cta{align-items:center}
 
-.gpick{margin-top:14px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:16px;padding:12px;max-width:520px;animation:pop .25s ease-out}
-.gpick p{margin:0 0 8px;font-weight:800;color:var(--gold2)}
-.gbtns{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.gbtns button{font:inherit;font-weight:800;font-size:.9rem;border:2px solid rgba(255,255,255,.3);background:transparent;color:#fff;border-radius:12px;padding:10px 6px;cursor:pointer}
-.gbtns button:hover,.gbtns button[aria-pressed="true"]{background:var(--gold);color:var(--navy);border-color:var(--gold)}
 .card .top .bdg{position:absolute;top:10px;inset-inline-end:10px;background:var(--gold);color:var(--navy);font-weight:900;font-size:.8rem;border-radius:999px;padding:2px 10px;box-shadow:0 4px 10px rgba(0,0,0,.2)}
 .card .top .bdg.z{background:rgba(255,255,255,.85);color:var(--dim)}
 #sections.flash .card{animation:pop .5s ease-out both}
@@ -269,8 +285,8 @@ footer .eqs{font-family:var(--mono);direction:ltr;color:#3b5a99;margin-bottom:4p
     <h1 data-en="&lt;span class=&quot;g&quot;&gt;Einstein&lt;/span&gt; Gulf Physics Platform">منصة <span class="g">أينشتاين</span> الخليج في الفيزياء</h1>
     <div class="by" data-en="with &lt;span&gt;Mr. Ramy Abdelfattah&lt;/span&gt;">مع <span>الأستاذ رامي عبد الفتاح</span></div>
     <p class="lead" data-en="Welcome, champ 👋 Your exams, homework and review games, all in one place. Study, practise, and track your level as you go.">أهلًا بيك يا بطل 👋 امتحاناتك وواجباتك وألعاب المراجعة كلها في مكان واحد. ذاكر، اتدرّب، واعرف مستواك أول بأول.</p>
-    <div class="cta"><button type="button" class="egbtn" id="startBtn" aria-expanded="false" aria-controls="gradePick"><span class="bl" aria-hidden="true"><i></i>E=mc²</span><span class="bt"><small>اضغط هنا وادخل</small><b>أينشتاين الخليج</b></span><span class="tap" aria-hidden="true">👆</span></button><a class="btn line" href="#contact" data-en="Contact the teacher">تواصل مع الأستاذ</a></div>
-    <div class="gpick" id="gradePick" hidden><p data-en="Choose your grade">اختار صفك</p><div class="gbtns"></div></div>
+    <div class="gpick" id="gradePick"><p data-en="Tap your grade 👇">اضغط على صفك 👇</p><div class="gbtns"></div></div>
+    <div class="cta"><a class="btn line" href="#contact" data-en="Contact the teacher">تواصل مع الأستاذ</a></div>
   </div>
   <div class="emblem clockbox">
     <div class="ring"></div>
@@ -462,13 +478,15 @@ function badges(){let t=null;try{t=localStorage.getItem('eg_track')}catch(e){}
   document.querySelectorAll('.card').forEach(c=>{let b=c.querySelector('.top .bdg');const n=t?((DATA[c.dataset.k].tracks[t])||[]).length:0;
     if(!t){if(b)b.remove();return}if(!b){b=document.createElement('span');b.className='bdg';c.querySelector('.top').appendChild(b)}
     b.textContent=n?(document.documentElement.lang==='en'?n+(n>1?' items':' item'):(n===1?'عنصر واحد':n===2?'عنصران':n<11?n+' عناصر':n+' عنصرًا')):(document.documentElement.lang==='en'?'soon':'قريبًا');b.classList.toggle('z',!n)})}
-const sb=document.getElementById('startBtn'),gp=document.getElementById('gradePick'),gb=gp.querySelector('.gbtns');
+const gp=document.getElementById('gradePick'),gb=gp.querySelector('.gbtns');
+const TT={b12:['12','بريدج','Bridge'],i12:['12','إنسباير','Inspire'],b11:['11','بريدج','Bridge'],i11:['11','إنسباير','Inspire']};
 function startLabel(){let t=null;try{t=localStorage.getItem('eg_track')}catch(e){}const en=document.documentElement.lang==='en';
-  const lab=t&&(TR.find(x=>x[0]===t)||[])[1];sb.querySelector('small').textContent=lab?(en?'Continue · Einstein Gulf':'كمّل · أينشتاين الخليج'):(en?'Tap here to enter':'اضغط هنا وادخل');sb.querySelector('b').textContent=lab?L(lab).replace(/^(الصف|Grade) /,''):(en?'Einstein Gulf':'أينشتاين الخليج');
-  gb.innerHTML='';TR.forEach(([k,l])=>{const b=document.createElement('button');b.type='button';b.textContent=L(l);b.setAttribute('aria-pressed',k===t?'true':'false');
-    b.onclick=()=>{try{localStorage.setItem('eg_track',k)}catch(e){}track=k;gp.hidden=true;sb.setAttribute('aria-expanded','false');startLabel();badges();
+  gb.innerHTML='';TR.forEach(([k,l])=>{const x=TT[k],b=document.createElement('button');b.type='button';b.className='gt '+(k[0]==='b'?'br':'in');
+    b.setAttribute('aria-pressed',k===t?'true':'false');b.setAttribute('aria-label',L(l));
+    b.innerHTML='<span class="gn"></span><span class="gx"><b></b><small></small></span><span class="ok" aria-hidden="true">✓</span>';
+    b.querySelector('.gn').textContent=x[0];b.querySelector('b').textContent=en?x[2]:x[1];b.querySelector('small').textContent=en?'Grade '+x[0]+' Advanced':'الصف '+x[0]+' متقدم';
+    b.onclick=()=>{try{localStorage.setItem('eg_track',k)}catch(e){}track=k;startLabel();badges();
       const sec=document.getElementById('sections');sec.scrollIntoView({behavior:'smooth',block:'start'});sec.classList.remove('flash');void sec.offsetWidth;sec.classList.add('flash')};gb.appendChild(b)})}
-sb.onclick=()=>{const o=gp.hidden;gp.hidden=!o;sb.setAttribute('aria-expanded',o?'true':'false')};
 startLabel();badges();
 document.addEventListener('eg-lang',()=>{startLabel();badges()});
 document.addEventListener('eg-lang',()=>{const c=document.querySelector('.card[aria-expanded="true"]');if(c){c.setAttribute('aria-expanded','false');c.click();}});
