@@ -132,7 +132,7 @@ h1 .g{color:var(--gold)}
 .chip.a{top:8%;inset-inline-start:-4%}.chip.b{bottom:10%;inset-inline-end:-6%}
 /* stats */
 .stats{position:relative;z-index:2;margin-top:-30px}
-.stats .box{background:var(--card);border-radius:18px;box-shadow:0 14px 40px rgba(14,42,92,.12);display:grid;grid-template-columns:repeat(4,minmax(0,1fr));text-align:center}
+.stats .box{background:var(--card);border-radius:18px;box-shadow:0 14px 40px rgba(14,42,92,.12);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));text-align:center}
 .stat{padding:16px 8px;border-inline-start:1px solid var(--line)}.stat:first-child{border-inline-start:0}
 .stat b{display:block;font-size:1.6rem;font-weight:900;color:var(--navy2);font-variant-numeric:tabular-nums}
 .stat span{color:var(--dim);font-size:.88rem;font-weight:600}
@@ -208,7 +208,7 @@ footer .eqs{font-family:var(--mono);direction:ltr;color:#3b5a99;margin-bottom:4p
 @media (max-width:760px){
   .hero .wrap{grid-template-columns:1fr;padding-block:24px 52px}.emblem{max-width:220px;order:-1}
   .cards,.why,.steps{grid-template-columns:1fr}
-  .stats .box{grid-template-columns:repeat(2,minmax(0,1fr))}.stat:nth-child(3){border-inline-start:0}.stat:nth-child(n+3){border-top:1px solid var(--line)}
+  .stat{padding:12px 4px}.stat b{font-size:1.3rem}.stat span{font-size:.78rem}
   .contact{grid-template-columns:1fr}.chip.a{inset-inline-start:0}.chip.b{inset-inline-end:0}
 }
 </style>
@@ -247,7 +247,6 @@ footer .eqs{font-family:var(--mono);direction:ltr;color:#3b5a99;margin-bottom:4p
 </div></header>
 
 <div class="wrap stats"><div class="box">
-  <div class="stat"><b>+46</b><span data-en="review questions">سؤال مراجعة</span></div>
   <div class="stat"><b>⏱</b><span data-en="timer for each question">وقت لكل سؤال</span></div>
   <div class="stat"><b>100%</b><span data-en="automatic grading">تصحيح تلقائي</span></div>
   <div class="stat"><b>24/7</b><span data-en="available any time">متاحة في أي وقت</span></div>
