@@ -1,3 +1,7 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>منصة أينشتاين الخليج</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=JetBrains+Mono:wght@600&display=swap">
@@ -42,8 +46,15 @@ h1 .g{color:var(--gold)}
 .emblem .eq{font-family:var(--mono);font-weight:600;fill:var(--gold);font-size:30px}
 @media (prefers-reduced-motion:no-preference){.emblem .spin{transform-origin:150px 150px;animation:spin 10s linear infinite}.emblem .spin.r{animation-duration:14s;animation-direction:reverse}}
 @keyframes spin{to{transform:rotate(360deg)}}
+.navr{display:flex;gap:8px;align-items:center}
+.nav .lng{font:inherit;font-weight:800;font-size:.85rem;background:var(--gold);color:var(--navy);border:0;border-radius:999px;padding:6px 14px;cursor:pointer}
+.clockbox .rimtxt text{direction:ltr}
+.nav a,.nav .lng{white-space:nowrap}
+.stat b{direction:ltr;unicode-bidi:isolate}
+[dir=ltr] .rimtxt text{font-size:13px;letter-spacing:.3px}
+
 .lab{margin-top:40px;background:radial-gradient(120% 90% at 50% 0%,#17306a 0%,#0a1a3d 60%,#071330 100%);border-radius:26px;color:#fff;overflow:hidden;box-shadow:0 24px 60px rgba(10,26,61,.35)}
-.lab{direction:rtl}.labhead{padding:24px 22px 0;text-align:center}
+.labhead{padding:24px 22px 0;text-align:center}
 .labhead h2{margin:0;font-weight:900;font-size:clamp(1.5rem,4.5vw,2.1rem)}
 .labhead p{margin:6px auto 0;color:#a9bbe3;max-width:520px}
 .fieldbox{position:relative;height:clamp(260px,42vw,380px);margin-top:6px}
@@ -56,9 +67,10 @@ h1 .g{color:var(--gold)}
 .feats li{display:flex;gap:12px;align-items:center;padding:12px 4px;border-top:1px solid rgba(255,255,255,.08)}
 .feats svg{flex:none;width:40px;height:40px;padding:8px;border-radius:12px;background:rgba(246,178,26,.12);fill:none;stroke:var(--gold);stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
 .feats b{display:block;font-weight:800}.feats span{display:block;color:#a9bbe3;font-size:.88rem;line-height:1.5}
-.circuit{direction:rtl;list-style:none;margin:0;padding:8px 0 0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));position:relative}
+.circuit{list-style:none;margin:0;padding:8px 0 0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));position:relative}
 .circuit::before,.circuit::after{content:"";position:absolute;top:30px;inset-inline:12.5%;height:4px;border-radius:4px;background:var(--line)}
-.circuit::after{background:linear-gradient(90deg,transparent 0 40%,var(--gold) 48%,#fff 50%,var(--gold) 52%,transparent 60% 100%);background-size:250% 100%;animation:flow 3s linear infinite reverse}
+.circuit::after{background:linear-gradient(90deg,transparent 0 40%,var(--gold) 48%,#fff 50%,var(--gold) 52%,transparent 60% 100%);background-size:250% 100%;animation:flow 3s linear infinite}
+[dir=rtl] .circuit::after{animation-direction:reverse}
 .circuit li{position:relative;z-index:1;text-align:center;padding:0 6px;display:flex;flex-direction:column;align-items:center;gap:2px}
 .circuit .nd{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:var(--navy);color:var(--gold);font-weight:900;font-size:1.2rem;border:3px solid var(--paper);box-shadow:0 0 0 2px var(--line);margin-bottom:8px;animation:lit 3s ease-in-out infinite;animation-delay:calc(var(--i)*.75s)}
 .circuit b{font-weight:900}.circuit small{color:var(--dim);font-size:.88rem}
@@ -85,7 +97,7 @@ h1 .g{color:var(--gold)}
 .motto blockquote .h{display:inline-block;animation:beat 1.2s ease-in-out infinite}
 .motto figcaption{font-weight:800;color:var(--navy2);direction:rtl;font-size:1.05rem}
 .clockbox .rimtxt{animation:spin 60s linear infinite;transform-origin:150px 150px}
-.clockbox .rimtxt text{fill:var(--gold2);font-weight:800;font-size:15px}
+.clockbox .rimtxt text{fill:var(--gold2);font-weight:800;font-size:17px}
 .clockbox .tk{stroke:rgba(255,255,255,.45);stroke-width:1.5}.clockbox .tk5{stroke:var(--gold);stroke-width:3.5;stroke-linecap:round}
 .clockbox .num{fill:#fff;font-weight:800;font-size:17px;font-family:var(--mono)}
 .clockbox .brandin{fill:var(--gold);font-weight:900;font-size:17px}
@@ -127,7 +139,7 @@ section.block{margin-top:34px}
 .head h2::after{content:"";display:block;width:56px;height:5px;border-radius:5px;background:var(--gold);margin-top:4px}
 .cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
 @media (max-width:1000px){.cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
-.card{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;text-align:right;font:inherit;color:inherit;padding:0;cursor:pointer;transition:transform .15s,box-shadow .15s}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;text-align:start;font:inherit;color:inherit;padding:0;cursor:pointer;transition:transform .15s,box-shadow .15s}
 .card:hover,.card:focus-visible{transform:translateY(-4px);box-shadow:0 16px 34px rgba(14,42,92,.14);outline:none}
 .card[aria-expanded="true"]{outline:3px solid var(--gold)}
 .card .top{height:118px;display:grid;place-items:center;position:relative}
@@ -195,17 +207,17 @@ footer .eqs{font-family:var(--mono);direction:ltr;color:#3b5a99;margin-bottom:4p
 </style>
 
 <nav class="nav"><div class="wrap">
-  <div class="brand"><span class="logo">E=mc²</span>منصة أينشتاين الخليج</div>
-  <a href="#contact">تواصل معنا</a>
+  <div class="brand"><span class="logo">E=mc²</span><span data-en="Einstein Gulf Platform">منصة أينشتاين الخليج</span></div>
+  <div class="navr"><button type="button" class="lng" id="lng" aria-label="Switch to English">English</button><a href="#contact" data-en="Contact">تواصل معنا</a></div>
 </div></nav>
 
 <header class="hero"><div class="wrap">
   <div>
-    <div class="tags"><span class="tag">⚛️ فيزياء 12 متقدم · بريدج</span><span class="tag">⚛️ فيزياء 12 متقدم · إنسباير</span><span class="tag">⚛️ فيزياء 11 متقدم · بريدج</span><span class="tag">⚛️ فيزياء 11 متقدم · إنسباير</span></div>
-    <h1>منصة <span class="g">أينشتاين</span> الخليج في الفيزياء</h1>
-    <div class="by">مع <span>الأستاذ رامي عبد الفتاح</span></div>
-    <p class="lead">أهلًا بيك يا بطل 👋 امتحاناتك وواجباتك وألعاب المراجعة كلها في مكان واحد. ذاكر، اتدرّب، واعرف مستواك أول بأول.</p>
-    <div class="cta"><a class="btn gold" href="#sections">ابدأ دلوقتي 🚀</a><a class="btn line" href="#contact">تواصل مع الأستاذ</a></div>
+    <div class="tags"><span class="tag" data-en="⚛️ Physics 12 Advanced · Bridge">⚛️ فيزياء 12 متقدم · بريدج</span><span class="tag" data-en="⚛️ Physics 12 Advanced · Inspire">⚛️ فيزياء 12 متقدم · إنسباير</span><span class="tag" data-en="⚛️ Physics 11 Advanced · Bridge">⚛️ فيزياء 11 متقدم · بريدج</span><span class="tag" data-en="⚛️ Physics 11 Advanced · Inspire">⚛️ فيزياء 11 متقدم · إنسباير</span></div>
+    <h1 data-en="&lt;span class=&quot;g&quot;&gt;Einstein&lt;/span&gt; Gulf Physics Platform">منصة <span class="g">أينشتاين</span> الخليج في الفيزياء</h1>
+    <div class="by" data-en="with &lt;span&gt;Mr. Ramy Abdelfattah&lt;/span&gt;">مع <span>الأستاذ رامي عبد الفتاح</span></div>
+    <p class="lead" data-en="Welcome, champ 👋 Your exams, homework and review games, all in one place. Study, practise, and track your level as you go.">أهلًا بيك يا بطل 👋 امتحاناتك وواجباتك وألعاب المراجعة كلها في مكان واحد. ذاكر، اتدرّب، واعرف مستواك أول بأول.</p>
+    <div class="cta"><a class="btn gold" href="#sections" data-en="Start now 🚀">ابدأ دلوقتي 🚀</a><a class="btn line" href="#contact" data-en="Contact the teacher">تواصل مع الأستاذ</a></div>
   </div>
   <div class="emblem clockbox">
     <div class="ring"></div>
@@ -214,9 +226,9 @@ footer .eqs{font-family:var(--mono);direction:ltr;color:#3b5a99;margin-bottom:4p
       <g class="spin" aria-hidden="true"><ellipse class="orb" cx="150" cy="150" rx="104" ry="36"/><circle class="e" cx="254" cy="150" r="5"/></g>
       <g class="spin r" aria-hidden="true"><ellipse class="orb" cx="150" cy="150" rx="104" ry="36" transform="rotate(60 150 150)"/></g>
       <g class="spin" aria-hidden="true"><ellipse class="orb" cx="150" cy="150" rx="104" ry="36" transform="rotate(120 150 150)"/></g>
-      <g class="rimtxt" aria-hidden="true"><text><textPath href="#rim" textLength="760" lengthAdjust="spacing">أينشتاين الخليج ✦ أينشتاين الخليج ✦ أينشتاين الخليج ✦ أينشتاين الخليج ✦</textPath></text></g>
+      <g class="rimtxt" aria-hidden="true"><text><textPath href="#rim" data-en="EINSTEIN GULF ✦ EINSTEIN GULF ✦ EINSTEIN GULF ✦ EINSTEIN GULF ✦ EINSTEIN GULF ✦ ">أينشتاين الخليج ✦ أينشتاين الخليج ✦ أينشتاين الخليج ✦ أينشتاين الخليج ✦ أينشتاين الخليج ✦ أينشتاين الخليج ✦ </textPath></text></g>
       <g aria-hidden="true"><line x1="150" y1="36" x2="150" y2="47" class="tk5" transform="rotate(0 150 150)"/><line x1="150" y1="40" x2="150" y2="47" class="tk" transform="rotate(6 150 150)"/><line x1="150" y1="40" x2="150" y2="47" class="tk" transform="rotate(12 150 150)"/><line x1="150" y1="40" x2="150" y2="47" class="tk" transform="rotate(18 150 150)"/><line x1="150" y1="40" x2="150" y2="47" class="tk" transform="rotate(24 150 150)"/><line x1="150" y1="36" x2="150" y2="47" class="tk5" transform="rotate(30 150 150)"/><line x1="150" y1="40" x2="150" y2="47" class="tk" transform="rotate(36 150 150)"/><line x1="150" y1="40" x2="150" y2="47" class="tk" transform="rotate(42 150 150)"/><line x1="150" y1="40" x2="150" y2="47" class="tk" transform="rotate(48 150 150)"/><line x1="150" y1="40" x2="150" y2="47" class="tk" transform="rotate(54 150 150)"/><line x1="150" y1="36" x2="150" y2="47" class="tk5" transform="rotate(60 150 150)"/><line x1="150" y1="40" x2="150" y2="47" class="tk" transform="rotate(66 150 150)"/><line x1="150" y1="40" x2="150" y2="47" class="tk" transform="rotate(72 150 150)"/><line x1="150" y1="40" x2="150" y2="47" class="tk" transform="rotate(78 150 150)"/><line x1="150" y1="40" x2="150" y2="47" class="tk" transform="rotate(84 150 150)"/><line x1="150" y1="36" x2="150" y2="47" class="tk5" transform="rotate(90 150 150)"/><line x1="150" y1="40" x2="150" y2="47" class="tk" transform="rotate(96 150 150)"/><line x1="150" y1="40" x2="150" y2="47" class="tk" transform="rotate(102 150 150)"/><line x1="150" y1="40" x2="150" y2="47" class="tk" transform="rotate(108 150 150)"/><line x1="150" y1="40" x2="150" y2="47" class="tk" transform="rotate(114 150 150)"/><line x1="150" y1="36" x2="150" y2="47" class="tk5" transform="rotate(120 150 150)"/><line x1="150" y1="40" x2="150" y2="47" class="tk" transform="rotate(126 150 150)"/><line x1="150" y1="40" x2="150" y2="47" class="tk" transform="rotate(132 150 150)"/><line x1="150" y1="40" x2="150" y2="47" class="tk" transform="rotate(138 150 150)"/><line x1="150" y1="40" x2="150" y2="47" class="tk" transform="rotate(144 150 150)"/><line x1="150" y1="36" x2="150" y2="47" class="tk5" transform="rotate(150 150 150)"/><line x1="150" y1="40" x2="150" y2="47" class="tk" transform="rotate(156 150 150)"/><line x1="150" y1="40" x2="150" y2="47" class="tk" transform="rotate(162 150 150)"/><line x1="150" y1="40" x2="150" y2="47" class="tk" transform="rotate(168 150 150)"/><line x1="150" y1="40" x2="150" y2="47" class="tk" transform="rotate(174 150 150)"/><line x1="150" y1="36" x2="150" y2="47" class="tk5" transform="rotate(180 150 150)"/><line x1="150" y1="40" x2="150" y2="47" class="tk" transform="rotate(186 150 150)"/><line x1="150" y1="40" x2="150" y2="47" class="tk" transform="rotate(192 150 150)"/><line x1="150" y1="40" x2="150" y2="47" class="tk" transform="rotate(198 150 150)"/><line x1="150" y1="40" x2="150" y2="47" class="tk" transform="rotate(204 150 150)"/><line x1="150" y1="36" x2="150" y2="47" class="tk5" transform="rotate(210 150 150)"/><line x1="150" y1="40" x2="150" y2="47" class="tk" transform="rotate(216 150 150)"/><line x1="150" y1="40" x2="150" y2="47" class="tk" transform="rotate(222 150 150)"/><line x1="150" y1="40" x2="150" y2="47" class="tk" transform="rotate(228 150 150)"/><line x1="150" y1="40" x2="150" y2="47" class="tk" transform="rotate(234 150 150)"/><line x1="150" y1="36" x2="150" y2="47" class="tk5" transform="rotate(240 150 150)"/><line x1="150" y1="40" x2="150" y2="47" class="tk" transform="rotate(246 150 150)"/><line x1="150" y1="40" x2="150" y2="47" class="tk" transform="rotate(252 150 150)"/><line x1="150" y1="40" x2="150" y2="47" class="tk" transform="rotate(258 150 150)"/><line x1="150" y1="40" x2="150" y2="47" class="tk" transform="rotate(264 150 150)"/><line x1="150" y1="36" x2="150" y2="47" class="tk5" transform="rotate(270 150 150)"/><line x1="150" y1="40" x2="150" y2="47" class="tk" transform="rotate(276 150 150)"/><line x1="150" y1="40" x2="150" y2="47" class="tk" transform="rotate(282 150 150)"/><line x1="150" y1="40" x2="150" y2="47" class="tk" transform="rotate(288 150 150)"/><line x1="150" y1="40" x2="150" y2="47" class="tk" transform="rotate(294 150 150)"/><line x1="150" y1="36" x2="150" y2="47" class="tk5" transform="rotate(300 150 150)"/><line x1="150" y1="40" x2="150" y2="47" class="tk" transform="rotate(306 150 150)"/><line x1="150" y1="40" x2="150" y2="47" class="tk" transform="rotate(312 150 150)"/><line x1="150" y1="40" x2="150" y2="47" class="tk" transform="rotate(318 150 150)"/><line x1="150" y1="40" x2="150" y2="47" class="tk" transform="rotate(324 150 150)"/><line x1="150" y1="36" x2="150" y2="47" class="tk5" transform="rotate(330 150 150)"/><line x1="150" y1="40" x2="150" y2="47" class="tk" transform="rotate(336 150 150)"/><line x1="150" y1="40" x2="150" y2="47" class="tk" transform="rotate(342 150 150)"/><line x1="150" y1="40" x2="150" y2="47" class="tk" transform="rotate(348 150 150)"/><line x1="150" y1="40" x2="150" y2="47" class="tk" transform="rotate(354 150 150)"/><text class="num" x="150.0" y="68.0" text-anchor="middle">12</text><text class="num" x="194.0" y="79.8" text-anchor="middle">1</text><text class="num" x="226.2" y="112.0" text-anchor="middle">2</text><text class="num" x="238.0" y="156.0" text-anchor="middle">3</text><text class="num" x="226.2" y="200.0" text-anchor="middle">4</text><text class="num" x="194.0" y="232.2" text-anchor="middle">5</text><text class="num" x="150.0" y="244.0" text-anchor="middle">6</text><text class="num" x="106.0" y="232.2" text-anchor="middle">7</text><text class="num" x="73.8" y="200.0" text-anchor="middle">8</text><text class="num" x="62.0" y="156.0" text-anchor="middle">9</text><text class="num" x="73.8" y="112.0" text-anchor="middle">10</text><text class="num" x="106.0" y="79.8" text-anchor="middle">11</text></g>
-      <text class="brandin" x="150" y="114" text-anchor="middle">أينشتاين الخليج</text>
+      <text class="brandin" x="150" y="114" text-anchor="middle" data-en="Einstein Gulf">أينشتاين الخليج</text>
       <text class="eqin" x="150" y="204" text-anchor="middle">E=mc²</text>
       <line id="hH" class="hh" x1="150" y1="150" x2="150" y2="98"/>
       <line id="hM" class="hm" x1="150" y1="150" x2="150" y2="70"/>
@@ -228,45 +240,45 @@ footer .eqs{font-family:var(--mono);direction:ltr;color:#3b5a99;margin-bottom:4p
 </div></header>
 
 <div class="wrap stats"><div class="box">
-  <div class="stat"><b>+46</b><span>سؤال مراجعة</span></div>
-  <div class="stat"><b>⏱</b><span>وقت لكل سؤال</span></div>
-  <div class="stat"><b>100%</b><span>تصحيح تلقائي</span></div>
-  <div class="stat"><b>24/7</b><span>متاحة في أي وقت</span></div>
+  <div class="stat"><b>+46</b><span data-en="review questions">سؤال مراجعة</span></div>
+  <div class="stat"><b>⏱</b><span data-en="timer for each question">وقت لكل سؤال</span></div>
+  <div class="stat"><b>100%</b><span data-en="automatic grading">تصحيح تلقائي</span></div>
+  <div class="stat"><b>24/7</b><span data-en="available any time">متاحة في أي وقت</span></div>
 </div></div>
 
 <main class="wrap">
-  <figure class="motto"><blockquote><span class="h" aria-hidden="true">❤️</span> «فرحة أهلك تستاهل تعبك»</blockquote><figcaption>#أينشتاين_الخليج</figcaption></figure>
+  <figure class="motto"><blockquote data-en="&lt;span class=&quot;h&quot; aria-hidden=&quot;true&quot;&gt;❤️&lt;/span&gt; “Your family’s joy is worth your effort”"><span class="h" aria-hidden="true">❤️</span> «فرحة أهلك تستاهل تعبك»</blockquote><figcaption>#أينشتاين_الخليج</figcaption></figure>
 
   <section class="block" id="sections">
-    <div class="head"><h2>اختار القسم</h2></div>
+    <div class="head"><h2 data-en="Choose a section">اختار القسم</h2></div>
     <div class="cards">
       <button class="card" id="c-exams" data-k="exams" aria-expanded="false" aria-controls="panel">
         <div class="top t1"><svg class="ic" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="36" r="20"/><path d="M32 24v12l8 5"/><path d="M26 8h12M32 8v8M50 18l4-4"/></svg></div>
-        <div class="body"><h3>الامتحانات</h3><p>امتحانات إلكترونية بكود دخول، والنتيجة توصل للأستاذ على طول.</p><span class="more">شوف الامتحانات ←</span></div>
+        <div class="body"><h3 data-en="Exams">الامتحانات</h3><p data-en="Electronic exams with an entry code; your result reaches the teacher instantly.">امتحانات إلكترونية بكود دخول، والنتيجة توصل للأستاذ على طول.</p><span class="more" data-en="View exams →">شوف الامتحانات ←</span></div>
       </button>
       <button class="card" id="c-hw" data-k="hw" aria-expanded="false" aria-controls="panel">
         <div class="top t2"><svg class="ic" viewBox="0 0 64 64" aria-hidden="true"><path d="M10 14h18a6 6 0 0 1 6 6v32a5 5 0 0 0-5-5H10z"/><path d="M54 14H36a6 6 0 0 0-2 0"/><path d="M34 20a6 6 0 0 1 6-6h14v33H39a5 5 0 0 0-5 5"/><path d="M16 24h10M16 31h10M42 24h6M42 31h6"/></svg></div>
-        <div class="body"><h3>الواجبات</h3><p>حل واجب كل حصة، وشوف الإجابة الصحيحة بعد التسليم.</p><span class="more">شوف الواجبات ←</span></div>
+        <div class="body"><h3 data-en="Homework">الواجبات</h3><p data-en="Solve each lesson’s homework and see the correct answers after you submit.">حل واجب كل حصة، وشوف الإجابة الصحيحة بعد التسليم.</p><span class="more" data-en="View homework →">شوف الواجبات ←</span></div>
       </button>
       <button class="card" id="c-games" data-k="games" aria-expanded="false" aria-controls="panel">
         <div class="top t3"><svg class="ic" viewBox="0 0 64 64" aria-hidden="true"><path d="M6 52 24 22l10 16 7-10 17 24z"/><path d="M24 22V8l10 4-10 4"/></svg></div>
-        <div class="body"><h3>تحدي القمة</h3><p>راجع الدروس وانت بتلعب، واجمع نجوم، وخد شهادة تفوق.</p><span class="more">شوف تحدي القمة ←</span></div>
+        <div class="body"><h3 data-en="Summit Challenge">تحدي القمة</h3><p data-en="Review lessons while you play, collect stars and earn a certificate.">راجع الدروس وانت بتلعب، واجمع نجوم، وخد شهادة تفوق.</p><span class="more" data-en="View the challenge →">شوف تحدي القمة ←</span></div>
       </button>
       <button class="card" id="c-hk" data-k="hk" aria-expanded="false" aria-controls="panel">
         <div class="top t7"><svg class="ic" viewBox="0 0 64 64" aria-hidden="true"><rect x="14" y="8" width="36" height="48" rx="5"/><path d="M24 8v-2h16v2"/><path d="M22 24h20M22 32h20M22 40h12"/><path d="m38 44 4 4 8-9"/></svg></div>
-        <div class="body"><h3>الهيكل المعتمد من وزارة التربية والتعليم</h3><p>هيكل اختبار نهاية الفصل الدراسي الأول لكل صف، للعرض والتحميل.</p><span class="more">شوف الهيكل ←</span></div>
+        <div class="body"><h3 data-en="Official MoE Exam Coverage">الهيكل المعتمد من وزارة التربية والتعليم</h3><p data-en="End of Term 1 exam coverage for each grade, to view and download.">هيكل اختبار نهاية الفصل الدراسي الأول لكل صف، للعرض والتحميل.</p><span class="more" data-en="View coverage →">شوف الهيكل ←</span></div>
       </button>
       <button class="card" id="c-comp" data-k="comp" aria-expanded="false" aria-controls="panel">
         <div class="top t6"><svg class="ic" viewBox="0 0 64 64" aria-hidden="true"><path d="M8 24 32 10l24 14z"/><path d="M12 28v20M22 28v20M32 28v20M42 28v20M52 28v20"/><path d="M6 52h52"/></svg></div>
-        <div class="body"><h3>امتحانات شاملة لسنوات سابقة</h3><p>امتحانات الوزارة لنهاية الفصل: نسخة إلكترونية، وورقة الامتحان، ونموذج الإجابة.</p><span class="more">شوف الامتحانات ←</span></div>
+        <div class="body"><h3 data-en="Past Comprehensive Exams">امتحانات شاملة لسنوات سابقة</h3><p data-en="Ministry end-of-term exams: electronic version, exam paper and answer key.">امتحانات الوزارة لنهاية الفصل: نسخة إلكترونية، وورقة الامتحان، ونموذج الإجابة.</p><span class="more" data-en="View exams →">شوف الامتحانات ←</span></div>
       </button>
       <button class="card" id="c-rev" data-k="rev" aria-expanded="false" aria-controls="panel">
         <div class="top t5"><svg class="ic" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="22"/><circle cx="32" cy="32" r="13"/><circle cx="32" cy="32" r="4"/><path d="m46 18 10-10M50 8h6v6"/></svg></div>
-        <div class="body"><h3>مراجعات لدروس محددة</h3><p>مراجعة مركّزة على مجموعة دروس بعينها، سؤال بسؤال.</p><span class="more">شوف المراجعات ←</span></div>
+        <div class="body"><h3 data-en="Lesson Reviews">مراجعات لدروس محددة</h3><p data-en="Focused reviews on specific lessons, question by question.">مراجعة مركّزة على مجموعة دروس بعينها، سؤال بسؤال.</p><span class="more" data-en="View reviews →">شوف المراجعات ←</span></div>
       </button>
       <button class="card" id="c-struct" data-k="struct" aria-expanded="false" aria-controls="panel">
         <div class="top t4"><svg class="ic" viewBox="0 0 64 64" aria-hidden="true"><path d="m32 8 24 12-24 12L8 20z"/><path d="m8 32 24 12 24-12"/><path d="m8 44 24 12 24-12"/></svg></div>
-        <div class="body"><h3>مراجعة الهياكل</h3><p>مراجعة شاملة على أسئلة الهيكل قبل امتحان آخر الفصل.</p><span class="more">شوف المراجعات ←</span></div>
+        <div class="body"><h3 data-en="Coverage Reviews">مراجعة الهياكل</h3><p data-en="Full practice on the exam-coverage questions before the end-of-term exam.">مراجعة شاملة على أسئلة الهيكل قبل امتحان آخر الفصل.</p><span class="more" data-en="View reviews →">شوف المراجعات ←</span></div>
       </button>
     </div>
     <div class="panel" id="panel" hidden aria-live="polite"></div>
@@ -274,34 +286,34 @@ footer .eqs{font-family:var(--mono);direction:ltr;color:#3b5a99;margin-bottom:4p
 
   <section class="lab" aria-labelledby="labT">
     <div class="labhead">
-      <h2 id="labT">ليه منصة أينشتاين الخليج؟</h2>
-      <p>جرّب بنفسك: اسحب الشحنات بصباعك وشوف خطوط المجال الكهربائي بتتغير.</p>
+      <h2 id="labT" data-en="Why Einstein Gulf Platform?">ليه منصة أينشتاين الخليج؟</h2>
+      <p data-en="Try it yourself: drag the charges and watch the electric field lines change.">جرّب بنفسك: اسحب الشحنات بصباعك وشوف خطوط المجال الكهربائي بتتغير.</p>
     </div>
     <div class="fieldbox">
       <canvas id="field" aria-label="محاكاة لخطوط المجال الكهربائي بين شحنتين، تقدر تسحب الشحنات"></canvas>
       <div class="ftog" role="group" aria-label="نوع الشحنتين"><button type="button" data-m="pm" aria-pressed="true">+q  −q</button><button type="button" data-m="pp" aria-pressed="false">+q  +q</button></div>
     </div>
-    <ul class="feats"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.7.6 1.1 1.3 1.1 2.2h5c0-.9.4-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg><div><b>شرح مبسّط</b><span>من الأساس لحد الأفكار الصعبة</span></div></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg><div><b>نتيجة فورية</b><span>الامتحان بيتصحح لوحده</span></div></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg><div><b>تعرف غلطك</b><span>الإجابة الصحيحة ونموذج الإجابة</span></div></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 3 3 10.5l7 3 3 7.5z"/><path d="m10 13.5 4-4"/></svg><div><b>النتيجة توصل للأستاذ</b><span>بضغطة زرار على واتساب</span></div></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18h2"/></svg><div><b>من أي جهاز</b><span>موبايل أو كمبيوتر من غير برامج</span></div></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="7" width="20" height="11" rx="5"/><path d="M7 11v3M5.5 12.5h3M15 12h.01M18 13.5h.01"/></svg><div><b>مذاكرة بالألعاب</b><span>اتعلم من أخطائك وخد شهادة تفوق</span></div></li></ul>
+    <ul class="feats"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.7.6 1.1 1.3 1.1 2.2h5c0-.9.4-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg><div><b data-en="Clear explanations">شرح مبسّط</b><span data-en="From the basics to the hardest ideas">من الأساس لحد الأفكار الصعبة</span></div></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg><div><b data-en="Instant results">نتيجة فورية</b><span data-en="Exams are graded automatically">الامتحان بيتصحح لوحده</span></div></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg><div><b data-en="Learn from mistakes">تعرف غلطك</b><span data-en="Correct answers and answer keys">الإجابة الصحيحة ونموذج الإجابة</span></div></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 3 3 10.5l7 3 3 7.5z"/><path d="m10 13.5 4-4"/></svg><div><b data-en="Results reach the teacher">النتيجة توصل للأستاذ</b><span data-en="One tap on WhatsApp">بضغطة زرار على واتساب</span></div></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18h2"/></svg><div><b data-en="Any device">من أي جهاز</b><span data-en="Phone or computer, no apps needed">موبايل أو كمبيوتر من غير برامج</span></div></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="7" width="20" height="11" rx="5"/><path d="M7 11v3M5.5 12.5h3M15 12h.01M18 13.5h.01"/></svg><div><b data-en="Learn through games">مذاكرة بالألعاب</b><span data-en="Learn from mistakes and earn a certificate">اتعلم من أخطائك وخد شهادة تفوق</span></div></li></ul>
   </section>
 
   <section class="block">
-    <div class="head"><h2>إزاي تحل الامتحان؟</h2></div>
-    <ol class="circuit"><li style="--i:0"><span class="nd">1</span><b>افتح الامتحان</b><small>اللي الأستاذ قال عليه</small></li><li style="--i:1"><span class="nd">2</span><b>اسمك والكود</b><small>اسمك الثلاثي وكود الدخول</small></li><li style="--i:2"><span class="nd">3</span><b>حل بتركيز</b><small>الوقت ظاهر جنب كل سؤال</small></li><li style="--i:3"><span class="nd">4</span><b>أرسل النتيجة</b><small>على الواتساب للأستاذ</small></li></ol>
+    <div class="head"><h2 data-en="How to take an exam">إزاي تحل الامتحان؟</h2></div>
+    <ol class="circuit"><li style="--i:0"><span class="nd">1</span><b data-en="Open the exam">افتح الامتحان</b><small data-en="The one your teacher assigned">اللي الأستاذ قال عليه</small></li><li style="--i:1"><span class="nd">2</span><b data-en="Name and code">اسمك والكود</b><small data-en="Your full name and the entry code">اسمك الثلاثي وكود الدخول</small></li><li style="--i:2"><span class="nd">3</span><b data-en="Solve carefully">حل بتركيز</b><small data-en="The timer is shown beside each question">الوقت ظاهر جنب كل سؤال</small></li><li style="--i:3"><span class="nd">4</span><b data-en="Send your result">أرسل النتيجة</b><small data-en="To the teacher on WhatsApp">على الواتساب للأستاذ</small></li></ol>
   </section>
 
   <section class="contact" id="contact">
     <div>
-      <h2>تواصل مع الأستاذ رامي عبد الفتاح</h2>
-      <p>أي سؤال أو مشكلة في الامتحان، ابعت على واتساب.</p>
+      <h2 data-en="Contact Mr. Ramy Abdelfattah">تواصل مع الأستاذ رامي عبد الفتاح</h2>
+      <p data-en="Any question or problem with an exam? Message on WhatsApp.">أي سؤال أو مشكلة في الامتحان، ابعت على واتساب.</p>
       <span class="num" id="num">050 767 0323</span>
       <div class="note" id="copyMsg" style="color:#cdd8f2"></div>
     </div>
-    <div class="acts"><a class="btn wa" href="https://wa.me/971507670323" target="_blank" rel="noopener">💬 واتساب</a><button class="btn cp" type="button" id="copy">نسخ الرقم</button></div>
+    <div class="acts"><a class="btn wa" href="https://wa.me/971507670323" target="_blank" rel="noopener" data-en="💬 WhatsApp">💬 واتساب</a><button class="btn cp" type="button" id="copy" data-en="Copy number">نسخ الرقم</button></div>
   </section>
 
-  <blockquote>«الخيال أهم من المعرفة» <b>— ألبرت أينشتاين</b></blockquote>
+  <blockquote data-en="“Imagination is more important than knowledge.” &lt;b&gt;— Albert Einstein&lt;/b&gt;">«الخيال أهم من المعرفة» <b>— ألبرت أينشتاين</b></blockquote>
 </main>
-<footer><div class="wrap"><div class="eqs">∇·E = ρ/ε₀ · E = −∇V · Wₑ = −qΔV</div>© منصة أينشتاين الخليج في الفيزياء · الأستاذ رامي عبد الفتاح</div></footer>
+<footer><div class="wrap"><div class="eqs">∇·E = ρ/ε₀ · E = −∇V · Wₑ = −qΔV</div><span data-en="© Einstein Gulf Physics Platform · Mr. Ramy Abdelfattah">© منصة أينشتاين الخليج في الفيزياء · الأستاذ رامي عبد الفتاح</span></div></footer>
 
 <script>
 (function(){
@@ -339,17 +351,31 @@ const DATA={
   struct:{t:'🗂️ مراجعة الهياكل',tracks:{b12:[],i12:[],b11:[{nm:'مراجعة الهيكل (1) · الزخم والتصادمات والحركة الدورانية',meta:'8 أسئلة · تدريب بمحاولتين · تنقّل حر بين الأسئلة',href:'reviews/struct1-b11.html'},{nm:'📄 ملف أسئلة مراجعة الهيكل (1) · PDF',meta:'للمذاكرة والطباعة · بنفس الكود',href:'reviews/struct1-b11-pdf.html',btn:'افتح'}],i11:[{nm:'Structure Review (1) · Momentum, Collisions and Rotation',meta:'8 questions · practice with 2 attempts · free navigation',href:'reviews/struct1-i11.html'},{nm:'📄 Structure Review (1) Questions · PDF',meta:'To study and print · same code',href:'reviews/struct1-i11-pdf.html',btn:'افتح'}]}}
 };
 const LIVE=location.hostname.endsWith('github.io');
+const EN={'الصف 12 متقدم · بريدج':'Grade 12 Advanced · Bridge','الصف 12 متقدم · إنسباير':'Grade 12 Advanced · Inspire','الصف 11 متقدم · بريدج':'Grade 11 Advanced · Bridge','الصف 11 متقدم · إنسباير':'Grade 11 Advanced · Inspire',
+'📝 الامتحانات':'📝 Exams','📚 الواجبات':'📚 Homework','🏔️ تحدي القمة':'🏔️ Summit Challenge','📋 الهيكل المعتمد من وزارة التربية والتعليم':'📋 Official MoE Exam Coverage','🏛️ امتحانات شاملة لسنوات سابقة':'🏛️ Past Comprehensive Exams','🎯 مراجعات لدروس محددة':'🎯 Lesson Reviews','🗂️ مراجعة الهياكل':'🗂️ Coverage Reviews',
+'اختبار الوزارة 2023-2024':'Ministry Exam 2023-2024','6 أسئلة · 60 درجة':'6 questions · 60 marks','اختبار إلكتروني 4 · مراجعة نهائية':'Electronic Exam 4 · Final Review','9 أسئلة · 27 درجة':'9 questions · 27 marks',
+'واجب أسطح تساوي الجهد':'Homework: Equipotential Surfaces','5 أسئلة · 25 درجة':'5 questions · 25 marks','واجب حصة الأحد':'Sunday Lesson Homework','5 أسئلة · 30 درجة':'5 questions · 30 marks',
+'تحدي القمة 🏔️':'Summit Challenge 🏔️','46 سؤال مراجعة · شهادة تفوق':'46 review questions · certificate',
+'هيكل اختبار نهاية الفصل الأول · 12 متقدم بريدج':'End of Term 1 Exam Coverage · Grade 12 Bridge','هيكل اختبار نهاية الفصل الأول · 11 متقدم بريدج':'End of Term 1 Exam Coverage · Grade 11 Bridge','2026-2027 · عرض وتحميل PDF':'2026-2027 · view and download PDF',
+'بنك أسئلة إلكتروني لامتحان 2019-2020':'Electronic Question Bank · 2019-2020 Exam','16 شاشة · 50 درجة · بكود دخول':'16 screens · 50 marks · entry code',
+'📄 امتحان 2019-2020 · PDF':'📄 2019-2020 Exam · PDF','ورقة الامتحان للمذاكرة والطباعة · بنفس الكود':'Exam paper to study and print · same code','📄 نموذج إجابة امتحان 2019-2020 · PDF':'📄 2019-2020 Answer Key · PDF','دليل التصحيح من الوزارة · بنفس الكود':'Ministry marking guide · same code',
+'مراجعة (1) · الدروس 2.5 و2.7 و2.8 و2.9':'Review (1) · Lessons 2.5, 2.7, 2.8 and 2.9','42 سؤالًا · 44 درجة':'42 questions · 44 marks',
+'مراجعة (1) · العزم والاتزان':'Review (1) · Torque and Equilibrium','7 أسئلة · 7 درجات · 5 دقائق لكل سؤال':'7 questions · 7 marks · 5 min per question','📄 ملف أسئلة مراجعة (1) · PDF':'📄 Review (1) Questions · PDF','للمذاكرة والطباعة · بنفس كود المراجعة':'To study and print · same code as the review',
+'مراجعة الهيكل (1) · الزخم والتصادمات والحركة الدورانية':'Coverage Review (1) · Momentum, Collisions and Rotation','8 أسئلة · تدريب بمحاولتين · تنقّل حر بين الأسئلة':'8 questions · practice with 2 attempts · free navigation','📄 ملف أسئلة مراجعة الهيكل (1) · PDF':'📄 Coverage Review (1) Questions · PDF','للمذاكرة والطباعة · بنفس الكود':'To study and print · same code',
+'افتح':'Open','ابدأ':'Start','قريبًا':'Soon','اختار صفك:':'Choose your grade:','لسه مفيش حاجة هنا، قريبًا إن شاء الله.':'Nothing here yet — coming soon.','نسخة تجريبية: زرار «ابدأ» هيشتغل بعد رفع الموقع على GitHub.':'Preview copy: the Start button works on the live site.',
+'الرقم متحدد، انسخه.':'Number selected — copy it.','تم نسخ الرقم ✔':'Number copied ✔'};
+const L=x=>(document.documentElement.lang==='en'&&EN[x])||x;
 const panel=document.getElementById('panel');
 let track=null;try{track=localStorage.getItem('eg_track');}catch(e){}
 function renderList(box,list){
   box.innerHTML='';
-  if(!list.length){const p=document.createElement('p');p.className='note';p.textContent='لسه مفيش حاجة هنا، قريبًا إن شاء الله.';box.appendChild(p);return;}
+  if(!list.length){const p=document.createElement('p');p.className='note';p.textContent=L('لسه مفيش حاجة هنا، قريبًا إن شاء الله.');box.appendChild(p);return;}
   list.forEach(it=>{const r=document.createElement('div');r.className='item';
     const l=document.createElement('div');l.style.minWidth='0';
-    const n=document.createElement('div');n.className='nm';n.textContent=it.nm;
-    const m=document.createElement('div');m.className='meta';m.textContent=it.meta;l.append(n,m);
-    const a=document.createElement('a');a.className='go';a.textContent=it.btn||'ابدأ';a.href=it.href;
-    if(!LIVE||!it.href){a.setAttribute('aria-disabled','true');a.removeAttribute('href');if(!it.href)a.textContent='قريبًا';}
+    const n=document.createElement('div');n.className='nm';n.textContent=L(it.nm);
+    const m=document.createElement('div');m.className='meta';m.textContent=L(it.meta);l.append(n,m);
+    const a=document.createElement('a');a.className='go';a.textContent=L(it.btn||'ابدأ');a.href=it.href;
+    if(!LIVE||!it.href){a.setAttribute('aria-disabled','true');a.removeAttribute('href');if(!it.href)a.textContent=L('قريبًا');}
     r.append(l,a);box.appendChild(r);});
 }
 document.querySelectorAll('.card').forEach(c=>c.addEventListener('click',()=>{
@@ -358,31 +384,32 @@ document.querySelectorAll('.card').forEach(c=>c.addEventListener('click',()=>{
   if(open){panel.hidden=true;return;}
   c.setAttribute('aria-expanded','true');
   const d=DATA[c.dataset.k];panel.innerHTML='';
-  const h=document.createElement('h3');h.textContent=d.t;panel.appendChild(h);
-  const q=document.createElement('p');q.className='ask';q.textContent='اختار صفك:';panel.appendChild(q);
+  const h=document.createElement('h3');h.textContent=L(d.t);panel.appendChild(h);
+  const q=document.createElement('p');q.className='ask';q.textContent=L('اختار صفك:');panel.appendChild(q);
   const bar=document.createElement('div');bar.className='trk';panel.appendChild(bar);
   const box=document.createElement('div');panel.appendChild(box);
   const pick=k=>{track=k;try{localStorage.setItem('eg_track',k);}catch(e){}
     bar.querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.t===k?'true':'false'));
     renderList(box,d.tracks[k]||[]);};
-  TR.forEach(([k,lab])=>{const b=document.createElement('button');b.type='button';b.dataset.t=k;b.textContent=lab;
+  TR.forEach(([k,lab])=>{const b=document.createElement('button');b.type='button';b.dataset.t=k;b.textContent=L(lab);
     const n=(d.tracks[k]||[]).length;if(n){const s=document.createElement('span');s.className='cnt';s.textContent=n;b.appendChild(s);}
     b.setAttribute('aria-pressed','false');b.addEventListener('click',()=>pick(k));bar.appendChild(b);});
   if(track&&d.tracks[track])pick(track);
-  if(!LIVE){const p=document.createElement('p');p.className='note';p.textContent='نسخة تجريبية: زرار «ابدأ» هيشتغل بعد رفع الموقع على GitHub.';panel.appendChild(p);}
+  if(!LIVE){const p=document.createElement('p');p.className='note';p.textContent=L('نسخة تجريبية: زرار «ابدأ» هيشتغل بعد رفع الموقع على GitHub.');panel.appendChild(p);}
   panel.hidden=false;panel.scrollIntoView({behavior:'smooth',block:'nearest'});
 }));
+document.addEventListener('eg-lang',()=>{const c=document.querySelector('.card[aria-expanded="true"]');if(c){c.setAttribute('aria-expanded','false');c.click();}});
 document.getElementById('copy').addEventListener('click',()=>{
   const msg=document.getElementById('copyMsg');
-  const fb=()=>{const r=document.createRange();r.selectNodeContents(document.getElementById('num'));const s=getSelection();s.removeAllRanges();s.addRange(r);msg.textContent='الرقم متحدد، انسخه.';};
-  try{navigator.clipboard.writeText('0507670323').then(()=>{msg.textContent='تم نسخ الرقم ✔';},fb);}catch(e){fb();}
+  const fb=()=>{const r=document.createRange();r.selectNodeContents(document.getElementById('num'));const s=getSelection();s.removeAllRanges();s.addRange(r);msg.textContent=L('الرقم متحدد، انسخه.');};
+  try{navigator.clipboard.writeText('0507670323').then(()=>{msg.textContent=L('تم نسخ الرقم ✔');},fb);}catch(e){fb();}
 });
 })();
 </script>
 
 <button type="button" class="calc-fab" id="calcBtn" aria-label="الآلة الحاسبة" aria-expanded="false" aria-controls="calcBox"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M8 6h8M8 11h.01M12 11h.01M16 11h.01M8 15h.01M12 15h.01M16 15v4M8 19h.01M12 19h.01"/></svg></button>
 <div class="calc" id="calcBox" hidden role="dialog" aria-label="آلة حاسبة علمية">
-  <div class="ch"><span>آلة حاسبة علمية</span><button type="button" id="calcX" aria-label="إغلاق">✕</button></div>
+  <div class="ch"><span data-en="Scientific calculator">آلة حاسبة علمية</span><button type="button" id="calcX" aria-label="إغلاق">✕</button></div>
   <div class="scr"><div class="mode">DEG</div><div class="ex" id="cEx"></div><div class="rs" id="cRs">0</div></div>
   <div class="keys"><button type="button" class="f" data-k="sin(" aria-label="sin">sin</button><button type="button" class="f" data-k="cos(" aria-label="cos">cos</button><button type="button" class="f" data-k="tan(" aria-label="tan">tan</button><button type="button" class="f" data-k="^2" aria-label="x²">x²</button><button type="button" class="f" data-k="√(" aria-label="√">√</button><button type="button" class="f" data-k="asin(" aria-label="sin⁻¹">sin⁻¹</button><button type="button" class="f" data-k="acos(" aria-label="cos⁻¹">cos⁻¹</button><button type="button" class="f" data-k="atan(" aria-label="tan⁻¹">tan⁻¹</button><button type="button" class="f" data-k="^" aria-label="xʸ">xʸ</button><button type="button" class="f" data-k="log(" aria-label="log">log</button><button type="button" class="f" data-k="(" aria-label="(">(</button><button type="button" class="f" data-k=")" aria-label=")">)</button><button type="button" class="f" data-k="π" aria-label="π">π</button><button type="button" class="f" data-k="Ans" aria-label="Ans">Ans</button><button type="button" class="f" data-k="−" aria-label="(−)">(−)</button><button type="button" class="n" data-k="7" aria-label="7">7</button><button type="button" class="n" data-k="8" aria-label="8">8</button><button type="button" class="n" data-k="9" aria-label="9">9</button><button type="button" class="d" data-k="del" aria-label="DEL">DEL</button><button type="button" class="d" data-k="ac" aria-label="AC">AC</button><button type="button" class="n" data-k="4" aria-label="4">4</button><button type="button" class="n" data-k="5" aria-label="5">5</button><button type="button" class="n" data-k="6" aria-label="6">6</button><button type="button" class="o" data-k="×" aria-label="×">×</button><button type="button" class="o" data-k="÷" aria-label="÷">÷</button><button type="button" class="n" data-k="1" aria-label="1">1</button><button type="button" class="n" data-k="2" aria-label="2">2</button><button type="button" class="n" data-k="3" aria-label="3">3</button><button type="button" class="o" data-k="+" aria-label="+">+</button><button type="button" class="o" data-k="−" aria-label="−">−</button><button type="button" class="n" data-k="0" aria-label="0">0</button><button type="button" class="n" data-k="." aria-label=".">.</button><button type="button" class="f" data-k="E" aria-label="×10ˣ">×10ˣ</button><button type="button" class="f" data-k="ln(" aria-label="ln">ln</button><button type="button" class="eq" data-k="=" aria-label="=">=</button></div>
 </div>
@@ -390,13 +417,13 @@ document.getElementById('copy').addEventListener('click',()=>{
 (function(){
 const pad=n=>String(n).padStart(2,'0');
 const tf=new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Dubai',hour:'2-digit',minute:'2-digit',second:'2-digit',hourCycle:'h23'});
-let df;try{df=new Intl.DateTimeFormat('ar-AE-u-nu-latn',{timeZone:'Asia/Dubai',weekday:'long',day:'numeric',month:'long'})}catch(e){df=null}
+let dfA,dfE;try{dfA=new Intl.DateTimeFormat('ar-AE-u-nu-latn',{timeZone:'Asia/Dubai',weekday:'long',day:'numeric',month:'long'});dfE=new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Dubai',weekday:'long',day:'numeric',month:'long'})}catch(e){}
 const hH=document.getElementById('hH'),hM=document.getElementById('hM'),hS=document.getElementById('hS');
 function tick(){const now=new Date();const p={};tf.formatToParts(now).forEach(x=>p[x.type]=x.value);
   const h=(+p.hour)%24,m=+p.minute,sc=+p.second;
   hH.setAttribute('transform','rotate('+((h%12)*30+m*0.5)+' 150 150)');hM.setAttribute('transform','rotate('+(m*6+sc*0.1)+' 150 150)');hS.setAttribute('transform','rotate('+(sc*6)+' 150 150)');
   document.getElementById('dTime').textContent=pad(h%12||12)+':'+pad(m)+':'+pad(sc)+(h<12?' AM':' PM');
-  document.getElementById('dDate').textContent='توقيت الإمارات'+(df?' · '+df.format(now):'');}
+  const en=document.documentElement.lang==='en',df=en?dfE:dfA;document.getElementById('dDate').textContent=(en?'UAE time':'توقيت الإمارات')+(df?' · '+df.format(now):'');}
 tick();setInterval(tick,1000);
 const box=document.getElementById('calcBox'),btn=document.getElementById('calcBtn'),ex=document.getElementById('cEx'),rs=document.getElementById('cRs');
 let expr='',ans=0,done=false;
@@ -472,5 +499,24 @@ const end=()=>{drag=-1;cv.classList.remove('drag')};cv.addEventListener('pointer
 document.querySelectorAll('.ftog button').forEach(b=>b.onclick=()=>{Q[1].q=b.dataset.m==='pm'?-1:1;document.querySelectorAll('.ftog button').forEach(x=>x.setAttribute('aria-pressed',x===b?'true':'false'));compute()});
 new ResizeObserver(size).observe(cv);size();requestAnimationFrame(draw);
 window.__field=()=>({Q,lines:lines.length,ends:lines.map(l=>l.pts[l.pts.length-1])});
+})();
+</script>
+
+<script>
+(function(){
+const root=document.documentElement,btn=document.getElementById('lng');
+const els=[...document.querySelectorAll('[data-en]')];els.forEach(e=>e.dataset.ar=e.innerHTML);
+const A={title:'منصة أينشتاين الخليج',fieldLbl:'محاكاة لخطوط المجال الكهربائي بين شحنتين، تقدر تسحب الشحنات',calc:'الآلة الحاسبة'};
+const E={title:'Einstein Gulf Physics Platform',fieldLbl:'Electric field line simulation for two charges; you can drag the charges',calc:'Calculator'};
+function set(l,save){const en=l==='en';root.lang=en?'en':'ar';root.dir=en?'ltr':'rtl';
+  els.forEach(e=>e.innerHTML=en?e.dataset.en:e.dataset.ar);
+  const D=en?E:A;document.title=D.title;const f=document.getElementById('field');if(f)f.setAttribute('aria-label',D.fieldLbl);
+  const cb=document.getElementById('calcBtn');if(cb)cb.setAttribute('aria-label',D.calc);
+  btn.textContent=en?'العربية':'English';btn.setAttribute('aria-label',en?'التحويل إلى العربية':'Switch to English');btn.lang=en?'ar':'en';
+  if(save){try{localStorage.setItem('eg_lang',l)}catch(e){}}
+  document.dispatchEvent(new Event('eg-lang'));}
+btn.addEventListener('click',()=>set(root.lang==='en'?'ar':'en',true));
+let l=new URLSearchParams(location.search).get('lang');if(!l){try{l=localStorage.getItem('eg_lang')}catch(e){}}
+if(l==='en')set('en',false);
 })();
 </script>
