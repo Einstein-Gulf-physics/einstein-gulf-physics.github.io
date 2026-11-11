@@ -42,6 +42,40 @@ h1 .g{color:var(--gold)}
 .emblem .eq{font-family:var(--mono);font-weight:600;fill:var(--gold);font-size:30px}
 @media (prefers-reduced-motion:no-preference){.emblem .spin{transform-origin:150px 150px;animation:spin 10s linear infinite}.emblem .spin.r{animation-duration:14s;animation-direction:reverse}}
 @keyframes spin{to{transform:rotate(360deg)}}
+.lab{margin-top:40px;background:radial-gradient(120% 90% at 50% 0%,#17306a 0%,#0a1a3d 60%,#071330 100%);border-radius:26px;color:#fff;overflow:hidden;box-shadow:0 24px 60px rgba(10,26,61,.35)}
+.lab{direction:rtl}.labhead{padding:24px 22px 0;text-align:center}
+.labhead h2{margin:0;font-weight:900;font-size:clamp(1.5rem,4.5vw,2.1rem)}
+.labhead p{margin:6px auto 0;color:#a9bbe3;max-width:520px}
+.fieldbox{position:relative;height:clamp(260px,42vw,380px);margin-top:6px}
+#field{width:100%;height:100%;display:block;cursor:grab}
+#field.drag{cursor:grabbing}
+.ftog{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);display:flex;gap:4px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:4px;backdrop-filter:blur(6px)}
+.ftog button{white-space:pre;font:inherit;font-family:var(--mono);font-weight:700;border:0;border-radius:999px;padding:5px 14px;background:transparent;color:#cdd8f2;cursor:pointer;direction:ltr}
+.ftog button[aria-pressed="true"]{background:var(--gold);color:var(--navy)}
+.feats{list-style:none;margin:0;padding:6px 18px 22px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px 18px}
+.feats li{display:flex;gap:12px;align-items:center;padding:12px 4px;border-top:1px solid rgba(255,255,255,.08)}
+.feats svg{flex:none;width:40px;height:40px;padding:8px;border-radius:12px;background:rgba(246,178,26,.12);fill:none;stroke:var(--gold);stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.feats b{display:block;font-weight:800}.feats span{display:block;color:#a9bbe3;font-size:.88rem;line-height:1.5}
+.circuit{direction:rtl;list-style:none;margin:0;padding:8px 0 0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));position:relative}
+.circuit::before,.circuit::after{content:"";position:absolute;top:30px;inset-inline:12.5%;height:4px;border-radius:4px;background:var(--line)}
+.circuit::after{background:linear-gradient(90deg,transparent 0 40%,var(--gold) 48%,#fff 50%,var(--gold) 52%,transparent 60% 100%);background-size:250% 100%;animation:flow 3s linear infinite reverse}
+.circuit li{position:relative;z-index:1;text-align:center;padding:0 6px;display:flex;flex-direction:column;align-items:center;gap:2px}
+.circuit .nd{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:var(--navy);color:var(--gold);font-weight:900;font-size:1.2rem;border:3px solid var(--paper);box-shadow:0 0 0 2px var(--line);margin-bottom:8px;animation:lit 3s ease-in-out infinite;animation-delay:calc(var(--i)*.75s)}
+.circuit b{font-weight:900}.circuit small{color:var(--dim);font-size:.88rem}
+@keyframes flow{from{background-position:100% 0}to{background-position:-50% 0}}
+@keyframes lit{0%,100%{box-shadow:0 0 0 2px var(--line)}12%{box-shadow:0 0 0 3px var(--gold),0 0 22px 6px rgba(246,178,26,.55);background:var(--navy2)}30%{box-shadow:0 0 0 2px var(--line)}}
+@media (max-width:760px){
+ .feats{grid-template-columns:1fr 1fr}
+ .circuit{grid-template-columns:1fr;gap:18px;padding-inline-start:4px}
+ .circuit::before,.circuit::after{top:24px;bottom:24px;inset-inline:auto;inset-inline-start:27px;width:4px;height:auto}
+ .circuit::after{background:linear-gradient(180deg,transparent 0 40%,var(--gold) 48%,#fff 50%,var(--gold) 52%,transparent 60% 100%);background-size:100% 250%;animation:flowv 3s linear infinite}
+ .circuit li{flex-direction:row;text-align:start;gap:12px;flex-wrap:wrap}
+ .circuit .nd{margin:0}.circuit li b{flex:1}.circuit small{flex-basis:100%;padding-inline-start:60px;margin-top:-14px}
+}
+@media (max-width:420px){.feats{grid-template-columns:1fr}}
+@keyframes flowv{from{background-position:0 -50%}to{background-position:0 150%}}
+@media (prefers-reduced-motion:reduce){.circuit::after,.circuit .nd{animation:none}}
+
 .card .top{height:120px}
 .card .top .ic{width:68px;height:68px;fill:none;stroke:#fff;stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 4px 8px rgba(0,0,0,.25));transition:transform .2s}
 .card:hover .top .ic,.card[aria-expanded="true"] .top .ic{transform:scale(1.1) rotate(-4deg)}
@@ -238,26 +272,21 @@ footer .eqs{font-family:var(--mono);direction:ltr;color:#3b5a99;margin-bottom:4p
     <div class="panel" id="panel" hidden aria-live="polite"></div>
   </section>
 
-  <section class="block">
-    <div class="head"><h2>ليه منصة أينشتاين الخليج؟</h2></div>
-    <div class="why">
-      <div><i>💡</i><b>شرح مميز ومبسّط</b><span>أسلوب شرح الأستاذ رامي عبد الفتاح بيوصّل الفكرة لكل طالب، من الأساس لحد الأفكار الصعبة.</span></div>
-      <div><i>⚡</i><b>نتيجتك أول ما تسلّم</b><span>الامتحان بيتصحح لوحده، ودرجتك بتظهر لك على طول.</span></div>
-      <div><i>✅</i><b>الإجابات الصحيحة قدامك</b><span>في الواجبات بتشوف إجابتك صح ولا غلط، والإجابة الصحيحة ونموذج الإجابة.</span></div>
-      <div><i>📩</i><b>النتيجة توصل للأستاذ</b><span>بضغطة زرار نتيجتك بتوصل للأستاذ على واتساب، علشان يتابع مستواك.</span></div>
-      <div><i>📱</i><b>من أي موبايل</b><span>بتشتغل على أي موبايل أو كمبيوتر، من غير ما تنزّل برامج.</span></div>
-      <div><i>🎯</i><b>مذاكرة بالألعاب</b><span>تراجع الدروس وتتعلم من أخطائك وانت بتلعب، وتاخد شهادة تفوق.</span></div>
+  <section class="lab" aria-labelledby="labT">
+    <div class="labhead">
+      <h2 id="labT">ليه منصة أينشتاين الخليج؟</h2>
+      <p>جرّب بنفسك: اسحب الشحنات بصباعك وشوف خطوط المجال الكهربائي بتتغير.</p>
     </div>
+    <div class="fieldbox">
+      <canvas id="field" aria-label="محاكاة لخطوط المجال الكهربائي بين شحنتين، تقدر تسحب الشحنات"></canvas>
+      <div class="ftog" role="group" aria-label="نوع الشحنتين"><button type="button" data-m="pm" aria-pressed="true">+q  −q</button><button type="button" data-m="pp" aria-pressed="false">+q  +q</button></div>
+    </div>
+    <ul class="feats"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.7.6 1.1 1.3 1.1 2.2h5c0-.9.4-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg><div><b>شرح مبسّط</b><span>من الأساس لحد الأفكار الصعبة</span></div></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg><div><b>نتيجة فورية</b><span>الامتحان بيتصحح لوحده</span></div></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg><div><b>تعرف غلطك</b><span>الإجابة الصحيحة ونموذج الإجابة</span></div></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 3 3 10.5l7 3 3 7.5z"/><path d="m10 13.5 4-4"/></svg><div><b>النتيجة توصل للأستاذ</b><span>بضغطة زرار على واتساب</span></div></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18h2"/></svg><div><b>من أي جهاز</b><span>موبايل أو كمبيوتر من غير برامج</span></div></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="7" width="20" height="11" rx="5"/><path d="M7 11v3M5.5 12.5h3M15 12h.01M18 13.5h.01"/></svg><div><b>مذاكرة بالألعاب</b><span>اتعلم من أخطائك وخد شهادة تفوق</span></div></li></ul>
   </section>
 
   <section class="block">
     <div class="head"><h2>إزاي تحل الامتحان؟</h2></div>
-    <div class="steps">
-      <div>دوس على <b>الامتحان</b> اللي الأستاذ قال عليه.</div>
-      <div>اكتب <b>اسمك الثلاثي</b> و<b>كود الدخول</b>.</div>
-      <div>حل الأسئلة، والوقت ظاهر جنب كل سؤال.</div>
-      <div>دوس <b>«أرسل النتيجة»</b> وابعتها على الواتساب، عشان تتأكد إنها وصلت للأستاذ.</div>
-    </div>
+    <ol class="circuit"><li style="--i:0"><span class="nd">1</span><b>افتح الامتحان</b><small>اللي الأستاذ قال عليه</small></li><li style="--i:1"><span class="nd">2</span><b>اسمك والكود</b><small>اسمك الثلاثي وكود الدخول</small></li><li style="--i:2"><span class="nd">3</span><b>حل بتركيز</b><small>الوقت ظاهر جنب كل سؤال</small></li><li style="--i:3"><span class="nd">4</span><b>أرسل النتيجة</b><small>على الواتساب للأستاذ</small></li></ol>
   </section>
 
   <section class="contact" id="contact">
@@ -405,5 +434,43 @@ box.addEventListener('click',e=>{const b=e.target.closest('button[data-k]');if(!
   if(done&&!/^[×÷+−^]/.test(k)&&k!=='E')expr='';else if(done&&/^[×÷+−^]/.test(k))expr='Ans';
   done=false;expr+=k;show()});
 window.__calc=calc;
+})();
+</script>
+
+<script>
+(function(){
+const cv=document.getElementById('field');if(!cv)return;const cx=cv.getContext('2d');
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+let W=0,H=0,dpr=1,Q=[{x:.3,y:.5,q:1},{x:.7,y:.5,q:-1}],lines=[],drag=-1,t0=performance.now();
+const N=18,R0=14;
+function size(){const r=cv.getBoundingClientRect();dpr=Math.min(devicePixelRatio||1,2);W=r.width;H=r.height;cv.width=W*dpr;cv.height=H*dpr;compute()}
+function P(c){return{x:c.x*W,y:c.y*H}}
+function E(x,y){let ex=0,ey=0;for(const c of Q){const p=P(c),dx=x-p.x,dy=y-p.y,r2=dx*dx+dy*dy,r=Math.sqrt(r2);if(r<1)continue;const k=c.q/(r2*r);ex+=k*dx;ey+=k*dy}return[ex,ey]}
+function dir(x,y){const[a,b]=E(x,y),m=Math.hypot(a,b);return m<1e-12?null:[a/m,b/m]}
+function compute(){lines=[];const ds=3,M=Math.max(W,H)*.8;
+ for(const c of Q){if(c.q<=0)continue;const p=P(c);
+  for(let i=0;i<N;i++){const an=(i+.5)*2*Math.PI/N;let x=p.x+R0*Math.cos(an),y=p.y+R0*Math.sin(an);const pts=[[x,y]];
+   for(let s=0;s<3000;s++){const d1=dir(x,y);if(!d1)break;const mx=x+d1[0]*ds/2,my=y+d1[1]*ds/2;const d2=dir(mx,my);if(!d2)break;x+=d2[0]*ds;y+=d2[1]*ds;pts.push([x,y]);
+    if(x<-M||y<-M||x>W+M||y>H+M)break;let hit=false;for(const o of Q){if(o.q<0){const op=P(o);if(Math.hypot(x-op.x,y-op.y)<R0-2){hit=true;break}}}if(hit)break}
+   let L=[0];for(let j=1;j<pts.length;j++)L.push(L[j-1]+Math.hypot(pts[j][0]-pts[j-1][0],pts[j][1]-pts[j-1][1]));lines.push({pts,L})}}}
+function at(l,d){const L=l.L;let lo=0,hi=L.length-1;while(hi-lo>1){const m=(lo+hi)>>1;if(L[m]<d)lo=m;else hi=m}const f=(d-L[lo])/((L[hi]-L[lo])||1),a=l.pts[lo],b=l.pts[hi];return[a[0]+(b[0]-a[0])*f,a[1]+(b[1]-a[1])*f,Math.atan2(b[1]-a[1],b[0]-a[0])]}
+function draw(now){cx.setTransform(dpr,0,0,dpr,0,0);cx.clearRect(0,0,W,H);
+ cx.lineWidth=1.4;cx.strokeStyle='rgba(255,213,107,.38)';
+ for(const l of lines){cx.beginPath();l.pts.forEach((p,j)=>j?cx.lineTo(p[0],p[1]):cx.moveTo(p[0],p[1]));cx.stroke()}
+ cx.fillStyle='rgba(255,213,107,.85)';
+ for(const l of lines){const T=l.L[l.L.length-1];if(T<60)continue;const[x,y,a]=at(l,Math.min(T*.5,140));cx.save();cx.translate(x,y);cx.rotate(a);cx.beginPath();cx.moveTo(6,0);cx.lineTo(-4,-4.5);cx.lineTo(-4,4.5);cx.closePath();cx.fill();cx.restore()}
+ if(!RM){const tt=(now-t0)/1000;for(const l of lines){const T=l.L[l.L.length-1];if(T<30)continue;for(let k=0;k<Math.ceil(T/160);k++){const d=((tt*55+k*160+l.L.length*7)%T);const[x,y]=at(l,d);const g=cx.createRadialGradient(x,y,0,x,y,5);g.addColorStop(0,'rgba(255,255,255,.95)');g.addColorStop(1,'rgba(255,213,107,0)');cx.fillStyle=g;cx.beginPath();cx.arc(x,y,5,0,7);cx.fill()}}}
+ for(const c of Q){const p=P(c),col=c.q>0?['#ff5d6c','#c81e3a']:['#5cb8ff','#1d5fd6'];const g=cx.createRadialGradient(p.x,p.y,4,p.x,p.y,34);g.addColorStop(0,col[0]+'aa');g.addColorStop(1,col[0]+'00');cx.fillStyle=g;cx.beginPath();cx.arc(p.x,p.y,34,0,7);cx.fill();
+  cx.fillStyle=col[1];cx.strokeStyle='#fff';cx.lineWidth=2.5;cx.beginPath();cx.arc(p.x,p.y,R0,0,7);cx.fill();cx.stroke();cx.fillStyle='#fff';cx.font='800 20px "JetBrains Mono",monospace';cx.textAlign='center';cx.textBaseline='middle';cx.fillText(c.q>0?'+':'−',p.x,p.y+1)}
+ requestAnimationFrame(draw)}
+function hit(e){const r=cv.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top;for(let i=0;i<Q.length;i++){const p=P(Q[i]);if(Math.hypot(x-p.x,y-p.y)<34)return i}return -1}
+cv.addEventListener('touchstart',e=>{const t=e.touches[0];if(hit(t)>=0)e.preventDefault()},{passive:false});
+cv.addEventListener('pointerdown',e=>{const i=hit(e);if(i<0)return;drag=i;cv.setPointerCapture(e.pointerId);cv.classList.add('drag')});
+cv.addEventListener('pointermove',e=>{if(drag<0)return;const r=cv.getBoundingClientRect();let x=(e.clientX-r.left)/W,y=(e.clientY-r.top)/H;x=Math.min(.95,Math.max(.05,x));y=Math.min(.9,Math.max(.1,y));
+ const o=Q[1-drag];if(Math.hypot((x-o.x)*W,(y-o.y)*H)<2*R0+6)return;Q[drag].x=x;Q[drag].y=y;compute()});
+const end=()=>{drag=-1;cv.classList.remove('drag')};cv.addEventListener('pointerup',end);cv.addEventListener('pointercancel',end);
+document.querySelectorAll('.ftog button').forEach(b=>b.onclick=()=>{Q[1].q=b.dataset.m==='pm'?-1:1;document.querySelectorAll('.ftog button').forEach(x=>x.setAttribute('aria-pressed',x===b?'true':'false'));compute()});
+new ResizeObserver(size).observe(cv);size();requestAnimationFrame(draw);
+window.__field=()=>({Q,lines:lines.length,ends:lines.map(l=>l.pts[l.pts.length-1])});
 })();
 </script>
