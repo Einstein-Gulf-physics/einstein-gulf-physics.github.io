@@ -47,7 +47,10 @@ h1 .g{color:var(--gold)}
 @media (prefers-reduced-motion:no-preference){.emblem .spin{transform-origin:150px 150px;animation:spin 10s linear infinite}.emblem .spin.r{animation-duration:14s;animation-direction:reverse}}
 @keyframes spin{to{transform:rotate(360deg)}}
 .gpick{margin-top:6px;max-width:540px}
-.gpick p{margin:0 0 10px;font-weight:900;font-size:1.15rem;color:var(--gold2)}
+.gpick .gh{margin:0 0 12px;font-weight:900;font-size:clamp(1.25rem,4.4vw,1.5rem);display:flex;align-items:center;gap:10px;background:linear-gradient(90deg,#ffd56b,#fff 50%,#ffd56b);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:gshine 3.5s linear infinite}
+.gpick .gh .sp{color:var(--gold);-webkit-text-fill-color:var(--gold);font-size:.9em;animation:twk 1.8s ease-in-out infinite}.gpick .gh .sp:last-child{animation-delay:.9s}
+@keyframes gshine{to{background-position:-200% 0}}@keyframes twk{0%,100%{opacity:.35;transform:scale(.8) rotate(0)}50%{opacity:1;transform:scale(1.15) rotate(45deg)}}
+@media (prefers-reduced-motion:reduce){.gpick .gh,.gpick .gh .sp{animation:none}}
 .gbtns{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .gt{font:inherit;position:relative;display:flex;align-items:center;gap:12px;text-align:start;border:2px solid rgba(255,255,255,.18);border-radius:18px;padding:12px;cursor:pointer;color:#fff;overflow:hidden;
   background:linear-gradient(135deg,rgba(255,255,255,.12),rgba(255,255,255,.03));backdrop-filter:blur(6px);transition:transform .18s,border-color .18s,box-shadow .18s}
@@ -281,11 +284,10 @@ footer .eqs{font-family:var(--mono);direction:ltr;color:#3b5a99;margin-bottom:4p
 
 <header class="hero"><div class="wrap">
   <div>
-    <div class="tags"><span class="tag" data-en="⚛️ Physics 12 Advanced · Bridge">⚛️ فيزياء 12 متقدم · بريدج</span><span class="tag" data-en="⚛️ Physics 12 Advanced · Inspire">⚛️ فيزياء 12 متقدم · إنسباير</span><span class="tag" data-en="⚛️ Physics 11 Advanced · Bridge">⚛️ فيزياء 11 متقدم · بريدج</span><span class="tag" data-en="⚛️ Physics 11 Advanced · Inspire">⚛️ فيزياء 11 متقدم · إنسباير</span></div>
     <h1 data-en="&lt;span class=&quot;g&quot;&gt;Einstein&lt;/span&gt; Gulf Physics Platform">منصة <span class="g">أينشتاين</span> الخليج في الفيزياء</h1>
     <div class="by" data-en="with &lt;span&gt;Mr. Ramy Abdelfattah&lt;/span&gt;">مع <span>الأستاذ رامي عبد الفتاح</span></div>
     <p class="lead" data-en="Welcome, champ 👋 Your exams, homework and review games, all in one place. Study, practise, and track your level as you go.">أهلًا بيك يا بطل 👋 امتحاناتك وواجباتك وألعاب المراجعة كلها في مكان واحد. ذاكر، اتدرّب، واعرف مستواك أول بأول.</p>
-    <div class="gpick" id="gradePick"><p data-en="Tap your grade 👇">اضغط على صفك 👇</p><div class="gbtns"></div></div>
+    <div class="gpick" id="gradePick"><p class="gh"><span class="sp" aria-hidden="true">✦</span><span data-en="Pick your grade and take off">اختار صفك وانطلق</span><span class="sp" aria-hidden="true">✦</span></p><div class="gbtns"></div></div>
     <div class="cta"><a class="btn line" href="#contact" data-en="Contact the teacher">تواصل مع الأستاذ</a></div>
   </div>
   <div class="emblem clockbox">
