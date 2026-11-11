@@ -46,6 +46,27 @@ h1 .g{color:var(--gold)}
 .emblem .eq{font-family:var(--mono);font-weight:600;fill:var(--gold);font-size:30px}
 @media (prefers-reduced-motion:no-preference){.emblem .spin{transform-origin:150px 150px;animation:spin 10s linear infinite}.emblem .spin.r{animation-duration:14s;animation-direction:reverse}}
 @keyframes spin{to{transform:rotate(360deg)}}
+.calc{max-height:calc(100dvh - 110px);overflow:auto}
+.ctabs{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;background:rgba(255,255,255,.08);border-radius:12px;padding:4px;margin-bottom:10px}
+.ctabs button{font:inherit;font-weight:800;font-size:.85rem;border:0;border-radius:9px;padding:7px 2px;background:transparent;color:#cdd8f2;cursor:pointer}
+.ctabs button[aria-selected="true"]{background:var(--gold);color:var(--navy)}
+.calc .cpane[hidden]{display:none}
+.calc .fl{display:flex;flex-direction:column;gap:3px;margin-bottom:8px;font-weight:700;font-size:.85rem;color:#cdd8f2;flex:1;min-width:0}
+.calc select,.calc input{font:inherit;font-family:var(--mono);font-weight:700;font-size:1rem;padding:9px 10px;border-radius:10px;border:2px solid #2a4a8a;background:#f2f4f8;color:#0f1d3a;width:100%}
+.calc #uCat{font-family:var(--font)}
+.calc input:focus,.calc select:focus{outline:none;border-color:var(--gold)}
+.uRow{display:flex;gap:6px;align-items:flex-end}
+#uSwap{flex:none;font-size:1.2rem;border:0;border-radius:10px;background:var(--gold);color:var(--navy);width:42px;height:42px;margin-bottom:8px;cursor:pointer}
+.uOut{background:#e8f0d8;color:#111;border-radius:10px;padding:10px;text-align:center;font-family:var(--mono)}
+.uOut b{display:block;font-size:1.35rem;word-break:break-all}.uOut span{display:block;font-size:.85rem;color:#444;margin-top:2px}
+.uUse{margin-top:8px;width:100%;font:inherit;font-weight:800;border:0;border-radius:10px;padding:9px;background:#1d7a46;color:#fff;cursor:pointer}
+.ctip{margin:0 0 8px;color:#cdd8f2;font-size:.85rem}
+.consts{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.consts button{width:100%;display:flex;justify-content:space-between;align-items:center;gap:8px;font:inherit;border:0;border-radius:10px;padding:8px 10px;background:#1d3a72;color:#fff;cursor:pointer;text-align:start}
+.consts button:hover{background:#26498c}
+.consts .nm{font-size:.82rem;color:#cdd8f2;font-weight:700}.consts .sy{font-family:var(--mono);font-weight:800;color:var(--gold2);margin-inline-end:6px}
+.consts .v{font-family:var(--mono);font-size:.85rem;direction:ltr;white-space:nowrap}
+
 .phet .pnote{margin:0 0 12px;color:var(--dim)}
 .sims{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px}
 .sims a{display:flex;align-items:center;gap:10px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px;text-decoration:none;color:var(--ink);font-weight:800;transition:transform .15s,border-color .15s}
@@ -423,8 +444,22 @@ document.getElementById('copy').addEventListener('click',()=>{
 <button type="button" class="calc-fab" id="calcBtn" aria-label="الآلة الحاسبة" aria-expanded="false" aria-controls="calcBox"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M8 6h8M8 11h.01M12 11h.01M16 11h.01M8 15h.01M12 15h.01M16 15v4M8 19h.01M12 19h.01"/></svg></button>
 <div class="calc" id="calcBox" hidden role="dialog" aria-label="آلة حاسبة علمية">
   <div class="ch"><span data-en="Scientific calculator">آلة حاسبة علمية</span><button type="button" id="calcX" aria-label="إغلاق">✕</button></div>
+  <div class="ctabs" role="tablist"><button type="button" role="tab" data-p="pCalc" aria-selected="true" data-en="Calculator">الحاسبة</button><button type="button" role="tab" data-p="pConv" aria-selected="false" data-en="Units">تحويل الوحدات</button><button type="button" role="tab" data-p="pConst" aria-selected="false" data-en="Constants">الثوابت</button></div>
+  <div class="cpane" id="pCalc">
   <div class="scr"><div class="mode">DEG</div><div class="ex" id="cEx"></div><div class="rs" id="cRs">0</div></div>
   <div class="keys"><button type="button" class="f" data-k="sin(" aria-label="sin">sin</button><button type="button" class="f" data-k="cos(" aria-label="cos">cos</button><button type="button" class="f" data-k="tan(" aria-label="tan">tan</button><button type="button" class="f" data-k="^2" aria-label="x²">x²</button><button type="button" class="f" data-k="√(" aria-label="√">√</button><button type="button" class="f" data-k="asin(" aria-label="sin⁻¹">sin⁻¹</button><button type="button" class="f" data-k="acos(" aria-label="cos⁻¹">cos⁻¹</button><button type="button" class="f" data-k="atan(" aria-label="tan⁻¹">tan⁻¹</button><button type="button" class="f" data-k="^" aria-label="xʸ">xʸ</button><button type="button" class="f" data-k="log(" aria-label="log">log</button><button type="button" class="f" data-k="(" aria-label="(">(</button><button type="button" class="f" data-k=")" aria-label=")">)</button><button type="button" class="f" data-k="π" aria-label="π">π</button><button type="button" class="f" data-k="Ans" aria-label="Ans">Ans</button><button type="button" class="f" data-k="−" aria-label="(−)">(−)</button><button type="button" class="n" data-k="7" aria-label="7">7</button><button type="button" class="n" data-k="8" aria-label="8">8</button><button type="button" class="n" data-k="9" aria-label="9">9</button><button type="button" class="d" data-k="del" aria-label="DEL">DEL</button><button type="button" class="d" data-k="ac" aria-label="AC">AC</button><button type="button" class="n" data-k="4" aria-label="4">4</button><button type="button" class="n" data-k="5" aria-label="5">5</button><button type="button" class="n" data-k="6" aria-label="6">6</button><button type="button" class="o" data-k="×" aria-label="×">×</button><button type="button" class="o" data-k="÷" aria-label="÷">÷</button><button type="button" class="n" data-k="1" aria-label="1">1</button><button type="button" class="n" data-k="2" aria-label="2">2</button><button type="button" class="n" data-k="3" aria-label="3">3</button><button type="button" class="o" data-k="+" aria-label="+">+</button><button type="button" class="o" data-k="−" aria-label="−">−</button><button type="button" class="n" data-k="0" aria-label="0">0</button><button type="button" class="n" data-k="." aria-label=".">.</button><button type="button" class="f" data-k="E" aria-label="×10ˣ">×10ˣ</button><button type="button" class="f" data-k="ln(" aria-label="ln">ln</button><button type="button" class="eq" data-k="=" aria-label="=">=</button></div>
+  </div>
+  <div class="cpane" id="pConv" hidden>
+    <label class="fl"><span data-en="Quantity">الكمية</span><select id="uCat"></select></label>
+    <label class="fl"><span data-en="Value">القيمة</span><input id="uVal" type="text" inputmode="decimal" value="1" dir="ltr" autocomplete="off"></label>
+    <div class="uRow"><label class="fl"><span data-en="From">من</span><select id="uFrom" dir="ltr"></select></label><button type="button" id="uSwap" aria-label="Swap">⇄</button><label class="fl"><span data-en="To">إلى</span><select id="uTo" dir="ltr"></select></label></div>
+    <div class="uOut" dir="ltr"><b id="uRes">—</b><span id="uFac"></span></div>
+    <button type="button" class="uUse" id="uUse" data-en="Use in calculator">استخدم الناتج في الحاسبة</button>
+  </div>
+  <div class="cpane" id="pConst" hidden>
+    <p class="ctip" data-en="Tap a constant to put it in the calculator.">دوس على الثابت عشان يتحط في الحسبة.</p>
+    <ul class="consts" id="cList"></ul>
+  </div>
 </div>
 <script>
 (function(){
@@ -474,6 +509,7 @@ box.addEventListener('click',e=>{const b=e.target.closest('button[data-k]');if(!
   if(done&&!/^[×÷+−^]/.test(k)&&k!=='E')expr='';else if(done&&/^[×÷+−^]/.test(k))expr='Ans';
   done=false;expr+=k;show()});
 window.__calc=calc;
+window.__calcIns=v=>{if(done)expr='';done=false;expr+=v;show();};
 })();
 </script>
 
@@ -512,6 +548,63 @@ const end=()=>{drag=-1;cv.classList.remove('drag')};cv.addEventListener('pointer
 document.querySelectorAll('.ftog button').forEach(b=>b.onclick=()=>{Q[1].q=b.dataset.m==='pm'?-1:1;document.querySelectorAll('.ftog button').forEach(x=>x.setAttribute('aria-pressed',x===b?'true':'false'));compute()});
 new ResizeObserver(size).observe(cv);size();requestAnimationFrame(draw);
 window.__field=()=>({Q,lines:lines.length,ends:lines.map(l=>l.pts[l.pts.length-1])});
+})();
+</script>
+
+<script>
+(function(){
+const box=document.getElementById('calcBox');if(!box)return;
+const tabs=[...box.querySelectorAll('.ctabs button')];
+tabs.forEach(b=>b.onclick=()=>{tabs.forEach(x=>{const on=x===b;x.setAttribute('aria-selected',on?'true':'false');document.getElementById(x.dataset.p).hidden=!on})});
+const goCalc=()=>tabs[0].click();
+const en=()=>document.documentElement.lang==='en';
+const eC='1.602176634e-19';
+// factor = value of 1 unit in SI
+const U=[
+ ['الطول','Length','m',[['km',1e3],['m',1],['cm',1e-2],['mm',1e-3],['μm',1e-6],['nm',1e-9]]],
+ ['المساحة','Area','m²',[['km²',1e6],['m²',1],['cm²',1e-4],['mm²',1e-6]]],
+ ['الحجم','Volume','m³',[['m³',1],['L',1e-3],['cm³ = mL',1e-6],['mm³',1e-9]]],
+ ['الكتلة','Mass','kg',[['t (طن)',1e3],['kg',1],['g',1e-3],['mg',1e-6],['μg',1e-9]]],
+ ['الزمن','Time','s',[['h',3600],['min',60],['s',1],['ms',1e-3],['μs',1e-6],['ns',1e-9]]],
+ ['السرعة','Speed','m/s',[['km/h',1/3.6],['m/s',1],['cm/s',1e-2]]],
+ ['الشحنة','Charge','C',[['C',1],['mC',1e-3],['μC',1e-6],['nC',1e-9],['pC',1e-12],['e',+eC]]],
+ ['كثافة الشحنة السطحية','Surface charge density','C/m²',[['C/m²',1],['mC/m²',1e-3],['μC/m²',1e-6],['nC/m²',1e-9],['μC/cm²',1e-2]]],
+ ['المجال الكهربائي','Electric field','N/C',[['N/C = V/m',1],['kN/C = kV/m',1e3],['MN/C = MV/m',1e6],['V/cm',1e2],['V/mm',1e3]]],
+ ['الجهد الكهربائي','Electric potential','V',[['MV',1e6],['kV',1e3],['V',1],['mV',1e-3],['μV',1e-6]]],
+ ['الطاقة','Energy','J',[['MJ',1e6],['kJ',1e3],['J',1],['mJ',1e-3],['μJ',1e-6],['eV',+eC],['keV',+eC*1e3],['MeV',+eC*1e6]]],
+ ['السعة الكهربائية','Capacitance','F',[['F',1],['mF',1e-3],['μF',1e-6],['nF',1e-9],['pF',1e-12]]],
+ ['القوة','Force','N',[['MN',1e6],['kN',1e3],['N',1],['mN',1e-3],['μN',1e-6]]],
+ ['الزاوية','Angle','rad',[['rad',1],['° (degree)',Math.PI/180],['rev (دورة)',2*Math.PI]]]
+];
+const cat=document.getElementById('uCat'),fr=document.getElementById('uFrom'),to=document.getElementById('uTo'),val=document.getElementById('uVal'),res=document.getElementById('uRes'),fac=document.getElementById('uFac');
+const SUP={'-':'⁻','0':'⁰','1':'¹','2':'²','3':'³','4':'⁴','5':'⁵','6':'⁶','7':'⁷','8':'⁸','9':'⁹'};
+const sup=n=>String(n).split('').map(c=>SUP[c]||c).join('');
+function sci(v,sig){if(!isFinite(v))return '—';if(v===0)return '0';const a=Math.abs(v);if(a>=1e-3&&a<1e5)return String(+v.toPrecision(sig));const [m,e]=v.toExponential(sig-1).split('e');return (+m)+' × 10'+sup(+e)}
+function factorStr(f){const l=Math.log10(f);if(Math.abs(l-Math.round(l))<1e-9){const n=Math.round(l);return n===0?'1':'10'+sup(n)}return sci(f,6)}
+function fillCat(){const k=cat.value||0;cat.innerHTML='';U.forEach((u,i)=>{const o=document.createElement('option');o.value=i;o.textContent=(en()?u[1]:u[0])+' ('+u[2]+')';cat.appendChild(o)});cat.value=k}
+function fillUnits(){const u=U[+cat.value][3];[fr,to].forEach(sel=>{sel.innerHTML='';u.forEach((x,i)=>{const o=document.createElement('option');o.value=i;o.textContent=x[0];sel.appendChild(o)})});
+ const si=u.findIndex(x=>x[1]===1);fr.value=si===0?1:0;to.value=si<0?1:si;calcConv()}
+let last=null;
+function calcConv(){const u=U[+cat.value][3],a=u[+fr.value],b=u[+to.value];
+ const t=(val.value||'').replace(/[٠-٩]/g,d=>d.charCodeAt(0)-0x660).replace(/[×x]\s*10\^?/i,'e').replace(/,/g,'.').replace(/\s/g,'');
+ const v=parseFloat(t);const f=a[1]/b[1];
+ fac.textContent='1 '+a[0].split(' ')[0]+' = '+factorStr(f)+' '+b[0].split(' ')[0];
+ if(!t||isNaN(v)){res.textContent='—';last=null;return}
+ last=v*f;res.textContent=sci(last,4)+' '+b[0].split(' ')[0]}
+cat.onchange=fillUnits;fr.onchange=to.onchange=calcConv;val.oninput=calcConv;
+document.getElementById('uSwap').onclick=()=>{const x=fr.value;fr.value=to.value;to.value=x;calcConv()};
+document.getElementById('uUse').onclick=()=>{if(last===null)return;const e=last.toExponential(6).split('e');window.__calcIns('('+(+e[0])+'E'+(+e[1])+')');goCalc()};
+// constants (values from CODATA, rounded as in the curriculum)
+const K=[['K','ثابت كولوم','Coulomb constant','8.99','9','N·m²/C²'],['e','الشحنة الأساسية','Elementary charge','1.60','-19','C'],['ε₀','السماحية الكهربائية للفراغ','Permittivity of free space','8.85','-12','C²/N·m²'],
+ ['mₑ','كتلة الإلكترون','Electron mass','9.11','-31','kg'],['mₚ','كتلة البروتون','Proton mass','1.67','-27','kg'],['c','سرعة الضوء','Speed of light','3.00','8','m/s'],
+ ['h','ثابت بلانك','Planck constant','6.63','-34','J·s'],['G','ثابت الجذب العام','Gravitational constant','6.67','-11','N·m²/kg²'],['eV','إلكترون فولت','Electron volt','1.60','-19','J']];
+const cl=document.getElementById('cList');
+function fillConst(){cl.innerHTML='';K.forEach(k=>{const li=document.createElement('li'),b=document.createElement('button');b.type='button';
+ b.innerHTML='<span><span class="sy"></span><span class="nm"></span></span><span class="v"></span>';b.querySelector('.sy').textContent=k[0];b.querySelector('.nm').textContent=en()?k[2]:k[1];
+ b.querySelector('.v').textContent=k[3]+' × 10'+sup(k[4])+' '+k[5];b.onclick=()=>{window.__calcIns('('+k[3]+'E'+k[4]+')');goCalc()};li.appendChild(b);cl.appendChild(li)})}
+fillCat();cat.value=0;fillUnits();fillConst();
+document.addEventListener('eg-lang',()=>{fillCat();fillConst();calcConv()});
+window.__conv={U,set:(c,f,t,v)=>{cat.value=c;fillUnits();fr.value=f;to.value=t;val.value=v;calcConv();return res.textContent+' | '+fac.textContent}};
 })();
 </script>
 
