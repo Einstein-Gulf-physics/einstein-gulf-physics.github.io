@@ -99,16 +99,16 @@ noscript p{direction:rtl;text-align:center;padding:16px;font-size:18px;color:#b3
   <h2>Exam instructions</h2>
   <ol class="rules">
     <li>Enter from the platform website <b style="white-space:nowrap">einstein-gulf-physics.github.io</b> using <b>Chrome</b> (Android) or <b>Safari</b> (iPhone), not from inside WhatsApp. If the link opens inside WhatsApp, tap the three dots ⋮ then “Open in Chrome”.</li>
-    <li>Type your full name, then the entry code that Mr. Ramy Abdelfattah gives you at exam time.</li>
+    <li>Type your full name, then the entry code that Mr. Ramy Abdel Fattah gives you at exam time.</li>
     <li>The exam has 48 questions (50 marks, 1 mark for each answer). Questions 35 and 37 have two linked parts on the same screen.</li>
     <li>You have 2 minutes for each answer (4 minutes for questions 35 and 37). The timer is shown next to the question. When time runs out, the exam moves to the next question automatically, and you cannot go back.</li>
     <li>In calculation questions, type the number only; the unit is printed next to the box.</li>
     <li>After you submit, you will see your answer and the correct answer for every question.</li>
-    <li>Do not leave the exam page while solving. Every exit is recorded and reported to Mr. Ramy Abdelfattah.</li>
-    <li>The exam opens only once. Any second attempt is reported to Mr. Ramy Abdelfattah.</li>
-    <li>After submitting, press “Send the result to Mr. Ramy Abdelfattah”. WhatsApp opens with the message ready; press Send in WhatsApp, because the message does not send by itself.</li>
-    <li>If WhatsApp does not open, press “Copy the result”, then open WhatsApp yourself, paste it and send it to Mr. Ramy Abdelfattah at <b dir="ltr">050 767 0323</b>.</li>
-    <li>Do not edit anything in the result message. Any edit is detected by Mr. Ramy Abdelfattah and cancels the result.</li>
+    <li>Do not leave the exam page while solving. Every exit is recorded and reported to Mr. Ramy Abdel Fattah.</li>
+    <li>The exam opens only once. Any second attempt is reported to Mr. Ramy Abdel Fattah.</li>
+    <li>After submitting, press “Send the result to Mr. Ramy Abdel Fattah”. WhatsApp opens with the message ready; press Send in WhatsApp, because the message does not send by itself.</li>
+    <li>If WhatsApp does not open, press “Copy the result”, then open WhatsApp yourself, paste it and send it to Mr. Ramy Abdel Fattah at <b dir="ltr">050 767 0323</b>.</li>
+    <li>Do not edit anything in the result message. Any edit is detected by Mr. Ramy Abdel Fattah and cancels the result.</li>
   </ol>
   <label class="field" for="studentName">Student name
     <input type="text" id="studentName" autocomplete="name" placeholder="Type your full name">
@@ -143,7 +143,7 @@ const CODE = 941606354;
 const SALT = "a3f81c5e2b90";
 const SHEET = "https://script.google.com/macros/s/AKfycbzOqiB4x_5uHAjuCDKjAgD3JVcaObJmOClOOpS_wDc_HvgWDqmkdVghk3h5mAQafLWpdw/exec";
 async function sheetTaken(name){try{const c=new AbortController();const t=setTimeout(()=>c.abort(),7000);const r=await fetch(SHEET+'?exam='+encodeURIComponent(TITLE)+'&name='+encodeURIComponent(name),{signal:c.signal});clearTimeout(t);const j=await r.json();return !!j.taken;}catch(e){return null;}}
-function sheetMsg(k){const el=document.getElementById('sheetMsg');if(!el)return;el.textContent={ok:'✔ Your result reached Mr. Ramy Abdelfattah automatically. Send it on WhatsApp too, to be safe.',dup:'Note: this name is already registered for this exam, so this attempt was not recorded.',maybe:'Your result was sent automatically. Send it on WhatsApp too, to be safe.',fail:'Your result was not sent automatically (no internet). Send it on WhatsApp.',wait:'Sending your result automatically…'}[k]||'';el.style.color=(k==='ok'||k==='maybe')?'#1d7a46':(k==='wait'?'':'#b3261e');el.style.fontWeight='700';}
+function sheetMsg(k){const el=document.getElementById('sheetMsg');if(!el)return;el.textContent={ok:'✔ Your result reached Mr. Ramy Abdel Fattah automatically. Send it on WhatsApp too, to be safe.',dup:'Note: this name is already registered for this exam, so this attempt was not recorded.',maybe:'Your result was sent automatically. Send it on WhatsApp too, to be safe.',fail:'Your result was not sent automatically (no internet). Send it on WhatsApp.',wait:'Sending your result automatically…'}[k]||'';el.style.color=(k==='ok'||k==='maybe')?'#1d7a46':(k==='wait'?'':'#b3261e');el.style.fontWeight='700';}
 function sendSheet(){
   if(!st||!st.finished)return; if(st.sent){sheetMsg(st.sent);return;}
   sheetMsg('wait');
@@ -210,10 +210,10 @@ function showEnd(reopened){
   c.innerHTML=(reopened?'<h2>You have already taken this exam</h2><div class="small">The exam cannot be opened again. If you have not sent your result yet, send it now.</div>':'<div class="small">Exam submitted</div>')+
     '<div class="name"></div><div class="score"></div><div class="small" id="when"></div>'+
     '<div class="small" id="sheetMsg"></div>'+
-    '<a class="btn wa" id="waBtn">1. Send the result to Mr. Ramy Abdelfattah</a>'+
-    '<div class="small">WhatsApp opens on the chat with Mr. Ramy Abdelfattah with the message ready. Press Send in WhatsApp; the message does not send by itself. Do not edit anything in it.</div>'+
+    '<a class="btn wa" id="waBtn">1. Send the result to Mr. Ramy Abdel Fattah</a>'+
+    '<div class="small">WhatsApp opens on the chat with Mr. Ramy Abdel Fattah with the message ready. Press Send in WhatsApp; the message does not send by itself. Do not edit anything in it.</div>'+
     '<button type="button" class="btn sec" id="copyBtn">2. If WhatsApp does not open: copy the result</button>'+
-    '<div class="small" id="copyMsg">Then open WhatsApp yourself and send it to Mr. Ramy Abdelfattah at <b dir="ltr">050 767 0323</b>.</div>'+
+    '<div class="small" id="copyMsg">Then open WhatsApp yourself and send it to Mr. Ramy Abdel Fattah at <b dir="ltr">050 767 0323</b>.</div>'+
     '<textarea id="resText" readonly hidden style="width:100%;min-height:160px;font:inherit;direction:ltr"></textarea>';
   c.querySelector('.name').textContent=st.name;
   c.querySelector('.score').textContent=st.score+' / '+TOTALP;
@@ -222,8 +222,8 @@ function showEnd(reopened){
   c.querySelector('#waBtn').href='https://wa.me/'+PHONE+'?text='+encodeURIComponent(rt);
   const ta=c.querySelector('#resText'); ta.value=rt;
   c.querySelector('#copyBtn').addEventListener('click',()=>{
-    const ok=()=>{c.querySelector('#copyMsg').innerHTML='Result copied. Open WhatsApp, go to the chat with Mr. Ramy Abdelfattah <b dir="ltr">050 767 0323</b>, paste it and press Send.';};
-    const fb=()=>{ta.hidden=false;ta.focus();ta.select();c.querySelector('#copyMsg').textContent='Select the text in the box and copy it, then paste it in WhatsApp to Mr. Ramy Abdelfattah.';};
+    const ok=()=>{c.querySelector('#copyMsg').innerHTML='Result copied. Open WhatsApp, go to the chat with Mr. Ramy Abdel Fattah <b dir="ltr">050 767 0323</b>, paste it and press Send.';};
+    const fb=()=>{ta.hidden=false;ta.focus();ta.select();c.querySelector('#copyMsg').textContent='Select the text in the box and copy it, then paste it in WhatsApp to Mr. Ramy Abdel Fattah.';};
     try{navigator.clipboard.writeText(rt).then(ok,fb);}catch(e){fb();}
   });
   const end=$('endArea'); end.innerHTML=''; end.appendChild(c);
@@ -331,9 +331,9 @@ $('startBtn').addEventListener('click',async()=>{
   const name=clean($('studentName').value), code=$('entryCode').value.trim();
   const m=$('startMsg');
   if(!name){m.textContent='Type your name first.';$('studentName').focus();return;}
-  if(h('code:'+code)!==CODE){m.textContent='Wrong entry code. Ask Mr. Ramy Abdelfattah for the code.';$('entryCode').focus();return;}
+  if(h('code:'+code)!==CODE){m.textContent='Wrong entry code. Ask Mr. Ramy Abdel Fattah for the code.';$('entryCode').focus();return;}
   const sb=$('startBtn');sb.disabled=true;m.textContent='Checking…';const tk=await sheetTaken(name);sb.disabled=false;m.textContent='';
-  if(tk){m.textContent='This name has already taken this exam and cannot enter again. Contact Mr. Ramy Abdelfattah.';return;}
+  if(tk){m.textContent='This name has already taken this exam and cannot enter again. Contact Mr. Ramy Abdel Fattah.';return;}
   const order=shuffle(Q.map((_,i)=>i));
   const perm=order.map(gi=>Q[gi].parts.map(p=>p.opts?shuffle(p.opts.map((_,i)=>i)):[]));
   st={v:3,started:true,finished:false,name,startedAt:Date.now(),order,perm,answers:order.map(gi=>Q[gi].parts.map(emptyAns)),qStart:order.map(()=>0),qTime:order.map(()=>null),idx:0,exits:0,dev:devCode()};

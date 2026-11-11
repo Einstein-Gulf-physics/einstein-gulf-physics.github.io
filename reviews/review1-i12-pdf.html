@@ -39,7 +39,7 @@ function open(code){
   const box=$('pages');B.pages.forEach((p,i)=>{const im=new Image();im.className='pg';im.alt='Page '+(i+1);im.src='data:image/jpeg;base64,'+p;box.appendChild(im)});
   $('gate').hidden=true;$('view').hidden=false;try{sessionStorage.setItem('egp_pdf_ok',code)}catch(e){}
 }
-$('go').onclick=()=>{const c=$('cd').value.replace(/[\u0660-\u0669]/g,d=>d.charCodeAt(0)-0x660).replace(/[\u06F0-\u06F9]/g,d=>d.charCodeAt(0)-0x6F0).replace(/\D/g,'');if(fnv(SALT+'|check|'+c).toString(16).padStart(8,'0')!==CHECK){$('er').textContent="The code is not correct. Ask Mr. Ramy Abdelfattah for the PDF code.";return}open(c)};
+$('go').onclick=()=>{const c=$('cd').value.replace(/[\u0660-\u0669]/g,d=>d.charCodeAt(0)-0x660).replace(/[\u06F0-\u06F9]/g,d=>d.charCodeAt(0)-0x6F0).replace(/\D/g,'');if(fnv(SALT+'|check|'+c).toString(16).padStart(8,'0')!==CHECK){$('er').textContent="The code is not correct. Ask Mr. Ramy Abdel Fattah for the PDF code.";return}open(c)};
 $('cd').addEventListener('keydown',e=>{if(e.key==='Enter')$('go').click()});
 $('dl').onclick=()=>{const blob=new Blob([b64(pdf)],{type:'application/pdf'}),u=URL.createObjectURL(blob),a=document.createElement('a');a.href=u;a.download=NAME;document.body.appendChild(a);a.click();setTimeout(()=>{a.remove();URL.revokeObjectURL(u)},4000)};
 })();
