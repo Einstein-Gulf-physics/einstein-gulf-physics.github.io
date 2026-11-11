@@ -176,13 +176,17 @@ h1 .g{color:var(--gold)}
 .clockbox .orb{opacity:.3}
 .clockbox .hh{stroke:#fff;stroke-width:7;stroke-linecap:round}.clockbox .hm{stroke:#fff;stroke-width:4.5;stroke-linecap:round}.clockbox .hs{stroke:#ff4f9a;stroke-width:2;stroke-linecap:round}
 .clockbox{margin-bottom:34px}
-.dclock{position:absolute;left:50%;bottom:-30px;transform:translateX(-50%);display:flex;align-items:center;gap:12px;background:linear-gradient(135deg,#ffd56b,#f6b21a);color:var(--navy);border-radius:999px;padding:6px 18px 6px 8px;box-shadow:0 10px 24px rgba(0,0,0,.35);white-space:nowrap;border:2px solid #fff}
-[dir=rtl] .dclock{padding:6px 8px 6px 18px}
+.dclock{position:absolute;left:50%;bottom:-32px;transform:translateX(-50%);perspective:700px;white-space:nowrap}
+.dclock .flip{display:grid;transform-style:preserve-3d;animation:dflip 8s cubic-bezier(.65,0,.35,1) infinite}
+.dclock .face{grid-area:1/1;display:flex;align-items:center;justify-content:center;gap:12px;background:linear-gradient(135deg,#ffd56b,#f6b21a);color:var(--navy);border-radius:999px;padding:6px 18px 6px 8px;box-shadow:0 10px 24px rgba(0,0,0,.35);border:2px solid #fff;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.dclock .fa{padding:6px 8px 6px 18px}
+.dclock .fe{transform:rotateX(180deg)}
 .dclock .dd{background:var(--navy);color:var(--gold2);font-weight:900;font-size:1rem;border-radius:999px;padding:4px 14px}
-.dclock .dsep{display:none}
 .dclock .dm{display:flex;align-items:baseline;gap:6px;font-weight:900}
 .dclock .dm b{font-family:var(--mono);font-size:1.5rem;line-height:1}
 .dclock .dm span{font-size:.95rem}
+@keyframes dflip{0%,40%{transform:rotateX(0)}50%,90%{transform:rotateX(180deg)}100%{transform:rotateX(360deg)}}
+@media (prefers-reduced-motion:reduce){.dclock .flip{animation:none}}
 @media (prefers-reduced-motion:reduce){.clockbox .rimtxt,.motto blockquote .h{animation:none}}
 .calc-fab{position:fixed;left:16px;bottom:16px;z-index:50;width:60px;height:60px;border-radius:50%;border:3px solid var(--gold);background:var(--navy);color:#fff;cursor:pointer;box-shadow:0 10px 24px rgba(0,0,0,.35);display:grid;place-items:center;padding:0}
 .calc-fab svg{width:30px;height:30px;fill:none;stroke:#fff;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
@@ -311,7 +315,7 @@ footer .eqs{font-family:var(--mono);direction:ltr;color:#3b5a99;margin-bottom:4p
       <line id="hS" class="hs" x1="150" y1="168" x2="150" y2="58"/>
       <circle cx="150" cy="150" r="6" fill="#f6b21a"/><circle cx="150" cy="150" r="2.5" fill="#e0287a"/>
     </svg>
-    <div class="dclock" aria-live="off"><span class="dd" id="dDay"></span><span class="dsep" aria-hidden="true"></span><span class="dm"><b id="dNum"></b><span id="dMon"></span></span></div>
+    <div class="dclock" aria-live="off"><div class="flip"><div class="face fa" dir="rtl" lang="ar"><span class="dd" id="dDayA"></span><span class="dm"><b id="dNumA"></b><span id="dMonA"></span></span></div><div class="face fe" dir="ltr" lang="en"><span class="dd" id="dDayE"></span><span class="dm"><b id="dNumE"></b><span id="dMonE"></span></span></div></div></div>
   </div>
 </div></header>
 
@@ -531,7 +535,7 @@ const hH=document.getElementById('hH'),hM=document.getElementById('hM'),hS=docum
 function tick(){const now=new Date();const p={};tf.formatToParts(now).forEach(x=>p[x.type]=x.value);
   const h=(+p.hour)%24,m=+p.minute,sc=+p.second;
   hH.setAttribute('transform','rotate('+((h%12)*30+m*0.5)+' 150 150)');hM.setAttribute('transform','rotate('+(m*6+sc*0.1)+' 150 150)');hS.setAttribute('transform','rotate('+(sc*6)+' 150 150)');
-  const F=DF[document.documentElement.lang==='en'?'en':'ar'];if(F.w){document.getElementById('dDay').textContent=F.w.format(now);document.getElementById('dNum').textContent=F.d.format(now);document.getElementById('dMon').textContent=F.m.format(now).replace(/\s*م$/,'');}}
+  for(const [k,x] of [['ar','A'],['en','E']]){const F=DF[k];if(!F.w)continue;document.getElementById('dDay'+x).textContent=F.w.format(now);document.getElementById('dNum'+x).textContent=F.d.format(now);document.getElementById('dMon'+x).textContent=F.m.format(now).replace(/\s*م$/,'');}}
 tick();setInterval(tick,1000);
 const box=document.getElementById('calcBox'),btn=document.getElementById('calcBtn'),ex=document.getElementById('cEx'),rs=document.getElementById('cRs');
 let expr='',ans=0,done=false;
