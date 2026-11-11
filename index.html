@@ -47,7 +47,7 @@ h1 .g{color:var(--gold)}
 @media (prefers-reduced-motion:no-preference){.emblem .spin{transform-origin:150px 150px;animation:spin 10s linear infinite}.emblem .spin.r{animation-duration:14s;animation-direction:reverse}}
 @keyframes spin{to{transform:rotate(360deg)}}
 .calc{max-height:calc(100dvh - 110px);overflow:auto}
-.ctabs{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;background:rgba(255,255,255,.08);border-radius:12px;padding:4px;margin-bottom:10px}
+.ctabs{display:grid;grid-template-columns:repeat(2,1fr);gap:4px;background:rgba(255,255,255,.08);border-radius:12px;padding:4px;margin-bottom:10px}
 .ctabs button{font:inherit;font-weight:800;font-size:.85rem;border:0;border-radius:9px;padding:7px 2px;background:transparent;color:#cdd8f2;cursor:pointer}
 .ctabs button[aria-selected="true"]{background:var(--gold);color:var(--navy)}
 .calc .cpane[hidden]{display:none}
@@ -444,7 +444,7 @@ document.getElementById('copy').addEventListener('click',()=>{
 <button type="button" class="calc-fab" id="calcBtn" aria-label="الآلة الحاسبة" aria-expanded="false" aria-controls="calcBox"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M8 6h8M8 11h.01M12 11h.01M16 11h.01M8 15h.01M12 15h.01M16 15v4M8 19h.01M12 19h.01"/></svg></button>
 <div class="calc" id="calcBox" hidden role="dialog" aria-label="آلة حاسبة علمية">
   <div class="ch"><span data-en="Scientific calculator">آلة حاسبة علمية</span><button type="button" id="calcX" aria-label="إغلاق">✕</button></div>
-  <div class="ctabs" role="tablist"><button type="button" role="tab" data-p="pCalc" aria-selected="true" data-en="Calculator">الحاسبة</button><button type="button" role="tab" data-p="pConv" aria-selected="false" data-en="Units">تحويل الوحدات</button><button type="button" role="tab" data-p="pConst" aria-selected="false" data-en="Constants">الثوابت</button></div>
+  <div class="ctabs" role="tablist"><button type="button" role="tab" data-p="pCalc" aria-selected="true" data-en="Calculator">الحاسبة</button><button type="button" role="tab" data-p="pConv" aria-selected="false" data-en="Units">تحويل الوحدات</button></div>
   <div class="cpane" id="pCalc">
   <div class="scr"><div class="mode">DEG</div><div class="ex" id="cEx"></div><div class="rs" id="cRs">0</div></div>
   <div class="keys"><button type="button" class="f" data-k="sin(" aria-label="sin">sin</button><button type="button" class="f" data-k="cos(" aria-label="cos">cos</button><button type="button" class="f" data-k="tan(" aria-label="tan">tan</button><button type="button" class="f" data-k="^2" aria-label="x²">x²</button><button type="button" class="f" data-k="√(" aria-label="√">√</button><button type="button" class="f" data-k="asin(" aria-label="sin⁻¹">sin⁻¹</button><button type="button" class="f" data-k="acos(" aria-label="cos⁻¹">cos⁻¹</button><button type="button" class="f" data-k="atan(" aria-label="tan⁻¹">tan⁻¹</button><button type="button" class="f" data-k="^" aria-label="xʸ">xʸ</button><button type="button" class="f" data-k="log(" aria-label="log">log</button><button type="button" class="f" data-k="(" aria-label="(">(</button><button type="button" class="f" data-k=")" aria-label=")">)</button><button type="button" class="f" data-k="π" aria-label="π">π</button><button type="button" class="f" data-k="Ans" aria-label="Ans">Ans</button><button type="button" class="f" data-k="−" aria-label="(−)">(−)</button><button type="button" class="n" data-k="7" aria-label="7">7</button><button type="button" class="n" data-k="8" aria-label="8">8</button><button type="button" class="n" data-k="9" aria-label="9">9</button><button type="button" class="d" data-k="del" aria-label="DEL">DEL</button><button type="button" class="d" data-k="ac" aria-label="AC">AC</button><button type="button" class="n" data-k="4" aria-label="4">4</button><button type="button" class="n" data-k="5" aria-label="5">5</button><button type="button" class="n" data-k="6" aria-label="6">6</button><button type="button" class="o" data-k="×" aria-label="×">×</button><button type="button" class="o" data-k="÷" aria-label="÷">÷</button><button type="button" class="n" data-k="1" aria-label="1">1</button><button type="button" class="n" data-k="2" aria-label="2">2</button><button type="button" class="n" data-k="3" aria-label="3">3</button><button type="button" class="o" data-k="+" aria-label="+">+</button><button type="button" class="o" data-k="−" aria-label="−">−</button><button type="button" class="n" data-k="0" aria-label="0">0</button><button type="button" class="n" data-k="." aria-label=".">.</button><button type="button" class="f" data-k="E" aria-label="×10ˣ">×10ˣ</button><button type="button" class="f" data-k="ln(" aria-label="ln">ln</button><button type="button" class="eq" data-k="=" aria-label="=">=</button></div>
@@ -455,10 +455,6 @@ document.getElementById('copy').addEventListener('click',()=>{
     <div class="uRow"><label class="fl"><span data-en="From">من</span><select id="uFrom" dir="ltr"></select></label><button type="button" id="uSwap" aria-label="Swap">⇄</button><label class="fl"><span data-en="To">إلى</span><select id="uTo" dir="ltr"></select></label></div>
     <div class="uOut" dir="ltr"><b id="uRes">—</b><span id="uFac"></span></div>
     <button type="button" class="uUse" id="uUse" data-en="Use in calculator">استخدم الناتج في الحاسبة</button>
-  </div>
-  <div class="cpane" id="pConst" hidden>
-    <p class="ctip" data-en="Tap a constant to put it in the calculator.">دوس على الثابت عشان يتحط في الحسبة.</p>
-    <ul class="consts" id="cList"></ul>
   </div>
 </div>
 <script>
@@ -594,16 +590,8 @@ function calcConv(){const u=U[+cat.value][3],a=u[+fr.value],b=u[+to.value];
 cat.onchange=fillUnits;fr.onchange=to.onchange=calcConv;val.oninput=calcConv;
 document.getElementById('uSwap').onclick=()=>{const x=fr.value;fr.value=to.value;to.value=x;calcConv()};
 document.getElementById('uUse').onclick=()=>{if(last===null)return;const e=last.toExponential(6).split('e');window.__calcIns('('+(+e[0])+'E'+(+e[1])+')');goCalc()};
-// constants (values from CODATA, rounded as in the curriculum)
-const K=[['K','ثابت كولوم','Coulomb constant','8.99','9','N·m²/C²'],['e','الشحنة الأساسية','Elementary charge','1.60','-19','C'],['ε₀','السماحية الكهربائية للفراغ','Permittivity of free space','8.85','-12','C²/N·m²'],
- ['mₑ','كتلة الإلكترون','Electron mass','9.11','-31','kg'],['mₚ','كتلة البروتون','Proton mass','1.67','-27','kg'],['c','سرعة الضوء','Speed of light','3.00','8','m/s'],
- ['h','ثابت بلانك','Planck constant','6.63','-34','J·s'],['G','ثابت الجذب العام','Gravitational constant','6.67','-11','N·m²/kg²'],['eV','إلكترون فولت','Electron volt','1.60','-19','J']];
-const cl=document.getElementById('cList');
-function fillConst(){cl.innerHTML='';K.forEach(k=>{const li=document.createElement('li'),b=document.createElement('button');b.type='button';
- b.innerHTML='<span><span class="sy"></span><span class="nm"></span></span><span class="v"></span>';b.querySelector('.sy').textContent=k[0];b.querySelector('.nm').textContent=en()?k[2]:k[1];
- b.querySelector('.v').textContent=k[3]+' × 10'+sup(k[4])+' '+k[5];b.onclick=()=>{window.__calcIns('('+k[3]+'E'+k[4]+')');goCalc()};li.appendChild(b);cl.appendChild(li)})}
-fillCat();cat.value=0;fillUnits();fillConst();
-document.addEventListener('eg-lang',()=>{fillCat();fillConst();calcConv()});
+fillCat();cat.value=0;fillUnits();
+document.addEventListener('eg-lang',()=>{fillCat();calcConv()});
 window.__conv={U,set:(c,f,t,v)=>{cat.value=c;fillUnits();fr.value=f;to.value=t;val.value=v;calcConv();return res.textContent+' | '+fac.textContent}};
 })();
 </script>
