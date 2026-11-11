@@ -247,6 +247,9 @@ section.block{margin-top:34px}
 .card h3{margin:0;font-weight:900;font-size:1.3rem}
 .card p{margin:0;color:var(--dim);font-size:.95rem}
 .card .more{margin-top:auto;padding-top:8px;font-weight:800;color:var(--navy2)}
+.cards>.panel{grid-column:1/-1;margin-top:-4px}
+.panel.open{animation:pop .3s ease-out}
+.cards .card{scroll-margin-top:12px}
 .panel{margin-top:16px;background:var(--card);border:2px solid var(--gold);border-radius:18px;padding:16px 18px}
 .panel h3{margin:0 0 6px;font-weight:900}
 .panel .ask{margin:4px 0 8px;font-weight:700;color:var(--dim)}
@@ -500,7 +503,8 @@ document.querySelectorAll('.card').forEach(c=>c.addEventListener('click',()=>{
   try{track=localStorage.getItem('eg_track')||track}catch(e){}
   if(track&&d.tracks[track])pick(track);
   if(!LIVE){const p=document.createElement('p');p.className='note';p.textContent=L('نسخة تجريبية: زرار «ابدأ» هيشتغل بعد رفع الموقع على GitHub.');panel.appendChild(p);}
-  panel.hidden=false;panel.scrollIntoView({behavior:'smooth',block:'nearest'});
+  c.after(panel);panel.hidden=false;panel.classList.remove('open');void panel.offsetWidth;panel.classList.add('open');
+  setTimeout(()=>c.scrollIntoView({behavior:'smooth',block:'start'}),60);
 }));
 function badges(){let t=null;try{t=localStorage.getItem('eg_track')}catch(e){}
   document.querySelectorAll('.card').forEach(c=>{let b=c.querySelector('.top .bdg');const n=t?((DATA[c.dataset.k].tracks[t])||[]).length:0;
