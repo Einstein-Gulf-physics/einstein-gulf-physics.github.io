@@ -256,7 +256,7 @@ footer .eqs{font-family:var(--mono);direction:ltr;color:#3b5a99;margin-bottom:4p
     <h1 data-en="&lt;span class=&quot;g&quot;&gt;Einstein&lt;/span&gt; Gulf Physics Platform">منصة <span class="g">أينشتاين</span> الخليج في الفيزياء</h1>
     <div class="by" data-en="with &lt;span&gt;Mr. Ramy Abdelfattah&lt;/span&gt;">مع <span>الأستاذ رامي عبد الفتاح</span></div>
     <p class="lead" data-en="Welcome, champ 👋 Your exams, homework and review games, all in one place. Study, practise, and track your level as you go.">أهلًا بيك يا بطل 👋 امتحاناتك وواجباتك وألعاب المراجعة كلها في مكان واحد. ذاكر، اتدرّب، واعرف مستواك أول بأول.</p>
-    <div class="cta"><button type="button" class="btn gold" id="startBtn" aria-expanded="false" aria-controls="gradePick">ادخل على صفك 🎓</button><a class="btn line" href="#contact" data-en="Contact the teacher">تواصل مع الأستاذ</a></div>
+    <div class="cta"><button type="button" class="btn gold" id="startBtn" aria-expanded="false" aria-controls="gradePick">يلا بينا 🚀</button><a class="btn line" href="#contact" data-en="Contact the teacher">تواصل مع الأستاذ</a></div>
     <div class="gpick" id="gradePick" hidden><p data-en="Choose your grade">اختار صفك</p><div class="gbtns"></div></div>
   </div>
   <div class="emblem clockbox">
@@ -451,7 +451,7 @@ function badges(){let t=null;try{t=localStorage.getItem('eg_track')}catch(e){}
     b.textContent=n?(document.documentElement.lang==='en'?n+(n>1?' items':' item'):(n===1?'عنصر واحد':n===2?'عنصران':n<11?n+' عناصر':n+' عنصرًا')):(document.documentElement.lang==='en'?'soon':'قريبًا');b.classList.toggle('z',!n)})}
 const sb=document.getElementById('startBtn'),gp=document.getElementById('gradePick'),gb=gp.querySelector('.gbtns');
 function startLabel(){let t=null;try{t=localStorage.getItem('eg_track')}catch(e){}const en=document.documentElement.lang==='en';
-  const lab=t&&(TR.find(x=>x[0]===t)||[])[1];sb.textContent=lab?(en?'Continue · ':'كمّل · ')+L(lab).replace(/^(الصف|Grade) /,'')+' ⚡':(en?'Go to your grade 🎓':'ادخل على صفك 🎓');
+  const lab=t&&(TR.find(x=>x[0]===t)||[])[1];sb.textContent=lab?(en?'Continue · ':'كمّل · ')+L(lab).replace(/^(الصف|Grade) /,'')+' ⚡':(en?'Let’s go 🚀':'يلا بينا 🚀');
   gb.innerHTML='';TR.forEach(([k,l])=>{const b=document.createElement('button');b.type='button';b.textContent=L(l);b.setAttribute('aria-pressed',k===t?'true':'false');
     b.onclick=()=>{try{localStorage.setItem('eg_track',k)}catch(e){}track=k;gp.hidden=true;sb.setAttribute('aria-expanded','false');startLabel();badges();
       const sec=document.getElementById('sections');sec.scrollIntoView({behavior:'smooth',block:'start'});sec.classList.remove('flash');void sec.offsetWidth;sec.classList.add('flash')};gb.appendChild(b)})}
