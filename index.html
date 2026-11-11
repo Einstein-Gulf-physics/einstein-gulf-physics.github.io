@@ -554,7 +554,6 @@ const tabs=[...box.querySelectorAll('.ctabs button')];
 tabs.forEach(b=>b.onclick=()=>{tabs.forEach(x=>{const on=x===b;x.setAttribute('aria-selected',on?'true':'false');document.getElementById(x.dataset.p).hidden=!on})});
 const goCalc=()=>tabs[0].click();
 const en=()=>document.documentElement.lang==='en';
-const eC='1.602176634e-19';
 // factor = value of 1 unit in SI
 const U=[
  ['الطول','Length','m',[['km',1e3],['m',1],['cm',1e-2],['mm',1e-3],['μm',1e-6],['nm',1e-9]]],
@@ -563,11 +562,11 @@ const U=[
  ['الكتلة','Mass','kg',[['t (طن)',1e3],['kg',1],['g',1e-3],['mg',1e-6],['μg',1e-9]]],
  ['الزمن','Time','s',[['h',3600],['min',60],['s',1],['ms',1e-3],['μs',1e-6],['ns',1e-9]]],
  ['السرعة','Speed','m/s',[['km/h',1/3.6],['m/s',1],['cm/s',1e-2]]],
- ['الشحنة','Charge','C',[['C',1],['mC',1e-3],['μC',1e-6],['nC',1e-9],['pC',1e-12],['e',+eC]]],
+ ['الشحنة','Charge','C',[['C',1],['mC',1e-3],['μC',1e-6],['nC',1e-9],['pC',1e-12]]],
  ['كثافة الشحنة السطحية','Surface charge density','C/m²',[['C/m²',1],['mC/m²',1e-3],['μC/m²',1e-6],['nC/m²',1e-9],['μC/cm²',1e-2]]],
  ['المجال الكهربائي','Electric field','N/C',[['N/C = V/m',1],['kN/C = kV/m',1e3],['MN/C = MV/m',1e6],['V/cm',1e2],['V/mm',1e3]]],
  ['الجهد الكهربائي','Electric potential','V',[['MV',1e6],['kV',1e3],['V',1],['mV',1e-3],['μV',1e-6]]],
- ['الطاقة','Energy','J',[['MJ',1e6],['kJ',1e3],['J',1],['mJ',1e-3],['μJ',1e-6],['eV',+eC],['keV',+eC*1e3],['MeV',+eC*1e6]]],
+ ['الطاقة','Energy','J',[['MJ',1e6],['kJ',1e3],['J',1],['mJ',1e-3],['μJ',1e-6]]],
  ['السعة الكهربائية','Capacitance','F',[['F',1],['mF',1e-3],['μF',1e-6],['nF',1e-9],['pF',1e-12]]],
  ['القوة','Force','N',[['MN',1e6],['kN',1e3],['N',1],['mN',1e-3],['μN',1e-6]]],
  ['الزاوية','Angle','rad',[['rad',1],['° (degree)',Math.PI/180],['rev (دورة)',2*Math.PI]]]
