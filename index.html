@@ -46,6 +46,17 @@ h1 .g{color:var(--gold)}
 .emblem .eq{font-family:var(--mono);font-weight:600;fill:var(--gold);font-size:30px}
 @media (prefers-reduced-motion:no-preference){.emblem .spin{transform-origin:150px 150px;animation:spin 10s linear infinite}.emblem .spin.r{animation-duration:14s;animation-direction:reverse}}
 @keyframes spin{to{transform:rotate(360deg)}}
+.by .tn{position:relative;display:inline-block;animation:tnglow 4.5s ease-in-out infinite}
+[dir=rtl] .by .tn{transform-origin:100% 50%;margin-inline-start:2px}[dir=ltr] .by .tn{transform-origin:0 50%}
+.by .comet{position:absolute;top:50%;width:140px;height:3px;margin-top:-1.5px;border-radius:3px;pointer-events:none;opacity:0;animation:comet 4.5s cubic-bezier(.2,.7,.3,1) infinite}
+[dir=rtl] .by .comet{right:100%;background:linear-gradient(90deg,transparent,rgba(255,213,107,.9));--from:-90vw}
+[dir=ltr] .by .comet{left:100%;background:linear-gradient(270deg,transparent,rgba(255,213,107,.9));--from:90vw}
+.by .comet::after{content:"✦";position:absolute;top:50%;transform:translateY(-52%);color:#fff;font-size:20px;line-height:1;text-shadow:0 0 10px #ffd56b,0 0 22px #f6b21a}
+[dir=rtl] .by .comet::after{right:-10px}[dir=ltr] .by .comet::after{left:-10px}
+@keyframes comet{0%{transform:translateX(var(--from));opacity:0}6%{opacity:1}28%{transform:translateX(0);opacity:1}34%{transform:translateX(0) scaleX(.15);opacity:0}100%{opacity:0;transform:translateX(0)}}
+@keyframes tnglow{0%,27%,55%,100%{text-shadow:none;transform:none}32%{text-shadow:0 0 14px rgba(255,213,107,.95),0 0 30px rgba(246,178,26,.7);transform:scale(1.06)}42%{text-shadow:0 0 8px rgba(255,213,107,.6);transform:scale(1)}}
+@media (prefers-reduced-motion:reduce){.by .tn,.by .comet{animation:none}}
+
 h1 .l1{display:block;white-space:nowrap;font-size:clamp(1.75rem,8.2vw,3.3rem)}
 h1 .sub{display:flex;align-items:center;gap:12px;margin-top:6px;font-size:clamp(1.1rem,4.6vw,1.6rem);font-weight:800;color:var(--gold2);letter-spacing:.5px}
 h1 .sub i{flex:none;width:34px;height:3px;border-radius:3px;background:linear-gradient(90deg,transparent,var(--gold))}
@@ -300,7 +311,7 @@ footer .eqs{font-family:var(--mono);direction:ltr;color:#3b5a99;margin-bottom:4p
 <header class="hero"><div class="wrap">
   <div>
     <h1 data-en="&lt;span class=&quot;l1&quot;&gt;&lt;span class=&quot;g&quot;&gt;Einstein&lt;/span&gt; Gulf&lt;/span&gt;&lt;span class=&quot;sub&quot;&gt;&lt;i&gt;&lt;/i&gt;Physics Platform&lt;i&gt;&lt;/i&gt;&lt;/span&gt;"><span class="l1">منصة <span class="g">أينشتاين</span> الخليج</span><span class="sub"><i></i>في الفيزياء<i></i></span></h1>
-    <div class="by" data-en="with &lt;span&gt;Mr. Ramy Abdelfattah&lt;/span&gt;">مع <span>الأستاذ رامي عبد الفتاح</span></div>
+    <div class="by" data-en="with &lt;span class=&quot;tn&quot;&gt;&lt;i class=&quot;comet&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;Mr. Ramy Abdelfattah&lt;/span&gt;">مع <span class="tn"><i class="comet" aria-hidden="true"></i>الأستاذ رامي عبد الفتاح</span></div>
     <p class="lead" data-en="Welcome, champ 👋 Your exams, homework and review games, all in one place. Study, practise, and track your level as you go.">أهلًا بيك يا بطل 👋 امتحاناتك وواجباتك وألعاب المراجعة كلها في مكان واحد. ذاكر، اتدرّب، واعرف مستواك أول بأول.</p>
     <div class="gpick" id="gradePick"><p class="gh"><span class="sp" aria-hidden="true">✦</span><span data-en="Pick your grade and take off">اختر صفك وانطلق</span><span class="sp" aria-hidden="true">✦</span></p><div class="gbtns"></div></div>
     <div class="cta"><a class="btn line" href="#contact" data-en="Contact the teacher">تواصل مع الأستاذ</a></div>
@@ -461,7 +472,7 @@ const panel=document.getElementById('panel');
 let track=null;try{track=localStorage.getItem('eg_track');}catch(e){}
 function renderList(box,list){
   box.innerHTML='';
-  if(!list.length){const p=document.createElement('p');p.className='note';p.textContent=L('لسه مفيش حاجة هنا، قريبًا إن شاء الله.');box.appendChild(p);return;}
+  if(!list.length)return;
   list.forEach(it=>{const r=document.createElement('div');r.className='item';
     const l=document.createElement('div');l.style.minWidth='0';
     const n=document.createElement('div');n.className='nm';n.textContent=L(it.nm);
