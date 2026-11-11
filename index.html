@@ -66,7 +66,7 @@ section.block{margin-top:34px}
 .card .top{height:118px;display:grid;place-items:center;position:relative}
 .card .top .big{font-family:var(--mono);font-weight:600;color:#fff;font-size:1.6rem;direction:ltr}
 .card .top .em{position:absolute;bottom:-22px;inset-inline-start:18px;width:52px;height:52px;border-radius:14px;background:#fff;display:grid;place-items:center;font-size:1.6rem;box-shadow:0 6px 16px rgba(0,0,0,.15)}
-.t1{background:linear-gradient(135deg,#16408a,#2e6fd6)}.t4{background:linear-gradient(135deg,#6b21a8,#c026d3)}.t2{background:linear-gradient(135deg,#0d7a5f,#18b38a)}.t3{background:linear-gradient(135deg,#c2410c,#f6b21a)}.t5{background:linear-gradient(135deg,#0f766e,#14b8a6)}.t6{background:linear-gradient(135deg,#7c2d12,#b45309)}
+.t1{background:linear-gradient(135deg,#16408a,#2e6fd6)}.t4{background:linear-gradient(135deg,#6b21a8,#c026d3)}.t2{background:linear-gradient(135deg,#0d7a5f,#18b38a)}.t3{background:linear-gradient(135deg,#c2410c,#f6b21a)}.t5{background:linear-gradient(135deg,#0f766e,#14b8a6)}.t6{background:linear-gradient(135deg,#7c2d12,#b45309)}.t7{background:linear-gradient(135deg,#14532d,#16a34a)}
 .card .body{padding:30px 18px 18px;display:flex;flex-direction:column;gap:6px;flex:1}
 .card h3{margin:0;font-weight:900;font-size:1.3rem}
 .card p{margin:0;color:var(--dim);font-size:.95rem}
@@ -177,6 +177,10 @@ footer .eqs{font-family:var(--mono);direction:ltr;color:#3b5a99;margin-bottom:4p
         <div class="top t3"><span class="big">V = kq / r</span><span class="em">🎮</span></div>
         <div class="body"><h3>تحدي القمة</h3><p>راجع الدروس وانت بتلعب، واجمع نجوم، وخد شهادة تفوق.</p><span class="more">شوف تحدي القمة ←</span></div>
       </button>
+      <button class="card" id="c-hk" data-k="hk" aria-expanded="false" aria-controls="panel">
+        <div class="top t7"><span class="big">2026 · 2027</span><span class="em">📋</span></div>
+        <div class="body"><h3>الهيكل المعتمد من وزارة التربية والتعليم</h3><p>هيكل اختبار نهاية الفصل الدراسي الأول لكل صف، للعرض والتحميل.</p><span class="more">شوف الهيكل ←</span></div>
+      </button>
       <button class="card" id="c-comp" data-k="comp" aria-expanded="false" aria-controls="panel">
         <div class="top t6"><span class="big">2019 · 2020</span><span class="em">🏛️</span></div>
         <div class="body"><h3>امتحانات شاملة لسنوات سابقة</h3><p>امتحانات الوزارة لنهاية الفصل: نسخة إلكترونية، وورقة الامتحان، ونموذج الإجابة.</p><span class="more">شوف الامتحانات ←</span></div>
@@ -244,6 +248,11 @@ const DATA={
   games:{t:'🏔️ تحدي القمة',tracks:{
     b12:[{nm:'تحدي القمة 🏔️',meta:'46 سؤال مراجعة · شهادة تفوق',href:'games/summit.html'}],
     i12:[],b11:[],i11:[]}},
+  hk:{t:'📋 الهيكل المعتمد من وزارة التربية والتعليم',tracks:{
+    b12:[{nm:'هيكل اختبار نهاية الفصل الأول · 12 متقدم بريدج',meta:'2026-2027 · عرض وتحميل PDF',href:'hayakel/hayakel-b12.html',btn:'افتح'}],
+    i12:[{nm:'End of Term 1 Exam Coverage · Grade 12 Inspire',meta:'2026-2027 · view and download PDF',href:'hayakel/hayakel-i12.html',btn:'افتح'}],
+    b11:[{nm:'هيكل اختبار نهاية الفصل الأول · 11 متقدم بريدج',meta:'2026-2027 · عرض وتحميل PDF',href:'hayakel/hayakel-b11.html',btn:'افتح'}],
+    i11:[{nm:'End of Term 1 Exam Coverage · Grade 11 Inspire',meta:'2026-2027 · view and download PDF',href:'hayakel/hayakel-i11.html',btn:'افتح'}]}},
   comp:{t:'🏛️ امتحانات شاملة لسنوات سابقة',tracks:{
     b12:[{nm:'بنك أسئلة إلكتروني لامتحان 2019-2020',meta:'16 شاشة · 50 درجة · بكود دخول',href:'comprehensive/wizara-2019-2020.html'},
          {nm:'📄 امتحان 2019-2020 · PDF',meta:'ورقة الامتحان للمذاكرة والطباعة · بنفس الكود',href:'comprehensive/wizara-2019-2020-exam.html',btn:'افتح'},
