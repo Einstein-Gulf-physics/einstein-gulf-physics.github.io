@@ -176,8 +176,13 @@ h1 .g{color:var(--gold)}
 .clockbox .orb{opacity:.3}
 .clockbox .hh{stroke:#fff;stroke-width:7;stroke-linecap:round}.clockbox .hm{stroke:#fff;stroke-width:4.5;stroke-linecap:round}.clockbox .hs{stroke:#ff4f9a;stroke-width:2;stroke-linecap:round}
 .clockbox{margin-bottom:34px}
-.dclock{position:absolute;left:50%;bottom:-34px;transform:translateX(-50%);background:var(--gold);color:var(--navy);border-radius:14px;padding:4px 16px;text-align:center;box-shadow:0 8px 20px rgba(0,0,0,.3);white-space:nowrap}
-.dclock b{display:block;font-family:var(--mono);font-size:1.25rem;direction:ltr;letter-spacing:1px}.dclock span{font-size:.8rem;font-weight:800}
+.dclock{position:absolute;left:50%;bottom:-30px;transform:translateX(-50%);display:flex;align-items:center;gap:12px;background:linear-gradient(135deg,#ffd56b,#f6b21a);color:var(--navy);border-radius:999px;padding:6px 18px 6px 8px;box-shadow:0 10px 24px rgba(0,0,0,.35);white-space:nowrap;border:2px solid #fff}
+[dir=rtl] .dclock{padding:6px 8px 6px 18px}
+.dclock .dd{background:var(--navy);color:var(--gold2);font-weight:900;font-size:1rem;border-radius:999px;padding:4px 14px}
+.dclock .dsep{display:none}
+.dclock .dm{display:flex;align-items:baseline;gap:6px;font-weight:900}
+.dclock .dm b{font-family:var(--mono);font-size:1.5rem;line-height:1}
+.dclock .dm span{font-size:.95rem}
 @media (prefers-reduced-motion:reduce){.clockbox .rimtxt,.motto blockquote .h{animation:none}}
 .calc-fab{position:fixed;left:16px;bottom:16px;z-index:50;width:60px;height:60px;border-radius:50%;border:3px solid var(--gold);background:var(--navy);color:#fff;cursor:pointer;box-shadow:0 10px 24px rgba(0,0,0,.35);display:grid;place-items:center;padding:0}
 .calc-fab svg{width:30px;height:30px;fill:none;stroke:#fff;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
@@ -306,7 +311,7 @@ footer .eqs{font-family:var(--mono);direction:ltr;color:#3b5a99;margin-bottom:4p
       <line id="hS" class="hs" x1="150" y1="168" x2="150" y2="58"/>
       <circle cx="150" cy="150" r="6" fill="#f6b21a"/><circle cx="150" cy="150" r="2.5" fill="#e0287a"/>
     </svg>
-    <div class="dclock"><b id="dTime">--:--:--</b><span id="dDate">توقيت الإمارات</span></div>
+    <div class="dclock" aria-live="off"><span class="dd" id="dDay"></span><span class="dsep" aria-hidden="true"></span><span class="dm"><b id="dNum"></b><span id="dMon"></span></span></div>
   </div>
 </div></header>
 
@@ -520,13 +525,13 @@ document.getElementById('copy').addEventListener('click',()=>{
 (function(){
 const pad=n=>String(n).padStart(2,'0');
 const tf=new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Dubai',hour:'2-digit',minute:'2-digit',second:'2-digit',hourCycle:'h23'});
-let dfA,dfE;try{dfA=new Intl.DateTimeFormat('ar-AE-u-nu-latn',{timeZone:'Asia/Dubai',weekday:'long',day:'numeric',month:'long'});dfE=new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Dubai',weekday:'long',day:'numeric',month:'long'})}catch(e){}
+const mk=(l,o)=>{try{return new Intl.DateTimeFormat(l,Object.assign({timeZone:'Asia/Dubai'},o))}catch(e){return null}};
+const DF={ar:{w:mk('ar-AE-u-nu-latn',{weekday:'long'}),d:mk('ar-AE-u-nu-latn',{day:'numeric'}),m:mk('ar-AE-u-nu-latn',{month:'long',year:'numeric'})},en:{w:mk('en-GB',{weekday:'long'}),d:mk('en-GB',{day:'numeric'}),m:mk('en-GB',{month:'long',year:'numeric'})}};
 const hH=document.getElementById('hH'),hM=document.getElementById('hM'),hS=document.getElementById('hS');
 function tick(){const now=new Date();const p={};tf.formatToParts(now).forEach(x=>p[x.type]=x.value);
   const h=(+p.hour)%24,m=+p.minute,sc=+p.second;
   hH.setAttribute('transform','rotate('+((h%12)*30+m*0.5)+' 150 150)');hM.setAttribute('transform','rotate('+(m*6+sc*0.1)+' 150 150)');hS.setAttribute('transform','rotate('+(sc*6)+' 150 150)');
-  document.getElementById('dTime').textContent=pad(h%12||12)+':'+pad(m)+':'+pad(sc)+(h<12?' AM':' PM');
-  const en=document.documentElement.lang==='en',df=en?dfE:dfA;document.getElementById('dDate').textContent=(en?'UAE time':'توقيت الإمارات')+(df?' · '+df.format(now):'');}
+  const F=DF[document.documentElement.lang==='en'?'en':'ar'];if(F.w){document.getElementById('dDay').textContent=F.w.format(now);document.getElementById('dNum').textContent=F.d.format(now);document.getElementById('dMon').textContent=F.m.format(now).replace(/\s*م$/,'');}}
 tick();setInterval(tick,1000);
 const box=document.getElementById('calcBox'),btn=document.getElementById('calcBtn'),ex=document.getElementById('cEx'),rs=document.getElementById('cRs');
 let expr='',ans=0,done=false;
