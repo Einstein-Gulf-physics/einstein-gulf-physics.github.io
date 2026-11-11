@@ -46,6 +46,21 @@ h1 .g{color:var(--gold)}
 .emblem .eq{font-family:var(--mono);font-weight:600;fill:var(--gold);font-size:30px}
 @media (prefers-reduced-motion:no-preference){.emblem .spin{transform-origin:150px 150px;animation:spin 10s linear infinite}.emblem .spin.r{animation-duration:14s;animation-direction:reverse}}
 @keyframes spin{to{transform:rotate(360deg)}}
+.tflip{perspective:1100px;margin:12px 0 6px}
+.tflip .tf{display:grid;transform-style:preserve-3d;animation:dflip 8s cubic-bezier(.65,0,.35,1) infinite}
+.tflip .tface{grid-area:1/1;backface-visibility:hidden;-webkit-backface-visibility:hidden;align-self:center}
+.tflip .te{transform:rotateX(180deg)}
+.tflip h1,.tflip .h1{margin:0 0 6px;font-weight:900;line-height:1.2}
+.tflip .h1 .g{color:var(--gold)}
+[dir=rtl] .tflip .te{text-align:right}[dir=rtl] .tflip .te .sub{justify-content:flex-end}
+[dir=ltr] .tflip .ta{text-align:left}[dir=ltr] .tflip .ta .sub{justify-content:flex-end;flex-direction:row-reverse}
+.tflip .te .comet{left:100%;right:auto;background:linear-gradient(270deg,transparent,rgba(255,213,107,.9));--from:90vw}
+.tflip .te .comet::after{left:-10px;right:auto}
+.tflip .ta .comet{right:100%;left:auto;background:linear-gradient(90deg,transparent,rgba(255,213,107,.9));--from:-90vw}
+.tflip .ta .comet::after{right:-10px;left:auto}
+.tflip .te .tn{transform-origin:0 50%}.tflip .ta .tn{transform-origin:100% 50%}
+@media (prefers-reduced-motion:reduce){.tflip .tf{animation:none}}
+
 .by .tn{position:relative;display:inline-block;animation:tnglow 4.5s ease-in-out infinite}
 [dir=rtl] .by .tn{transform-origin:100% 50%;margin-inline-start:2px}[dir=ltr] .by .tn{transform-origin:0 50%}
 .by .comet{position:absolute;top:50%;width:140px;height:3px;margin-top:-1.5px;border-radius:3px;pointer-events:none;opacity:0;animation:comet 4.5s cubic-bezier(.2,.7,.3,1) infinite}
@@ -57,11 +72,10 @@ h1 .g{color:var(--gold)}
 @keyframes tnglow{0%,27%,55%,100%{text-shadow:none;transform:none}32%{text-shadow:0 0 14px rgba(255,213,107,.95),0 0 30px rgba(246,178,26,.7);transform:scale(1.06)}42%{text-shadow:0 0 8px rgba(255,213,107,.6);transform:scale(1)}}
 @media (prefers-reduced-motion:reduce){.by .tn,.by .comet{animation:none}}
 
-h1 .l1{display:block;white-space:nowrap;font-size:clamp(1.75rem,8.2vw,3.3rem)}
-h1 .sub{display:flex;align-items:center;gap:12px;margin-top:6px;font-size:clamp(1.1rem,4.6vw,1.6rem);font-weight:800;color:var(--gold2);letter-spacing:.5px}
-h1 .sub i{flex:none;width:34px;height:3px;border-radius:3px;background:linear-gradient(90deg,transparent,var(--gold))}
-[dir=rtl] h1 .sub i:first-child,[dir=ltr] h1 .sub i:last-child{transform:scaleX(-1)}
-h1 .sub i:last-child{flex:1;max-width:120px}
+h1 .l1,.h1 .l1{display:block;white-space:nowrap;font-size:clamp(1.75rem,8.2vw,3.3rem)}
+h1 .sub,.h1 .sub{display:flex;align-items:center;gap:12px;margin-top:6px;font-size:clamp(1.1rem,4.6vw,1.6rem);font-weight:800;color:var(--gold2);letter-spacing:.5px}
+h1 .sub i,.h1 .sub i{flex:none;width:34px;height:3px;border-radius:3px;background:var(--gold);opacity:.75}
+h1 .sub i:last-child,.h1 .sub i:last-child{flex:1;max-width:120px;opacity:.4}
 
 .gpick{margin-top:6px;max-width:540px}
 .gpick .gh{margin:0 0 12px;font-weight:900;font-size:clamp(1.25rem,4.4vw,1.5rem);display:flex;align-items:center;gap:10px;background:linear-gradient(90deg,#ffd56b,#fff 50%,#ffd56b);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:gshine 3.5s linear infinite}
@@ -313,8 +327,10 @@ footer .eqs{font-family:var(--mono);direction:ltr;color:#3b5a99;margin-bottom:4p
 
 <header class="hero"><div class="wrap">
   <div>
-    <h1 data-en="&lt;span class=&quot;l1&quot;&gt;&lt;span class=&quot;g&quot;&gt;Einstein&lt;/span&gt; Gulf&lt;/span&gt;&lt;span class=&quot;sub&quot;&gt;&lt;i&gt;&lt;/i&gt;Physics Platform&lt;i&gt;&lt;/i&gt;&lt;/span&gt;"><span class="l1">منصة <span class="g">أينشتاين</span> الخليج</span><span class="sub"><i></i>في الفيزياء<i></i></span></h1>
-    <div class="by" data-en="with &lt;span class=&quot;tn&quot;&gt;&lt;i class=&quot;comet&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;Mr. Ramy Abdel Fattah&lt;/span&gt;">مع <span class="tn"><i class="comet" aria-hidden="true"></i>الأستاذ رامي عبد الفتاح</span></div>
+    <div class="tflip" role="group" aria-label="منصة أينشتاين الخليج في الفيزياء مع الأستاذ رامي عبد الفتاح"><div class="tf">
+      <div class="tface ta" dir="rtl" lang="ar"><h1><span class="l1">منصة <span class="g">أينشتاين</span> الخليج</span><span class="sub"><i></i>في الفيزياء<i></i></span></h1><div class="by">مع <span class="tn"><i class="comet" aria-hidden="true"></i>الأستاذ رامي عبد الفتاح</span></div></div>
+      <div class="tface te" dir="ltr" lang="en" aria-hidden="true"><div class="h1"><span class="l1"><span class="g">Einstein</span> Gulf</span><span class="sub"><i></i>Physics Platform<i></i></span></div><div class="by">with <span class="tn"><i class="comet" aria-hidden="true"></i>Mr. Ramy Abdel Fattah</span></div></div>
+    </div></div>
     <p class="lead" data-en="Welcome, champ 👋 Your exams, homework and review games, all in one place. Study, practise, and track your level as you go.">أهلًا بيك يا بطل 👋 امتحاناتك وواجباتك وألعاب المراجعة كلها في مكان واحد. ذاكر، اتدرّب، واعرف مستواك أول بأول.</p>
     <div class="gpick" id="gradePick"><p class="gh"><span class="sp" aria-hidden="true">✦</span><span data-en="Pick your grade and take off">اختر صفك وانطلق</span><span class="sp" aria-hidden="true">✦</span></p><div class="gbtns"></div></div>
     <div class="cta"><a class="btn line" href="#contact" data-en="Contact the teacher">تواصل مع الأستاذ</a></div>
