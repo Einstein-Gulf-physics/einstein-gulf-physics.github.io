@@ -179,7 +179,7 @@ footer .eqs{font-family:var(--mono);direction:ltr;color:#3b5a99;margin-bottom:4p
       </button>
       <button class="card" id="c-comp" data-k="comp" aria-expanded="false" aria-controls="panel">
         <div class="top t6"><span class="big">2019 · 2020</span><span class="em">🏛️</span></div>
-        <div class="body"><h3>اختبارات شاملة</h3><p>اختبارات الوزارة الشاملة لنهاية الفصل بأسئلتها الأصلية.</p><span class="more">شوف الاختبارات ←</span></div>
+        <div class="body"><h3>امتحانات شاملة لسنوات سابقة</h3><p>امتحانات الوزارة لنهاية الفصل: نسخة إلكترونية، وورقة الامتحان، ونموذج الإجابة.</p><span class="more">شوف الامتحانات ←</span></div>
       </button>
       <button class="card" id="c-rev" data-k="rev" aria-expanded="false" aria-controls="panel">
         <div class="top t5"><span class="big">Φ = q/ε₀</span><span class="em">🎯</span></div>
@@ -244,8 +244,10 @@ const DATA={
   games:{t:'🏔️ تحدي القمة',tracks:{
     b12:[{nm:'تحدي القمة 🏔️',meta:'46 سؤال مراجعة · شهادة تفوق',href:'games/summit.html'}],
     i12:[],b11:[],i11:[]}},
-  comp:{t:'🏛️ اختبارات شاملة',tracks:{
-    b12:[{nm:'اختبار الوزارة الشامل 2019-2020',meta:'16 شاشة · 50 درجة',href:'comprehensive/wizara-2019-2020.html'}],
+  comp:{t:'🏛️ امتحانات شاملة لسنوات سابقة',tracks:{
+    b12:[{nm:'امتحان الوزارة 2019-2020 · إلكتروني',meta:'16 شاشة · 50 درجة · بكود دخول',href:'comprehensive/wizara-2019-2020.html'},
+         {nm:'📄 امتحان الوزارة 2019-2020 · PDF',meta:'ورقة الامتحان الأصلية للمذاكرة والطباعة',href:'comprehensive/wizara-2019-2020-exam.pdf',btn:'افتح'},
+         {nm:'📄 نموذج إجابة امتحان الوزارة 2019-2020 · PDF',meta:'دليل التصحيح الرسمي من الوزارة',href:'comprehensive/wizara-2019-2020-key.pdf',btn:'افتح'}],
     i12:[],b11:[],i11:[]}},
   rev:{t:'🎯 مراجعات لدروس محددة',tracks:{
     b12:[{nm:'مراجعة (1) · الدروس 2.5 و2.7 و2.8 و2.9',meta:'42 سؤالًا · 44 درجة',href:'reviews/review1.html'}],
