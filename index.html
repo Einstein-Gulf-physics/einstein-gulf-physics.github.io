@@ -46,6 +46,21 @@ h1 .g{color:var(--gold)}
 .emblem .eq{font-family:var(--mono);font-weight:600;fill:var(--gold);font-size:30px}
 @media (prefers-reduced-motion:no-preference){.emblem .spin{transform-origin:150px 150px;animation:spin 10s linear infinite}.emblem .spin.r{animation-duration:14s;animation-direction:reverse}}
 @keyframes spin{to{transform:rotate(360deg)}}
+.cdown{margin-top:26px;background:linear-gradient(135deg,#0a1f45,#17306a);color:#fff;border-radius:24px;padding:22px 18px;text-align:center;box-shadow:0 18px 40px rgba(10,26,61,.3);position:relative;overflow:hidden}
+.cdown::before{content:"";position:absolute;inset:-40%;background:radial-gradient(circle at 80% 10%,rgba(246,178,26,.18),transparent 45%);pointer-events:none}
+.cdown h2{margin:0;font-size:clamp(1.15rem,4.4vw,1.5rem);font-weight:800;color:#cdd8f2}.cdown h2 b{display:block;color:var(--gold2);font-size:1.35em;font-weight:900;margin-top:2px}
+.cd-date{margin:6px 0 14px;color:#a9bbe3;font-weight:700}
+.cd-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;position:relative}
+.cd-card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:18px;padding:14px 10px}
+.cd-g b{display:block;font-weight:900;font-size:1.1rem;color:var(--gold2)}.cd-g span{font-size:.82rem;color:#cdd8f2}
+.cd-num{display:flex;justify-content:center;gap:6px;margin:10px 0 6px;direction:ltr}
+.cd-num div{background:#fff;color:var(--navy);border-radius:12px;min-width:52px;padding:6px 2px;box-shadow:0 6px 14px rgba(0,0,0,.25)}
+.cd-num b{display:block;font-family:var(--mono);font-size:1.45rem;line-height:1.1}.cd-num span{font-size:.7rem;font-weight:800;color:var(--dim)}
+.cd-num.na div{opacity:.35}
+.cd-meta{font-size:.8rem;color:#cdd8f2}
+.cd-done{font-weight:900;color:var(--gold2);font-size:1.1rem;margin:12px 0}
+@media (max-width:640px){.cd-grid{grid-template-columns:1fr}}
+
 .pend{position:absolute;left:50%;top:calc(100% - 3px);width:0;height:0;z-index:3}
 .pend .sw{position:absolute;left:0;top:0;transform-origin:0 0;animation:swing 1.004s cubic-bezier(.37,0,.63,1) infinite alternate}
 .emblem .pend .str{position:absolute;inset:auto;left:-100px;top:0;width:200px;height:56px;overflow:visible}
@@ -377,6 +392,22 @@ footer .eqs{font-family:var(--mono);direction:ltr;color:#3b5a99;margin-bottom:4p
 </div></div>
 
 <main class="wrap">
+  <section class="cdown" aria-labelledby="cdT">
+    <h2 id="cdT"><span data-en="God willing, time left until the">إن شاء الله المتبقي على</span> <b data-en="Physics exam ⚛️">امتحان الفيزياء ⚛️</b></h2>
+    <p class="cd-date" data-en="End of Term 1 · Monday 7 December 2026">نهاية الفصل الدراسي الأول · الاثنين 7 ديسمبر 2026</p>
+    <div class="cd-grid">
+    <div class="cd-card" data-g="12">
+      <div class="cd-g"><b data-en="Grade 12 Advanced">الصف 12 متقدم</b><span data-en="Public and private schools">المدارس الحكومية والخاصة</span></div>
+      <div class="cd-num" id="cd12"><div><b>--</b><span data-en="days">يوم</span></div><div><b>--</b><span data-en="hours">ساعة</span></div><div><b>--</b><span data-en="minutes">دقيقة</span></div><div><b>--</b><span data-en="seconds">ثانية</span></div></div>
+      <div class="cd-meta"><span data-en="Paper and electronic">ورقي وإلكتروني</span></div>
+    </div>
+    <div class="cd-card" data-g="11">
+      <div class="cd-g"><b data-en="Grade 11 Advanced">الصف 11 متقدم</b><span data-en="Public and private schools">المدارس الحكومية والخاصة</span></div>
+      <div class="cd-num" id="cd11"><div><b>--</b><span data-en="days">يوم</span></div><div><b>--</b><span data-en="hours">ساعة</span></div><div><b>--</b><span data-en="minutes">دقيقة</span></div><div><b>--</b><span data-en="seconds">ثانية</span></div></div>
+      <div class="cd-meta"><span data-en="Paper 9:00 – 10:30 · Electronic 10:30 – 11:30 am">ورقي 9:00 – 10:30 · إلكتروني 10:30 – 11:30 صباحًا</span></div>
+    </div>
+    </div>
+  </section>
   <figure class="motto"><blockquote data-en="&lt;span class=&quot;h&quot; aria-hidden=&quot;true&quot;&gt;❤️&lt;/span&gt; “Your family’s joy is worth your effort”"><span class="h" aria-hidden="true">❤️</span> «فرحة أهلك تستاهل تعبك»</blockquote><figcaption>#أينشتاين_الخليج</figcaption></figure>
 
   <section class="block" id="sections">
@@ -718,6 +749,18 @@ window.__conv={U,set:(c,f,t,v)=>{cat.value=c;fillUnits();fr.value=f;to.value=t;v
 })();
 </script>
 
+<script>
+(function(){
+// Physics exam, End of Term 1, Monday 7 Dec 2026, 09:00 UAE time (UTC+4) — from the ministry schedule
+const T={'11':Date.parse('2026-12-07T09:00:00+04:00'),'12':Date.parse('2026-12-07T09:00:00+04:00')};
+const pad=n=>String(n).padStart(2,'0');
+function run(){const now=Date.now();for(const g in T){const el=document.getElementById('cd'+g);if(!el)continue;let d=T[g]-now;
+  if(d<=0){const en=document.documentElement.lang==='en';el.outerHTML='<div class="cd-done" id="cd'+g+'">'+(en?'Good luck, doctors! 🩺':'بالتوفيق يا دكاترة 🩺')+'</div>';continue}
+  const v=[Math.floor(d/864e5),Math.floor(d/36e5)%24,Math.floor(d/6e4)%60,Math.floor(d/1e3)%60];
+  el.querySelectorAll('b').forEach((b,i)=>b.textContent=i?pad(v[i]):v[i]);}}
+run();setInterval(run,1000);
+})();
+</script>
 <script>
 (function(){
 const root=document.documentElement,btn=document.getElementById('lng');
