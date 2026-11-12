@@ -46,9 +46,23 @@ h1 .g{color:var(--gold)}
 .emblem .eq{font-family:var(--mono);font-weight:600;fill:var(--gold);font-size:30px}
 @media (prefers-reduced-motion:no-preference){.emblem .spin{transform-origin:150px 150px;animation:spin 10s linear infinite}.emblem .spin.r{animation-duration:14s;animation-direction:reverse}}
 @keyframes spin{to{transform:rotate(360deg)}}
+.cdown .cd-h{display:flex;flex-direction:column;align-items:center;gap:2px;margin:0;color:#fff}
+.cd-in{font-weight:800;font-size:clamp(1.05rem,3.8vw,1.25rem);color:var(--gold2);display:inline-flex;align-items:center;gap:10px;letter-spacing:.5px}
+.cd-in::before,.cd-in::after{content:"";width:34px;height:2px;border-radius:2px;background:linear-gradient(90deg,transparent,var(--gold))}
+.cd-in::after{transform:scaleX(-1)}
+.cd-left{font-weight:700;font-size:clamp(1rem,3.6vw,1.2rem);color:#cdd8f2;margin-top:4px}
+.cd-ph{display:inline-flex;align-items:center;gap:10px;margin-top:2px}
+.cd-ph b{font-weight:900;font-size:clamp(2.3rem,10vw,3.4rem);line-height:1.15;background:linear-gradient(100deg,#ffd56b 0%,#fff 22%,#f6b21a 44%,#ffd56b 100%);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:phs 3.2s linear infinite,phf 3s ease-in-out infinite;filter:drop-shadow(0 4px 14px rgba(246,178,26,.35))}
+.cd-atom{width:clamp(38px,9vw,52px);height:auto;stroke:#8fd3ff;fill:#f6b21a;animation:spin 7s linear infinite}
+.cd-atom .el{fill:#fff}
+@keyframes phs{to{background-position:-220% 0}}
+@keyframes phf{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+@media (prefers-reduced-motion:reduce){.cd-ph b,.cd-atom{animation:none}}
+.cd-date{margin:10px 0 16px}
+
 .cdown{margin-top:26px;background:linear-gradient(135deg,#0a1f45,#17306a);color:#fff;border-radius:24px;padding:22px 18px;text-align:center;box-shadow:0 18px 40px rgba(10,26,61,.3);position:relative;overflow:hidden}
 .cdown::before{content:"";position:absolute;inset:-40%;background:radial-gradient(circle at 80% 10%,rgba(246,178,26,.18),transparent 45%);pointer-events:none}
-.cdown h2{margin:0;font-size:clamp(1.15rem,4.4vw,1.5rem);font-weight:800;color:#cdd8f2}.cdown h2 b{display:block;color:var(--gold2);font-size:1.35em;font-weight:900;margin-top:2px}
+.cdown h2{margin:0;font-size:clamp(1.15rem,4.4vw,1.5rem);font-weight:800;color:#cdd8f2}
 .cd-date{margin:6px 0 14px;color:#a9bbe3;font-weight:700}
 .cd-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;position:relative}
 .cd-card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:18px;padding:14px 10px}
@@ -57,7 +71,7 @@ h1 .g{color:var(--gold)}
 .cd-num div{background:#fff;color:var(--navy);border-radius:12px;min-width:52px;padding:6px 2px;box-shadow:0 6px 14px rgba(0,0,0,.25)}
 .cd-num b{display:block;font-family:var(--mono);font-size:1.45rem;line-height:1.1}.cd-num span{font-size:.7rem;font-weight:800;color:var(--dim)}
 .cd-num.na div{opacity:.35}
-.cd-meta{font-size:.8rem;color:#cdd8f2;line-height:1.7}
+.cd-meta{font-size:.85rem;color:#cdd8f2;line-height:1.7;display:flex;flex-direction:column;align-items:center}.cd-meta span{white-space:nowrap}
 .cd-done{font-weight:900;color:var(--gold2);font-size:1.1rem;margin:12px 0}
 @media (max-width:640px){.cd-grid{grid-template-columns:1fr}}
 
@@ -393,18 +407,18 @@ footer .eqs{font-family:var(--mono);direction:ltr;color:#3b5a99;margin-bottom:4p
 
 <main class="wrap">
   <section class="cdown" aria-labelledby="cdT">
-    <h2 id="cdT"><span data-en="God willing, time left until the">إن شاء الله المتبقي على</span> <b data-en="Physics exam ⚛️">امتحان الفيزياء ⚛️</b></h2>
+    <h2 id="cdT" class="cd-h"><span class="cd-in" data-en="God willing">إن شاء الله</span><span class="cd-left" data-en="Time left until the exam">المتبقي على امتحان</span><span class="cd-ph"><svg class="cd-atom" viewBox="0 0 64 64" aria-hidden="true"><g fill="none" stroke-width="3"><ellipse cx="32" cy="32" rx="28" ry="10"/><ellipse cx="32" cy="32" rx="28" ry="10" transform="rotate(60 32 32)"/><ellipse cx="32" cy="32" rx="28" ry="10" transform="rotate(120 32 32)"/></g><circle cx="32" cy="32" r="5"/><circle class="el" cx="60" cy="32" r="3.5"/></svg><b data-en="PHYSICS">الفيزياء</b></span></h2>
     <p class="cd-date" data-en="End of Term 1 · Monday 7 December 2026">نهاية الفصل الدراسي الأول · الاثنين 7 ديسمبر 2026</p>
     <div class="cd-grid">
     <div class="cd-card" data-g="12">
       <div class="cd-g"><b data-en="Grade 12 Advanced">الصف 12 متقدم</b><span data-en="Public and private schools">المدارس الحكومية والخاصة</span></div>
       <div class="cd-num" id="cd12"><div><b>--</b><span data-en="days">يوم</span></div><div><b>--</b><span data-en="hours">ساعة</span></div><div><b>--</b><span data-en="minutes">دقيقة</span></div><div><b>--</b><span data-en="seconds">ثانية</span></div></div>
-      <div class="cd-meta"><span data-en="Paper 12:00 – 01:30 pm · Electronic 01:30 – 02:30 pm">ورقي 12:00 – 01:30 مساءً · إلكتروني 01:30 – 02:30 مساءً</span></div>
+      <div class="cd-meta"><span data-en="Paper 12:00 – 01:30 pm">ورقي 12:00 – 01:30 مساءً</span><span data-en="Electronic 01:30 – 02:30 pm">إلكتروني 01:30 – 02:30 مساءً</span></div>
     </div>
     <div class="cd-card" data-g="11">
       <div class="cd-g"><b data-en="Grade 11 Advanced">الصف 11 متقدم</b><span data-en="Public and private schools">المدارس الحكومية والخاصة</span></div>
       <div class="cd-num" id="cd11"><div><b>--</b><span data-en="days">يوم</span></div><div><b>--</b><span data-en="hours">ساعة</span></div><div><b>--</b><span data-en="minutes">دقيقة</span></div><div><b>--</b><span data-en="seconds">ثانية</span></div></div>
-      <div class="cd-meta"><span data-en="Paper 09:00 – 10:30 am · Electronic 10:30 – 11:30 am">ورقي 09:00 – 10:30 صباحًا · إلكتروني 10:30 – 11:30 صباحًا</span></div>
+      <div class="cd-meta"><span data-en="Paper 09:00 – 10:30 am">ورقي 09:00 – 10:30 صباحًا</span><span data-en="Electronic 10:30 – 11:30 am">إلكتروني 10:30 – 11:30 صباحًا</span></div>
     </div>
     </div>
   </section>
