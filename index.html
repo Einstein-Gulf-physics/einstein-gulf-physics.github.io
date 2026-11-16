@@ -379,6 +379,25 @@ footer .eqs{font-family:var(--mono);direction:ltr;color:#3b5a99;margin-bottom:4p
   .stat{padding:12px 4px}.stat b{font-size:1.3rem}.stat span{font-size:.78rem}
   .contact{grid-template-columns:1fr}.chip.a{inset-inline-start:0}.chip.b{inset-inline-end:0}
 }
+
+/* الفصول الدراسية */
+.terms{display:flex;flex-direction:column;gap:14px}
+.term{background:var(--card);border:1px solid var(--line);border-radius:22px;box-shadow:0 2px 10px rgba(14,42,92,.06);transition:box-shadow .3s}
+.term.on{box-shadow:0 18px 40px rgba(14,42,92,.12)}
+.term-h{font:inherit;width:100%;display:flex;align-items:center;gap:14px;background:none;border:0;cursor:pointer;padding:18px 18px;text-align:start;color:var(--ink);border-radius:22px}
+.term-h:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.tn-n{flex:none;width:52px;height:52px;border-radius:16px;display:grid;place-items:center;font-family:var(--mono);font-size:1.5rem;font-weight:700;color:#fff;background:linear-gradient(135deg,var(--navy),var(--navy2))}
+.term[data-term="1"] .tn-n{background:linear-gradient(135deg,#ffd56b,#f6b21a);color:var(--navy)}
+.tn-t{flex:1;display:flex;flex-direction:column;line-height:1.35;min-width:0}
+.tn-t b{font-weight:900;font-size:clamp(1.2rem,4.4vw,1.5rem)}
+.tn-t small{color:var(--dim);font-weight:600;font-size:.88rem}
+.chev{flex:none;width:30px;height:30px;padding:5px;border-radius:50%;background:var(--paper);fill:none;stroke:var(--navy);stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round;transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.term.on .chev{transform:rotate(180deg)}
+.term-b{display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s cubic-bezier(.2,.8,.2,1)}
+.term.on .term-b{grid-template-rows:1fr}
+.term-in{overflow:hidden;min-height:0}
+.term-in .cards{padding:4px 16px 18px;opacity:0;transform:translateY(-10px);transition:opacity .35s .1s,transform .45s .05s cubic-bezier(.2,.8,.2,1)}
+.term.on .term-in .cards{opacity:1;transform:none}
 </style>
 
 <nav class="nav"><div class="wrap">
@@ -439,7 +458,10 @@ footer .eqs{font-family:var(--mono);direction:ltr;color:#3b5a99;margin-bottom:4p
 
   <section class="block" id="sections">
     <div class="head"><h2 data-en="Choose a section">اختار القسم</h2></div>
-    <div class="cards">
+    <div class="terms">
+    <div class="term" data-term="1">
+      <button type="button" class="term-h" aria-expanded="false"><span class="tn-n">1</span><span class="tn-t"><b data-en="Term 1">الفصل الدراسي الأول</b><small data-en="Exams, homework and reviews">الامتحانات والواجبات والمراجعات</small></span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+      <div class="term-b"><div class="term-in"><div class="cards">
       <button class="card" id="c-exams" data-k="exams" aria-expanded="false" aria-controls="panel">
         <div class="top t1"><svg class="ic" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="36" r="20"/><path d="M32 24v12l8 5"/><path d="M26 8h12M32 8v8M50 18l4-4"/></svg></div>
         <div class="body"><h3 data-en="Exams">الامتحانات</h3><p data-en="Electronic exams with an entry code; your result reaches the teacher instantly.">امتحانات إلكترونية بكود دخول، والنتيجة توصل للأستاذ على طول.</p><span class="more" data-en="View exams →">شوف الامتحانات ←</span></div>
@@ -468,6 +490,74 @@ footer .eqs{font-family:var(--mono);direction:ltr;color:#3b5a99;margin-bottom:4p
         <div class="top t4"><svg class="ic" viewBox="0 0 64 64" aria-hidden="true"><path d="m32 8 24 12-24 12L8 20z"/><path d="m8 32 24 12 24-12"/><path d="m8 44 24 12 24-12"/></svg></div>
         <div class="body"><h3 data-en="Coverage Reviews">مراجعة الهياكل</h3><p data-en="Full practice on the exam-coverage questions before the end-of-term exam.">مراجعة شاملة على أسئلة الهيكل قبل امتحان آخر الفصل.</p><span class="more" data-en="View reviews →">شوف المراجعات ←</span></div>
       </button>
+          </div></div></div>
+    </div>
+    <div class="term" data-term="2">
+      <button type="button" class="term-h" aria-expanded="false"><span class="tn-n">2</span><span class="tn-t"><b data-en="Term 2">الفصل الدراسي الثاني</b><small data-en="Coming soon">قريبًا إن شاء الله</small></span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+      <div class="term-b"><div class="term-in"><div class="cards">
+      <button class="card" id="c-exams-t2" data-k="exams_t2" aria-expanded="false" aria-controls="panel">
+        <div class="top t1"><svg class="ic" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="36" r="20"/><path d="M32 24v12l8 5"/><path d="M26 8h12M32 8v8M50 18l4-4"/></svg></div>
+        <div class="body"><h3 data-en="Exams">الامتحانات</h3><p data-en="Electronic exams with an entry code; your result reaches the teacher instantly.">امتحانات إلكترونية بكود دخول، والنتيجة توصل للأستاذ على طول.</p><span class="more" data-en="View exams →">شوف الامتحانات ←</span></div>
+      </button>
+      <button class="card" id="c-hw-t2" data-k="hw_t2" aria-expanded="false" aria-controls="panel">
+        <div class="top t2"><svg class="ic" viewBox="0 0 64 64" aria-hidden="true"><path d="M10 14h18a6 6 0 0 1 6 6v32a5 5 0 0 0-5-5H10z"/><path d="M54 14H36a6 6 0 0 0-2 0"/><path d="M34 20a6 6 0 0 1 6-6h14v33H39a5 5 0 0 0-5 5"/><path d="M16 24h10M16 31h10M42 24h6M42 31h6"/></svg></div>
+        <div class="body"><h3 data-en="Homework">الواجبات</h3><p data-en="Solve each lesson’s homework and see the correct answers after you submit.">حل واجب كل حصة، وشوف الإجابة الصحيحة بعد التسليم.</p><span class="more" data-en="View homework →">شوف الواجبات ←</span></div>
+      </button>
+      <button class="card" id="c-games-t2" data-k="games_t2" aria-expanded="false" aria-controls="panel">
+        <div class="top t3"><svg class="ic" viewBox="0 0 64 64" aria-hidden="true"><path d="M6 52 24 22l10 16 7-10 17 24z"/><path d="M24 22V8l10 4-10 4"/></svg></div>
+        <div class="body"><h3 data-en="Summit Challenge">تحدي القمة</h3><p data-en="Review lessons while you play, collect stars and earn a certificate.">راجع الدروس وانت بتلعب، واجمع نجوم، وخد شهادة تفوق.</p><span class="more" data-en="View the challenge →">شوف تحدي القمة ←</span></div>
+      </button>
+      <button class="card" id="c-hk-t2" data-k="hk_t2" aria-expanded="false" aria-controls="panel">
+        <div class="top t7"><svg class="ic" viewBox="0 0 64 64" aria-hidden="true"><rect x="14" y="8" width="36" height="48" rx="5"/><path d="M24 8v-2h16v2"/><path d="M22 24h20M22 32h20M22 40h12"/><path d="m38 44 4 4 8-9"/></svg></div>
+        <div class="body"><h3 data-en="Official MoE Exam Coverage">الهيكل المعتمد من وزارة التربية والتعليم</h3><p data-en="End of Term 1 exam coverage for each grade, to view and download.">هيكل اختبار نهاية الفصل الدراسي الأول لكل صف، للعرض والتحميل.</p><span class="more" data-en="View coverage →">شوف الهيكل ←</span></div>
+      </button>
+      <button class="card" id="c-comp-t2" data-k="comp_t2" aria-expanded="false" aria-controls="panel">
+        <div class="top t6"><svg class="ic" viewBox="0 0 64 64" aria-hidden="true"><path d="M8 24 32 10l24 14z"/><path d="M12 28v20M22 28v20M32 28v20M42 28v20M52 28v20"/><path d="M6 52h52"/></svg></div>
+        <div class="body"><h3 data-en="Past Comprehensive Exams">امتحانات شاملة لسنوات سابقة</h3><p data-en="Ministry end-of-term exams: electronic version, exam paper and answer key.">امتحانات الوزارة لنهاية الفصل: نسخة إلكترونية، وورقة الامتحان، ونموذج الإجابة.</p><span class="more" data-en="View exams →">شوف الامتحانات ←</span></div>
+      </button>
+      <button class="card" id="c-rev-t2" data-k="rev_t2" aria-expanded="false" aria-controls="panel">
+        <div class="top t5"><svg class="ic" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="22"/><circle cx="32" cy="32" r="13"/><circle cx="32" cy="32" r="4"/><path d="m46 18 10-10M50 8h6v6"/></svg></div>
+        <div class="body"><h3 data-en="Lesson Reviews">مراجعات لدروس محددة</h3><p data-en="Focused reviews on specific lessons, question by question.">مراجعة مركّزة على مجموعة دروس بعينها، سؤال بسؤال.</p><span class="more" data-en="View reviews →">شوف المراجعات ←</span></div>
+      </button>
+      <button class="card" id="c-struct-t2" data-k="struct_t2" aria-expanded="false" aria-controls="panel">
+        <div class="top t4"><svg class="ic" viewBox="0 0 64 64" aria-hidden="true"><path d="m32 8 24 12-24 12L8 20z"/><path d="m8 32 24 12 24-12"/><path d="m8 44 24 12 24-12"/></svg></div>
+        <div class="body"><h3 data-en="Coverage Reviews">مراجعة الهياكل</h3><p data-en="Full practice on the exam-coverage questions before the end-of-term exam.">مراجعة شاملة على أسئلة الهيكل قبل امتحان آخر الفصل.</p><span class="more" data-en="View reviews →">شوف المراجعات ←</span></div>
+      </button>
+          </div></div></div>
+    </div>
+    <div class="term" data-term="3">
+      <button type="button" class="term-h" aria-expanded="false"><span class="tn-n">3</span><span class="tn-t"><b data-en="Term 3">الفصل الدراسي الثالث</b><small data-en="Coming soon">قريبًا إن شاء الله</small></span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+      <div class="term-b"><div class="term-in"><div class="cards">
+      <button class="card" id="c-exams-t3" data-k="exams_t3" aria-expanded="false" aria-controls="panel">
+        <div class="top t1"><svg class="ic" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="36" r="20"/><path d="M32 24v12l8 5"/><path d="M26 8h12M32 8v8M50 18l4-4"/></svg></div>
+        <div class="body"><h3 data-en="Exams">الامتحانات</h3><p data-en="Electronic exams with an entry code; your result reaches the teacher instantly.">امتحانات إلكترونية بكود دخول، والنتيجة توصل للأستاذ على طول.</p><span class="more" data-en="View exams →">شوف الامتحانات ←</span></div>
+      </button>
+      <button class="card" id="c-hw-t3" data-k="hw_t3" aria-expanded="false" aria-controls="panel">
+        <div class="top t2"><svg class="ic" viewBox="0 0 64 64" aria-hidden="true"><path d="M10 14h18a6 6 0 0 1 6 6v32a5 5 0 0 0-5-5H10z"/><path d="M54 14H36a6 6 0 0 0-2 0"/><path d="M34 20a6 6 0 0 1 6-6h14v33H39a5 5 0 0 0-5 5"/><path d="M16 24h10M16 31h10M42 24h6M42 31h6"/></svg></div>
+        <div class="body"><h3 data-en="Homework">الواجبات</h3><p data-en="Solve each lesson’s homework and see the correct answers after you submit.">حل واجب كل حصة، وشوف الإجابة الصحيحة بعد التسليم.</p><span class="more" data-en="View homework →">شوف الواجبات ←</span></div>
+      </button>
+      <button class="card" id="c-games-t3" data-k="games_t3" aria-expanded="false" aria-controls="panel">
+        <div class="top t3"><svg class="ic" viewBox="0 0 64 64" aria-hidden="true"><path d="M6 52 24 22l10 16 7-10 17 24z"/><path d="M24 22V8l10 4-10 4"/></svg></div>
+        <div class="body"><h3 data-en="Summit Challenge">تحدي القمة</h3><p data-en="Review lessons while you play, collect stars and earn a certificate.">راجع الدروس وانت بتلعب، واجمع نجوم، وخد شهادة تفوق.</p><span class="more" data-en="View the challenge →">شوف تحدي القمة ←</span></div>
+      </button>
+      <button class="card" id="c-hk-t3" data-k="hk_t3" aria-expanded="false" aria-controls="panel">
+        <div class="top t7"><svg class="ic" viewBox="0 0 64 64" aria-hidden="true"><rect x="14" y="8" width="36" height="48" rx="5"/><path d="M24 8v-2h16v2"/><path d="M22 24h20M22 32h20M22 40h12"/><path d="m38 44 4 4 8-9"/></svg></div>
+        <div class="body"><h3 data-en="Official MoE Exam Coverage">الهيكل المعتمد من وزارة التربية والتعليم</h3><p data-en="End of Term 1 exam coverage for each grade, to view and download.">هيكل اختبار نهاية الفصل الدراسي الأول لكل صف، للعرض والتحميل.</p><span class="more" data-en="View coverage →">شوف الهيكل ←</span></div>
+      </button>
+      <button class="card" id="c-comp-t3" data-k="comp_t3" aria-expanded="false" aria-controls="panel">
+        <div class="top t6"><svg class="ic" viewBox="0 0 64 64" aria-hidden="true"><path d="M8 24 32 10l24 14z"/><path d="M12 28v20M22 28v20M32 28v20M42 28v20M52 28v20"/><path d="M6 52h52"/></svg></div>
+        <div class="body"><h3 data-en="Past Comprehensive Exams">امتحانات شاملة لسنوات سابقة</h3><p data-en="Ministry end-of-term exams: electronic version, exam paper and answer key.">امتحانات الوزارة لنهاية الفصل: نسخة إلكترونية، وورقة الامتحان، ونموذج الإجابة.</p><span class="more" data-en="View exams →">شوف الامتحانات ←</span></div>
+      </button>
+      <button class="card" id="c-rev-t3" data-k="rev_t3" aria-expanded="false" aria-controls="panel">
+        <div class="top t5"><svg class="ic" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="22"/><circle cx="32" cy="32" r="13"/><circle cx="32" cy="32" r="4"/><path d="m46 18 10-10M50 8h6v6"/></svg></div>
+        <div class="body"><h3 data-en="Lesson Reviews">مراجعات لدروس محددة</h3><p data-en="Focused reviews on specific lessons, question by question.">مراجعة مركّزة على مجموعة دروس بعينها، سؤال بسؤال.</p><span class="more" data-en="View reviews →">شوف المراجعات ←</span></div>
+      </button>
+      <button class="card" id="c-struct-t3" data-k="struct_t3" aria-expanded="false" aria-controls="panel">
+        <div class="top t4"><svg class="ic" viewBox="0 0 64 64" aria-hidden="true"><path d="m32 8 24 12-24 12L8 20z"/><path d="m8 32 24 12 24-12"/><path d="m8 44 24 12 24-12"/></svg></div>
+        <div class="body"><h3 data-en="Coverage Reviews">مراجعة الهياكل</h3><p data-en="Full practice on the exam-coverage questions before the end-of-term exam.">مراجعة شاملة على أسئلة الهيكل قبل امتحان آخر الفصل.</p><span class="more" data-en="View reviews →">شوف المراجعات ←</span></div>
+      </button>
+          </div></div></div>
+    </div>
     </div>
     <div class="panel" id="panel" hidden aria-live="polite"></div>
   </section>
@@ -547,6 +637,8 @@ const DATA={
          {nm:'📄 Review (1) Questions · PDF',meta:'To study and print · same code as the review',href:'reviews/review1-i11-pdf.html',btn:'افتح'}]}},
   struct:{t:'🗂️ مراجعة الهياكل',tracks:{b12:[{nm:'📝 مراجعة الأسئلة الكتابية · السؤال الأول والثاني',meta:'ملف PDF كتابي: نزّله وحلّه كامل · بكود دخول',href:'reviews/struct-b12-w12.html',btn:'افتح'},{nm:'📝 مراجعة الأسئلة الكتابية · السؤال الثالث والرابع',meta:'قريبًا إن شاء الله'},{nm:'💻 مراجعة الأسئلة الإلكترونية · السؤالان 15 و16 · الجهد وطاقة الوضع الكهربائية',meta:'8 أسئلة · تدريب بمحاولتين · تنقّل حر بين الأسئلة',href:'reviews/struct-b12-15-16.html'}],i12:[],b11:[{nm:'مراجعة الهيكل (1) · الزخم والتصادمات والحركة الدورانية',meta:'8 أسئلة · تدريب بمحاولتين · تنقّل حر بين الأسئلة',href:'reviews/struct1-b11.html'},{nm:'📄 ملف أسئلة مراجعة الهيكل (1) · PDF',meta:'للمذاكرة والطباعة · بنفس الكود',href:'reviews/struct1-b11-pdf.html',btn:'افتح'}],i11:[{nm:'Structure Review (1) · Momentum, Collisions and Rotation',meta:'8 questions · practice with 2 attempts · free navigation',href:'reviews/struct1-i11.html'},{nm:'📄 Structure Review (1) Questions · PDF',meta:'To study and print · same code',href:'reviews/struct1-i11-pdf.html',btn:'افتح'}]}}
 };
+['exams','hw','games','hk','comp','rev','struct'].forEach(k=>{[2,3].forEach(t=>{DATA[k+'_t'+t]={t:DATA[k].t,tracks:{b12:[],i12:[],b11:[],i11:[]}}})});
+
 const LIVE=location.hostname.endsWith('github.io');
 const EN={'الصف 12 متقدم · بريدج':'Grade 12 Advanced · Bridge','الصف 12 متقدم · إنسباير':'Grade 12 Advanced · Inspire','الصف 11 متقدم · بريدج':'Grade 11 Advanced · Bridge','الصف 11 متقدم · إنسباير':'Grade 11 Advanced · Inspire',
 '📝 الامتحانات':'📝 Exams','📚 الواجبات':'📚 Homework','🏔️ تحدي القمة':'🏔️ Summit Challenge','📋 الهيكل المعتمد من وزارة التربية والتعليم':'📋 Official MoE Exam Coverage','🏛️ امتحانات شاملة لسنوات سابقة':'🏛️ Past Comprehensive Exams','🎯 مراجعات لدروس محددة':'🎯 Lesson Reviews','🗂️ مراجعة الهياكل':'🗂️ Coverage Reviews',
@@ -566,7 +658,7 @@ const panel=document.getElementById('panel');
 let track=null;try{track=localStorage.getItem('eg_track');}catch(e){}
 function renderList(box,list){
   box.innerHTML='';
-  if(!list.length)return;
+  if(!list.length){const e=document.createElement('p');e.className='note';e.textContent=L('لسه مفيش حاجة هنا، قريبًا إن شاء الله.');box.appendChild(e);return;}
   list.forEach(it=>{const r=document.createElement('div');r.className='item';
     const l=document.createElement('div');l.style.minWidth='0';
     const n=document.createElement('div');n.className='nm';n.textContent=L(it.nm);
@@ -609,7 +701,7 @@ function startLabel(){let t=null;try{t=localStorage.getItem('eg_track')}catch(e)
     b.innerHTML='<span class="gn"></span><span class="gx"><b></b><small></small></span><span class="ok" aria-hidden="true">✓</span>';
     b.querySelector('.gn').textContent=x[0];b.querySelector('b').textContent=en?x[2]:x[1];b.querySelector('small').textContent=en?'Grade '+x[0]+' Advanced':'الصف '+x[0]+' متقدم';
     b.onclick=()=>{try{localStorage.setItem('eg_track',k)}catch(e){}track=k;startLabel();badges();
-      const sec=document.getElementById('sections');sec.scrollIntoView({behavior:'smooth',block:'start'});sec.classList.remove('flash');void sec.offsetWidth;sec.classList.add('flash')};gb.appendChild(b)})}
+      const t1=document.querySelector('.term[data-term="1"]');if(t1&&!t1.classList.contains('on')){t1.classList.add('on');t1.querySelector('.term-h').setAttribute('aria-expanded','true')}const sec=document.getElementById('sections');sec.scrollIntoView({behavior:'smooth',block:'start'});sec.classList.remove('flash');void sec.offsetWidth;sec.classList.add('flash')};gb.appendChild(b)})}
 startLabel();badges();
 document.addEventListener('eg-lang',()=>{startLabel();badges()});
 document.addEventListener('eg-lang',()=>{const c=document.querySelector('.card[aria-expanded="true"]');if(c){c.setAttribute('aria-expanded','false');c.click();}});
@@ -806,4 +898,10 @@ btn.addEventListener('click',()=>set(root.lang==='en'?'ar':'en',true));
 let l=new URLSearchParams(location.search).get('lang');if(!l){try{l=localStorage.getItem('eg_lang')}catch(e){}}
 if(l==='en')set('en',false);
 })();
+</script>
+<script>
+document.querySelectorAll('.term-h').forEach(h=>h.addEventListener('click',()=>{const t=h.parentElement,on=!t.classList.contains('on');
+  t.classList.toggle('on',on);h.setAttribute('aria-expanded',on);
+  if(!on){const p=document.getElementById('panel');if(t.contains(p)){p.hidden=true;t.querySelectorAll('.card').forEach(c=>c.setAttribute('aria-expanded','false'))}}
+  else setTimeout(()=>h.scrollIntoView({behavior:'smooth',block:'start'}),80);}));
 </script>
