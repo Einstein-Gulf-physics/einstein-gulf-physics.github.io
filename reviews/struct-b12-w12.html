@@ -30,7 +30,7 @@ const $=id=>document.getElementById(id);
 function open(c){
   if(vh(SALT+'|code|'+c).slice(0,6)!==CH){$('er').textContent='الكود غير صحيح. اطلب الكود من الأستاذ رامي عبد الفتاح.';return false}
   const d='w'+vh(SALT+'|dir|'+c).toLowerCase()+vh(SALT+'|dir2|'+c).toLowerCase()+'/';
-  let h='';for(let i=1;i<=N;i++){const p=String(i).padStart(2,'0');h+='<img src="'+d+'p'+p+'.jpg" alt="صفحة '+i+'" loading="'+(i<3?'eager':'lazy')+'" width="910" height="1287">'}
+  let h='';for(let i=1;i<=N;i++){const p=String(i).padStart(2,'0');h+='<img src="'+d+'p'+p+'.jpg" alt="صفحة '+i+'" loading="'+(i<3?'eager':'lazy')+'" width="1241" height="1754">'}
   $('pages').innerHTML=h;
   document.querySelectorAll('a.dl').forEach(a=>{a.href=d+'struct-b12-w12.pdf';a.setAttribute('download','مراجعة_الهيكل_الكتابي_س1_س2_12متقدم_بريدج.pdf')});
   $('gate').hidden=true;$('view').hidden=false;try{localStorage.setItem(K,c)}catch(e){}return true}
