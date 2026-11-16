@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>منصة أينشتاين الخليج</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Lalezar&family=Aref+Ruqaa:wght@700&family=JetBrains+Mono:wght@600&display=swap">
 <style>
 /* Layout: teacher-platform landing — bold navy hero with emblem, stats strip, motto ribbon, 3 section cards, how-to, contact, footer */
 :root{
@@ -379,147 +379,6 @@ footer .eqs{font-family:var(--mono);direction:ltr;color:#3b5a99;margin-bottom:4p
   .stat{padding:12px 4px}.stat b{font-size:1.3rem}.stat span{font-size:.78rem}
   .contact{grid-template-columns:1fr}.chip.a{inset-inline-start:0}.chip.b{inset-inline-end:0}
 }
-
-/* ===== هوية هادئة: لونان، خطوط واضحة، بدون زخرفة ===== */
-:root{--navy:#13294b;--navy2:#13294b;--gold:#c9a24a;--gold2:#e2c98a;--paper:#f6f3ec;--card:#fffdf8;--ink:#1b2333;--dim:#5b6372;--line:#ddd6c6;--red:#a3312a;
-  --font:"IBM Plex Sans Arabic",Tahoma,"Segoe UI",sans-serif;--mono:"IBM Plex Mono","Courier New",monospace;--serif:"Noto Naskh Arabic","IBM Plex Sans Arabic",serif}
-*,*::before,*::after{animation:none!important}
-.pend .sw{animation:swing 1.004s cubic-bezier(.37,0,.63,1) infinite alternate!important}
-@media (prefers-reduced-motion:reduce){.pend .sw{animation:none!important}}
-body{background:var(--paper);color:var(--ink);font-family:var(--font);line-height:1.8}
-h1,h2,h3,.h1{font-family:var(--serif)}
-/* nav */
-.nav{background:var(--navy);border-bottom:3px solid var(--red)}
-.brand{font-weight:700}
-.logo{border-radius:4px;background:transparent;color:var(--gold2);border:1.5px solid var(--gold2);box-shadow:none}
-.nav a,.nav .lng{border-radius:4px;font-weight:600}
-.nav .lng{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.45)}
-.nav a{background:transparent;border:1px solid rgba(255,255,255,.25)}
-/* hero */
-.hero{background:var(--navy)}
-.hero::after{display:none}
-.tflip .tf{transform:none!important}
-.tflip .te{transform:none}
-html[lang=ar] .tflip .te{display:none}html[lang=en] .tflip .ta{display:none}
-html[lang=en] .tflip .te{text-align:left}
-h1 .l1,.h1 .l1{font-weight:700}
-h1 .g,.tflip .h1 .g{color:var(--gold2)}
-h1 .sub,.h1 .sub{font-family:var(--font);font-weight:500;color:#d7dce6;letter-spacing:0}
-h1 .sub i,.h1 .sub i{display:none}
-.by{font-weight:600;font-size:clamp(1.05rem,3.4vw,1.25rem)}
-.by .tn{text-shadow:none!important;transform:none!important;color:var(--gold2)}
-.by .comet{display:none}
-.lead{color:#c9d1df}
-.gpick .gh{background:none;-webkit-text-fill-color:#fff;color:#fff;font-family:var(--serif);font-weight:700;font-size:1.2rem}
-.gpick .gh .sp{display:none}
-.gt{border-radius:6px;border:1px solid rgba(255,255,255,.3);background:transparent;backdrop-filter:none;box-shadow:none}
-.gt::before{display:none}
-.gt:hover{transform:none;border-color:var(--gold2);box-shadow:none}
-.gt .gn{border-radius:4px;box-shadow:none;font-family:var(--mono);font-weight:600;width:46px;height:46px}
-.gt.br .gn{background:var(--gold2)}.gt.in .gn{background:#c7d3e6}
-.gt[aria-pressed="true"]{border-color:var(--gold2);background:rgba(226,201,138,.1);box-shadow:none}
-.gt .ok{border-radius:3px;background:var(--gold2)}
-.btn{border-radius:6px;font-weight:600}
-.btn.line{border:1px solid rgba(255,255,255,.5)}
-.egbtn{border-radius:6px;box-shadow:none;background:var(--gold2)}
-.egbtn .bl{border-radius:4px}.egbtn .bl i,.egbtn .tap{display:none}
-/* clock */
-.emblem .ring{background:#0f2242;border:2px solid var(--gold2);box-shadow:none}
-.emblem .orb,.clockbox .rimtxt,.clockbox .pulse,.emblem .spin{display:none}
-.clockbox .tk5{stroke:var(--gold2);stroke-width:3}
-.clockbox .brandin{fill:var(--gold2);font-weight:700;font-family:var(--font)}
-.clockbox .eqin{fill:#c7d3e6;font-weight:500}
-.clockbox .num{font-weight:600}
-.clockbox .hs{stroke:#e06a5f}
-.clockbox svg circle[fill="#e0287a"]{fill:var(--red)}
-.clockbox svg circle[fill="#f6b21a"]{fill:var(--gold2)}
-.pend .str line{stroke:var(--gold2);opacity:.7}.pend .str circle{fill:var(--gold2);stroke:none}
-.dclock .flip{transform:none!important}.dclock .fe{transform:none}
-html[lang=ar] .dclock .fe{display:none}html[lang=en] .dclock .fa{display:none}
-.dclock .face{background:#f3ead6;border:0;border-radius:6px;box-shadow:0 2px 0 rgba(0,0,0,.25)}
-.dclock .dd{border-radius:4px;background:var(--navy);color:#fff;font-weight:600}
-.dclock .dm{font-weight:700}
-/* countdown */
-.cdown{background:var(--card);color:var(--ink);border:1px solid var(--line);border-top:4px solid var(--red);border-radius:6px;box-shadow:none;text-align:center}
-.cdown::before{display:none}
-.cdown .cd-h{color:var(--ink)}
-.cd-in{font-family:var(--font);font-size:.95rem;font-weight:500;color:var(--dim)}
-.cd-in::before,.cd-in::after{display:none}
-.cd-left{color:var(--ink);font-family:var(--font);font-weight:500}
-.cd-atom{display:none}
-.cd-ph b{font-family:var(--serif);font-weight:700;background:none;-webkit-text-fill-color:var(--navy);color:var(--navy);filter:none;font-size:clamp(1.9rem,8vw,2.6rem)}
-.cd-date{color:var(--dim)}
-.cd-day{background:none;box-shadow:none;color:var(--ink);padding:0;font-weight:700}
-.cd-day::after{display:none}
-.cd-grid{gap:10px}
-.cd-card{background:var(--paper);border:1px solid var(--line);border-radius:6px}
-.cd-g b{color:var(--navy);font-family:var(--serif);font-weight:700}.cd-g span{color:var(--dim)}
-.cd-num div{background:var(--navy);color:#fff;border-radius:4px;box-shadow:none}
-.cd-num b{font-weight:600}.cd-num span{color:#c7d3e6;font-weight:500}
-.cd-meta{color:var(--dim)}
-.cd-done{color:var(--red)}
-/* motto */
-.motto{background:none;color:var(--navy);border-radius:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:18px 8px}
-.motto blockquote{font-family:var(--serif);font-weight:700;color:var(--navy);font-size:clamp(1.4rem,5vw,1.9rem)}
-.motto figcaption{display:none}
-/* section heads */
-.head{border-bottom:1.5px solid var(--navy);padding-bottom:6px}
-.head h2{font-weight:700;font-size:1.5rem;color:var(--navy)}
-.head h2::after{display:none}
-/* sections as an index list */
-#sections .cards{counter-reset:sec;grid-template-columns:1fr;gap:0}
-@media (min-width:900px){#sections .cards{grid-template-columns:1fr 1fr;column-gap:36px}}
-#sections .card{counter-increment:sec;flex-direction:row;align-items:flex-start;gap:14px;background:transparent;border:0;border-bottom:1px solid var(--line);border-radius:0;padding:16px 2px;overflow:visible;box-shadow:none;transform:none}
-#sections .card:hover,#sections .card:focus-visible{transform:none;box-shadow:none;background:rgba(19,41,75,.035)}
-#sections .card[aria-expanded="true"]{outline:0;background:rgba(19,41,75,.06);border-bottom-color:var(--navy)}
-#sections .card .top{height:auto;min-width:54px;background:none!important;display:flex;flex-direction:column;align-items:center;gap:4px;padding-top:2px}
-#sections .card .top::after{display:none}
-#sections .card .top::before{content:counter(sec,decimal-leading-zero);font-family:var(--mono);font-weight:600;font-size:1.35rem;color:var(--red);line-height:1}
-#sections .card .top .ic{display:none}
-#sections .card .top .bdg{position:static;background:none;box-shadow:none;color:var(--dim);font-size:.72rem;font-weight:500;padding:0;white-space:nowrap}
-#sections .card .top .bdg.z{background:none;color:#9aa1ad}
-#sections .card .body{padding:0;gap:2px}
-#sections .card h3{font-size:1.2rem;font-weight:700;color:var(--navy)}
-#sections .card p{font-size:.92rem}
-#sections .card .more{color:var(--red);font-weight:600;font-size:.9rem;padding-top:4px}
-.panel{background:var(--card);border:1px solid var(--navy);border-radius:6px;box-shadow:none}
-.panel h3{font-family:var(--serif);color:var(--navy);font-weight:700}
-.trk button{border-radius:4px;border:1px solid var(--line);font-weight:600;background:var(--card)}
-.trk button[aria-pressed="true"]{background:var(--navy);border-color:var(--navy)}
-.trk .cnt{background:transparent;color:inherit;border:1px solid currentColor;border-radius:3px}
-.item .nm{font-weight:600}
-.go{border-radius:4px;font-weight:600;background:var(--navy)}
-/* lab */
-.lab{background:var(--navy);border-radius:8px;box-shadow:none}
-.labhead h2{font-weight:700}
-.ftog{border-radius:6px;backdrop-filter:none;background:rgba(0,0,0,.25)}
-.ftog button{border-radius:4px}.ftog button[aria-pressed="true"]{background:var(--gold2)}
-.feats svg{background:none;stroke:var(--gold2)}
-.feats b{font-weight:600}
-/* steps */
-.circuit::after{display:none}
-.circuit::before{height:1px;background:var(--line)}
-.circuit .nd{background:var(--card);color:var(--navy);border:1.5px solid var(--navy);box-shadow:none;font-family:var(--mono);font-weight:600;width:44px;height:44px}
-.circuit b{font-weight:700;color:var(--navy)}
-@media (max-width:760px){.circuit::before{width:1px}}
-/* phet */
-.sims a{border-radius:6px;font-weight:600;background:var(--card)}
-.sims a:hover{transform:none;border-color:var(--navy)}
-.sims .g{border-radius:4px;color:var(--gold2)}
-.allsims{border-radius:6px}
-/* contact & footer */
-.contact{border-radius:8px;border-top:4px solid var(--red)}
-.contact h2{font-weight:700}
-.num{color:var(--gold2)}
-.qrbox{border-radius:6px;border-width:2px}
-blockquote{font-family:var(--serif)}
-footer{background:var(--navy)}
-/* calculator button */
-.calc-fab{width:50px;height:50px;border-radius:8px;border:1.5px solid var(--gold2);box-shadow:0 4px 12px rgba(0,0,0,.25)}
-.calc-fab svg{width:24px;height:24px}
-.calc{border-radius:8px;border:1px solid var(--gold2)}
-.calc .keys button,.calc select,.calc input,.uOut,.calc .scr,.ctabs,.ctabs button,.consts button,#uSwap,.uUse{border-radius:4px}
-.ctabs button[aria-selected="true"],#uSwap,.calc .keys button.o{background:var(--gold2)}
 </style>
 
 <nav class="nav"><div class="wrap">
@@ -530,11 +389,11 @@ footer{background:var(--navy)}
 <header class="hero"><div class="wrap">
   <div>
     <div class="tflip" role="group" aria-label="منصة أينشتاين الخليج في الفيزياء مع الأستاذ رامي عبد الفتاح"><div class="tf">
-      <div class="tface ta" dir="rtl" lang="ar"><h1><span class="l1">منصة <span class="g">أينشتاين</span> الخليج</span><span class="sub"><i></i>في الفيزياء<i></i></span></h1><div class="by">مع <span class="tn">الأستاذ رامي عبد الفتاح</span></div></div>
-      <div class="tface te" dir="ltr" lang="en" aria-hidden="true"><div class="h1"><span class="l1"><span class="g">Einstein</span> Gulf</span><span class="sub"><i></i>Physics Platform<i></i></span></div><div class="by">with <span class="tn">Mr. Ramy Abdel Fattah</span></div></div>
+      <div class="tface ta" dir="rtl" lang="ar"><h1><span class="l1">منصة <span class="g">أينشتاين</span> الخليج</span><span class="sub"><i></i>في الفيزياء<i></i></span></h1><div class="by">مع <span class="tn"><i class="comet" aria-hidden="true"></i>الأستاذ رامي عبد الفتاح</span></div></div>
+      <div class="tface te" dir="ltr" lang="en" aria-hidden="true"><div class="h1"><span class="l1"><span class="g">Einstein</span> Gulf</span><span class="sub"><i></i>Physics Platform<i></i></span></div><div class="by">with <span class="tn"><i class="comet" aria-hidden="true"></i>Mr. Ramy Abdel Fattah</span></div></div>
     </div></div>
-    <p class="lead" data-en="Welcome. Your exams, homework and review games, all in one place. Study, practise, and track your level as you go.">أهلًا بيك يا بطل. امتحاناتك وواجباتك وألعاب المراجعة كلها في مكان واحد. ذاكر، اتدرّب، واعرف مستواك أول بأول.</p>
-    <div class="gpick" id="gradePick"><p class="gh"><span data-en="Choose your grade">اختار صفك</span></p><div class="gbtns"></div></div>
+    <p class="lead" data-en="Welcome, champ. Your exams, homework and review games, all in one place. Study, practise, and track your level as you go.">أهلًا بيك يا بطل. امتحاناتك وواجباتك وألعاب المراجعة كلها في مكان واحد. ذاكر، اتدرّب، واعرف مستواك أول بأول.</p>
+    <div class="gpick" id="gradePick"><p class="gh"><span data-en="Pick your grade and take off">اختر صفك وانطلق</span></p><div class="gbtns"></div></div>
     <div class="cta"><a class="btn line" href="#contact" data-en="Contact the teacher">تواصل مع الأستاذ</a></div>
   </div>
   <div class="emblem clockbox">
@@ -576,7 +435,7 @@ footer{background:var(--navy)}
     </div>
     </div>
   </section>
-  <figure class="motto"><blockquote data-en="“Your family’s joy is worth your effort”">«فرحة أهلك تستاهل تعبك»</blockquote></figure>
+  <figure class="motto"><blockquote data-en="&lt;span class=&quot;h&quot; aria-hidden=&quot;true&quot;&gt;❤️&lt;/span&gt; “Your family’s joy is worth your effort”"><span class="h" aria-hidden="true">❤️</span> «فرحة أهلك تستاهل تعبك»</blockquote></figure>
 
   <section class="block" id="sections">
     <div class="head"><h2 data-en="Choose a section">اختار القسم</h2></div>
@@ -645,7 +504,7 @@ footer{background:var(--navy)}
       <div class="note" id="copyMsg" style="color:#cdd8f2"></div>
     </div>
     <a class="qrbox" href="https://wa.me/971507670323" target="_blank" rel="noopener" aria-label="واتساب الأستاذ رامي عبد الفتاح"><img src="data:image/png;base64,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" alt="باركود واتساب الأستاذ رامي عبد الفتاح" width="132" height="132"><span data-en="Scan for WhatsApp">امسح للتواصل على واتساب</span></a>
-    <div class="acts"><a class="btn wa" href="https://wa.me/971507670323" target="_blank" rel="noopener" data-en="WhatsApp">واتساب</a><button class="btn cp" type="button" id="copy" data-en="Copy number">نسخ الرقم</button></div>
+    <div class="acts"><a class="btn wa" href="https://wa.me/971507670323" target="_blank" rel="noopener" data-en="💬 WhatsApp">💬 واتساب</a><button class="btn cp" type="button" id="copy" data-en="Copy number">نسخ الرقم</button></div>
   </section>
 
   <blockquote data-en="“Imagination is more important than knowledge.” &lt;b&gt;— Albert Einstein&lt;/b&gt;">«الخيال أهم من المعرفة» <b>— ألبرت أينشتاين</b></blockquote>
@@ -656,51 +515,51 @@ footer{background:var(--navy)}
 (function(){
 const TR=[['b12','الصف 12 متقدم · بريدج'],['i12','الصف 12 متقدم · إنسباير'],['b11','الصف 11 متقدم · بريدج'],['i11','الصف 11 متقدم · إنسباير']];
 const DATA={
-  exams:{t:'الامتحانات',tracks:{
+  exams:{t:'📝 الامتحانات',tracks:{
     b12:[{nm:'اختبار الوزارة 2023-2024',meta:'6 أسئلة · 60 درجة',href:'exams/wizara.html'},
          {nm:'اختبار إلكتروني 4 · مراجعة نهائية',meta:'9 أسئلة · 27 درجة',href:'exams/exam4.html'}],
     i12:[{nm:'Electronic Exam 2 · Atomic Models & Spectra',meta:'48 questions · 50 marks',href:'exams/inspire-exam2.html'}],b11:[],i11:[]}},
-  hw:{t:'الواجبات',tracks:{
+  hw:{t:'📚 الواجبات',tracks:{
     b12:[{nm:'واجب حصة الخميس',meta:'4 أسئلة · 25 درجة',href:'homework/wajib-khamis.html'},
          {nm:'واجب أسطح تساوي الجهد',meta:'5 أسئلة · 25 درجة',href:'homework/wajib-equipotential.html'},
          {nm:'واجب حصة الأحد',meta:'5 أسئلة · 30 درجة',href:'homework/wajib-ahad.html'}],
     i12:[],b11:[],i11:[]}},
-  games:{t:'تحدي القمة',tracks:{
-    b12:[{nm:'تحدي القمة ',meta:'46 سؤال مراجعة · شهادة تفوق',href:'games/summit.html'}],
+  games:{t:'🏔️ تحدي القمة',tracks:{
+    b12:[{nm:'تحدي القمة 🏔️',meta:'46 سؤال مراجعة · شهادة تفوق',href:'games/summit.html'}],
     i12:[],b11:[],i11:[]}},
-  hk:{t:'الهيكل المعتمد من وزارة التربية والتعليم',tracks:{
+  hk:{t:'📋 الهيكل المعتمد من وزارة التربية والتعليم',tracks:{
     b12:[{nm:'هيكل اختبار نهاية الفصل الأول · 12 متقدم بريدج',meta:'2026-2027 · عرض وتحميل PDF',href:'hayakel/hayakel-b12.html',btn:'افتح'}],
     i12:[{nm:'End of Term 1 Exam Coverage · Grade 12 Inspire',meta:'2026-2027 · view and download PDF',href:'hayakel/hayakel-i12.html',btn:'افتح'}],
     b11:[{nm:'هيكل اختبار نهاية الفصل الأول · 11 متقدم بريدج',meta:'2026-2027 · عرض وتحميل PDF',href:'hayakel/hayakel-b11.html',btn:'افتح'}],
     i11:[{nm:'End of Term 1 Exam Coverage · Grade 11 Inspire',meta:'2026-2027 · view and download PDF',href:'hayakel/hayakel-i11.html',btn:'افتح'}]}},
-  comp:{t:'امتحانات شاملة لسنوات سابقة',tracks:{
+  comp:{t:'🏛️ امتحانات شاملة لسنوات سابقة',tracks:{
     b12:[{nm:'بنك أسئلة إلكتروني لامتحان 2019-2020',meta:'16 شاشة · 50 درجة · بكود دخول',href:'comprehensive/wizara-2019-2020.html'},
-         {nm:'امتحان 2019-2020 · PDF',meta:'ورقة الامتحان للمذاكرة والطباعة · بنفس الكود',href:'comprehensive/wizara-2019-2020-exam.html',btn:'افتح'},
-         {nm:'نموذج إجابة امتحان 2019-2020 · PDF',meta:'دليل التصحيح من الوزارة · بنفس الكود',href:'comprehensive/wizara-2019-2020-key.html',btn:'افتح'}],
+         {nm:'📄 امتحان 2019-2020 · PDF',meta:'ورقة الامتحان للمذاكرة والطباعة · بنفس الكود',href:'comprehensive/wizara-2019-2020-exam.html',btn:'افتح'},
+         {nm:'📄 نموذج إجابة امتحان 2019-2020 · PDF',meta:'دليل التصحيح من الوزارة · بنفس الكود',href:'comprehensive/wizara-2019-2020-key.html',btn:'افتح'}],
     i12:[],b11:[],i11:[]}},
-  rev:{t:'مراجعات لدروس محددة',tracks:{
+  rev:{t:'🎯 مراجعات لدروس محددة',tracks:{
     b12:[{nm:'مراجعة (1) · الدروس 2.5 و2.7 و2.8 و2.9',meta:'42 سؤالًا · 44 درجة',href:'reviews/review1.html'}],
     i12:[{nm:'Review (1) · Energy and Momentum',meta:'2 questions · 6 marks · 10 min per question · Deadline: Wed 11 Nov, 9:00 PM',href:'reviews/review1-i12.html'},
-         {nm:'Review (1) Questions · PDF',meta:'To study and print · has its own code',href:'reviews/review1-i12-pdf.html',btn:'افتح'}],
+         {nm:'📄 Review (1) Questions · PDF',meta:'To study and print · has its own code',href:'reviews/review1-i12-pdf.html',btn:'افتح'}],
     b11:[{nm:'مراجعة (1) · العزم والاتزان',meta:'7 أسئلة · 7 درجات · 5 دقائق لكل سؤال',href:'reviews/review1-b11.html'},
-         {nm:'ملف أسئلة مراجعة (1) · PDF',meta:'للمذاكرة والطباعة · بنفس كود المراجعة',href:'reviews/review1-b11-pdf.html',btn:'افتح'}],
+         {nm:'📄 ملف أسئلة مراجعة (1) · PDF',meta:'للمذاكرة والطباعة · بنفس كود المراجعة',href:'reviews/review1-b11-pdf.html',btn:'افتح'}],
     i11:[{nm:'Review (1) · Torque and Equilibrium',meta:'7 questions · 7 marks · 5 min per question',href:'reviews/review1-i11.html'},
-         {nm:'Review (1) Questions · PDF',meta:'To study and print · same code as the review',href:'reviews/review1-i11-pdf.html',btn:'افتح'}]}},
-  struct:{t:'مراجعة الهياكل',tracks:{b12:[{nm:'مراجعة الأسئلة الكتابية · السؤال الأول والثاني',meta:'ملف PDF كتابي: نزّله وحلّه كامل · بكود دخول',href:'reviews/struct-b12-w12.html',btn:'افتح'},{nm:'مراجعة الأسئلة الكتابية · السؤال الثالث والرابع',meta:'قريبًا إن شاء الله'},{nm:'مراجعة الأسئلة الإلكترونية · السؤالان 15 و16 · الجهد وطاقة الوضع الكهربائية',meta:'8 أسئلة · تدريب بمحاولتين · تنقّل حر بين الأسئلة',href:'reviews/struct-b12-15-16.html'}],i12:[],b11:[{nm:'مراجعة الهيكل (1) · الزخم والتصادمات والحركة الدورانية',meta:'8 أسئلة · تدريب بمحاولتين · تنقّل حر بين الأسئلة',href:'reviews/struct1-b11.html'},{nm:'ملف أسئلة مراجعة الهيكل (1) · PDF',meta:'للمذاكرة والطباعة · بنفس الكود',href:'reviews/struct1-b11-pdf.html',btn:'افتح'}],i11:[{nm:'Structure Review (1) · Momentum, Collisions and Rotation',meta:'8 questions · practice with 2 attempts · free navigation',href:'reviews/struct1-i11.html'},{nm:'Structure Review (1) Questions · PDF',meta:'To study and print · same code',href:'reviews/struct1-i11-pdf.html',btn:'افتح'}]}}
+         {nm:'📄 Review (1) Questions · PDF',meta:'To study and print · same code as the review',href:'reviews/review1-i11-pdf.html',btn:'افتح'}]}},
+  struct:{t:'🗂️ مراجعة الهياكل',tracks:{b12:[{nm:'📝 مراجعة الأسئلة الكتابية · السؤال الأول والثاني',meta:'ملف PDF كتابي: نزّله وحلّه كامل · بكود دخول',href:'reviews/struct-b12-w12.html',btn:'افتح'},{nm:'📝 مراجعة الأسئلة الكتابية · السؤال الثالث والرابع',meta:'قريبًا إن شاء الله'},{nm:'💻 مراجعة الأسئلة الإلكترونية · السؤالان 15 و16 · الجهد وطاقة الوضع الكهربائية',meta:'8 أسئلة · تدريب بمحاولتين · تنقّل حر بين الأسئلة',href:'reviews/struct-b12-15-16.html'}],i12:[],b11:[{nm:'مراجعة الهيكل (1) · الزخم والتصادمات والحركة الدورانية',meta:'8 أسئلة · تدريب بمحاولتين · تنقّل حر بين الأسئلة',href:'reviews/struct1-b11.html'},{nm:'📄 ملف أسئلة مراجعة الهيكل (1) · PDF',meta:'للمذاكرة والطباعة · بنفس الكود',href:'reviews/struct1-b11-pdf.html',btn:'افتح'}],i11:[{nm:'Structure Review (1) · Momentum, Collisions and Rotation',meta:'8 questions · practice with 2 attempts · free navigation',href:'reviews/struct1-i11.html'},{nm:'📄 Structure Review (1) Questions · PDF',meta:'To study and print · same code',href:'reviews/struct1-i11-pdf.html',btn:'افتح'}]}}
 };
 const LIVE=location.hostname.endsWith('github.io');
 const EN={'الصف 12 متقدم · بريدج':'Grade 12 Advanced · Bridge','الصف 12 متقدم · إنسباير':'Grade 12 Advanced · Inspire','الصف 11 متقدم · بريدج':'Grade 11 Advanced · Bridge','الصف 11 متقدم · إنسباير':'Grade 11 Advanced · Inspire',
-'الامتحانات':'Exams','الواجبات':'Homework','تحدي القمة':'Summit Challenge','الهيكل المعتمد من وزارة التربية والتعليم':'Official MoE Exam Coverage','امتحانات شاملة لسنوات سابقة':'Past Comprehensive Exams','مراجعات لدروس محددة':'Lesson Reviews','مراجعة الهياكل':'Coverage Reviews',
+'📝 الامتحانات':'📝 Exams','📚 الواجبات':'📚 Homework','🏔️ تحدي القمة':'🏔️ Summit Challenge','📋 الهيكل المعتمد من وزارة التربية والتعليم':'📋 Official MoE Exam Coverage','🏛️ امتحانات شاملة لسنوات سابقة':'🏛️ Past Comprehensive Exams','🎯 مراجعات لدروس محددة':'🎯 Lesson Reviews','🗂️ مراجعة الهياكل':'🗂️ Coverage Reviews',
 'اختبار الوزارة 2023-2024':'Ministry Exam 2023-2024','6 أسئلة · 60 درجة':'6 questions · 60 marks','اختبار إلكتروني 4 · مراجعة نهائية':'Electronic Exam 4 · Final Review','9 أسئلة · 27 درجة':'9 questions · 27 marks',
 'واجب أسطح تساوي الجهد':'Homework: Equipotential Surfaces','5 أسئلة · 25 درجة':'5 questions · 25 marks','واجب حصة الأحد':'Sunday Lesson Homework','واجب حصة الخميس':'Thursday Lesson Homework','4 أسئلة · 25 درجة':'4 questions · 25 marks','5 أسئلة · 30 درجة':'5 questions · 30 marks',
-'تحدي القمة ':'Summit Challenge ','46 سؤال مراجعة · شهادة تفوق':'46 review questions · certificate',
+'تحدي القمة 🏔️':'Summit Challenge 🏔️','46 سؤال مراجعة · شهادة تفوق':'46 review questions · certificate',
 'هيكل اختبار نهاية الفصل الأول · 12 متقدم بريدج':'End of Term 1 Exam Coverage · Grade 12 Bridge','هيكل اختبار نهاية الفصل الأول · 11 متقدم بريدج':'End of Term 1 Exam Coverage · Grade 11 Bridge','2026-2027 · عرض وتحميل PDF':'2026-2027 · view and download PDF',
 'بنك أسئلة إلكتروني لامتحان 2019-2020':'Electronic Question Bank · 2019-2020 Exam','16 شاشة · 50 درجة · بكود دخول':'16 screens · 50 marks · entry code',
-'امتحان 2019-2020 · PDF':'2019-2020 Exam · PDF','ورقة الامتحان للمذاكرة والطباعة · بنفس الكود':'Exam paper to study and print · same code','نموذج إجابة امتحان 2019-2020 · PDF':'2019-2020 Answer Key · PDF','دليل التصحيح من الوزارة · بنفس الكود':'Ministry marking guide · same code',
+'📄 امتحان 2019-2020 · PDF':'📄 2019-2020 Exam · PDF','ورقة الامتحان للمذاكرة والطباعة · بنفس الكود':'Exam paper to study and print · same code','📄 نموذج إجابة امتحان 2019-2020 · PDF':'📄 2019-2020 Answer Key · PDF','دليل التصحيح من الوزارة · بنفس الكود':'Ministry marking guide · same code',
 'مراجعة (1) · الدروس 2.5 و2.7 و2.8 و2.9':'Review (1) · Lessons 2.5, 2.7, 2.8 and 2.9','42 سؤالًا · 44 درجة':'42 questions · 44 marks',
-'مراجعة (1) · العزم والاتزان':'Review (1) · Torque and Equilibrium','7 أسئلة · 7 درجات · 5 دقائق لكل سؤال':'7 questions · 7 marks · 5 min per question','ملف أسئلة مراجعة (1) · PDF':'Review (1) Questions · PDF','للمذاكرة والطباعة · بنفس كود المراجعة':'To study and print · same code as the review',
-'مراجعة الهيكل (1) · الزخم والتصادمات والحركة الدورانية':'Coverage Review (1) · Momentum, Collisions and Rotation','8 أسئلة · تدريب بمحاولتين · تنقّل حر بين الأسئلة':'8 questions · practice with 2 attempts · free navigation','ملف أسئلة مراجعة الهيكل (1) · PDF':'Coverage Review (1) Questions · PDF','للمذاكرة والطباعة · بنفس الكود':'To study and print · same code',
-'مراجعة الأسئلة الكتابية · السؤال الأول والثاني':'Written Questions Review · Q1 & Q2','ملف PDF كتابي: نزّله وحلّه كامل · بكود دخول':'Written PDF: download it and solve it fully · entry code','مراجعة الأسئلة الكتابية · السؤال الثالث والرابع':'Written Questions Review · Q3 & Q4','قريبًا إن شاء الله':'Coming soon','مراجعة الأسئلة الإلكترونية · السؤالان 15 و16 · الجهد وطاقة الوضع الكهربائية':'Electronic Questions Review · Q15 & Q16 · Electric Potential and Potential Energy','افتح':'Open','مراجعة الهيكل · السؤالان 15 و16 · الجهد وطاقة الوضع الكهربائية':'Coverage Review · Q15 & Q16 · Electric Potential and Potential Energy','ابدأ':'Start','قريبًا':'Soon','اختار صفك:':'Choose your grade:','لسه مفيش حاجة هنا، قريبًا إن شاء الله.':'Nothing here yet — coming soon.','نسخة تجريبية: زرار «ابدأ» هيشتغل بعد رفع الموقع على GitHub.':'Preview copy: the Start button works on the live site.',
+'مراجعة (1) · العزم والاتزان':'Review (1) · Torque and Equilibrium','7 أسئلة · 7 درجات · 5 دقائق لكل سؤال':'7 questions · 7 marks · 5 min per question','📄 ملف أسئلة مراجعة (1) · PDF':'📄 Review (1) Questions · PDF','للمذاكرة والطباعة · بنفس كود المراجعة':'To study and print · same code as the review',
+'مراجعة الهيكل (1) · الزخم والتصادمات والحركة الدورانية':'Coverage Review (1) · Momentum, Collisions and Rotation','8 أسئلة · تدريب بمحاولتين · تنقّل حر بين الأسئلة':'8 questions · practice with 2 attempts · free navigation','📄 ملف أسئلة مراجعة الهيكل (1) · PDF':'📄 Coverage Review (1) Questions · PDF','للمذاكرة والطباعة · بنفس الكود':'To study and print · same code',
+'📝 مراجعة الأسئلة الكتابية · السؤال الأول والثاني':'📝 Written Questions Review · Q1 & Q2','ملف PDF كتابي: نزّله وحلّه كامل · بكود دخول':'Written PDF: download it and solve it fully · entry code','📝 مراجعة الأسئلة الكتابية · السؤال الثالث والرابع':'📝 Written Questions Review · Q3 & Q4','قريبًا إن شاء الله':'Coming soon','💻 مراجعة الأسئلة الإلكترونية · السؤالان 15 و16 · الجهد وطاقة الوضع الكهربائية':'💻 Electronic Questions Review · Q15 & Q16 · Electric Potential and Potential Energy','افتح':'Open','مراجعة الهيكل · السؤالان 15 و16 · الجهد وطاقة الوضع الكهربائية':'Coverage Review · Q15 & Q16 · Electric Potential and Potential Energy','ابدأ':'Start','قريبًا':'Soon','اختار صفك:':'Choose your grade:','لسه مفيش حاجة هنا، قريبًا إن شاء الله.':'Nothing here yet — coming soon.','نسخة تجريبية: زرار «ابدأ» هيشتغل بعد رفع الموقع على GitHub.':'Preview copy: the Start button works on the live site.',
 'الرقم متحدد، انسخه.':'Number selected — copy it.','تم نسخ الرقم ✔':'Number copied ✔'};
 const L=x=>(document.documentElement.lang==='en'&&EN[x])||x;
 const panel=document.getElementById('panel');
@@ -924,7 +783,7 @@ window.__conv={U,set:(c,f,t,v)=>{cat.value=c;fillUnits();fr.value=f;to.value=t;v
 const T={'11':Date.parse('2026-12-07T09:00:00+04:00'),'12':Date.parse('2026-12-07T12:00:00+04:00')};
 const pad=n=>String(n).padStart(2,'0');
 function run(){const now=Date.now();for(const g in T){const el=document.getElementById('cd'+g);if(!el)continue;let d=T[g]-now;
-  if(d<=0){const en=document.documentElement.lang==='en';el.outerHTML='<div class="cd-done" id="cd'+g+'">'+(en?'Good luck, doctors! ':'بالتوفيق يا دكاترة ')+'</div>';continue}
+  if(d<=0){const en=document.documentElement.lang==='en';el.outerHTML='<div class="cd-done" id="cd'+g+'">'+(en?'Good luck, doctors! 🩺':'بالتوفيق يا دكاترة 🩺')+'</div>';continue}
   const v=[Math.floor(d/864e5),Math.floor(d/36e5)%24,Math.floor(d/6e4)%60,Math.floor(d/1e3)%60];
   el.querySelectorAll('b').forEach((b,i)=>b.textContent=i?pad(v[i]):v[i]);}}
 run();setInterval(run,1000);
