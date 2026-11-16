@@ -556,6 +556,16 @@ h1 .sub i,.h1 .sub i{display:none!important}
  .hero .wrap>div:first-child{justify-self:start}
  .hero .emblem{justify-self:end;margin-inline-end:20px;margin-top:26px}
 }
+.newtag{display:inline-block;margin-inline-start:8px;background:#e0473c;color:#fff;font-size:.7rem;font-weight:800;border-radius:6px;padding:1px 8px;vertical-align:middle}
+.newbar{display:flex;flex-direction:column;gap:8px;margin:0 0 12px}
+.nbi{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.1);border:1px solid rgba(246,201,76,.55);border-radius:16px;padding:10px 14px;color:#fff;text-decoration:none}
+.nbi:hover{background:rgba(255,255,255,.16)}
+.nbt{flex:none;background:#e0473c;color:#fff;font-weight:800;font-size:.75rem;border-radius:6px;padding:2px 9px}
+.nbn{flex:1;font-weight:700;font-size:.95rem;line-height:1.4}
+.nbg{flex:none;color:#f6c94c;font-weight:700;font-size:.8rem}
+/* ساعة أصغر */
+.emblem{max-width:270px!important}
+@media (max-width:760px){.emblem{max-width:190px!important}}
 </style>
 
 <div class="basmala" aria-label="بسم الله الرحمن الرحيم"><div class="btrack" aria-hidden="true"><div class="bg"><span>بسم الله الرحمن الرحيم</span><span>بسم الله الرحمن الرحيم</span><span>بسم الله الرحمن الرحيم</span></div><div class="bg"><span>بسم الله الرحمن الرحيم</span><span>بسم الله الرحمن الرحيم</span><span>بسم الله الرحمن الرحيم</span></div></div></div>
@@ -572,7 +582,7 @@ h1 .sub i,.h1 .sub i{display:none!important}
     </div></div>
     <p class="lead motto2" data-en="Start with what matters, even if it’s hardest.">ابدأ بالأهم ولو كان الأصعب</p>
     <div class="gpick" id="gradePick" hidden><p class="gh"><span data-en="Pick your grade and take off">اختر صفك وانطلق</span></p><div class="gbtns"></div></div>
-    <div id="sections" class="hsec">
+    <div id="sections" class="hsec"><div class="newbar" id="newbar" hidden></div>
     <div class="terms">
     <div class="term" data-term="1">
       <button type="button" class="term-h" aria-expanded="false"><span class="tn-n">1</span><span class="tn-t"><b data-en="Term 1">الفصل الدراسي الأول</b></span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
@@ -813,7 +823,7 @@ const DATA={
          {nm:'ملف أسئلة مراجعة (1) · PDF',meta:'للمذاكرة والطباعة · بنفس كود المراجعة',href:'reviews/review1-b11-pdf.html',btn:'افتح'}],
     i11:[{nm:'Review (1) · Torque and Equilibrium',meta:'7 questions · 7 marks · 5 min per question',href:'reviews/review1-i11.html'},
          {nm:'Review (1) Questions · PDF',meta:'To study and print · same code as the review',href:'reviews/review1-i11-pdf.html',btn:'افتح'}]}},
-  struct:{t:'مراجعة الهياكل',tracks:{b12:[{nm:'مراجعة الأسئلة الكتابية · السؤال الأول والثاني',meta:'ملف PDF كتابي: نزّله وحلّه كامل · بكود دخول',href:'reviews/struct-b12-w12.html',btn:'افتح'},{nm:'مراجعة الأسئلة الكتابية · السؤال الثالث والرابع',meta:'قريبًا إن شاء الله'},{nm:'مراجعة الأسئلة الإلكترونية · السؤالان 15 و16 · الجهد وطاقة الوضع الكهربائية',meta:'8 أسئلة · تدريب بمحاولتين · تنقّل حر بين الأسئلة',href:'reviews/struct-b12-15-16.html'}],i12:[],b11:[{nm:'مراجعة الهيكل (1) · الزخم والتصادمات والحركة الدورانية',meta:'8 أسئلة · تدريب بمحاولتين · تنقّل حر بين الأسئلة',href:'reviews/struct1-b11.html'},{nm:'ملف أسئلة مراجعة الهيكل (1) · PDF',meta:'للمذاكرة والطباعة · بنفس الكود',href:'reviews/struct1-b11-pdf.html',btn:'افتح'}],i11:[{nm:'Structure Review (1) · Momentum, Collisions and Rotation',meta:'8 questions · practice with 2 attempts · free navigation',href:'reviews/struct1-i11.html'},{nm:'Structure Review (1) Questions · PDF',meta:'To study and print · same code',href:'reviews/struct1-i11-pdf.html',btn:'افتح'}]}}
+  struct:{t:'مراجعة الهياكل',tracks:{b12:[{nm:'مراجعة الأسئلة الكتابية · السؤال الأول والثاني',meta:'ملف PDF كتابي: نزّله وحلّه كامل · بكود دخول',href:'reviews/struct-b12-w12.html',btn:'افتح',nw:1},{nm:'مراجعة الأسئلة الكتابية · السؤال الثالث والرابع',meta:'قريبًا إن شاء الله'},{nm:'مراجعة الأسئلة الإلكترونية · السؤالان 15 و16 · الجهد وطاقة الوضع الكهربائية',meta:'8 أسئلة · تدريب بمحاولتين · تنقّل حر بين الأسئلة',href:'reviews/struct-b12-15-16.html'}],i12:[],b11:[{nm:'مراجعة الهيكل (1) · الزخم والتصادمات والحركة الدورانية',meta:'8 أسئلة · تدريب بمحاولتين · تنقّل حر بين الأسئلة',href:'reviews/struct1-b11.html'},{nm:'ملف أسئلة مراجعة الهيكل (1) · PDF',meta:'للمذاكرة والطباعة · بنفس الكود',href:'reviews/struct1-b11-pdf.html',btn:'افتح'}],i11:[{nm:'Structure Review (1) · Momentum, Collisions and Rotation',meta:'8 questions · practice with 2 attempts · free navigation',href:'reviews/struct1-i11.html'},{nm:'Structure Review (1) Questions · PDF',meta:'To study and print · same code',href:'reviews/struct1-i11-pdf.html',btn:'افتح'}]}}
 };
 ['exams','hw','games','hk','comp','rev','struct'].forEach(k=>{[2,3].forEach(t=>{DATA[k+'_t'+t]={t:DATA[k].t,tracks:{b12:[],i12:[],b11:[],i11:[]}}})});
 
@@ -829,7 +839,7 @@ const EN={'الصف 12 متقدم · بريدج':'Grade 12 Advanced · Bridge','
 'مراجعة (1) · الدروس 2.5 و2.7 و2.8 و2.9':'Review (1) · Lessons 2.5, 2.7, 2.8 and 2.9','42 سؤالًا · 44 درجة':'42 questions · 44 marks',
 'مراجعة (1) · العزم والاتزان':'Review (1) · Torque and Equilibrium','7 أسئلة · 7 درجات · 5 دقائق لكل سؤال':'7 questions · 7 marks · 5 min per question','ملف أسئلة مراجعة (1) · PDF':'Review (1) Questions · PDF','للمذاكرة والطباعة · بنفس كود المراجعة':'To study and print · same code as the review',
 'مراجعة الهيكل (1) · الزخم والتصادمات والحركة الدورانية':'Coverage Review (1) · Momentum, Collisions and Rotation','8 أسئلة · تدريب بمحاولتين · تنقّل حر بين الأسئلة':'8 questions · practice with 2 attempts · free navigation','ملف أسئلة مراجعة الهيكل (1) · PDF':'Coverage Review (1) Questions · PDF','للمذاكرة والطباعة · بنفس الكود':'To study and print · same code',
-'مراجعة الأسئلة الكتابية · السؤال الأول والثاني':'Written Questions Review · Q1 & Q2','ملف PDF كتابي: نزّله وحلّه كامل · بكود دخول':'Written PDF: download it and solve it fully · entry code','مراجعة الأسئلة الكتابية · السؤال الثالث والرابع':'Written Questions Review · Q3 & Q4','قريبًا إن شاء الله':'Coming soon','مراجعة الأسئلة الإلكترونية · السؤالان 15 و16 · الجهد وطاقة الوضع الكهربائية':'Electronic Questions Review · Q15 & Q16 · Electric Potential and Potential Energy','افتح':'Open','مراجعة الهيكل · السؤالان 15 و16 · الجهد وطاقة الوضع الكهربائية':'Coverage Review · Q15 & Q16 · Electric Potential and Potential Energy','ابدأ':'Start','قريبًا':'Soon','اختار صفك:':'Choose your grade:','لسه مفيش حاجة هنا، قريبًا إن شاء الله.':'Nothing here yet — coming soon.','نسخة تجريبية: زرار «ابدأ» هيشتغل بعد رفع الموقع على GitHub.':'Preview copy: the Start button works on the live site.',
+'مراجعة الأسئلة الكتابية · السؤال الأول والثاني':'Written Questions Review · Q1 & Q2','ملف PDF كتابي: نزّله وحلّه كامل · بكود دخول':'Written PDF: download it and solve it fully · entry code','مراجعة الأسئلة الكتابية · السؤال الثالث والرابع':'Written Questions Review · Q3 & Q4','قريبًا إن شاء الله':'Coming soon','مراجعة الأسئلة الإلكترونية · السؤالان 15 و16 · الجهد وطاقة الوضع الكهربائية':'Electronic Questions Review · Q15 & Q16 · Electric Potential and Potential Energy','جديد':'New','افتح':'Open','مراجعة الهيكل · السؤالان 15 و16 · الجهد وطاقة الوضع الكهربائية':'Coverage Review · Q15 & Q16 · Electric Potential and Potential Energy','ابدأ':'Start','قريبًا':'Soon','اختار صفك:':'Choose your grade:','لسه مفيش حاجة هنا، قريبًا إن شاء الله.':'Nothing here yet — coming soon.','نسخة تجريبية: زرار «ابدأ» هيشتغل بعد رفع الموقع على GitHub.':'Preview copy: the Start button works on the live site.',
 'الرقم متحدد، انسخه.':'Number selected — copy it.','تم نسخ الرقم ✔':'Number copied ✔'};
 const L=x=>(document.documentElement.lang==='en'&&EN[x])||x;
 const panel=document.getElementById('panel');
@@ -839,7 +849,7 @@ function renderList(box,list){
   if(!list.length){const e=document.createElement('p');e.className='note';e.textContent=L('لسه مفيش حاجة هنا، قريبًا إن شاء الله.');box.appendChild(e);return;}
   list.forEach(it=>{const r=document.createElement('div');r.className='item';
     const l=document.createElement('div');l.style.minWidth='0';
-    const n=document.createElement('div');n.className='nm';n.textContent=L(it.nm);
+    const n=document.createElement('div');n.className='nm';n.textContent=L(it.nm);if(it.nw){const t=document.createElement('span');t.className='newtag';t.textContent=L('جديد');n.appendChild(t);}
     const m=document.createElement('div');m.className='meta';m.textContent=L(it.meta);l.append(n,m);
     const a=document.createElement('a');a.className='go';a.textContent=L(it.btn||'ابدأ');a.href=it.href;
     if(!LIVE||!it.href){a.setAttribute('aria-disabled','true');a.removeAttribute('href');if(!it.href)a.textContent=L('قريبًا');}
@@ -881,6 +891,12 @@ function startLabel(){let t=null;try{t=localStorage.getItem('eg_track')}catch(e)
     b.onclick=()=>{try{localStorage.setItem('eg_track',k)}catch(e){}track=k;startLabel();badges();
       const t1=document.querySelector('.term[data-term="1"]');if(t1&&!t1.classList.contains('on')){t1.classList.add('on');t1.querySelector('.term-h').setAttribute('aria-expanded','true')}const sec=document.getElementById('sections');sec.scrollIntoView({behavior:'smooth',block:'start'});sec.classList.remove('flash');void sec.offsetWidth;sec.classList.add('flash')};gb.appendChild(b)})}
 startLabel();badges();
+
+(function(){const nb=document.getElementById('newbar');if(!nb)return;const TL={b12:'12 بريدج',i12:'12 إنسباير',b11:'11 بريدج',i11:'11 إنسباير'};const TE={b12:'12 Bridge',i12:'12 Inspire',b11:'11 Bridge',i11:'11 Inspire'};
+function draw(){const en=document.documentElement.lang==='en';let h='';
+ Object.keys(DATA).forEach(k=>{if(/_t\d$/.test(k))return;Object.keys(DATA[k].tracks).forEach(t=>{(DATA[k].tracks[t]||[]).forEach(it=>{if(it.nw&&it.href)h+='<a class="nbi" href="'+it.href+'"><span class="nbt">'+(en?'New':'جديد')+'</span><span class="nbn">'+L(it.nm)+'</span><span class="nbg">'+(en?TE[t]:TL[t])+'</span></a>';})})});
+ nb.innerHTML=h;nb.hidden=!h;}
+draw();document.addEventListener('eg-lang',draw);})();
 function cur(){try{return localStorage.getItem('eg_track')}catch(e){return null}}
 function rows(){const t=cur(),en=document.documentElement.lang==='en';
   document.querySelectorAll('.grow').forEach(g=>{g.innerHTML='';const term=g.closest('.term');term.classList.toggle('hasg',!!t);

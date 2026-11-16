@@ -261,5 +261,19 @@ gate();
 if(window.EGPCalc)EGPCalc.mount({lang:CFG.lang});
 })();
 </script>
+<script id="egFold">
+(function(){
+var en=(document.documentElement.lang||'').indexOf('en')===0,KEEP=3;
+function fold(){document.querySelectorAll('ol').forEach(function(ol){
+  if(ol.dataset.fold)return;var li=ol.querySelectorAll(':scope>li');if(li.length<=KEEP+1)return;
+  ol.dataset.fold='1';for(var i=KEEP;i<li.length;i++)li[i].hidden=true;
+  var b=document.createElement('button');b.type='button';b.className='egfold';
+  b.textContent=en?'Show all instructions ('+li.length+')':'عرض باقي التعليمات ('+(li.length-KEEP)+')';
+  b.onclick=function(){for(var i=KEEP;i<li.length;i++)li[i].hidden=false;b.remove()};
+  ol.after(b)})}
+var st=document.createElement('style');st.textContent='.egfold{font:inherit;font-weight:700;font-size:.92rem;background:none;border:1.5px solid #c9d3e6;color:#1f5fae;border-radius:8px;padding:8px 14px;margin:2px 0 6px;cursor:pointer;align-self:flex-start}';document.head.appendChild(st);
+fold();new MutationObserver(fold).observe(document.body,{childList:true,subtree:true});
+})();
+</script>
 </body>
 </html>
