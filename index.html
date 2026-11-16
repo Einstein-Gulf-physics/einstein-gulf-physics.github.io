@@ -694,34 +694,43 @@ html[lang=en] .lead.motto2{font-size:clamp(.95rem,4.3vw,1.6rem)}
     </div>
   </section>
   <figure class="motto"><blockquote data-en="“Your family’s joy is worth your effort”">«فرحة أهلك تستاهل تعبك»</blockquote></figure>
-  <figure class="afer" aria-label="عافر حلمك يستاهل">
+  <figure class="afer" aria-label="عافر حلمك يستاهل · أينشتاين الخليج">
     <svg viewBox="0 0 340 340" role="img" aria-label="شعار عافر حلمك يستاهل">
       <defs>
         <radialGradient id="afBg" cx="50%" cy="40%" r="65%"><stop offset="0" stop-color="#2557b8"/><stop offset=".6" stop-color="#0f2a63"/><stop offset="1" stop-color="#081634"/></radialGradient>
         <linearGradient id="afGold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff0b8"/><stop offset=".5" stop-color="#f6b21a"/><stop offset="1" stop-color="#c97d00"/></linearGradient>
+        <linearGradient id="afRing" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffe7a1"/><stop offset=".35" stop-color="#f6b21a"/><stop offset=".65" stop-color="#d99106"/><stop offset="1" stop-color="#ffd56b"/></linearGradient>
         <linearGradient id="afRib" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#a51f18"/><stop offset=".5" stop-color="#e0473c"/><stop offset="1" stop-color="#a51f18"/></linearGradient>
         <radialGradient id="afE" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#fff"/><stop offset=".45" stop-color="#8fd3ff"/><stop offset="1" stop-color="#8fd3ff" stop-opacity="0"/></radialGradient>
-        <path id="afArc" d="M48,172 A122,122 0 0,1 292,172"/>
-        <path id="o1" d="M30,160 a140,52 0 1,0 280,0 a140,52 0 1,0 -280,0"/>
+        <path id="afTop" d="M23,170 A147,147 0 0,1 317,170"/>
+        <path id="afBot" d="M23,170 A147,147 0 0,0 317,170"/>
+        <path id="o1" d="M48,160 a122,46 0 1,0 244,0 a122,46 0 1,0 -244,0"/>
+        <clipPath id="afIn"><circle cx="170" cy="170" r="133"/></clipPath>
       </defs>
-      <circle cx="170" cy="170" r="158" fill="url(#afBg)" stroke="url(#afGold)" stroke-width="10"/>
-      <circle cx="170" cy="170" r="144" fill="none" stroke="#f6b21a" stroke-opacity=".35" stroke-width="1.5" stroke-dasharray="3 6"/>
-      <g transform="translate(0,10)" fill="none" stroke="#8fd3ff" stroke-width="2.2" stroke-opacity=".75">
-        <g><ellipse cx="170" cy="160" rx="140" ry="52"/></g>
-        <g transform="rotate(60 170 160)"><ellipse cx="170" cy="160" rx="140" ry="52"/></g>
-        <g transform="rotate(-60 170 160)"><ellipse cx="170" cy="160" rx="140" ry="52"/></g>
+      <circle cx="170" cy="170" r="164" fill="url(#afRing)"/>
+      <circle cx="170" cy="170" r="164" fill="none" stroke="#a86a00" stroke-width="2"/>
+      <circle cx="170" cy="170" r="131" fill="none" stroke="#a86a00" stroke-width="2"/>
+      <text font-family="Aref Ruqaa, Cairo, sans-serif" font-weight="700" font-size="24" fill="#0a1f4a" letter-spacing="1"><textPath href="#afTop" startOffset="50%" text-anchor="middle" dominant-baseline="middle">أينشتاين الخليج</textPath></text>
+      <text font-family="Aref Ruqaa, Cairo, sans-serif" font-weight="700" font-size="24" fill="#0a1f4a" letter-spacing="1"><textPath href="#afBot" startOffset="50%" text-anchor="middle" dominant-baseline="middle">أينشتاين الخليج</textPath></text>
+      <g fill="#0a1f4a"><path d="M23 170 l5 -7 l5 7 l-5 7 Z"/><path d="M307 170 l5 -7 l5 7 l-5 7 Z"/></g>
+      <circle cx="170" cy="170" r="130" fill="url(#afBg)"/>
+      <g clip-path="url(#afIn)">
+        <g transform="translate(0,10)" fill="none" stroke="#8fd3ff" stroke-width="2.2" stroke-opacity=".75">
+          <ellipse cx="170" cy="160" rx="122" ry="46"/>
+          <ellipse cx="170" cy="160" rx="122" ry="46" transform="rotate(60 170 160)"/>
+          <ellipse cx="170" cy="160" rx="122" ry="46" transform="rotate(-60 170 160)"/>
+        </g>
+        <g transform="translate(0,10)">
+          <g><circle r="9" fill="url(#afE)"><animateMotion dur="5s" repeatCount="indefinite"><mpath href="#o1"/></animateMotion></circle></g>
+          <g transform="rotate(60 170 160)"><circle r="9" fill="url(#afE)"><animateMotion dur="6.5s" repeatCount="indefinite" begin="-2s"><mpath href="#o1"/></animateMotion></circle></g>
+          <g transform="rotate(-60 170 160)"><circle r="9" fill="url(#afE)"><animateMotion dur="7.5s" repeatCount="indefinite" begin="-4s"><mpath href="#o1"/></animateMotion></circle></g>
+        </g>
+        <path d="M186 52 L162 104 L180 104 L160 150 L202 92 L182 92 L198 52 Z" fill="url(#afGold)" opacity=".16"/>
       </g>
-      <g transform="translate(0,10)">
-        <g><circle r="9" fill="url(#afE)"><animateMotion dur="5s" repeatCount="indefinite"><mpath href="#o1"/></animateMotion></circle></g>
-        <g transform="rotate(60 170 160)"><circle r="9" fill="url(#afE)"><animateMotion dur="6.5s" repeatCount="indefinite" begin="-2s"><mpath href="#o1"/></animateMotion></circle></g>
-        <g transform="rotate(-60 170 160)"><circle r="9" fill="url(#afE)"><animateMotion dur="7.5s" repeatCount="indefinite" begin="-4s"><mpath href="#o1"/></animateMotion></circle></g>
-      </g>
-      <path d="M186 40 L160 98 L180 98 L158 150 L204 86 L182 86 L200 40 Z" fill="url(#afGold)" opacity=".16"/>
-      <text x="170" y="198" text-anchor="middle" font-family="Lalezar, Cairo, sans-serif" font-size="112" fill="url(#afGold)" stroke="#081634" stroke-width="5" paint-order="stroke">عافر</text>
-      <path d="M36 226 L304 226 L290 249 L304 272 L36 272 L50 249 Z" fill="url(#afRib)"/>
-      <path d="M36 272 L58 284 L58 272 Z M304 272 L282 284 L282 272 Z" fill="#6f140f"/>
-      <text x="170" y="262" text-anchor="middle" font-family="Lalezar, Cairo, sans-serif" font-size="33" fill="#fff">حلمك يستاهل</text>
-      <text x="170" y="306" text-anchor="middle" font-family="Aref Ruqaa, Cairo, sans-serif" font-weight="700" font-size="25" fill="#ffd56b">أينشتاين الخليج</text>
+      <text x="170" y="196" text-anchor="middle" font-family="Lalezar, Cairo, sans-serif" font-size="104" fill="url(#afGold)" stroke="#081634" stroke-width="5" paint-order="stroke">عافر</text>
+      <path d="M30 222 L310 222 L296 245 L310 268 L30 268 L44 245 Z" fill="url(#afRib)"/>
+      <path d="M30 268 L52 280 L52 268 Z M310 268 L288 280 L288 268 Z" fill="#6f140f"/>
+      <text x="170" y="258" text-anchor="middle" font-family="Lalezar, Cairo, sans-serif" font-size="33" fill="#fff">حلمك يستاهل</text>
     </svg>
     <figcaption class="sig"><span class="sig-en">Ramy</span></figcaption>
   </figure>
