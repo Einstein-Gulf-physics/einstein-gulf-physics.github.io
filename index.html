@@ -522,6 +522,13 @@ html[lang=en] .lead.motto2{font-size:clamp(.95rem,4.3vw,1.6rem)}
 .bg span{direction:rtl;padding:0 18px}
 .bg i{font-style:normal;color:#f6b21a;opacity:.7;font-size:.8em}
 @keyframes bmq{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+.afer{position:relative}
+.afer .sig{margin-top:-6px;position:relative;z-index:2}
+.afer .sig-en{display:inline-block;font-size:clamp(2.6rem,11vw,3.6rem);background:linear-gradient(100deg,#0e2a5c 0%,#0e2a5c 40%,#f6b21a 50%,#0e2a5c 60%,#0e2a5c 100%);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;opacity:0;transform:translateY(-140px) scale(.2) rotate(-4deg);filter:blur(10px)}
+.afer.in .sig-en{animation:sigIn 1.6s cubic-bezier(.16,.84,.3,1) .5s forwards,sigShine 3.5s linear 2.3s infinite}
+@keyframes sigIn{0%{opacity:0;transform:translateY(-140px) scale(.2) rotate(-4deg);filter:blur(10px)}60%{opacity:1;filter:blur(0);transform:translateY(8px) scale(1.12) rotate(-4deg)}100%{opacity:1;filter:blur(0);transform:translateY(0) scale(1) rotate(-4deg)}}
+@keyframes sigShine{from{background-position:100% 0}to{background-position:-150% 0}}
+@media (prefers-reduced-motion:reduce){.afer .sig-en{opacity:1;transform:rotate(-4deg);filter:none}.afer.in .sig-en{animation:none}}
 </style>
 
 <div class="basmala" aria-label="بسم الله الرحمن الرحيم"><div class="btrack" aria-hidden="true"><div class="bg"><span>بسم الله الرحمن الرحيم</span><i>✦</i><span>بسم الله الرحمن الرحيم</span><i>✦</i><span>بسم الله الرحمن الرحيم</span><i>✦</i><span>بسم الله الرحمن الرحيم</span><i>✦</i><span>بسم الله الرحمن الرحيم</span><i>✦</i><span>بسم الله الرحمن الرحيم</span><i>✦</i></div><div class="bg"><span>بسم الله الرحمن الرحيم</span><i>✦</i><span>بسم الله الرحمن الرحيم</span><i>✦</i><span>بسم الله الرحمن الرحيم</span><i>✦</i><span>بسم الله الرحمن الرحيم</span><i>✦</i><span>بسم الله الرحمن الرحيم</span><i>✦</i><span>بسم الله الرحمن الرحيم</span><i>✦</i></div></div></div>
@@ -691,10 +698,12 @@ html[lang=en] .lead.motto2{font-size:clamp(.95rem,4.3vw,1.6rem)}
         <linearGradient id="afGold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff0b8"/><stop offset=".5" stop-color="#f6b21a"/><stop offset="1" stop-color="#c97d00"/></linearGradient>
         <linearGradient id="afRib" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#a51f18"/><stop offset=".5" stop-color="#e0473c"/><stop offset="1" stop-color="#a51f18"/></linearGradient>
         <radialGradient id="afE" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#fff"/><stop offset=".45" stop-color="#8fd3ff"/><stop offset="1" stop-color="#8fd3ff" stop-opacity="0"/></radialGradient>
+        <path id="afArc" d="M48,172 A122,122 0 0,1 292,172"/>
         <path id="o1" d="M30,160 a140,52 0 1,0 280,0 a140,52 0 1,0 -280,0"/>
       </defs>
       <circle cx="170" cy="170" r="158" fill="url(#afBg)" stroke="url(#afGold)" stroke-width="10"/>
       <circle cx="170" cy="170" r="144" fill="none" stroke="#f6b21a" stroke-opacity=".35" stroke-width="1.5" stroke-dasharray="3 6"/>
+      <text font-family="Aref Ruqaa, Cairo, sans-serif" font-weight="700" font-size="19" fill="#ffd56b" letter-spacing="1"><textPath href="#afArc" startOffset="50%" text-anchor="middle">أينشتاين الخليج</textPath></text>
       <g transform="translate(0,10)" fill="none" stroke="#8fd3ff" stroke-width="2.2" stroke-opacity=".75">
         <g><ellipse cx="170" cy="160" rx="140" ry="52"/></g>
         <g transform="rotate(60 170 160)"><ellipse cx="170" cy="160" rx="140" ry="52"/></g>
@@ -712,7 +721,7 @@ html[lang=en] .lead.motto2{font-size:clamp(.95rem,4.3vw,1.6rem)}
       <text x="170" y="262" text-anchor="middle" font-family="Lalezar, Cairo, sans-serif" font-size="33" fill="#fff">حلمك يستاهل</text>
       <text x="170" y="306" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="14" fill="#f6b21a" fill-opacity=".85" direction="ltr">E = mc²</text>
     </svg>
-    <figcaption class="sig"><span class="sig-ar">أينشتاين الخليج</span><span class="sig-en">Ramy</span></figcaption>
+    <figcaption class="sig"><span class="sig-en">Ramy</span></figcaption>
   </figure>
 
   <section class="block phet">
