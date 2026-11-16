@@ -532,11 +532,17 @@ html[lang=en] .lead.motto2{font-size:clamp(.95rem,4.3vw,1.6rem)}
 .bg span{flex:0 0 33.3333vw;min-width:0;text-align:center;padding:0;font-size:clamp(.7rem,2.95vw,1.5rem);white-space:nowrap}
 @media (min-width:1100px){.bg span{flex-basis:33.3333vw}}
 .btrack{animation-duration:30s}
+.nav .wrap{max-width:none;padding-left:max(14px,env(safe-area-inset-left,0px));padding-right:max(14px,env(safe-area-inset-right,0px))}
+.brand .bt{display:flex;flex-direction:column;line-height:1.2}
+.brand .bt b{font-weight:900;font-size:1.05rem;color:#fff}
+.brand .bt small{font-weight:700;font-size:.78rem;color:#f6c94c;letter-spacing:.2px}
+html[lang=en] .brand .bt small{font-family:"Great Vibes",cursive;font-weight:400;font-size:1.05rem;letter-spacing:0}
+.basmala{padding-left:0;padding-right:0;direction:ltr}
 </style>
 
 <div class="basmala" aria-label="بسم الله الرحمن الرحيم"><div class="btrack" aria-hidden="true"><div class="bg"><span>بسم الله الرحمن الرحيم</span><span>بسم الله الرحمن الرحيم</span><span>بسم الله الرحمن الرحيم</span></div><div class="bg"><span>بسم الله الرحمن الرحيم</span><span>بسم الله الرحمن الرحيم</span><span>بسم الله الرحمن الرحيم</span></div></div></div>
 <nav class="nav"><div class="wrap">
-  <div class="brand"><span class="logo">E=mc²</span><span data-en="Einstein Gulf Platform">منصة أينشتاين الخليج</span></div>
+  <div class="brand"><span class="bt"><b data-en="Einstein Gulf Platform">منصة أينشتاين الخليج</b><small data-en="Mr. Ramy Abdel Fattah">الأستاذ رامي عبد الفتاح</small></span></div>
   <div class="navr"><button type="button" class="lng" id="lng" aria-label="Switch to English">English</button><a href="#contact" data-en="Contact">تواصل معنا</a></div>
 </div></nav>
 
