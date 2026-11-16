@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>منصة أينشتاين الخليج</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Lalezar&family=Aref+Ruqaa:wght@700&family=JetBrains+Mono:wght@600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Lalezar&family=Aref+Ruqaa:wght@700&family=Great+Vibes&family=JetBrains+Mono:wght@600&display=swap">
 <style>
 /* Layout: teacher-platform landing — bold navy hero with emblem, stats strip, motto ribbon, 3 section cards, how-to, contact, footer */
 :root{
@@ -511,6 +511,11 @@ html[lang=en] .lead.motto2{font-size:clamp(.95rem,4.3vw,1.6rem)}
 .diamond p{margin:0 auto 12px;max-width:620px;color:#1d1d1f;font-size:1.05rem;line-height:1.9}
 .diamond p.punch{font-weight:800;font-size:1.2rem;color:var(--navy2)}
 .diamond figcaption{font-weight:800;color:#b3261e;font-size:1.05rem}
+.afer{margin:40px 0 0;text-align:center}
+.afer svg{width:min(300px,78vw);height:auto;display:block;margin:0 auto;filter:drop-shadow(0 18px 30px rgba(10,26,64,.28))}
+.sig{display:flex;flex-direction:column;align-items:center;margin-top:10px;line-height:1.1}
+.sig-ar{font-family:"Aref Ruqaa",var(--font);font-weight:700;font-size:clamp(1.6rem,6.5vw,2.2rem);color:#b8860b}
+.sig-en{font-family:"Great Vibes",cursive;font-size:clamp(1.9rem,8vw,2.6rem);color:#0e2a5c;transform:rotate(-4deg);margin-top:2px}
 </style>
 
 <div class="basmala">بسم الله الرحمن الرحيم</div>
@@ -673,6 +678,28 @@ html[lang=en] .lead.motto2{font-size:clamp(.95rem,4.3vw,1.6rem)}
     </div>
   </section>
   <figure class="motto"><blockquote data-en="“Your family’s joy is worth your effort”">«فرحة أهلك تستاهل تعبك»</blockquote></figure>
+  <figure class="afer" aria-label="عافر حلمك يستاهل">
+    <svg viewBox="0 0 320 330" role="img" aria-label="شعار عافر حلمك يستاهل">
+      <defs>
+        <linearGradient id="afBg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1e3f8a"/><stop offset="1" stop-color="#0a1a40"/></linearGradient>
+        <linearGradient id="afGold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe9a8"/><stop offset=".5" stop-color="#f6b21a"/><stop offset="1" stop-color="#d48806"/></linearGradient>
+        <linearGradient id="afRib" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#b3261e"/><stop offset=".5" stop-color="#e0473c"/><stop offset="1" stop-color="#b3261e"/></linearGradient>
+      </defs>
+      <path d="M160 12 L292 52 Q300 178 160 312 Q20 178 28 52 Z" fill="url(#afBg)" stroke="url(#afGold)" stroke-width="9" stroke-linejoin="round"/>
+      <g stroke="#f6b21a" stroke-width="2" opacity=".22">
+        <line x1="160" y1="128" x2="60" y2="70"/><line x1="160" y1="128" x2="100" y2="40"/><line x1="160" y1="128" x2="160" y2="28"/><line x1="160" y1="128" x2="220" y2="40"/><line x1="160" y1="128" x2="260" y2="70"/>
+      </g>
+      <polygon points="96,132 160,58 224,132" fill="url(#afGold)"/>
+      <polygon points="142,79 160,58 178,79 169,74 160,84 151,74" fill="#fff"/>
+      <line x1="160" y1="58" x2="160" y2="28" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+      <path d="M161 29 L186 36 L161 44 Z" fill="#e0473c"/>
+      <text x="160" y="205" text-anchor="middle" font-family="Lalezar, Cairo, sans-serif" font-size="88" fill="url(#afGold)" stroke="#0a1a40" stroke-width="2" paint-order="stroke">عافر</text>
+      <path d="M30 222 L290 222 L276 244 L290 266 L30 266 L44 244 Z" fill="url(#afRib)"/>
+      <path d="M30 266 L52 278 L52 266 Z M290 266 L268 278 L268 266 Z" fill="#7a1a14"/>
+      <text x="160" y="256" text-anchor="middle" font-family="Lalezar, Cairo, sans-serif" font-size="32" fill="#fff">حلمك يستاهل</text>
+    </svg>
+    <figcaption class="sig"><span class="sig-ar">أينشتاين الخليج</span><span class="sig-en">Mr. Ramy</span></figcaption>
+  </figure>
 
   <section class="block phet">
     <div class="head"><h2 data-en="PhET Interactive Simulations">محاكاة PhET التفاعلية</h2></div>
@@ -691,14 +718,6 @@ html[lang=en] .lead.motto2{font-size:clamp(.95rem,4.3vw,1.6rem)}
     <a class="qrbox" href="https://wa.me/971507670323" target="_blank" rel="noopener" aria-label="واتساب الأستاذ رامي عبد الفتاح"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAjcAAAI3CAIAAADoSu35AAAACXBIWXMAAC4jAAAuIwF4pT92AAAKtUlEQVR4nO3dwW7kNhRFwXTg//9lZ5kYyGhBt+nzyKr9wFJLmgOu7uvz8/MvAEj6+7cvAAD+SKUA6FIpALpUCoAulQKgS6UA6FIpALpUCoAulQKgS6UA6FIpALpUCoAulQKgS6UA6FIpALpUCoAulQKgS6UA6FIpALpUCoAulQKgS6UA6FIpALpUCoAulQKgS6UA6FIpALpUCoAulQKgS6UA6FIpALpUCoAulQKgS6UA6FIpALpUCoAulQKgS6UA6FIpALpUCoAulQKgS6UA6FIpALpUCoAulQKgS6UA6Pr47Qv44vV6/fYl8K/Pz8+FfzXoIa7d4HfucdBf3GzQa3OD1GvjLAVAl0oB0KVSAHSpFABdKgVAl0oB0KVSAHSpFABdKgVAl0oB0KVSAHSpFABdKgVAl0oB0KVSAHSpFABdKgVAl0oB0NValF+W2j+uOX6r+4anv/8ep2zY3/D0l53x7TtLAdClUgB0qRQAXSoFQJdKAdClUgB0qRQAXSoFQJdKAdClUgB0qRQAXSoFQJdKAdClUgB0qRQAXSoFQJdKAdClUgB0HbIov2zQ4vKU5ewp1/kdy/e4/3274XGs8e1P4SwFQJdKAdClUgB0qRQAXSoFQJdKAdClUgB0qRQAXSoFQJdKAdClUgB0qRQAXSoFQJdKAdClUgB0qRQAXSoFQJdKAdB1+6I8b7c81D1oNnvQMPyg3XT4X85SAHSpFABdKgVAl0oB0KVSAHSpFABdKgVAl0oB0KVSAHSpFABdKgVAl0oB0KVSAHSpFABdKgVAl0oB0KVSAHSpFABdFuV5s/3b54PW1pcvdb9Bl8rZnKUA6FIpALpUCoAulQKgS6UA6FIpALpUCoAulQKgS6UA6FIpALpUCoAulQKgS6UA6FIpALpUCoAulQKgS6UA6FIpALpuX5Q3m90xaBh+2fKlLv843vA/8ctM4SwFQJdKAdClUgB0qRQAXSoFQJdKAdClUgB0qRQAXSoFQJdKAdClUgB0qRQAXSoFQJdKAdClUgB0qRQAXSoFQJdKAdB1yKL8oE3x4+0fTV+2f8PeX3w73/7xnKUA6FIpALpUCoAulQKgS6UA6FIpALpUCoAulQKgS6UA6FIpALpUCoAulQKgS6UA6FIpALpUCoAulQKgS6UA6FIpALpai/L7N8W52ZTR9O+YMrg+6CdlM2cpALpUCoAulQKgS6UA6FIpALpUCoAulQKgS6UA6FIpALpUCoAulQKgS6UA6FIpALpUCoAulQKgS6UA6FIpALpeqYnM/dup+5dMB13qmtQb9WzQ0z/eoN1k/01t5iwFQJdKAdClUgB0qRQAXSoFQJdKAdClUgB0qRQAXSoFQJdKAdClUgB0qRQAXSoFQJdKAdClUgB0qRQAXSoFQJdKAdB1yKL8sv0bz6kf/NnxG/aDHuKgS93shl/mhnt84CwFQJdKAdClUgB0qRQAXSoFQJdKAdClUgB0qRQAXSoFQJdKAdClUgB0qRQAXSoFQJdKAdClUgB0qRQAXSoFQJdKAdD18dsX8MX+afD9o+n7x6GPH4YfZNA0+ObX5oanv+zyH8dZCoAulQKgS6UA6FIpALpUCoAulQKgS6UA6FIpALpUCoAulQKgS6UA6FIpALpUCoAulQKgS6UA6FIpALpUCoAulQKgq7UoP2hve9nyPd7w46y54Ze54R7X7L/B5Wex7PiH+MxZCoAulQKgS6UA6FIpALpUCoAulQKgS6UA6FIpALpUCoAulQKgS6UA6FIpALpUCoAulQKgS6UA6FIpALpUCoAulQKgq7Uof8Nw8g0D2GsGPX2b4g/WLnXKW/qdZ7F8j5e/b85SAHSpFABdKgVAl0oB0KVSAHSpFABdKgVAl0oB0KVSAHSpFABdKgVAl0oB0KVSAHSpFABdKgVAl0oB0KVSAHSpFABdrUX5ZcuLy/vHoZctX2pqHDpl/2uz3w2fxhT7X5sznoWzFABdKgVAl0oB0KVSAHSpFABdKgVAl0oB0KVSAHSpFABdKgVAl0oB0KVSAHSpFABdKgVAl0oB0KVSAHSpFABdKgVA1yGL8ssGDcOfMQ79YP/e9v5nMegvTjHogxr0v02KsxQAXSoFQJdKAdClUgB0qRQAXSoFQJdKAdClUgB0qRQAXSoFQJdKAdClUgB0qRQAXSoFQJdKAdClUgB0qRQAXSoFQFdrUd5Q90+YMrk96Onvt/99m/JpeIgPpjzEZ85SAHSpFABdKgVAl0oB0KVSAHSpFABdKgVAl0oB0KVSAHSpFABdKgVAl0oB0KVSAHSpFABdKgVAl0oB0KVSAHSpFABdr9Ry8H6DVswH/cXNBm2Kwwipb99ZCoAulQKgS6UA6FIpALpUCoAulQKgS6UA6FIpALpUCoAulQKgS6UA6FIpALpUCoAulQKgS6UA6FIpALpUCoAulQKg6/ZFed7uhn335a9m/4+z/1Kn/Jey/wZv+Is/wVkKgC6VAqBLpQDoUikAulQKgC6VAqBLpQDoUikAulQKgC6VAqBLpQDoUikAulQKgC6VAqBLpQDoUikAulQKgK6P376AL26YeR1k815nah70mRf17c5Ylf0hl79vzlIAdKkUAF0qBUCXSgHQpVIAdKkUAF0qBUCXSgHQpVIAdKkUAF0qBUCXSgHQpVIAdKkUAF0qBUCXSgHQpVIAdKkUAF2tRfllN6xKLzt+jnr/GLn37e1u+EmX7/H4T/iZsxQAXSoFQJdKAdClUgB0qRQAXSoFQJdKAdClUgB0qRQAXSoFQJdKAdClUgB0qRQAXSoFQJdKAdClUgB0qRQAXSoFQNchi/LLBk01T5ncvmE2e/+G/SCDnuOa/U//hm/qgbMUAF0qBUCXSgHQpVIAdKkUAF0qBUCXSgHQpVIAdKkUAF0qBUCXSgHQpVIAdKkUAF0qBUCXSgHQpVIAdKkUAF0qBUDX7YvyvN3+Eesb9ratmP/JlOuc9b6lOEsB0KVSAHSpFABdKgVAl0oB0KVSAHSpFABdKgVAl0oB0KVSAHSpFABdKgVAl0oB0KVSAHSpFABdKgVAl0oB0KVSAHRZlKdieRqcB/un6I83aMP+jIfoLAVAl0oB0KVSAHSpFABdKgVAl0oB0KVSAHSpFABdKgVAl0oB0KVSAHSpFABdKgVAl0oB0KVSAHSpFABdKgVAl0oB0HX7ovwZi8sp+/e29z/EG+6RjsufvrMUAF0qBUCXSgHQpVIAdKkUAF0qBUCXSgHQpVIAdKkUAF0qBUCXSgHQpVIAdKkUAF0qBUCXSgHQpVIAdKkUAF0qBUDXIYvyy0PdvN2gZ3H5UPcZ9r9vN/zF1KfhLAVAl0oB0KVSAHSpFABdKgVAl0oB0KVSAHSpFABdKgVAl0oB0KVSAHSpFABdKgVAl0oB0KVSAHSpFABdKgVAl0oB0PVKLQcDwH85SwHQpVIAdKkUAF0qBUCXSgHQpVIAdKkUAF0qBUCXSgHQpVIAdKkUAF0qBUCXSgHQpVIAdKkUAF0qBUCXSgHQpVIAdKkUAF0qBUCXSgHQpVIAdKkUAF0qBUCXSgHQpVIAdKkUAF0qBUCXSgHQpVIAdKkUAF0qBUCXSgHQpVIAdKkUAF0qBUCXSgHQpVIAdKkUAF0qBUCXSgHQpVIAdKkUAF0qBUCXSgHQpVIAdP0D4ICTbD9wQ4QAAAAASUVORK5CYII=" alt="باركود واتساب الأستاذ رامي عبد الفتاح" width="132" height="132"><span data-en="Scan for WhatsApp">امسح للتواصل على واتساب</span></a>
     <div class="acts"><a class="btn wa" href="https://wa.me/971507670323" target="_blank" rel="noopener" data-en="WhatsApp">واتساب</a><button class="btn cp" type="button" id="copy" data-en="Copy number">نسخ الرقم</button></div>
   </section>
-
-  <figure class="diamond">
-    <h2 data-en="Do you know the difference between coal and diamond?">تعرف إيه الفرق بين الفحم والماس؟</h2>
-    <p data-en="Even though coal and diamond are made of the same element, carbon, diamond forms under harsh conditions: very high temperature, deep underground, under enormous pressure.">رغم إن الفحم والماس ليهم نفس التركيب الكيميائي، وهو الكربون، إلا إن الماس بيتكوّن في ظروف قاسية: درجة حرارة عالية، تحت عمق كبير، وضغط كبير جدًا.</p>
-    <p data-en="In life you will go through pressure and hard work. Always remember that this may be what strengthens you and raises your worth, or the reason God rewards your effort with good.">لازم في حياتك هتمر بضغوط وتعب، خلّيك دايمًا فاكر إن ده ممكن يكون سبب إنه يقوّي معدنك أو يغلّي قيمتك، أو يكون سبب في إن ربنا يعوّض تعبك خير.</p>
-    <p class="punch" data-en="Bottom line: whatever hard times you go through, remember there is a diamond inside you.">من الآخر: أي ظروف قاسية تمر بيها، افتكر إن جوّاك ماس.</p>
-    <figcaption data-en="— Einstein Gulf">— أينشتاين الخليج</figcaption>
-  </figure>
 </main>
 <footer><div class="wrap"><span data-en="© Einstein Gulf Physics Platform · Mr. Ramy Abdel Fattah">© منصة أينشتاين الخليج في الفيزياء · الأستاذ رامي عبد الفتاح</span></div></footer>
 
