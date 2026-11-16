@@ -160,7 +160,7 @@ function mount(opt){
   '.egc-k button{border:0;border-radius:7px;padding:11px 0;font-size:15px;cursor:pointer;background:#3a4458;color:#fff;touch-action:manipulation}'+
   '.egc-k button.n{background:#f2f4f8;color:#111;font-weight:bold}.egc-k button.c{background:#b3261e}.egc-k button.eq{background:#1f8f4e;font-weight:bold}.egc-k button.f{background:#2b5d8a}';
   var st=document.createElement('style');st.textContent=css;document.head.appendChild(st);
-  var b=document.createElement('button');b.className='egc-btn';b.type='button';b.textContent='🧮 '+L.title;document.body.appendChild(b);
+  var b=document.createElement('button');b.className='egc-btn';b.type='button';b.textContent=L.title;document.body.appendChild(b);
   var ov=document.createElement('div');ov.className='egc-ov';
   ov.innerHTML='<div class="egc" role="dialog" aria-label="'+L.title+'"><div class="egc-h">'+L.title+' <span>'+L.deg+'</span><button class="egc-x" type="button">'+L.close+'</button></div><div class="egc-d"><div class="egc-e"></div><div class="egc-r"></div></div><div class="egc-k"></div></div>';
   document.body.appendChild(ov);
@@ -232,7 +232,7 @@ function view(){
    <div class="sum">${esc(T.sug.replace('{m}',q.min))}</div>
    <div class="qtext">${iso(q.text)}</div>${q.img?`<div class="fig"><img src="${q.img}" alt=""></div>`:''}
    ${q.parts.map(p=>{const x=S.parts[p.id]||{tries:[],done:0};let fb='';
-     if(x.done===1||x.done===2)fb=`<div class="fb ok">✅ ${esc(T.right)}</div>`;else if(x.done===3)fb=`<div class="fb bad">❌ ${esc(T.wrongFinal)}</div>`;else if(x.tries.length===1)fb=`<div class="fb bad">❌ ${esc(T.wrongAgain)}</div>`;
+     if(x.done===1||x.done===2)fb=`<div class="fb ok">✓ ${esc(T.right)}</div>`;else if(x.done===3)fb=`<div class="fb bad">✗ ${esc(T.wrongFinal)}</div>`;else if(x.tries.length===1)fb=`<div class="fb bad">✗ ${esc(T.wrongAgain)}</div>`;
      const corr=x.done===3?p.opts.findIndex((o,i)=>isOk(p,i)):-1;
      return `<div class="part"><div class="ptext">${p.label?'<b>'+esc(p.label)+'</b> ':''}${iso(p.text)}</div><div class="opts">${p.order.map((oi,k)=>{
        let cls=x.tries.includes(oi)?(isOk(p,oi)?'right':'wrong'):'';if(oi===corr)cls='right';

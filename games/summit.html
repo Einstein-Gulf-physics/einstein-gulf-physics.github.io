@@ -45,21 +45,21 @@ ul.rules{margin:6px 0;padding-inline-start:20px}ul.rules li{margin:3px 0}
 </style>
 </head>
 <body>
-<div class="top"><div class="a">منصة أينشتاين الخليج في الفيزياء</div><div class="b">🏔️ تحدي القمة · مراجعة 12 متقدم بريدج · الأستاذ رامي عبد الفتاح</div></div>
+<div class="top"><div class="a">منصة أينشتاين الخليج في الفيزياء</div><div class="b">تحدي القمة · مراجعة 12 متقدم بريدج · الأستاذ رامي عبد الفتاح</div></div>
 <main>
 <section class="card" id="startCard">
-  <h2>🏔️ تحدي القمة</h2>
+  <h2>تحدي القمة</h2>
   <ul class="rules">
     <li>اصعد <b>15 درجة</b> لتصل إلى القمة وتفوز بشهادة التفوق.</li>
-    <li>كل إجابة صحيحة = تصعد درجة ⬆️ وتأخذ ⭐ 10 نجوم.</li>
-    <li>3 إجابات صحيحة متتالية = ⭐ نجوم إضافية.</li>
-    <li>الإجابة الخطأ = تنزل درجة ⬇️ وتخسر قلبًا ❤️. معك 3 قلوب.</li>
+    <li>كل إجابة صحيحة = تصعد درجة وتأخذ 10 نجوم.</li>
+    <li>3 إجابات صحيحة متتالية = نجوم إضافية.</li>
+    <li>الإجابة الخطأ = تنزل درجة وتخسر قلبًا. معك 3 قلوب.</li>
     <li>بعد كل سؤال تظهر لك الإجابة الصحيحة، فتعلّم من أخطائك.</li>
     <li>يمكنك اللعب أكثر من مرة، والأسئلة تتغير كل مرة.</li>
   <li>كل امتحانات وواجبات الأستاذ رامي عبد الفتاح على موقع المنصة: <b style="direction:ltr;unicode-bidi:isolate;white-space:nowrap">einstein-gulf-physics.github.io</b></li></ul>
   <label>اسمك<input id="nm" placeholder="اكتب اسمك الثلاثي" autocomplete="name"></label>
   <div class="small" id="best"></div>
-  <button class="btn gold" id="go">ابدأ التحدي 🚀</button>
+  <button class="btn gold" id="go">ابدأ التحدي</button>
 </section>
 <section id="game" hidden>
   <div class="hud"><span class="pill" id="hStep">الدرجة 0 / 15</span><span class="pill hearts" id="hHeart">❤️❤️❤️</span><span class="pill" id="hStar">⭐ 0</span></div>
@@ -91,7 +91,7 @@ const nmSaved=ls('eg_summit_name');if(nmSaved)$('nm').value=nmSaved;
 
 function mountSVG(step){
   const W=360,H=190;let s=`<svg viewBox="0 -34 ${W} ${H+34}" direction="ltr" style="direction:ltr" aria-hidden="true">`;
-  s+=`<rect x="70" y="-30" width="260" height="30" rx="15" fill="#14284b" opacity=".9"/><text x="200" y="-10" font-size="15" font-weight="800" fill="#f2b705" text-anchor="middle" direction="rtl" font-family="Tahoma,Arial,sans-serif">فرحة أهلك تستاهل تعبك ❤️</text>`;
+  s+=`<rect x="70" y="-30" width="260" height="30" rx="15" fill="#14284b" opacity=".9"/><text x="200" y="-10" font-size="15" font-weight="800" fill="#f2b705" text-anchor="middle" direction="rtl" font-family="Tahoma,Arial,sans-serif">فرحة أهلك تستاهل تعبك</text>`;
   s+=`<polygon points="0,${H} 70,110 120,140 200,40 260,95 300,70 ${W},${H}" fill="#7aa36f"/><polygon points="200,40 222,62 210,60 200,70 190,58 180,60" fill="#fff"/>`;
   const pts=[];for(let i=0;i<=GOAL;i++){const t=i/GOAL;pts.push([20+t*180+Math.sin(t*9)*8, H-12-t*(H-58)]);}
   s+=`<polyline points="${pts.map(p=>p.join(',')).join(' ')}" fill="none" stroke="#fff" stroke-width="3" stroke-dasharray="4 5"/>`;
@@ -137,12 +137,12 @@ function answer(oi,btn){
   document.querySelectorAll('.opt').forEach(b=>{b.disabled=true;if(+b.dataset.i===q.key)b.classList.add('ok');});
   const fb=$('fb');
   if(ok){S.step++;S.right++;S.streak++;let g=10;if(S.streak%3===0)g+=15;S.stars+=g;
-    fb.className='fb ok';fb.textContent=(S.streak%3===0?'🔥 3 صح ورا بعض! ':'✔ إجابة صحيحة! ')+'⬆️ صعدت درجة · ⭐ +'+g;$('mount').classList.add('pop');setTimeout(()=>$('mount').classList.remove('pop'),500);}
+    fb.className='fb ok';fb.textContent=(S.streak%3===0?'3 صح ورا بعض! ':'✔ إجابة صحيحة! ')+'صعدت درجة · ⭐ +'+g;$('mount').classList.add('pop');setTimeout(()=>$('mount').classList.remove('pop'),500);}
   else{btn.classList.add('no');S.step=Math.max(0,S.step-1);S.lives--;S.streak=0;S.mist.push(q);
-    fb.className='fb no';fb.textContent='✘ إجابة خاطئة · ⬇️ نزلت درجة. الإجابة الصحيحة باللون الأخضر.';$('qCard').classList.add('shake');setTimeout(()=>$('qCard').classList.remove('shake'),400);}
+    fb.className='fb no';fb.textContent='✘ إجابة خاطئة · نزلت درجة. الإجابة الصحيحة باللون الأخضر.';$('qCard').classList.add('shake');setTimeout(()=>$('qCard').classList.remove('shake'),400);}
   hud();
   const done=S.step>=GOAL||S.lives<=0;
-  $('next').textContent=done?'شوف النتيجة 🏁':'السؤال التالي ⬅️';$('next').hidden=false;
+  $('next').textContent=done?'شوف النتيجة':'السؤال التالي';$('next').hidden=false;
   $('next').onclick=done?finish:ask;
 }
 function finish(){
@@ -152,9 +152,9 @@ function finish(){
   const e=$('end');$('game').hidden=true;e.hidden=false;
   let h='';
   h+=`<div class="card cert"><div class="cup">${win?'🏆':'🏅'}</div><div class="t1">منصة أينشتاين الخليج في الفيزياء</div><div>${win?'شهادة تفوق في تحدي القمة':'شهادة إنجاز في تحدي القمة'}</div><div class="nm"></div><div>${win?'وصل إلى القمة بنجاح':'وصل إلى الدرجة '+S.step+' من '+GOAL}، وجمع ⭐ ${S.stars} نجمة</div><div class="small">أجاب صح عن ${S.right} من ${S.n} سؤال · ${ds}</div><div style="margin-top:10px;font-weight:800">الأستاذ رامي عبد الفتاح</div></div>`;
-  if(!win)h+=`<div class="card" style="text-align:center"><b>خلصت القلوب 💪</b><div class="small">راجع أخطاءك تحت، وجرّب تاني علشان توصل للقمة وتاخد شهادة التفوق 🏆</div></div>`;
-  h+=`<div class="card"><div class="small" style="text-align:center">📸 صوّر الشهادة واحتفظ بيها</div><button class="btn" id="wa">أرسل إنجازك للأستاذ رامي عبد الفتاح</button><button class="btn ghost" id="cp">إذا لم يفتح واتساب: انسخ النتيجة</button><div class="small" id="cpMsg"></div><button class="btn gold" id="again">العب مرة تانية 🔁</button></div>`;
-  if(S.mist.length){h+=`<div class="card rev"><h2>📒 راجع أخطاءك</h2><div id="revList"></div></div>`;}
+  if(!win)h+=`<div class="card" style="text-align:center"><b>خلصت القلوب</b><div class="small">راجع أخطاءك تحت، وجرّب تاني علشان توصل للقمة وتاخد شهادة التفوق</div></div>`;
+  h+=`<div class="card"><div class="small" style="text-align:center">صوّر الشهادة واحتفظ بيها</div><button class="btn" id="wa">أرسل إنجازك للأستاذ رامي عبد الفتاح</button><button class="btn ghost" id="cp">إذا لم يفتح واتساب: انسخ النتيجة</button><div class="small" id="cpMsg"></div><button class="btn gold" id="again">العب مرة تانية</button></div>`;
+  if(S.mist.length){h+=`<div class="card rev"><h2>راجع أخطاءك</h2><div id="revList"></div></div>`;}
   e.innerHTML=h;
   e.querySelector('.nm').textContent=S.name;
   const msg=`منصة أينشتاين الخليج في الفيزياء\nتحدي القمة 🏔️\nالاسم: ${S.name}\n${win?'🏆 وصل إلى القمة':'وصل للدرجة '+S.step+' من '+GOAL}\nالنجوم: ⭐ ${S.stars}\nإجابات صحيحة: ${S.right} من ${S.n}`;
