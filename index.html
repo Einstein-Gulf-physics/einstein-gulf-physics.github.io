@@ -516,9 +516,15 @@ html[lang=en] .lead.motto2{font-size:clamp(.95rem,4.3vw,1.6rem)}
 .sig{display:flex;flex-direction:column;align-items:center;margin-top:10px;line-height:1.1}
 .sig-ar{font-family:"Aref Ruqaa",var(--font);font-weight:700;font-size:clamp(1.6rem,6.5vw,2.2rem);color:#b8860b}
 .sig-en{font-family:"Great Vibes",cursive;font-size:clamp(1.9rem,8vw,2.6rem);color:#0e2a5c;transform:rotate(-4deg);margin-top:2px}
+.basmala{overflow:hidden;padding:8px 0 4px;white-space:nowrap}
+.btrack{display:flex;width:max-content;direction:ltr;animation:bmq 40s linear infinite}
+.bg{display:flex;align-items:center;flex:none}
+.bg span{direction:rtl;padding:0 18px}
+.bg i{font-style:normal;color:#f6b21a;opacity:.7;font-size:.8em}
+@keyframes bmq{from{transform:translateX(-50%)}to{transform:translateX(0)}}
 </style>
 
-<div class="basmala">بسم الله الرحمن الرحيم</div>
+<div class="basmala" aria-label="بسم الله الرحمن الرحيم"><div class="btrack" aria-hidden="true"><div class="bg"><span>بسم الله الرحمن الرحيم</span><i>✦</i><span>بسم الله الرحمن الرحيم</span><i>✦</i><span>بسم الله الرحمن الرحيم</span><i>✦</i><span>بسم الله الرحمن الرحيم</span><i>✦</i><span>بسم الله الرحمن الرحيم</span><i>✦</i><span>بسم الله الرحمن الرحيم</span><i>✦</i></div><div class="bg"><span>بسم الله الرحمن الرحيم</span><i>✦</i><span>بسم الله الرحمن الرحيم</span><i>✦</i><span>بسم الله الرحمن الرحيم</span><i>✦</i><span>بسم الله الرحمن الرحيم</span><i>✦</i><span>بسم الله الرحمن الرحيم</span><i>✦</i><span>بسم الله الرحمن الرحيم</span><i>✦</i></div></div></div>
 <nav class="nav"><div class="wrap">
   <div class="brand"><span class="logo">E=mc²</span><span data-en="Einstein Gulf Platform">منصة أينشتاين الخليج</span></div>
   <div class="navr"><button type="button" class="lng" id="lng" aria-label="Switch to English">English</button><a href="#contact" data-en="Contact">تواصل معنا</a></div>
