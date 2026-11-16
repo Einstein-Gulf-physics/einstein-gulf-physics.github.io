@@ -1,0 +1,44 @@
+<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>مراجعة هيكل مستوى 1 · 11 متقدم بريدج</title><style>
+*{box-sizing:border-box}body{margin:0;background:#eef2f7;color:#13294b;font-family:"Segoe UI",Tahoma,"DejaVu Sans",sans-serif;line-height:1.6}
+.top{background:#13294b;color:#fff;padding:16px}.in{max-width:900px;margin:0 auto}.brand{font-weight:700;font-size:1.2rem}.band{height:5px;background:#b3261e}
+.wrap{max-width:900px;margin:0 auto;padding:16px;display:flex;flex-direction:column;gap:12px}
+.bar{display:flex;gap:10px;flex-wrap:wrap}a.btn{display:inline-block;background:#1f5fae;color:#fff;text-decoration:none;font-weight:700;border-radius:8px;padding:12px 18px}a.sec{background:#fff;color:#13294b;border:1.5px solid #d3dbe6}
+.note{background:#fff;border:1px solid #d3dbe6;border-radius:8px;padding:10px 14px;font-size:.95rem}
+.card{background:#fff;border:1px solid #d3dbe6;border-radius:10px;padding:18px;display:flex;flex-direction:column;gap:10px}input{font:inherit;padding:10px 12px;border:1.5px solid #d3dbe6;border-radius:8px;font-size:1.1rem;text-align:center}button{font:inherit;font-weight:700;border:0;border-radius:8px;padding:12px 18px;min-height:48px;cursor:pointer;background:#1f5fae;color:#fff}.err{color:#b3261e;min-height:1.4em}[hidden]{display:none!important}
+img{width:100%;height:auto;display:block;background:#fff;border:1px solid #d3dbe6;border-radius:8px}
+</style></head><body>
+<header class="top"><div class="in"><div class="brand">منصة أينشتاين الخليج في الفيزياء</div><div><b>مراجعة هيكل مستوى 1</b> · الصف 11 متقدم · بريدج · 2026-2027</div></div></header><div class="band"></div>
+<main class="wrap">
+<section class="card" id="gate"><h2 style="margin:0;font-size:1.15rem">اكتب كود الدخول لفتح المراجعة</h2>
+<p style="margin:0;color:#55627a">الكود تاخده من الأستاذ رامي عبد الفتاح.</p>
+<p style="margin:0;color:#b3261e;font-weight:700">ده ملف PDF للأسئلة: لازم تنزّله وتحلّه كامل.</p>
+<input type="tel" id="cd" inputmode="numeric" maxlength="6" placeholder="كود الدخول" autocomplete="off">
+<div class="err" id="er" role="alert"></div><button type="button" id="go">افتح المراجعة</button>
+<a class="btn sec" href="../" style="text-align:center">→ الرجوع للمنصة</a></section>
+<div id="view" hidden style="display:flex;flex-direction:column;gap:12px">
+<div class="bar"><a class="btn dl" href="#">تحميل الملف PDF للطباعة</a><a class="btn sec" href="../">→ الرجوع للمنصة</a></div>
+<div class="note" style="border-color:#b3261e;color:#b3261e;font-weight:700">تنبيه: ده ملف أسئلة: لازم تنزّله وتحلّه كامل في ورقة أو تطبعه وتحل عليه.</div>
+<div class="note">حُل جميع الأسئلة في المذكرة وفي الملف، ولا تقرأ الإجابة قبل محاولة الحل أكثر من مرة. إياك أن تخدع نفسك.</div>
+<div id="pages" style="display:flex;flex-direction:column;gap:12px"></div>
+<div class="bar"><a class="btn dl" href="#">تحميل الملف PDF للطباعة</a><a class="btn sec" href="../">→ الرجوع للمنصة</a></div>
+</div>
+</main>
+<script>
+(function(){
+const SALT="EGP-SRL1-B11-2026",CH="7328EE",N=13,K="egp_srl1_b11";
+function vh(s){let h1=0x811c9dc5,h2=5381;for(let i=0;i<s.length;i++){const c=s.charCodeAt(i);h1^=c;h1=Math.imul(h1,16777619)>>>0;h2=(Math.imul(h2,33)+c)>>>0}return((h1^h2)>>>0).toString(16).toUpperCase().padStart(8,'0')}
+const $=id=>document.getElementById(id);
+function open(c){
+  if(vh(SALT+'|code|'+c).slice(0,6)!==CH){$('er').textContent='الكود غير صحيح. اطلب الكود من الأستاذ رامي عبد الفتاح.';return false}
+  const d='w'+vh(SALT+'|dir|'+c).toLowerCase()+vh(SALT+'|dir2|'+c).toLowerCase()+'/';
+  let h='';for(let i=1;i<=N;i++){const p=String(i).padStart(2,'0');h+='<img src="'+d+'p'+p+'.jpg" alt="صفحة '+i+'" loading="'+(i<3?'eager':'lazy')+'" width="1241" height="1754">'}
+  $('pages').innerHTML=h;
+  document.querySelectorAll('a.dl').forEach(a=>{a.href=d+'struct-lvl1-b11.pdf';a.setAttribute('download','مراجعة_هيكل_مستوى_1_11متقدم_بريدج.pdf')});
+  $('gate').hidden=true;$('view').hidden=false;try{localStorage.setItem(K,c)}catch(e){}return true}
+$('go').onclick=()=>open($('cd').value.trim());
+$('cd').addEventListener('keydown',e=>{if(e.key==='Enter')open($('cd').value.trim())});
+let s=null;try{s=localStorage.getItem(K)}catch(e){}if(s&&!open(s))$('er').textContent='';
+})();
+</script>
+</body></html>
