@@ -142,7 +142,7 @@ window.LOW60=true;
 const PHONE = "971507670323";
 const EXAM = "W1";
 const TITLE = "واجب حصة الأحد";
-const LOCK_KEY = "einstein_gulf_wajib_ahad_1_r2"; const STITLE = TITLE + " · إعادة";
+const LOCK_KEY = "einstein_gulf_wajib_ahad_1_r2";
 const PSEC = 210, PTS = 3;
 const STEPLABEL = "__STEPLABEL__";
 const KEY = {"w5": 962224380, "w10": 827452221};
@@ -150,12 +150,12 @@ const NUMK = {"w1": [376679, 376367], "w2": [-362059, -362491], "w3": [-372301, 
 const CODE = 941297178;
 const SALT = "b47594bd1e45";
 const SHEET = "https://script.google.com/macros/s/AKfycbzOqiB4x_5uHAjuCDKjAgD3JVcaObJmOClOOpS_wDc_HvgWDqmkdVghk3h5mAQafLWpdw/exec";
-async function sheetTaken(name){try{const c=new AbortController();const t=setTimeout(()=>c.abort(),7000);const r=await fetch(SHEET+'?exam='+encodeURIComponent(STITLE)+'&name='+encodeURIComponent(name),{signal:c.signal});clearTimeout(t);const j=await r.json();return !!j.taken;}catch(e){return null;}}
+async function sheetTaken(name){try{const c=new AbortController();const t=setTimeout(()=>c.abort(),7000);const r=await fetch(SHEET+'?exam='+encodeURIComponent(TITLE)+'&name='+encodeURIComponent(name),{signal:c.signal});clearTimeout(t);const j=await r.json();return !!j.taken;}catch(e){return null;}}
 function sheetMsg(k){const el=document.getElementById('sheetMsg');if(!el)return;el.textContent={ok:'✔ وصلت نتيجتك إلى الأستاذ رامي عبد الفتاح تلقائيًا. أرسلها على واتساب أيضًا للاحتياط.',dup:'تنبيه: هذا الاسم مسجّل من قبل في هذا الامتحان، ولم تُسجَّل هذه المحاولة.',maybe:'تم إرسال نتيجتك تلقائيًا. أرسلها على واتساب أيضًا للاحتياط.',fail:'لم تصل النتيجة تلقائيًا (لا يوجد إنترنت). أرسلها على واتساب.',wait:'جارٍ إرسال النتيجة تلقائيًا…'}[k]||'';el.style.color=(k==='ok'||k==='maybe')?'#1d7a46':(k==='wait'?'':'#b3261e');el.style.fontWeight='700';}
 function sendSheet(){
   if(!st||!st.finished)return; if(st.sent){sheetMsg(st.sent);return;}
   sheetMsg('wait');
-  const body=JSON.stringify({exam:STITLE,name:clean(st.name),score:st.score,total:TOTALP,exits:st.exits,dev:st.dev||'',vcode:vcode(st),answers:''});
+  const body=JSON.stringify({exam:TITLE,name:clean(st.name),score:st.score,total:TOTALP,exits:st.exits,dev:st.dev||'',vcode:vcode(st),answers:''});
   fetch(SHEET,{method:'POST',body:body}).then(r=>r.json()).then(j=>{st.sent=(j&&j.status==='dup')?'dup':'ok';save(st);sheetMsg(st.sent);})
   .catch(()=>{fetch(SHEET,{method:'POST',mode:'no-cors',body:body}).then(()=>{st.sent='maybe';save(st);sheetMsg('maybe');}).catch(()=>sheetMsg('fail'));});
 }
