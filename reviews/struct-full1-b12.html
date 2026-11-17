@@ -1,5 +1,5 @@
 <!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>اختبار 2014-2015 + أسئلة هيكل وزاري 2026 · 12 متقدم بريدج</title><style>
+<title>مراجعة هيكل شاملة (1) · أسئلة الهيكل 1–20 · 12 متقدم بريدج</title><style>
 *{box-sizing:border-box}body{margin:0;background:#eef2f7;color:#13294b;font-family:"Segoe UI",Tahoma,"DejaVu Sans",sans-serif;line-height:1.6}
 .top{background:#13294b;color:#fff;padding:16px}.in{max-width:900px;margin:0 auto}.brand{font-weight:700;font-size:1.2rem}.band{height:5px;background:#b3261e}
 .wrap{max-width:900px;margin:0 auto;padding:16px;display:flex;flex-direction:column;gap:12px}
@@ -8,13 +8,13 @@
 .card{background:#fff;border:1px solid #d3dbe6;border-radius:10px;padding:18px;display:flex;flex-direction:column;gap:10px}input{font:inherit;padding:10px 12px;border:1.5px solid #d3dbe6;border-radius:8px;font-size:1.1rem;text-align:center}button{font:inherit;font-weight:700;border:0;border-radius:8px;padding:12px 18px;min-height:48px;cursor:pointer;background:#1f5fae;color:#fff}.err{color:#b3261e;min-height:1.4em}[hidden]{display:none!important}
 img{width:100%;height:auto;display:block;background:#fff;border:1px solid #d3dbe6;border-radius:8px}
 </style></head><body>
-<header class="top"><div class="in"><div class="brand">منصة أينشتاين الخليج في الفيزياء</div><div><b>اختبار 2014-2015 + أسئلة هيكل وزاري 2026</b> · الصف 12 متقدم · بريدج</div><div style="margin-top:4px;color:#f6c453;font-weight:700">يغطي 16 سؤالًا من الهيكل: 12 من الإلكتروني (من 16) و4 من الكتابي (من 4)</div></div></header><div class="band"></div>
+<header class="top"><div class="in"><div class="brand">منصة أينشتاين الخليج في الفيزياء</div><div><b>مراجعة هيكل شاملة (1) · تغطي أسئلة الهيكل من 1 إلى 20</b> · الصف 12 متقدم · بريدج</div><div style="margin-top:4px;color:#f6c453;font-weight:700">تتضمن امتحان 2014-2015 + أسئلة هيكل وزاري 2026 · الإلكتروني 16 من 16 والكتابي 4 من 4</div></div></header><div class="band"></div>
 <main class="wrap">
-<section class="card" id="gate"><h2 style="margin:0;font-size:1.15rem">اكتب كود الدخول لفتح الاختبار</h2>
+<section class="card" id="gate"><h2 style="margin:0;font-size:1.15rem">اكتب كود الدخول لفتح المراجعة</h2>
 <p style="margin:0;color:#55627a">الكود تاخده من الأستاذ رامي عبد الفتاح.</p>
 <p style="margin:0;color:#b3261e;font-weight:700">الزمن: ساعتان ونصف (150 دقيقة) مثل امتحان الوزارة. نزّل الملف واطبعه وحلّه في جلسة واحدة.</p>
 <input type="tel" id="cd" inputmode="numeric" maxlength="6" placeholder="كود الدخول" autocomplete="off">
-<div class="err" id="er" role="alert"></div><button type="button" id="go">افتح الاختبار</button>
+<div class="err" id="er" role="alert"></div><button type="button" id="go">افتح المراجعة</button>
 <a class="btn sec" href="../" style="text-align:center">→ الرجوع للمنصة</a></section>
 <div id="view" hidden style="display:flex;flex-direction:column;gap:12px">
 <div class="bar"><a class="btn dl" href="#">تحميل الملف PDF للطباعة</a><a class="btn sec" href="../">→ الرجوع للمنصة</a></div>
@@ -26,7 +26,7 @@ img{width:100%;height:auto;display:block;background:#fff;border:1px solid #d3dbe
 </main>
 <script>
 (function(){
-const SALT="EGP-EX1415-B12-2026",CH="1FEB0D",N=16,K="egp_ex1415_b12";
+const SALT="EGP-EX1415-B12-2026",CH="1FEB0D",N=18,K="egp_ex1415_b12";
 function vh(s){let h1=0x811c9dc5,h2=5381;for(let i=0;i<s.length;i++){const c=s.charCodeAt(i);h1^=c;h1=Math.imul(h1,16777619)>>>0;h2=(Math.imul(h2,33)+c)>>>0}return((h1^h2)>>>0).toString(16).toUpperCase().padStart(8,'0')}
 const $=id=>document.getElementById(id);
 function open(c){
@@ -34,7 +34,7 @@ function open(c){
   const d='w'+vh(SALT+'|dir|'+c).toLowerCase()+vh(SALT+'|dir2|'+c).toLowerCase()+'/';
   let h='';for(let i=1;i<=N;i++){const p=String(i).padStart(2,'0');h+='<img src="'+d+'p'+p+'.jpg" alt="صفحة '+i+'" loading="'+(i<3?'eager':'lazy')+'" width="1241" height="1754">'}
   $('pages').innerHTML=h;
-  document.querySelectorAll('a.dl').forEach(a=>{a.href=d+'exam-2014-2015.pdf';a.setAttribute('download','اختبار_2014-2015_وهيكل_2026_12متقدم_بريدج.pdf')});
+  document.querySelectorAll('a.dl').forEach(a=>{a.href=d+'struct-full1-b12.pdf';a.setAttribute('download','مراجعة_هيكل_شاملة_1_12متقدم_بريدج.pdf')});
   $('gate').hidden=true;$('view').hidden=false;try{localStorage.setItem(K,c)}catch(e){}return true}
 $('go').onclick=()=>open($('cd').value.trim());
 $('cd').addEventListener('keydown',e=>{if(e.key==='Enter')open($('cd').value.trim())});
