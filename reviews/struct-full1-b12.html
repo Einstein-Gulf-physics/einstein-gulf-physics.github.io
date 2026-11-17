@@ -19,14 +19,14 @@ img{width:100%;height:auto;display:block;background:#fff;border:1px solid #d3dbe
 <div id="view" hidden style="display:flex;flex-direction:column;gap:12px">
 <div class="bar"><a class="btn dl" href="#">تحميل الملف PDF للطباعة</a><a class="btn sec" href="../">→ الرجوع للمنصة</a></div>
 <div class="note" style="border-color:#b3261e;color:#b3261e;font-weight:700">الصفحة الأولى ورقة تشخيص: أثناء الحل مع الأستاذ في الحصة، ضع ✓ بجانب كل سؤال حللته صحيحًا و✗ بجانب السؤال الخطأ، فتعرف نواتج التعلم التي تحتاج إلى مراجعتها.</div>
-<div class="note">اطبع الملف كاملًا (18 صفحة) وحلّ جميع الأسئلة على الورق في زمن أقصاه ساعتان ونصف، مثل امتحان الوزارة.</div>
+<div class="note">اطبع الملف كاملًا (19 صفحة) وحلّ جميع الأسئلة على الورق في زمن أقصاه ساعتان ونصف، مثل امتحان الوزارة.</div>
 <div id="pages" style="display:flex;flex-direction:column;gap:12px"></div>
 <div class="bar"><a class="btn dl" href="#">تحميل الملف PDF للطباعة</a><a class="btn sec" href="../">→ الرجوع للمنصة</a></div>
 </div>
 </main>
 <script>
 (function(){
-const SALT="EGP-EX1415-B12-2026",CH="1FEB0D",N=18,K="egp_ex1415_b12";
+const SALT="EGP-EX1415-B12-2026",CH="1FEB0D",N=19,K="egp_ex1415_b12";
 function vh(s){let h1=0x811c9dc5,h2=5381;for(let i=0;i<s.length;i++){const c=s.charCodeAt(i);h1^=c;h1=Math.imul(h1,16777619)>>>0;h2=(Math.imul(h2,33)+c)>>>0}return((h1^h2)>>>0).toString(16).toUpperCase().padStart(8,'0')}
 const $=id=>document.getElementById(id);
 function open(c){
