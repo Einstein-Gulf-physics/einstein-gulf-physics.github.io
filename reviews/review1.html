@@ -141,7 +141,7 @@ noscript p{direction:rtl;text-align:center;padding:16px;font-size:18px;color:#b3
 const PHONE = "971507670323";
 const EXAM = "B5";
 const TITLE = "مراجعة (1)";
-const LOCK_KEY = "einstein_gulf_exam5_b12";
+const LOCK_KEY = "einstein_gulf_exam5_b12_r2"; const STITLE = TITLE + " · إعادة";
 const PSEC = 120, PTS = 1;
 const STEPLABEL = "خطوات الحل:";
 const KEY = {"e1": 1247823786, "e2": 1339567008, "e5": 3797290158, "e6": 1249565225, "e9": 1258342694, "e10": 989940733, "e11": 2671906729, "e12": 1656607242, "e13": 98650111, "e14": 2516235753, "e15": 2310602775, "e16": 4238584136, "e17": 2150699286, "e18": 3553256917, "e19": 735188043, "e20": 360209604, "e21": 2040288193, "e22": 3282995201, "e23": 167915330, "e24": 211376506, "e25": 387180613, "e26": 2477035057, "e27": 1639080432, "e28": 167926546, "e29": 1202664538, "e30": 1113870666, "e31": 3801716751, "e32": 2115132572, "e33": 4089435439, "e34a": 3905672321, "e34b": 3906921827, "e35": 168025311, "e36": 168026460, "e37": 2048595773, "e38": 1553827415, "e39": 3892534520, "e40": 2470917315, "e41a": 3973510328, "e41b": 722775538, "e42": 3305653251};
@@ -149,12 +149,12 @@ const NUMK = {"e3": [374107, 373809], "e4": [374107, 373809], "e7": [374079, 373
 const CODE = 941536986;
 const SALT = "5e0c7a91d3b4";
 const SHEET = "https://script.google.com/macros/s/AKfycbzOqiB4x_5uHAjuCDKjAgD3JVcaObJmOClOOpS_wDc_HvgWDqmkdVghk3h5mAQafLWpdw/exec";
-async function sheetTaken(name){try{const c=new AbortController();const t=setTimeout(()=>c.abort(),7000);const r=await fetch(SHEET+'?exam='+encodeURIComponent(TITLE)+'&name='+encodeURIComponent(name),{signal:c.signal});clearTimeout(t);const j=await r.json();return !!j.taken;}catch(e){return null;}}
+async function sheetTaken(name){try{const c=new AbortController();const t=setTimeout(()=>c.abort(),7000);const r=await fetch(SHEET+'?exam='+encodeURIComponent(STITLE)+'&name='+encodeURIComponent(name),{signal:c.signal});clearTimeout(t);const j=await r.json();return !!j.taken;}catch(e){return null;}}
 function sheetMsg(k){const el=document.getElementById('sheetMsg');if(!el)return;el.textContent={ok:'✔ وصلت نتيجتك إلى الأستاذ رامي عبد الفتاح تلقائيًا. أرسلها على واتساب أيضًا للاحتياط.',dup:'تنبيه: هذا الاسم مسجّل من قبل في هذا الامتحان، ولم تُسجَّل هذه المحاولة.',maybe:'تم إرسال نتيجتك تلقائيًا. أرسلها على واتساب أيضًا للاحتياط.',fail:'لم تصل النتيجة تلقائيًا (لا يوجد إنترنت). أرسلها على واتساب.',wait:'جارٍ إرسال النتيجة تلقائيًا…'}[k]||'';el.style.color=(k==='ok'||k==='maybe')?'#1d7a46':(k==='wait'?'':'#b3261e');el.style.fontWeight='700';}
 function sendSheet(){
   if(!st||!st.finished)return; if(st.sent){sheetMsg(st.sent);return;}
   sheetMsg('wait');
-  const body=JSON.stringify({exam:TITLE,name:clean(st.name),score:st.score,total:TOTALP,exits:st.exits,dev:st.dev||'',vcode:vcode(st),answers:''});
+  const body=JSON.stringify({exam:STITLE,name:clean(st.name),score:st.score,total:TOTALP,exits:st.exits,dev:st.dev||'',vcode:vcode(st),answers:''});
   fetch(SHEET,{method:'POST',body:body}).then(r=>r.json()).then(j=>{st.sent=(j&&j.status==='dup')?'dup':'ok';save(st);sheetMsg(st.sent);})
   .catch(()=>{fetch(SHEET,{method:'POST',mode:'no-cors',body:body}).then(()=>{st.sent='maybe';save(st);sheetMsg('maybe');}).catch(()=>sheetMsg('fail'));});
 }
